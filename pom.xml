@@ -216,6 +216,15 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/Equilend/1source-codegen-client-api</url>
+    </repository>
+  </distributionManagement>
+    
   <properties>
     <java.version>11</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
