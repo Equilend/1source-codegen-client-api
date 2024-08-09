@@ -94,6 +94,19 @@ Add this dependency to your project's build file:
 compile "com.os:1source-api-client:1.0.5"
 ```
 
+Add the repository to your build.gradle file (Gradle Groovy). Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
+
+```repositories {
+    maven {
+        url = uri("https://maven.pkg.github.com/Equilend/1source-codegen-client-api")
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+            password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+        }
+   }
+}
+```
+
 ### Others
 
 At first generate the JAR by executing:
