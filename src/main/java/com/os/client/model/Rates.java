@@ -14,7 +14,14 @@ package com.os.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import com.os.client.model.Rate;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
@@ -22,10 +29,39 @@ import java.io.Serializable;
  * Rates
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-08-19T20:01:09.159040928Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-08-19T20:45:27.999725349Z[GMT]")
 
-public class Rates extends ArrayList<Rate> implements Serializable{
+public class Rates implements Serializable{
   private static final long serialVersionUID = 1L;
+  @SerializedName("rates")
+  private List<Rate> rates = null;
+
+  public Rates rates(List<Rate> rates) {
+    this.rates = rates;
+    return this;
+  }
+
+  public Rates addRatesItem(Rate ratesItem) {
+    if (this.rates == null) {
+      this.rates = new ArrayList<>();
+    }
+    this.rates.add(ratesItem);
+    return this;
+  }
+
+   /**
+   * Get rates
+   * @return rates
+  **/
+  @Schema(description = "")
+  public List<Rate> getRates() {
+    return rates;
+  }
+
+  public void setRates(List<Rate> rates) {
+    this.rates = rates;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -35,12 +71,13 @@ public class Rates extends ArrayList<Rate> implements Serializable{
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return super.equals(o);
+    Rates rates = (Rates) o;
+    return Objects.equals(this.rates, rates.rates);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return Objects.hash(rates);
   }
 
 
@@ -48,7 +85,8 @@ public class Rates extends ArrayList<Rate> implements Serializable{
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Rates {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    rates: ").append(toIndentedString(rates)).append("\n");
     sb.append("}");
     return sb.toString();
   }
