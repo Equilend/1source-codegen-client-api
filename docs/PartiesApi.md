@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 <a name="ledgerPartiesGet"></a>
 # **ledgerPartiesGet**
-> Parties ledgerPartiesGet(partyId, partyName, gleifLei, internalPartyId)
+> Parties ledgerPartiesGet(partyId, partyName, gleifLei, internalPartyId, partyType)
 
 Read a collection of registered trading parties.
 
@@ -32,8 +32,9 @@ String partyId = "partyId_example"; // String | The ledger Party ID sometimes re
 String partyName = "partyName_example"; // String | Party name as defined during onboarding
 String gleifLei = "gleifLei_example"; // String | Global Legal Entity Identifier Foundation - Legal Entity Identifier
 String internalPartyId = "internalPartyId_example"; // String | Client internal or proprietary id for this party
+PartyType partyType = new PartyType(); // PartyType | Party Type from the PartyType schema
 try {
-    Parties result = apiInstance.ledgerPartiesGet(partyId, partyName, gleifLei, internalPartyId);
+    Parties result = apiInstance.ledgerPartiesGet(partyId, partyName, gleifLei, internalPartyId, partyType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PartiesApi#ledgerPartiesGet");
@@ -49,6 +50,7 @@ Name | Type | Description  | Notes
  **partyName** | **String**| Party name as defined during onboarding | [optional]
  **gleifLei** | **String**| Global Legal Entity Identifier Foundation - Legal Entity Identifier | [optional]
  **internalPartyId** | **String**| Client internal or proprietary id for this party | [optional]
+ **partyType** | [**PartyType**](.md)| Party Type from the PartyType schema | [optional]
 
 ### Return type
 

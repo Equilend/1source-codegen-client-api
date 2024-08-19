@@ -4,5 +4,5 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **quantity** | **Integer** |  | 
-**buyinDate** | [**Date**](Date.md) |  |  [optional]
+**buyinDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
 **price** | [**Price**](Price.md) |  |  [optional]

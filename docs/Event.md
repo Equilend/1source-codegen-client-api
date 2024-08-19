@@ -5,5 +5,5 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **eventId** | **String** |  | 
 **eventType** | [**EventType**](EventType.md) |  | 
-**eventDateTime** | [**Date**](Date.md) |  |  [optional]
+**eventDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **resourceUri** | **String** |  |  [optional]

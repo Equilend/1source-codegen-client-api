@@ -5,5 +5,5 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **baseRate** | **Double** |  | 
 **effectiveRate** | **Double** |  |  [optional]
-**effectiveDate** | [**Date**](Date.md) |  |  [optional]
+**effectiveDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
 **cutoffTime** | **String** |  |  [optional]

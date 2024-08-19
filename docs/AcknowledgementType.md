@@ -2,5 +2,5 @@
 
 ## Enum
 
-* `POSITIVE` (value: `"POSITIVE"`)
 * `NEGATIVE` (value: `"NEGATIVE"`)
+* `POSITIVE` (value: `"POSITIVE"`)

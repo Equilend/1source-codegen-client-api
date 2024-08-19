@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**delegationParty** | [**Party**](Party.md) |  |  [optional]
-**parties** | [**List&lt;Party&gt;**](Party.md) |  |  [optional]
-**authorizations** | [**List&lt;DelegationAuthorization&gt;**](DelegationAuthorization.md) |  | 
+**delegationParty** | [**Party**](Party.md) |  | 
+**counterparty** | [**Party**](Party.md) |  | 
+**authorization** | [**DelegationAuthorization**](DelegationAuthorization.md) |  |  [optional]

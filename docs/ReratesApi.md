@@ -4,23 +4,21 @@ All URIs are relative to *https://stageapi.equilend.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ledgerContractsContractIdReratesGet**](ReratesApi.md#ledgerContractsContractIdReratesGet) | **GET** /ledger/contracts/{contractId}/rerates | Read collection of rerates against contract specified by &#x27;contractId&#x27;
-[**ledgerContractsContractIdReratesPost**](ReratesApi.md#ledgerContractsContractIdReratesPost) | **POST** /ledger/contracts/{contractId}/rerates | Create a rerate.
-[**ledgerContractsContractIdReratesRerateIdApprovePost**](ReratesApi.md#ledgerContractsContractIdReratesRerateIdApprovePost) | **POST** /ledger/contracts/{contractId}/rerates/{rerateId}/approve | Approve a rerate in \&quot;proposed\&quot; state.
-[**ledgerContractsContractIdReratesRerateIdCancelPost**](ReratesApi.md#ledgerContractsContractIdReratesRerateIdCancelPost) | **POST** /ledger/contracts/{contractId}/rerates/{rerateId}/cancel | Cancel a rerate in \&quot;proposed\&quot; state. Original proposer only.
-[**ledgerContractsContractIdReratesRerateIdCancelpendingPost**](ReratesApi.md#ledgerContractsContractIdReratesRerateIdCancelpendingPost) | **POST** /ledger/contracts/{contractId}/rerates/{rerateId}/cancelpending | Cancel a rerate in \&quot;pending\&quot; state. Either party can initiate. If canceled by a delegated Venue, the cancel will be done unilaterally
-[**ledgerContractsContractIdReratesRerateIdDeclinePost**](ReratesApi.md#ledgerContractsContractIdReratesRerateIdDeclinePost) | **POST** /ledger/contracts/{contractId}/rerates/{rerateId}/decline | Decline a rerate in \&quot;proposed\&quot; state.
-[**ledgerContractsContractIdReratesRerateIdGet**](ReratesApi.md#ledgerContractsContractIdReratesRerateIdGet) | **GET** /ledger/contracts/{contractId}/rerates/{rerateId} | Read a rerate
-[**ledgerContractsContractIdReratesRerateIdVenuecancelpendingPost**](ReratesApi.md#ledgerContractsContractIdReratesRerateIdVenuecancelpendingPost) | **POST** /ledger/contracts/{contractId}/rerates/{rerateId}/venuecancelpending | Cancel a rerate in \&quot;pending\&quot; state. Either party can initiate. If canceled by a delegated Venue, the cancel will be done unilaterally
-[**ledgerContractsContractIdVenuereratesPost**](ReratesApi.md#ledgerContractsContractIdVenuereratesPost) | **POST** /ledger/contracts/{contractId}/venuererates | For delegated venues to create a rerate atomically.
+[**ledgerLoansLoanIdReratesGet**](ReratesApi.md#ledgerLoansLoanIdReratesGet) | **GET** /ledger/loans/{loanId}/rerates | Read collection of rerates against loan specified by &#x27;loanId&#x27;
+[**ledgerLoansLoanIdReratesPost**](ReratesApi.md#ledgerLoansLoanIdReratesPost) | **POST** /ledger/loans/{loanId}/rerates | Create a rerate.
+[**ledgerLoansLoanIdReratesRerateIdApprovePost**](ReratesApi.md#ledgerLoansLoanIdReratesRerateIdApprovePost) | **POST** /ledger/loans/{loanId}/rerates/{rerateId}/approve | Approve a rerate in \&quot;proposed\&quot; state.
+[**ledgerLoansLoanIdReratesRerateIdCancelPost**](ReratesApi.md#ledgerLoansLoanIdReratesRerateIdCancelPost) | **POST** /ledger/loans/{loanId}/rerates/{rerateId}/cancel | Cancel a rerate in \&quot;proposed\&quot; state. Original proposer only.
+[**ledgerLoansLoanIdReratesRerateIdCancelpendingPost**](ReratesApi.md#ledgerLoansLoanIdReratesRerateIdCancelpendingPost) | **POST** /ledger/loans/{loanId}/rerates/{rerateId}/cancelpending | Cancel a rerate in \&quot;pending\&quot; state. Either party can initiate. If canceled by a delegated Venue, the cancel will be done unilaterally
+[**ledgerLoansLoanIdReratesRerateIdDeclinePost**](ReratesApi.md#ledgerLoansLoanIdReratesRerateIdDeclinePost) | **POST** /ledger/loans/{loanId}/rerates/{rerateId}/decline | Decline a rerate in \&quot;proposed\&quot; state.
+[**ledgerLoansLoanIdReratesRerateIdGet**](ReratesApi.md#ledgerLoansLoanIdReratesRerateIdGet) | **GET** /ledger/loans/{loanId}/rerates/{rerateId} | Read a rerate
 [**ledgerReratesGet**](ReratesApi.md#ledgerReratesGet) | **GET** /ledger/rerates | Read collection of rerates
 [**ledgerReratesRerateIdGet**](ReratesApi.md#ledgerReratesRerateIdGet) | **GET** /ledger/rerates/{rerateId} | Read a rerate
 
-<a name="ledgerContractsContractIdReratesGet"></a>
-# **ledgerContractsContractIdReratesGet**
-> Rerates ledgerContractsContractIdReratesGet(contractId)
+<a name="ledgerLoansLoanIdReratesGet"></a>
+# **ledgerLoansLoanIdReratesGet**
+> Rerates ledgerLoansLoanIdReratesGet(loanId)
 
-Read collection of rerates against contract specified by &#x27;contractId&#x27;
+Read collection of rerates against loan specified by &#x27;loanId&#x27;
 
 ### Example
 ```java
@@ -38,12 +36,12 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ReratesApi apiInstance = new ReratesApi();
-String contractId = "contractId_example"; // String | The unique identifier of a contract
+String loanId = "loanId_example"; // String | The unique identifier of a loan
 try {
-    Rerates result = apiInstance.ledgerContractsContractIdReratesGet(contractId);
+    Rerates result = apiInstance.ledgerLoansLoanIdReratesGet(loanId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ReratesApi#ledgerContractsContractIdReratesGet");
+    System.err.println("Exception when calling ReratesApi#ledgerLoansLoanIdReratesGet");
     e.printStackTrace();
 }
 ```
@@ -52,7 +50,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contractId** | [**String**](.md)| The unique identifier of a contract |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
 
 ### Return type
 
@@ -67,9 +65,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="ledgerContractsContractIdReratesPost"></a>
-# **ledgerContractsContractIdReratesPost**
-> ledgerContractsContractIdReratesPost(body, contractId)
+<a name="ledgerLoansLoanIdReratesPost"></a>
+# **ledgerLoansLoanIdReratesPost**
+> ledgerLoansLoanIdReratesPost(body, loanId)
 
 Create a rerate.
 
@@ -89,12 +87,12 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ReratesApi apiInstance = new ReratesApi();
-RerateProposal body = new RerateProposal(); // RerateProposal | New rerate proposed against contract
-String contractId = "contractId_example"; // String | The unique identifier of a contract
+RerateProposal body = new RerateProposal(); // RerateProposal | New rerate proposed against loan
+String loanId = "loanId_example"; // String | The unique identifier of a loan
 try {
-    apiInstance.ledgerContractsContractIdReratesPost(body, contractId);
+    apiInstance.ledgerLoansLoanIdReratesPost(body, loanId);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ReratesApi#ledgerContractsContractIdReratesPost");
+    System.err.println("Exception when calling ReratesApi#ledgerLoansLoanIdReratesPost");
     e.printStackTrace();
 }
 ```
@@ -103,8 +101,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**RerateProposal**](RerateProposal.md)| New rerate proposed against contract |
- **contractId** | [**String**](.md)| The unique identifier of a contract |
+ **body** | [**RerateProposal**](RerateProposal.md)| New rerate proposed against loan |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
 
 ### Return type
 
@@ -119,9 +117,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="ledgerContractsContractIdReratesRerateIdApprovePost"></a>
-# **ledgerContractsContractIdReratesRerateIdApprovePost**
-> LedgerResponse ledgerContractsContractIdReratesRerateIdApprovePost(contractId, rerateId)
+<a name="ledgerLoansLoanIdReratesRerateIdApprovePost"></a>
+# **ledgerLoansLoanIdReratesRerateIdApprovePost**
+> LedgerResponse ledgerLoansLoanIdReratesRerateIdApprovePost(loanId, rerateId)
 
 Approve a rerate in \&quot;proposed\&quot; state.
 
@@ -141,13 +139,13 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ReratesApi apiInstance = new ReratesApi();
-String contractId = "contractId_example"; // String | The unique identifier of a contract
+String loanId = "loanId_example"; // String | The unique identifier of a loan
 String rerateId = "rerateId_example"; // String | The unique identifier of a rerate
 try {
-    LedgerResponse result = apiInstance.ledgerContractsContractIdReratesRerateIdApprovePost(contractId, rerateId);
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdReratesRerateIdApprovePost(loanId, rerateId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ReratesApi#ledgerContractsContractIdReratesRerateIdApprovePost");
+    System.err.println("Exception when calling ReratesApi#ledgerLoansLoanIdReratesRerateIdApprovePost");
     e.printStackTrace();
 }
 ```
@@ -156,7 +154,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contractId** | [**String**](.md)| The unique identifier of a contract |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
  **rerateId** | [**String**](.md)| The unique identifier of a rerate |
 
 ### Return type
@@ -172,9 +170,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="ledgerContractsContractIdReratesRerateIdCancelPost"></a>
-# **ledgerContractsContractIdReratesRerateIdCancelPost**
-> LedgerResponse ledgerContractsContractIdReratesRerateIdCancelPost(contractId, rerateId)
+<a name="ledgerLoansLoanIdReratesRerateIdCancelPost"></a>
+# **ledgerLoansLoanIdReratesRerateIdCancelPost**
+> LedgerResponse ledgerLoansLoanIdReratesRerateIdCancelPost(loanId, rerateId)
 
 Cancel a rerate in \&quot;proposed\&quot; state. Original proposer only.
 
@@ -194,13 +192,13 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ReratesApi apiInstance = new ReratesApi();
-String contractId = "contractId_example"; // String | The unique identifier of a contract
+String loanId = "loanId_example"; // String | The unique identifier of a loan
 String rerateId = "rerateId_example"; // String | The unique identifier of a rerate
 try {
-    LedgerResponse result = apiInstance.ledgerContractsContractIdReratesRerateIdCancelPost(contractId, rerateId);
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdReratesRerateIdCancelPost(loanId, rerateId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ReratesApi#ledgerContractsContractIdReratesRerateIdCancelPost");
+    System.err.println("Exception when calling ReratesApi#ledgerLoansLoanIdReratesRerateIdCancelPost");
     e.printStackTrace();
 }
 ```
@@ -209,7 +207,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contractId** | [**String**](.md)| The unique identifier of a contract |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
  **rerateId** | [**String**](.md)| The unique identifier of a rerate |
 
 ### Return type
@@ -225,9 +223,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="ledgerContractsContractIdReratesRerateIdCancelpendingPost"></a>
-# **ledgerContractsContractIdReratesRerateIdCancelpendingPost**
-> LedgerResponse ledgerContractsContractIdReratesRerateIdCancelpendingPost(contractId, rerateId)
+<a name="ledgerLoansLoanIdReratesRerateIdCancelpendingPost"></a>
+# **ledgerLoansLoanIdReratesRerateIdCancelpendingPost**
+> LedgerResponse ledgerLoansLoanIdReratesRerateIdCancelpendingPost(loanId, rerateId)
 
 Cancel a rerate in \&quot;pending\&quot; state. Either party can initiate. If canceled by a delegated Venue, the cancel will be done unilaterally
 
@@ -247,13 +245,13 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ReratesApi apiInstance = new ReratesApi();
-String contractId = "contractId_example"; // String | The unique identifier of a contract
+String loanId = "loanId_example"; // String | The unique identifier of a loan
 String rerateId = "rerateId_example"; // String | The unique identifier of a rerate
 try {
-    LedgerResponse result = apiInstance.ledgerContractsContractIdReratesRerateIdCancelpendingPost(contractId, rerateId);
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdReratesRerateIdCancelpendingPost(loanId, rerateId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ReratesApi#ledgerContractsContractIdReratesRerateIdCancelpendingPost");
+    System.err.println("Exception when calling ReratesApi#ledgerLoansLoanIdReratesRerateIdCancelpendingPost");
     e.printStackTrace();
 }
 ```
@@ -262,7 +260,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contractId** | [**String**](.md)| The unique identifier of a contract |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
  **rerateId** | [**String**](.md)| The unique identifier of a rerate |
 
 ### Return type
@@ -278,9 +276,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="ledgerContractsContractIdReratesRerateIdDeclinePost"></a>
-# **ledgerContractsContractIdReratesRerateIdDeclinePost**
-> LedgerResponse ledgerContractsContractIdReratesRerateIdDeclinePost(contractId, rerateId)
+<a name="ledgerLoansLoanIdReratesRerateIdDeclinePost"></a>
+# **ledgerLoansLoanIdReratesRerateIdDeclinePost**
+> LedgerResponse ledgerLoansLoanIdReratesRerateIdDeclinePost(loanId, rerateId)
 
 Decline a rerate in \&quot;proposed\&quot; state.
 
@@ -300,13 +298,13 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ReratesApi apiInstance = new ReratesApi();
-String contractId = "contractId_example"; // String | The unique identifier of a contract
+String loanId = "loanId_example"; // String | The unique identifier of a loan
 String rerateId = "rerateId_example"; // String | The unique identifier of a rerate
 try {
-    LedgerResponse result = apiInstance.ledgerContractsContractIdReratesRerateIdDeclinePost(contractId, rerateId);
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdReratesRerateIdDeclinePost(loanId, rerateId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ReratesApi#ledgerContractsContractIdReratesRerateIdDeclinePost");
+    System.err.println("Exception when calling ReratesApi#ledgerLoansLoanIdReratesRerateIdDeclinePost");
     e.printStackTrace();
 }
 ```
@@ -315,7 +313,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contractId** | [**String**](.md)| The unique identifier of a contract |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
  **rerateId** | [**String**](.md)| The unique identifier of a rerate |
 
 ### Return type
@@ -331,9 +329,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="ledgerContractsContractIdReratesRerateIdGet"></a>
-# **ledgerContractsContractIdReratesRerateIdGet**
-> Rerate ledgerContractsContractIdReratesRerateIdGet(contractId, rerateId)
+<a name="ledgerLoansLoanIdReratesRerateIdGet"></a>
+# **ledgerLoansLoanIdReratesRerateIdGet**
+> Rerate ledgerLoansLoanIdReratesRerateIdGet(loanId, rerateId)
 
 Read a rerate
 
@@ -353,13 +351,13 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ReratesApi apiInstance = new ReratesApi();
-String contractId = "contractId_example"; // String | The unique identifier of a contract
+String loanId = "loanId_example"; // String | The unique identifier of a loan
 String rerateId = "rerateId_example"; // String | The unique identifier of a rerate
 try {
-    Rerate result = apiInstance.ledgerContractsContractIdReratesRerateIdGet(contractId, rerateId);
+    Rerate result = apiInstance.ledgerLoansLoanIdReratesRerateIdGet(loanId, rerateId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ReratesApi#ledgerContractsContractIdReratesRerateIdGet");
+    System.err.println("Exception when calling ReratesApi#ledgerLoansLoanIdReratesRerateIdGet");
     e.printStackTrace();
 }
 ```
@@ -368,7 +366,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contractId** | [**String**](.md)| The unique identifier of a contract |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
  **rerateId** | [**String**](.md)| The unique identifier of a rerate |
 
 ### Return type
@@ -384,114 +382,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="ledgerContractsContractIdReratesRerateIdVenuecancelpendingPost"></a>
-# **ledgerContractsContractIdReratesRerateIdVenuecancelpendingPost**
-> LedgerResponse ledgerContractsContractIdReratesRerateIdVenuecancelpendingPost(contractId, rerateId)
-
-Cancel a rerate in \&quot;pending\&quot; state. Either party can initiate. If canceled by a delegated Venue, the cancel will be done unilaterally
-
-### Example
-```java
-// Import classes:
-//import com.os.client.invoker.ApiClient;
-//import com.os.client.invoker.ApiException;
-//import com.os.client.invoker.Configuration;
-//import com.os.client.invoker.auth.*;
-//import com.os.client.api.ReratesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: stage_auth
-OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
-stage_auth.setAccessToken("YOUR ACCESS TOKEN");
-
-ReratesApi apiInstance = new ReratesApi();
-String contractId = "contractId_example"; // String | The unique identifier of a contract
-String rerateId = "rerateId_example"; // String | The unique identifier of a rerate
-try {
-    LedgerResponse result = apiInstance.ledgerContractsContractIdReratesRerateIdVenuecancelpendingPost(contractId, rerateId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ReratesApi#ledgerContractsContractIdReratesRerateIdVenuecancelpendingPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contractId** | [**String**](.md)| The unique identifier of a contract |
- **rerateId** | [**String**](.md)| The unique identifier of a rerate |
-
-### Return type
-
-[**LedgerResponse**](LedgerResponse.md)
-
-### Authorization
-
-[stage_auth](../README.md#stage_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="ledgerContractsContractIdVenuereratesPost"></a>
-# **ledgerContractsContractIdVenuereratesPost**
-> ledgerContractsContractIdVenuereratesPost(body, contractId)
-
-For delegated venues to create a rerate atomically.
-
-### Example
-```java
-// Import classes:
-//import com.os.client.invoker.ApiClient;
-//import com.os.client.invoker.ApiException;
-//import com.os.client.invoker.Configuration;
-//import com.os.client.invoker.auth.*;
-//import com.os.client.api.ReratesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: stage_auth
-OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
-stage_auth.setAccessToken("YOUR ACCESS TOKEN");
-
-ReratesApi apiInstance = new ReratesApi();
-RerateProposal body = new RerateProposal(); // RerateProposal | New rerate proposed against contract
-String contractId = "contractId_example"; // String | The unique identifier of a contract
-try {
-    apiInstance.ledgerContractsContractIdVenuereratesPost(body, contractId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ReratesApi#ledgerContractsContractIdVenuereratesPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**RerateProposal**](RerateProposal.md)| New rerate proposed against contract |
- **contractId** | [**String**](.md)| The unique identifier of a contract |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[stage_auth](../README.md#stage_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
 <a name="ledgerReratesGet"></a>
 # **ledgerReratesGet**
-> Rerates ledgerReratesGet(since, before, size, rerateStatus, figi, sedol, cusip, ticker, isin, partyId)
+> Rerates ledgerReratesGet(since, before, size, rerateStatus, figi, sedol, cusip, ticker, isin, partyId, venueRefKey)
 
 Read collection of rerates
 
@@ -511,18 +404,19 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ReratesApi apiInstance = new ReratesApi();
-Date since = new Date(); // Date | Rerates created (since) timestamp UTC
-Date before = new Date(); // Date | Rerates created (before) timestamp UTC
+OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Rerates updated (since) timestamp UTC
+OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Rerates updated (before) timestamp UTC
 Integer size = 56; // Integer | Number of rerates to be returned. Can be used to facilitate paging
-RerateStatus rerateStatus = new RerateStatus(); // RerateStatus | Contracts matching status RERATE STATUS
+RerateStatus rerateStatus = new RerateStatus(); // RerateStatus | Loans matching status RERATE STATUS
 String figi = "figi_example"; // String | Rerates with instrument matching FIGI
 String sedol = "sedol_example"; // String | Rerates with instrument matching SEDOL
 String cusip = "cusip_example"; // String | Rerates with instrument matching CUSIP
 String ticker = "ticker_example"; // String | Rerates with instrument matching TICKER
 String isin = "isin_example"; // String | Rerates with instrument matching ISIN
 String partyId = "partyId_example"; // String | Rerates with a transacting party mathing PARTY ID
+String venueRefKey = "venueRefKey_example"; // String | Rerates with venueRefKey matching VENUE REF KEY
 try {
-    Rerates result = apiInstance.ledgerReratesGet(since, before, size, rerateStatus, figi, sedol, cusip, ticker, isin, partyId);
+    Rerates result = apiInstance.ledgerReratesGet(since, before, size, rerateStatus, figi, sedol, cusip, ticker, isin, partyId, venueRefKey);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReratesApi#ledgerReratesGet");
@@ -534,16 +428,17 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since** | **Date**| Rerates created (since) timestamp UTC | [optional]
- **before** | **Date**| Rerates created (before) timestamp UTC | [optional]
+ **since** | **OffsetDateTime**| Rerates updated (since) timestamp UTC | [optional]
+ **before** | **OffsetDateTime**| Rerates updated (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of rerates to be returned. Can be used to facilitate paging | [optional]
- **rerateStatus** | [**RerateStatus**](.md)| Contracts matching status RERATE STATUS | [optional]
+ **rerateStatus** | [**RerateStatus**](.md)| Loans matching status RERATE STATUS | [optional]
  **figi** | **String**| Rerates with instrument matching FIGI | [optional]
  **sedol** | **String**| Rerates with instrument matching SEDOL | [optional]
  **cusip** | **String**| Rerates with instrument matching CUSIP | [optional]
  **ticker** | **String**| Rerates with instrument matching TICKER | [optional]
  **isin** | **String**| Rerates with instrument matching ISIN | [optional]
  **partyId** | [**String**](.md)| Rerates with a transacting party mathing PARTY ID | [optional]
+ **venueRefKey** | **String**| Rerates with venueRefKey matching VENUE REF KEY | [optional]
 
 ### Return type
 
