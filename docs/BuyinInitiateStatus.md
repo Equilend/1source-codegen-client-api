@@ -2,6 +2,6 @@
 
 ## Enum
 
-* `OPEN` (value: `"OPEN"`)
 * `CANCELED` (value: `"CANCELED"`)
 * `CLOSED` (value: `"CLOSED"`)
+* `OPEN` (value: `"OPEN"`)

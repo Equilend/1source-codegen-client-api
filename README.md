@@ -1,8 +1,8 @@
 # 1source-api-client
 
 1Source Ledger API
-- API version: 1.0.5
-  - Build date: 2024-06-12T17:03:27.974085569Z[GMT]
+- API version: 1.1.0
+  - Build date: 2024-08-19T20:01:09.159040928Z[GMT]
 
 1Source Ledger API provides client access to the 1Source Ledger. You can find out more about 1Source at [https://equilend.com](https://equilend.com).  This specification is work in progress. The design is meant to model the securities lending life cycle in as clean a way as possible while being robust enough to easily translate to ISLA CDM workflows and data model.  API specification is the intellectual property of EquiLend LLC and should not be copied or disseminated in any way. 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.os</groupId>
   <artifactId>1source-api-client</artifactId>
-  <version>1.0.5</version>
+  <version>1.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -91,7 +91,7 @@ Also, to use the GitHub Packages repository for downloading SNAPSHOT artifacts, 
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.os:1source-api-client:1.0.5"
+compile "com.os:1source-api-client:1.1.0"
 ```
 
 Add the repository to your build.gradle file (Gradle Groovy). Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
@@ -117,7 +117,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/1source-api-client-1.0.5.jar`
+* `target/1source-api-client-1.1.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -171,8 +171,8 @@ public class AgreementsApiExample {
         stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
         AgreementsApi apiInstance = new AgreementsApi();
-        Date since = new Date(); // Date | Agreements created (since) timestamp UTC
-        Date before = new Date(); // Date | Agreements created (before) timestamp UTC
+        OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Agreements updated (since) timestamp UTC
+        OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Agreements updated (before) timestamp UTC
         Integer size = 56; // Integer | Number of agreements to be returned. Can be used to facilitate paging
         try {
             Agreements result = apiInstance.ledgerAgreementsGet(since, before, size);
@@ -255,65 +255,61 @@ Class | Method | HTTP request | Description
 *BuyinsApi* | [**ledgerBuyinsCompletesGet**](docs/BuyinsApi.md#ledgerBuyinsCompletesGet) | **GET** /ledger/buyins/completes | Read collection of completed buyins
 *BuyinsApi* | [**ledgerBuyinsInitiatesBuyinInitiateIdGet**](docs/BuyinsApi.md#ledgerBuyinsInitiatesBuyinInitiateIdGet) | **GET** /ledger/buyins/initiates/{buyinInitiateId} | Read an initiated buyin
 *BuyinsApi* | [**ledgerBuyinsInitiatesGet**](docs/BuyinsApi.md#ledgerBuyinsInitiatesGet) | **GET** /ledger/buyins/initiates | Read collection of initiated buyins
-*BuyinsApi* | [**ledgerContractsContractIdBuyinsCompletesBuyinCompleteIdAcceptPost**](docs/BuyinsApi.md#ledgerContractsContractIdBuyinsCompletesBuyinCompleteIdAcceptPost) | **POST** /ledger/contracts/{contractId}/buyins/completes/{buyinCompleteId}/accept | Complete some or all of an initiated Buyin
-*BuyinsApi* | [**ledgerContractsContractIdBuyinsCompletesBuyinCompleteIdGet**](docs/BuyinsApi.md#ledgerContractsContractIdBuyinsCompletesBuyinCompleteIdGet) | **GET** /ledger/contracts/{contractId}/buyins/completes/{buyinCompleteId} | Read a completed Buyin
-*BuyinsApi* | [**ledgerContractsContractIdBuyinsCompletesGet**](docs/BuyinsApi.md#ledgerContractsContractIdBuyinsCompletesGet) | **GET** /ledger/contracts/{contractId}/buyins/completes | Read collection of completed buyins against contract specified by &#x27;contractId&#x27;
-*BuyinsApi* | [**ledgerContractsContractIdBuyinsCompletesPost**](docs/BuyinsApi.md#ledgerContractsContractIdBuyinsCompletesPost) | **POST** /ledger/contracts/{contractId}/buyins/completes | Complete a buyin
-*BuyinsApi* | [**ledgerContractsContractIdBuyinsInitiatesBuyinInitiateIdCancelPost**](docs/BuyinsApi.md#ledgerContractsContractIdBuyinsInitiatesBuyinInitiateIdCancelPost) | **POST** /ledger/contracts/{contractId}/buyins/initiates/{buyinInitiateId}/cancel | Cancel an initiated buyin. Original proposer only.
-*BuyinsApi* | [**ledgerContractsContractIdBuyinsInitiatesBuyinInitiateIdGet**](docs/BuyinsApi.md#ledgerContractsContractIdBuyinsInitiatesBuyinInitiateIdGet) | **GET** /ledger/contracts/{contractId}/buyins/initiates/{buyinInitiateId} | Read an initiated buyin
-*BuyinsApi* | [**ledgerContractsContractIdBuyinsInitiatesGet**](docs/BuyinsApi.md#ledgerContractsContractIdBuyinsInitiatesGet) | **GET** /ledger/contracts/{contractId}/buyins/initiates | Read collection of initiated buyins against contract specified by &#x27;contractId&#x27;
-*BuyinsApi* | [**ledgerContractsContractIdBuyinsInitiatesPost**](docs/BuyinsApi.md#ledgerContractsContractIdBuyinsInitiatesPost) | **POST** /ledger/contracts/{contractId}/buyins/initiates | Initiate a buyin
-*ContractsApi* | [**ledgerContractsContractIdApprovePost**](docs/ContractsApi.md#ledgerContractsContractIdApprovePost) | **POST** /ledger/contracts/{contractId}/approve | Approve a contract in \&quot;proposed\&quot; state
-*ContractsApi* | [**ledgerContractsContractIdCancelPost**](docs/ContractsApi.md#ledgerContractsContractIdCancelPost) | **POST** /ledger/contracts/{contractId}/cancel | Cancel a contract in \&quot;proposed\&quot; state. Original proposer only.
-*ContractsApi* | [**ledgerContractsContractIdCancelpendingPost**](docs/ContractsApi.md#ledgerContractsContractIdCancelpendingPost) | **POST** /ledger/contracts/{contractId}/cancelpending | Cancel a contract in \&quot;pending\&quot; state. Either party can initiate.
-*ContractsApi* | [**ledgerContractsContractIdDeclinePost**](docs/ContractsApi.md#ledgerContractsContractIdDeclinePost) | **POST** /ledger/contracts/{contractId}/decline | Decline a contract in \&quot;proposed\&quot; state
-*ContractsApi* | [**ledgerContractsContractIdGet**](docs/ContractsApi.md#ledgerContractsContractIdGet) | **GET** /ledger/contracts/{contractId} | Read a specific contract the user is authorized to access
-*ContractsApi* | [**ledgerContractsContractIdHistoryGet**](docs/ContractsApi.md#ledgerContractsContractIdHistoryGet) | **GET** /ledger/contracts/{contractId}/history | Return an ordered history of this contract. Each contract has a reference event that triggered a new version.
-*ContractsApi* | [**ledgerContractsContractIdPatch**](docs/ContractsApi.md#ledgerContractsContractIdPatch) | **PATCH** /ledger/contracts/{contractId} | Update unilateral fields in a contract
-*ContractsApi* | [**ledgerContractsContractIdRatehistoryGet**](docs/ContractsApi.md#ledgerContractsContractIdRatehistoryGet) | **GET** /ledger/contracts/{contractId}/ratehistory | Return an ordered history of effective rate changes.
-*ContractsApi* | [**ledgerContractsContractIdSplitContractSplitIdApprovePost**](docs/ContractsApi.md#ledgerContractsContractIdSplitContractSplitIdApprovePost) | **POST** /ledger/contracts/{contractId}/split/{contractSplitId}/approve | Approve a contract split in \&quot;proposed\&quot; state.
-*ContractsApi* | [**ledgerContractsContractIdSplitContractSplitIdGet**](docs/ContractsApi.md#ledgerContractsContractIdSplitContractSplitIdGet) | **GET** /ledger/contracts/{contractId}/split/{contractSplitId} | Retrieve a contract split.
-*ContractsApi* | [**ledgerContractsContractIdSplitPost**](docs/ContractsApi.md#ledgerContractsContractIdSplitPost) | **POST** /ledger/contracts/{contractId}/split | Split an open contract into multiple lots
-*ContractsApi* | [**ledgerContractsGet**](docs/ContractsApi.md#ledgerContractsGet) | **GET** /ledger/contracts | Read a collection of contracts. Defaults to return the last 100 contracts created.
-*ContractsApi* | [**ledgerContractsPost**](docs/ContractsApi.md#ledgerContractsPost) | **POST** /ledger/contracts | Create a contract in \&quot;proposal\&quot; state. Normally done by the Lend side
+*BuyinsApi* | [**ledgerLoansLoanIdBuyinsCompletesBuyinCompleteIdAcceptPost**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsCompletesBuyinCompleteIdAcceptPost) | **POST** /ledger/loans/{loanId}/buyins/completes/{buyinCompleteId}/accept | Complete some or all of an initiated Buyin
+*BuyinsApi* | [**ledgerLoansLoanIdBuyinsCompletesBuyinCompleteIdGet**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsCompletesBuyinCompleteIdGet) | **GET** /ledger/loans/{loanId}/buyins/completes/{buyinCompleteId} | Read a completed Buyin
+*BuyinsApi* | [**ledgerLoansLoanIdBuyinsCompletesGet**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsCompletesGet) | **GET** /ledger/loans/{loanId}/buyins/completes | Read collection of completed buyins against loan specified by &#x27;loanId&#x27;
+*BuyinsApi* | [**ledgerLoansLoanIdBuyinsCompletesPost**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsCompletesPost) | **POST** /ledger/loans/{loanId}/buyins/completes | Complete a buyin
+*BuyinsApi* | [**ledgerLoansLoanIdBuyinsInitiatesBuyinInitiateIdCancelPost**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsInitiatesBuyinInitiateIdCancelPost) | **POST** /ledger/loans/{loanId}/buyins/initiates/{buyinInitiateId}/cancel | Cancel an initiated buyin. Original proposer only.
+*BuyinsApi* | [**ledgerLoansLoanIdBuyinsInitiatesBuyinInitiateIdGet**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsInitiatesBuyinInitiateIdGet) | **GET** /ledger/loans/{loanId}/buyins/initiates/{buyinInitiateId} | Read an initiated buyin
+*BuyinsApi* | [**ledgerLoansLoanIdBuyinsInitiatesGet**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsInitiatesGet) | **GET** /ledger/loans/{loanId}/buyins/initiates | Read collection of initiated buyins against loan specified by &#x27;loanId&#x27;
+*BuyinsApi* | [**ledgerLoansLoanIdBuyinsInitiatesPost**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsInitiatesPost) | **POST** /ledger/loans/{loanId}/buyins/initiates | Initiate a buyin
 *DelegationsApi* | [**ledgerDelegationsDelegationIdApprovePost**](docs/DelegationsApi.md#ledgerDelegationsDelegationIdApprovePost) | **POST** /ledger/delegations/{delegationId}/approve | Approve a party delegation in \&quot;proposed\&quot; state
 *DelegationsApi* | [**ledgerDelegationsDelegationIdCancelPost**](docs/DelegationsApi.md#ledgerDelegationsDelegationIdCancelPost) | **POST** /ledger/delegations/{delegationId}/cancel | Cancel a party delegation in \&quot;proposed\&quot; state. Original proposer only.
 *DelegationsApi* | [**ledgerDelegationsDelegationIdDeclinePost**](docs/DelegationsApi.md#ledgerDelegationsDelegationIdDeclinePost) | **POST** /ledger/delegations/{delegationId}/decline | Decline a party delegation in \&quot;proposed\&quot; state
 *DelegationsApi* | [**ledgerDelegationsDelegationIdGet**](docs/DelegationsApi.md#ledgerDelegationsDelegationIdGet) | **GET** /ledger/delegations/{delegationId} | Read a party delegation
 *DelegationsApi* | [**ledgerDelegationsGet**](docs/DelegationsApi.md#ledgerDelegationsGet) | **GET** /ledger/delegations | Read a collection of delegations.
 *DelegationsApi* | [**ledgerDelegationsPost**](docs/DelegationsApi.md#ledgerDelegationsPost) | **POST** /ledger/delegations | Delegate a set of workflows to a party
-*EventsApi* | [**ledgerContractsContractIdEventsEventIdGet**](docs/EventsApi.md#ledgerContractsContractIdEventsEventIdGet) | **GET** /ledger/contracts/{contractId}/events/{eventId} | Read an event
-*EventsApi* | [**ledgerContractsContractIdEventsGet**](docs/EventsApi.md#ledgerContractsContractIdEventsGet) | **GET** /ledger/contracts/{contractId}/events | Read collection of events against a specific contract. With no parameters returns events since start of current day.
 *EventsApi* | [**ledgerEventsEventIdGet**](docs/EventsApi.md#ledgerEventsEventIdGet) | **GET** /ledger/events/{eventId} | Read an event
 *EventsApi* | [**ledgerEventsGet**](docs/EventsApi.md#ledgerEventsGet) | **GET** /ledger/events | Read collection of events. With no parameters returns events since start of current day.
+*EventsApi* | [**ledgerLoansLoanIdEventsEventIdGet**](docs/EventsApi.md#ledgerLoansLoanIdEventsEventIdGet) | **GET** /ledger/loans/{loanId}/events/{eventId} | Read an event
+*EventsApi* | [**ledgerLoansLoanIdEventsGet**](docs/EventsApi.md#ledgerLoansLoanIdEventsGet) | **GET** /ledger/loans/{loanId}/events | Read collection of events against a specific loan. With no parameters returns events since start of current day.
+*LoansApi* | [**ledgerLoansGet**](docs/LoansApi.md#ledgerLoansGet) | **GET** /ledger/loans | Read a collection of loans. Defaults to return the last 100 loans updated.
+*LoansApi* | [**ledgerLoansLoanIdApprovePost**](docs/LoansApi.md#ledgerLoansLoanIdApprovePost) | **POST** /ledger/loans/{loanId}/approve | Approve a loan in \&quot;proposed\&quot; state
+*LoansApi* | [**ledgerLoansLoanIdCancelPost**](docs/LoansApi.md#ledgerLoansLoanIdCancelPost) | **POST** /ledger/loans/{loanId}/cancel | Cancel a loan in \&quot;proposed\&quot; state. Original proposer only.
+*LoansApi* | [**ledgerLoansLoanIdCancelpendingPost**](docs/LoansApi.md#ledgerLoansLoanIdCancelpendingPost) | **POST** /ledger/loans/{loanId}/cancelpending | Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
+*LoansApi* | [**ledgerLoansLoanIdDeclinePost**](docs/LoansApi.md#ledgerLoansLoanIdDeclinePost) | **POST** /ledger/loans/{loanId}/decline | Decline a loan in \&quot;proposed\&quot; state
+*LoansApi* | [**ledgerLoansLoanIdGet**](docs/LoansApi.md#ledgerLoansLoanIdGet) | **GET** /ledger/loans/{loanId} | Read a specific loan the user is authorized to access
+*LoansApi* | [**ledgerLoansLoanIdHistoryGet**](docs/LoansApi.md#ledgerLoansLoanIdHistoryGet) | **GET** /ledger/loans/{loanId}/history | Return an ordered history of this loan. Each loan has a reference event that triggered a new version.
+*LoansApi* | [**ledgerLoansLoanIdPatch**](docs/LoansApi.md#ledgerLoansLoanIdPatch) | **PATCH** /ledger/loans/{loanId} | Update unilateral fields in a loan
+*LoansApi* | [**ledgerLoansLoanIdRatehistoryGet**](docs/LoansApi.md#ledgerLoansLoanIdRatehistoryGet) | **GET** /ledger/loans/{loanId}/ratehistory | Return an ordered history of effective rate changes.
+*LoansApi* | [**ledgerLoansLoanIdSplitLoanSplitIdApprovePost**](docs/LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdApprovePost) | **POST** /ledger/loans/{loanId}/split/{loanSplitId}/approve | Approve a loan split in \&quot;proposed\&quot; state.
+*LoansApi* | [**ledgerLoansLoanIdSplitLoanSplitIdGet**](docs/LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdGet) | **GET** /ledger/loans/{loanId}/split/{loanSplitId} | Retrieve a loan split.
+*LoansApi* | [**ledgerLoansLoanIdSplitPost**](docs/LoansApi.md#ledgerLoansLoanIdSplitPost) | **POST** /ledger/loans/{loanId}/split | Split an open loan into multiple lots
+*LoansApi* | [**ledgerLoansPost**](docs/LoansApi.md#ledgerLoansPost) | **POST** /ledger/loans | Create a loan in \&quot;proposal\&quot; state. Normally done by the Lend side
 *PartiesApi* | [**ledgerPartiesGet**](docs/PartiesApi.md#ledgerPartiesGet) | **GET** /ledger/parties | Read a collection of registered trading parties.
-*RecallsApi* | [**ledgerContractsContractIdRecallsGet**](docs/RecallsApi.md#ledgerContractsContractIdRecallsGet) | **GET** /ledger/contracts/{contractId}/recalls | Read collection of recalls against contract specified by &#x27;contractId&#x27;
-*RecallsApi* | [**ledgerContractsContractIdRecallsPost**](docs/RecallsApi.md#ledgerContractsContractIdRecallsPost) | **POST** /ledger/contracts/{contractId}/recalls | Initiates a recall
-*RecallsApi* | [**ledgerContractsContractIdRecallsRecallIdCancelPost**](docs/RecallsApi.md#ledgerContractsContractIdRecallsRecallIdCancelPost) | **POST** /ledger/contracts/{contractId}/recalls/{recallId}/cancel | Cancel a recall in \&quot;proposed\&quot; state. Original proposer only.
-*RecallsApi* | [**ledgerContractsContractIdRecallsRecallIdGet**](docs/RecallsApi.md#ledgerContractsContractIdRecallsRecallIdGet) | **GET** /ledger/contracts/{contractId}/recalls/{recallId} | Read a recall
-*RecallsApi* | [**ledgerContractsContractIdRecallsRecallIdVenuecancelPost**](docs/RecallsApi.md#ledgerContractsContractIdRecallsRecallIdVenuecancelPost) | **POST** /ledger/contracts/{contractId}/recalls/{recallId}/venuecancel | Cancel a recall in \&quot;proposed\&quot; state. Original proposer only.
-*RecallsApi* | [**ledgerContractsContractIdVenuerecallsPost**](docs/RecallsApi.md#ledgerContractsContractIdVenuerecallsPost) | **POST** /ledger/contracts/{contractId}/venuerecalls | For delegated venues to create a recall atomically
+*RecallsApi* | [**ledgerLoansLoanIdRecallsGet**](docs/RecallsApi.md#ledgerLoansLoanIdRecallsGet) | **GET** /ledger/loans/{loanId}/recalls | Read collection of recalls against loan specified by &#x27;loanId&#x27;
+*RecallsApi* | [**ledgerLoansLoanIdRecallsPost**](docs/RecallsApi.md#ledgerLoansLoanIdRecallsPost) | **POST** /ledger/loans/{loanId}/recalls | Initiates a recall
+*RecallsApi* | [**ledgerLoansLoanIdRecallsRecallIdAcknowledgePost**](docs/RecallsApi.md#ledgerLoansLoanIdRecallsRecallIdAcknowledgePost) | **POST** /ledger/loans/{loanId}/recalls/{recallId}/acknowledge | Acknowledge a pending recall. No change to status.
+*RecallsApi* | [**ledgerLoansLoanIdRecallsRecallIdCancelPost**](docs/RecallsApi.md#ledgerLoansLoanIdRecallsRecallIdCancelPost) | **POST** /ledger/loans/{loanId}/recalls/{recallId}/cancel | Cancel a recall in \&quot;proposed\&quot; state. Original proposer only.
+*RecallsApi* | [**ledgerLoansLoanIdRecallsRecallIdGet**](docs/RecallsApi.md#ledgerLoansLoanIdRecallsRecallIdGet) | **GET** /ledger/loans/{loanId}/recalls/{recallId} | Read a recall
+*RecallsApi* | [**ledgerLoansLoanIdRecallsRecallIdPatch**](docs/RecallsApi.md#ledgerLoansLoanIdRecallsRecallIdPatch) | **PATCH** /ledger/loans/{loanId}/recalls/{recallId} | Update unilateral fields on a recall
 *RecallsApi* | [**ledgerRecallsGet**](docs/RecallsApi.md#ledgerRecallsGet) | **GET** /ledger/recalls | Read collection of recalls
 *RecallsApi* | [**ledgerRecallsRecallIdGet**](docs/RecallsApi.md#ledgerRecallsRecallIdGet) | **GET** /ledger/recalls/{recallId} | Read a recall
-*ReratesApi* | [**ledgerContractsContractIdReratesGet**](docs/ReratesApi.md#ledgerContractsContractIdReratesGet) | **GET** /ledger/contracts/{contractId}/rerates | Read collection of rerates against contract specified by &#x27;contractId&#x27;
-*ReratesApi* | [**ledgerContractsContractIdReratesPost**](docs/ReratesApi.md#ledgerContractsContractIdReratesPost) | **POST** /ledger/contracts/{contractId}/rerates | Create a rerate.
-*ReratesApi* | [**ledgerContractsContractIdReratesRerateIdApprovePost**](docs/ReratesApi.md#ledgerContractsContractIdReratesRerateIdApprovePost) | **POST** /ledger/contracts/{contractId}/rerates/{rerateId}/approve | Approve a rerate in \&quot;proposed\&quot; state.
-*ReratesApi* | [**ledgerContractsContractIdReratesRerateIdCancelPost**](docs/ReratesApi.md#ledgerContractsContractIdReratesRerateIdCancelPost) | **POST** /ledger/contracts/{contractId}/rerates/{rerateId}/cancel | Cancel a rerate in \&quot;proposed\&quot; state. Original proposer only.
-*ReratesApi* | [**ledgerContractsContractIdReratesRerateIdCancelpendingPost**](docs/ReratesApi.md#ledgerContractsContractIdReratesRerateIdCancelpendingPost) | **POST** /ledger/contracts/{contractId}/rerates/{rerateId}/cancelpending | Cancel a rerate in \&quot;pending\&quot; state. Either party can initiate. If canceled by a delegated Venue, the cancel will be done unilaterally
-*ReratesApi* | [**ledgerContractsContractIdReratesRerateIdDeclinePost**](docs/ReratesApi.md#ledgerContractsContractIdReratesRerateIdDeclinePost) | **POST** /ledger/contracts/{contractId}/rerates/{rerateId}/decline | Decline a rerate in \&quot;proposed\&quot; state.
-*ReratesApi* | [**ledgerContractsContractIdReratesRerateIdGet**](docs/ReratesApi.md#ledgerContractsContractIdReratesRerateIdGet) | **GET** /ledger/contracts/{contractId}/rerates/{rerateId} | Read a rerate
-*ReratesApi* | [**ledgerContractsContractIdReratesRerateIdVenuecancelpendingPost**](docs/ReratesApi.md#ledgerContractsContractIdReratesRerateIdVenuecancelpendingPost) | **POST** /ledger/contracts/{contractId}/rerates/{rerateId}/venuecancelpending | Cancel a rerate in \&quot;pending\&quot; state. Either party can initiate. If canceled by a delegated Venue, the cancel will be done unilaterally
-*ReratesApi* | [**ledgerContractsContractIdVenuereratesPost**](docs/ReratesApi.md#ledgerContractsContractIdVenuereratesPost) | **POST** /ledger/contracts/{contractId}/venuererates | For delegated venues to create a rerate atomically.
+*ReratesApi* | [**ledgerLoansLoanIdReratesGet**](docs/ReratesApi.md#ledgerLoansLoanIdReratesGet) | **GET** /ledger/loans/{loanId}/rerates | Read collection of rerates against loan specified by &#x27;loanId&#x27;
+*ReratesApi* | [**ledgerLoansLoanIdReratesPost**](docs/ReratesApi.md#ledgerLoansLoanIdReratesPost) | **POST** /ledger/loans/{loanId}/rerates | Create a rerate.
+*ReratesApi* | [**ledgerLoansLoanIdReratesRerateIdApprovePost**](docs/ReratesApi.md#ledgerLoansLoanIdReratesRerateIdApprovePost) | **POST** /ledger/loans/{loanId}/rerates/{rerateId}/approve | Approve a rerate in \&quot;proposed\&quot; state.
+*ReratesApi* | [**ledgerLoansLoanIdReratesRerateIdCancelPost**](docs/ReratesApi.md#ledgerLoansLoanIdReratesRerateIdCancelPost) | **POST** /ledger/loans/{loanId}/rerates/{rerateId}/cancel | Cancel a rerate in \&quot;proposed\&quot; state. Original proposer only.
+*ReratesApi* | [**ledgerLoansLoanIdReratesRerateIdCancelpendingPost**](docs/ReratesApi.md#ledgerLoansLoanIdReratesRerateIdCancelpendingPost) | **POST** /ledger/loans/{loanId}/rerates/{rerateId}/cancelpending | Cancel a rerate in \&quot;pending\&quot; state. Either party can initiate. If canceled by a delegated Venue, the cancel will be done unilaterally
+*ReratesApi* | [**ledgerLoansLoanIdReratesRerateIdDeclinePost**](docs/ReratesApi.md#ledgerLoansLoanIdReratesRerateIdDeclinePost) | **POST** /ledger/loans/{loanId}/rerates/{rerateId}/decline | Decline a rerate in \&quot;proposed\&quot; state.
+*ReratesApi* | [**ledgerLoansLoanIdReratesRerateIdGet**](docs/ReratesApi.md#ledgerLoansLoanIdReratesRerateIdGet) | **GET** /ledger/loans/{loanId}/rerates/{rerateId} | Read a rerate
 *ReratesApi* | [**ledgerReratesGet**](docs/ReratesApi.md#ledgerReratesGet) | **GET** /ledger/rerates | Read collection of rerates
 *ReratesApi* | [**ledgerReratesRerateIdGet**](docs/ReratesApi.md#ledgerReratesRerateIdGet) | **GET** /ledger/rerates/{rerateId} | Read a rerate
-*ReturnsApi* | [**ledgerContractsContractIdReturnsGet**](docs/ReturnsApi.md#ledgerContractsContractIdReturnsGet) | **GET** /ledger/contracts/{contractId}/returns | Read collection of returns against contract specified by &#x27;contractId&#x27;
-*ReturnsApi* | [**ledgerContractsContractIdReturnsPost**](docs/ReturnsApi.md#ledgerContractsContractIdReturnsPost) | **POST** /ledger/contracts/{contractId}/returns | Create a return
-*ReturnsApi* | [**ledgerContractsContractIdReturnsReturnIdAcknowledgePost**](docs/ReturnsApi.md#ledgerContractsContractIdReturnsReturnIdAcknowledgePost) | **POST** /ledger/contracts/{contractId}/returns/{returnId}/acknowledge | Acknowledge a pending return. No change to status.
-*ReturnsApi* | [**ledgerContractsContractIdReturnsReturnIdCancelPost**](docs/ReturnsApi.md#ledgerContractsContractIdReturnsReturnIdCancelPost) | **POST** /ledger/contracts/{contractId}/returns/{returnId}/cancel | Cancel a return in \&quot;proposed\&quot; or \&quot;pending\&quot; state. Original proposer only.
-*ReturnsApi* | [**ledgerContractsContractIdReturnsReturnIdGet**](docs/ReturnsApi.md#ledgerContractsContractIdReturnsReturnIdGet) | **GET** /ledger/contracts/{contractId}/returns/{returnId} | Read a return
-*ReturnsApi* | [**ledgerContractsContractIdReturnsReturnIdPatch**](docs/ReturnsApi.md#ledgerContractsContractIdReturnsReturnIdPatch) | **PATCH** /ledger/contracts/{contractId}/returns/{returnId} | Update unilateral fields on a return
-*ReturnsApi* | [**ledgerContractsContractIdReturnsReturnIdVenuecancelPost**](docs/ReturnsApi.md#ledgerContractsContractIdReturnsReturnIdVenuecancelPost) | **POST** /ledger/contracts/{contractId}/returns/{returnId}/venuecancel | Cancel a return in \&quot;proposed\&quot; or \&quot;pending\&quot; state. Original proposer only.
-*ReturnsApi* | [**ledgerContractsContractIdVenuereturnsPost**](docs/ReturnsApi.md#ledgerContractsContractIdVenuereturnsPost) | **POST** /ledger/contracts/{contractId}/venuereturns | For delegated venues to create a return atomically.
+*ReturnsApi* | [**ledgerLoansLoanIdReturnsGet**](docs/ReturnsApi.md#ledgerLoansLoanIdReturnsGet) | **GET** /ledger/loans/{loanId}/returns | Read collection of returns against loan specified by &#x27;loanId&#x27;
+*ReturnsApi* | [**ledgerLoansLoanIdReturnsPost**](docs/ReturnsApi.md#ledgerLoansLoanIdReturnsPost) | **POST** /ledger/loans/{loanId}/returns | Create a return
+*ReturnsApi* | [**ledgerLoansLoanIdReturnsReturnIdAcknowledgePost**](docs/ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdAcknowledgePost) | **POST** /ledger/loans/{loanId}/returns/{returnId}/acknowledge | Acknowledge a pending return. No change to status.
+*ReturnsApi* | [**ledgerLoansLoanIdReturnsReturnIdCancelPost**](docs/ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdCancelPost) | **POST** /ledger/loans/{loanId}/returns/{returnId}/cancel | Cancel a return in \&quot;proposed\&quot; or \&quot;pending\&quot; state. Original proposer only.
+*ReturnsApi* | [**ledgerLoansLoanIdReturnsReturnIdGet**](docs/ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdGet) | **GET** /ledger/loans/{loanId}/returns/{returnId} | Read a return
+*ReturnsApi* | [**ledgerLoansLoanIdReturnsReturnIdPatch**](docs/ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdPatch) | **PATCH** /ledger/loans/{loanId}/returns/{returnId} | Update unilateral fields on a return
 *ReturnsApi* | [**ledgerReturnsGet**](docs/ReturnsApi.md#ledgerReturnsGet) | **GET** /ledger/returns | Read collection of returns
 *ReturnsApi* | [**ledgerReturnsReturnIdGet**](docs/ReturnsApi.md#ledgerReturnsReturnIdGet) | **GET** /ledger/returns/{returnId} | Read a return
 
@@ -334,18 +330,6 @@ Class | Method | HTTP request | Description
  - [Collateral](docs/Collateral.md)
  - [CollateralDescription](docs/CollateralDescription.md)
  - [CollateralType](docs/CollateralType.md)
- - [Contract](docs/Contract.md)
- - [ContractProposal](docs/ContractProposal.md)
- - [ContractProposalApproval](docs/ContractProposalApproval.md)
- - [ContractSplit](docs/ContractSplit.md)
- - [ContractSplitLot](docs/ContractSplitLot.md)
- - [ContractSplitLotAppoval](docs/ContractSplitLotAppoval.md)
- - [ContractSplitProposal](docs/ContractSplitProposal.md)
- - [ContractSplitProposalApproval](docs/ContractSplitProposalApproval.md)
- - [ContractSplitStatus](docs/ContractSplitStatus.md)
- - [ContractStatus](docs/ContractStatus.md)
- - [Contracts](docs/Contracts.md)
- - [ContractsContractIdBody](docs/ContractsContractIdBody.md)
  - [CurrencyCd](docs/CurrencyCd.md)
  - [Delegation](docs/Delegation.md)
  - [DelegationAuthorization](docs/DelegationAuthorization.md)
@@ -365,7 +349,18 @@ Class | Method | HTTP request | Description
  - [InternalReference](docs/InternalReference.md)
  - [InternalReferenceUpdate](docs/InternalReferenceUpdate.md)
  - [LedgerResponse](docs/LedgerResponse.md)
- - [LocalVenueField](docs/LocalVenueField.md)
+ - [Loan](docs/Loan.md)
+ - [LoanProposal](docs/LoanProposal.md)
+ - [LoanProposalApproval](docs/LoanProposalApproval.md)
+ - [LoanSplit](docs/LoanSplit.md)
+ - [LoanSplitLot](docs/LoanSplitLot.md)
+ - [LoanSplitLotAppoval](docs/LoanSplitLotAppoval.md)
+ - [LoanSplitProposal](docs/LoanSplitProposal.md)
+ - [LoanSplitProposalApproval](docs/LoanSplitProposalApproval.md)
+ - [LoanSplitStatus](docs/LoanSplitStatus.md)
+ - [LoanStatus](docs/LoanStatus.md)
+ - [Loans](docs/Loans.md)
+ - [LoansLoanIdBody](docs/LoansLoanIdBody.md)
  - [ModelReturn](docs/ModelReturn.md)
  - [OneOfRebateRateRebate](docs/OneOfRebateRateRebate.md)
  - [OneOfSettlementInstruction](docs/OneOfSettlementInstruction.md)
@@ -373,16 +368,19 @@ Class | Method | HTTP request | Description
  - [Party](docs/Party.md)
  - [PartyRole](docs/PartyRole.md)
  - [PartySettlementInstruction](docs/PartySettlementInstruction.md)
+ - [PartyType](docs/PartyType.md)
  - [Price](docs/Price.md)
  - [PriceUnit](docs/PriceUnit.md)
- - [PriceUpdate](docs/PriceUpdate.md)
  - [Rate](docs/Rate.md)
  - [Rates](docs/Rates.md)
  - [RebateRate](docs/RebateRate.md)
  - [Recall](docs/Recall.md)
+ - [RecallAcknowledgement](docs/RecallAcknowledgement.md)
  - [RecallProposal](docs/RecallProposal.md)
+ - [RecallQuantityUpdate](docs/RecallQuantityUpdate.md)
  - [RecallStatus](docs/RecallStatus.md)
  - [Recalls](docs/Recalls.md)
+ - [RecallsRecallIdBody](docs/RecallsRecallIdBody.md)
  - [Rerate](docs/Rerate.md)
  - [RerateProposal](docs/RerateProposal.md)
  - [RerateStatus](docs/RerateStatus.md)
@@ -403,8 +401,6 @@ Class | Method | HTTP request | Description
  - [TransactingParties](docs/TransactingParties.md)
  - [TransactingParty](docs/TransactingParty.md)
  - [Venue](docs/Venue.md)
- - [VenueParties](docs/VenueParties.md)
- - [VenueParty](docs/VenueParty.md)
  - [VenueReferenceKeyUpdate](docs/VenueReferenceKeyUpdate.md)
  - [VenueTradeAgreement](docs/VenueTradeAgreement.md)
  - [VenueType](docs/VenueType.md)

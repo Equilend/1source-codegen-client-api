@@ -4,9 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **buyinCompleteId** | **String** |  | 
-**contractId** | **String** |  | 
+**loanId** | **String** |  | 
 **status** | [**BuyinCompleteStatus**](BuyinCompleteStatus.md) |  | 
 **quantity** | **Integer** |  | 
-**buyinDate** | [**Date**](Date.md) |  |  [optional]
+**buyinDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
 **price** | [**Price**](Price.md) |  |  [optional]
-**lastUpdateDatetime** | [**Date**](Date.md) |  | 
+**lastUpdateDatetime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 

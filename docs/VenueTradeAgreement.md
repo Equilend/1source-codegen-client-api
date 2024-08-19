@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **quantity** | **Integer** |  | 
 **billingCurrency** | [**CurrencyCd**](CurrencyCd.md) |  |  [optional]
 **dividendRatePct** | **Double** |  |  [optional]
-**tradeDate** | [**Date**](Date.md) |  | 
+**tradeDate** | [**LocalDate**](LocalDate.md) |  | 
 **termType** | [**TermType**](TermType.md) |  |  [optional]
-**termDate** | [**Date**](Date.md) |  |  [optional]
-**settlementDate** | [**Date**](Date.md) |  |  [optional]
+**termDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
+**settlementDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
 **settlementType** | [**SettlementType**](SettlementType.md) |  |  [optional]
 **collateral** | [**Collateral**](Collateral.md) |  | 
 **transactingParties** | [**TransactingParties**](TransactingParties.md) |  | 

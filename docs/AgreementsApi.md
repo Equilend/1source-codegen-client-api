@@ -82,8 +82,8 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 AgreementsApi apiInstance = new AgreementsApi();
-Date since = new Date(); // Date | Agreements created (since) timestamp UTC
-Date before = new Date(); // Date | Agreements created (before) timestamp UTC
+OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Agreements updated (since) timestamp UTC
+OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Agreements updated (before) timestamp UTC
 Integer size = 56; // Integer | Number of agreements to be returned. Can be used to facilitate paging
 try {
     Agreements result = apiInstance.ledgerAgreementsGet(since, before, size);
@@ -98,8 +98,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since** | **Date**| Agreements created (since) timestamp UTC | [optional]
- **before** | **Date**| Agreements created (before) timestamp UTC | [optional]
+ **since** | **OffsetDateTime**| Agreements updated (since) timestamp UTC | [optional]
+ **before** | **OffsetDateTime**| Agreements updated (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of agreements to be returned. Can be used to facilitate paging | [optional]
 
 ### Return type

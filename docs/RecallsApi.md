@@ -4,20 +4,20 @@ All URIs are relative to *https://stageapi.equilend.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ledgerContractsContractIdRecallsGet**](RecallsApi.md#ledgerContractsContractIdRecallsGet) | **GET** /ledger/contracts/{contractId}/recalls | Read collection of recalls against contract specified by &#x27;contractId&#x27;
-[**ledgerContractsContractIdRecallsPost**](RecallsApi.md#ledgerContractsContractIdRecallsPost) | **POST** /ledger/contracts/{contractId}/recalls | Initiates a recall
-[**ledgerContractsContractIdRecallsRecallIdCancelPost**](RecallsApi.md#ledgerContractsContractIdRecallsRecallIdCancelPost) | **POST** /ledger/contracts/{contractId}/recalls/{recallId}/cancel | Cancel a recall in \&quot;proposed\&quot; state. Original proposer only.
-[**ledgerContractsContractIdRecallsRecallIdGet**](RecallsApi.md#ledgerContractsContractIdRecallsRecallIdGet) | **GET** /ledger/contracts/{contractId}/recalls/{recallId} | Read a recall
-[**ledgerContractsContractIdRecallsRecallIdVenuecancelPost**](RecallsApi.md#ledgerContractsContractIdRecallsRecallIdVenuecancelPost) | **POST** /ledger/contracts/{contractId}/recalls/{recallId}/venuecancel | Cancel a recall in \&quot;proposed\&quot; state. Original proposer only.
-[**ledgerContractsContractIdVenuerecallsPost**](RecallsApi.md#ledgerContractsContractIdVenuerecallsPost) | **POST** /ledger/contracts/{contractId}/venuerecalls | For delegated venues to create a recall atomically
+[**ledgerLoansLoanIdRecallsGet**](RecallsApi.md#ledgerLoansLoanIdRecallsGet) | **GET** /ledger/loans/{loanId}/recalls | Read collection of recalls against loan specified by &#x27;loanId&#x27;
+[**ledgerLoansLoanIdRecallsPost**](RecallsApi.md#ledgerLoansLoanIdRecallsPost) | **POST** /ledger/loans/{loanId}/recalls | Initiates a recall
+[**ledgerLoansLoanIdRecallsRecallIdAcknowledgePost**](RecallsApi.md#ledgerLoansLoanIdRecallsRecallIdAcknowledgePost) | **POST** /ledger/loans/{loanId}/recalls/{recallId}/acknowledge | Acknowledge a pending recall. No change to status.
+[**ledgerLoansLoanIdRecallsRecallIdCancelPost**](RecallsApi.md#ledgerLoansLoanIdRecallsRecallIdCancelPost) | **POST** /ledger/loans/{loanId}/recalls/{recallId}/cancel | Cancel a recall in \&quot;proposed\&quot; state. Original proposer only.
+[**ledgerLoansLoanIdRecallsRecallIdGet**](RecallsApi.md#ledgerLoansLoanIdRecallsRecallIdGet) | **GET** /ledger/loans/{loanId}/recalls/{recallId} | Read a recall
+[**ledgerLoansLoanIdRecallsRecallIdPatch**](RecallsApi.md#ledgerLoansLoanIdRecallsRecallIdPatch) | **PATCH** /ledger/loans/{loanId}/recalls/{recallId} | Update unilateral fields on a recall
 [**ledgerRecallsGet**](RecallsApi.md#ledgerRecallsGet) | **GET** /ledger/recalls | Read collection of recalls
 [**ledgerRecallsRecallIdGet**](RecallsApi.md#ledgerRecallsRecallIdGet) | **GET** /ledger/recalls/{recallId} | Read a recall
 
-<a name="ledgerContractsContractIdRecallsGet"></a>
-# **ledgerContractsContractIdRecallsGet**
-> Recalls ledgerContractsContractIdRecallsGet(contractId)
+<a name="ledgerLoansLoanIdRecallsGet"></a>
+# **ledgerLoansLoanIdRecallsGet**
+> Recalls ledgerLoansLoanIdRecallsGet(loanId)
 
-Read collection of recalls against contract specified by &#x27;contractId&#x27;
+Read collection of recalls against loan specified by &#x27;loanId&#x27;
 
 ### Example
 ```java
@@ -35,12 +35,12 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 RecallsApi apiInstance = new RecallsApi();
-String contractId = "contractId_example"; // String | The unique identifier of a contract
+String loanId = "loanId_example"; // String | The unique identifier of a loan
 try {
-    Recalls result = apiInstance.ledgerContractsContractIdRecallsGet(contractId);
+    Recalls result = apiInstance.ledgerLoansLoanIdRecallsGet(loanId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling RecallsApi#ledgerContractsContractIdRecallsGet");
+    System.err.println("Exception when calling RecallsApi#ledgerLoansLoanIdRecallsGet");
     e.printStackTrace();
 }
 ```
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contractId** | [**String**](.md)| The unique identifier of a contract |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
 
 ### Return type
 
@@ -64,13 +64,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="ledgerContractsContractIdRecallsPost"></a>
-# **ledgerContractsContractIdRecallsPost**
-> ledgerContractsContractIdRecallsPost(body, contractId)
+<a name="ledgerLoansLoanIdRecallsPost"></a>
+# **ledgerLoansLoanIdRecallsPost**
+> ledgerLoansLoanIdRecallsPost(body, loanId)
 
 Initiates a recall
 
-Initiates a recall notice to return securities on a contract.  ### Validation rules:   - Caller must be the lender on the contract   - &#x60;contractId&#x60; -- must reference an &#x60;OPEN&#x60; contract   - &#x60;executionVenue&#x60;     - is mandatory     - if &#x60;executionVenue.type&#x60; &#x3D;&#x3D; &#x60;ONPLATFORM&#x60; then all other elements in &#x60;executionVenue&#x60; must be null     - if &#x60;executionVenue.type&#x60; &#x3D;&#x3D; &#x60;OFFPLATFORM&#x60; then &#x60;executionVenue.partyId&#x60;, &#x60;executionVenue.venueName&#x60;, and &#x60;executionVenue.partyRole&#x60; are mandatory   - &#x60;quantity&#x60;     - is mandatory     - must be &lt; 0     - must be &lt;&#x3D; contract open quantity - all existing open recall quantities   - &#x60;recallDate&#x60;     - is mandatory     - must be &gt;&#x3D; current day   - &#x60;recallDueDate&#x60;     - is mandatory     - must be &gt; &#x60;recallDate&#x60; 
+Initiates a recall notice to return securities on a loan.  ### Validation rules:   - Caller must be the lender on the loan   - &#x60;loanId&#x60; -- must reference an &#x60;OPEN&#x60; loan   - &#x60;executionVenue&#x60;     - is mandatory     - if &#x60;executionVenue.type&#x60; &#x3D;&#x3D; &#x60;ONPLATFORM&#x60; then all other elements in &#x60;executionVenue&#x60; must be null     - if &#x60;executionVenue.type&#x60; &#x3D;&#x3D; &#x60;OFFPLATFORM&#x60; then &#x60;executionVenue.partyId&#x60;, &#x60;executionVenue.venueName&#x60;, and &#x60;executionVenue.partyRole&#x60; are mandatory   - &#x60;quantity&#x60;     - is mandatory     - must be &lt; 0     - must be &lt;&#x3D; loan open quantity - all existing open recall quantities   - &#x60;recallDate&#x60;     - is mandatory     - must be &gt;&#x3D; current day   - &#x60;recallDueDate&#x60;     - is mandatory     - must be &gt; &#x60;recallDate&#x60; 
 
 ### Example
 ```java
@@ -88,12 +88,12 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 RecallsApi apiInstance = new RecallsApi();
-RecallProposal body = new RecallProposal(); // RecallProposal | New recall proposed against contract
-String contractId = "contractId_example"; // String | The unique identifier of a contract
+RecallProposal body = new RecallProposal(); // RecallProposal | New recall proposed against loan
+String loanId = "loanId_example"; // String | The unique identifier of a loan
 try {
-    apiInstance.ledgerContractsContractIdRecallsPost(body, contractId);
+    apiInstance.ledgerLoansLoanIdRecallsPost(body, loanId);
 } catch (ApiException e) {
-    System.err.println("Exception when calling RecallsApi#ledgerContractsContractIdRecallsPost");
+    System.err.println("Exception when calling RecallsApi#ledgerLoansLoanIdRecallsPost");
     e.printStackTrace();
 }
 ```
@@ -102,8 +102,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**RecallProposal**](RecallProposal.md)| New recall proposed against contract |
- **contractId** | [**String**](.md)| The unique identifier of a contract |
+ **body** | [**RecallProposal**](RecallProposal.md)| New recall proposed against loan |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
 
 ### Return type
 
@@ -118,9 +118,64 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="ledgerContractsContractIdRecallsRecallIdCancelPost"></a>
-# **ledgerContractsContractIdRecallsRecallIdCancelPost**
-> LedgerResponse ledgerContractsContractIdRecallsRecallIdCancelPost(contractId, recallId)
+<a name="ledgerLoansLoanIdRecallsRecallIdAcknowledgePost"></a>
+# **ledgerLoansLoanIdRecallsRecallIdAcknowledgePost**
+> LedgerResponse ledgerLoansLoanIdRecallsRecallIdAcknowledgePost(body, loanId, recallId)
+
+Acknowledge a pending recall. No change to status.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.RecallsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+RecallsApi apiInstance = new RecallsApi();
+RecallAcknowledgement body = new RecallAcknowledgement(); // RecallAcknowledgement | Acknowledge return with positive/negative intent
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+String recallId = "recallId_example"; // String | The unique identifier of a recall
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdRecallsRecallIdAcknowledgePost(body, loanId, recallId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling RecallsApi#ledgerLoansLoanIdRecallsRecallIdAcknowledgePost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**RecallAcknowledgement**](RecallAcknowledgement.md)| Acknowledge return with positive/negative intent |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+ **recallId** | [**String**](.md)| The unique identifier of a recall |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="ledgerLoansLoanIdRecallsRecallIdCancelPost"></a>
+# **ledgerLoansLoanIdRecallsRecallIdCancelPost**
+> LedgerResponse ledgerLoansLoanIdRecallsRecallIdCancelPost(loanId, recallId)
 
 Cancel a recall in \&quot;proposed\&quot; state. Original proposer only.
 
@@ -140,13 +195,13 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 RecallsApi apiInstance = new RecallsApi();
-String contractId = "contractId_example"; // String | The unique identifier of a contract
+String loanId = "loanId_example"; // String | The unique identifier of a loan
 String recallId = "recallId_example"; // String | The unique identifier of a recall
 try {
-    LedgerResponse result = apiInstance.ledgerContractsContractIdRecallsRecallIdCancelPost(contractId, recallId);
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdRecallsRecallIdCancelPost(loanId, recallId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling RecallsApi#ledgerContractsContractIdRecallsRecallIdCancelPost");
+    System.err.println("Exception when calling RecallsApi#ledgerLoansLoanIdRecallsRecallIdCancelPost");
     e.printStackTrace();
 }
 ```
@@ -155,7 +210,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contractId** | [**String**](.md)| The unique identifier of a contract |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
  **recallId** | [**String**](.md)| The unique identifier of a recall |
 
 ### Return type
@@ -171,9 +226,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="ledgerContractsContractIdRecallsRecallIdGet"></a>
-# **ledgerContractsContractIdRecallsRecallIdGet**
-> Recall ledgerContractsContractIdRecallsRecallIdGet(contractId, recallId)
+<a name="ledgerLoansLoanIdRecallsRecallIdGet"></a>
+# **ledgerLoansLoanIdRecallsRecallIdGet**
+> Recall ledgerLoansLoanIdRecallsRecallIdGet(loanId, recallId)
 
 Read a recall
 
@@ -193,13 +248,13 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 RecallsApi apiInstance = new RecallsApi();
-String contractId = "contractId_example"; // String | The unique identifier of a contract
+String loanId = "loanId_example"; // String | The unique identifier of a loan
 String recallId = "recallId_example"; // String | The unique identifier of a recall
 try {
-    Recall result = apiInstance.ledgerContractsContractIdRecallsRecallIdGet(contractId, recallId);
+    Recall result = apiInstance.ledgerLoansLoanIdRecallsRecallIdGet(loanId, recallId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling RecallsApi#ledgerContractsContractIdRecallsRecallIdGet");
+    System.err.println("Exception when calling RecallsApi#ledgerLoansLoanIdRecallsRecallIdGet");
     e.printStackTrace();
 }
 ```
@@ -208,7 +263,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contractId** | [**String**](.md)| The unique identifier of a contract |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
  **recallId** | [**String**](.md)| The unique identifier of a recall |
 
 ### Return type
@@ -224,11 +279,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="ledgerContractsContractIdRecallsRecallIdVenuecancelPost"></a>
-# **ledgerContractsContractIdRecallsRecallIdVenuecancelPost**
-> LedgerResponse ledgerContractsContractIdRecallsRecallIdVenuecancelPost(contractId, recallId)
+<a name="ledgerLoansLoanIdRecallsRecallIdPatch"></a>
+# **ledgerLoansLoanIdRecallsRecallIdPatch**
+> LedgerResponse ledgerLoansLoanIdRecallsRecallIdPatch(loanId, recallId, body)
 
-Cancel a recall in \&quot;proposed\&quot; state. Original proposer only.
+Update unilateral fields on a recall
 
 ### Example
 ```java
@@ -246,13 +301,14 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 RecallsApi apiInstance = new RecallsApi();
-String contractId = "contractId_example"; // String | The unique identifier of a contract
+String loanId = "loanId_example"; // String | The unique identifier of a loan
 String recallId = "recallId_example"; // String | The unique identifier of a recall
+RecallsRecallIdBody body = new RecallsRecallIdBody(); // RecallsRecallIdBody | 
 try {
-    LedgerResponse result = apiInstance.ledgerContractsContractIdRecallsRecallIdVenuecancelPost(contractId, recallId);
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdRecallsRecallIdPatch(loanId, recallId, body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling RecallsApi#ledgerContractsContractIdRecallsRecallIdVenuecancelPost");
+    System.err.println("Exception when calling RecallsApi#ledgerLoansLoanIdRecallsRecallIdPatch");
     e.printStackTrace();
 }
 ```
@@ -261,64 +317,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contractId** | [**String**](.md)| The unique identifier of a contract |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
  **recallId** | [**String**](.md)| The unique identifier of a recall |
+ **body** | [**RecallsRecallIdBody**](RecallsRecallIdBody.md)|  | [optional]
 
 ### Return type
 
 [**LedgerResponse**](LedgerResponse.md)
-
-### Authorization
-
-[stage_auth](../README.md#stage_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="ledgerContractsContractIdVenuerecallsPost"></a>
-# **ledgerContractsContractIdVenuerecallsPost**
-> ledgerContractsContractIdVenuerecallsPost(body, contractId)
-
-For delegated venues to create a recall atomically
-
-### Example
-```java
-// Import classes:
-//import com.os.client.invoker.ApiClient;
-//import com.os.client.invoker.ApiException;
-//import com.os.client.invoker.Configuration;
-//import com.os.client.invoker.auth.*;
-//import com.os.client.api.RecallsApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: stage_auth
-OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
-stage_auth.setAccessToken("YOUR ACCESS TOKEN");
-
-RecallsApi apiInstance = new RecallsApi();
-RecallProposal body = new RecallProposal(); // RecallProposal | New recall proposed against contract
-String contractId = "contractId_example"; // String | The unique identifier of a contract
-try {
-    apiInstance.ledgerContractsContractIdVenuerecallsPost(body, contractId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling RecallsApi#ledgerContractsContractIdVenuerecallsPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**RecallProposal**](RecallProposal.md)| New recall proposed against contract |
- **contractId** | [**String**](.md)| The unique identifier of a contract |
-
-### Return type
-
-null (empty response body)
 
 ### Authorization
 
@@ -331,7 +336,7 @@ null (empty response body)
 
 <a name="ledgerRecallsGet"></a>
 # **ledgerRecallsGet**
-> Recalls ledgerRecallsGet()
+> Recalls ledgerRecallsGet(since, before, size, recallStatus, figi, sedol, cusip, ticker, isin, partyId, venueRefKey)
 
 Read collection of recalls
 
@@ -351,8 +356,19 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 RecallsApi apiInstance = new RecallsApi();
+OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Recalls updated (since) timestamp UTC
+OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Recalls updated (before) timestamp UTC
+Integer size = 56; // Integer | Number of recalls to be returned. Can be used to facilitate paging
+RecallStatus recallStatus = new RecallStatus(); // RecallStatus | Recalls matching status RECALL STATUS
+String figi = "figi_example"; // String | Recalls with instrument matching FIGI
+String sedol = "sedol_example"; // String | Recalls with instrument matching SEDOL
+String cusip = "cusip_example"; // String | Recalls with instrument matching CUSIP
+String ticker = "ticker_example"; // String | Recalls with instrument matching TICKER
+String isin = "isin_example"; // String | Recalls with instrument matching ISIN
+String partyId = "partyId_example"; // String | Recalls with a transacting party mathing PARTY ID
+String venueRefKey = "venueRefKey_example"; // String | Recalls with venueRefKey matching VENUE REF KEY
 try {
-    Recalls result = apiInstance.ledgerRecallsGet();
+    Recalls result = apiInstance.ledgerRecallsGet(since, before, size, recallStatus, figi, sedol, cusip, ticker, isin, partyId, venueRefKey);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecallsApi#ledgerRecallsGet");
@@ -361,7 +377,20 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **since** | **OffsetDateTime**| Recalls updated (since) timestamp UTC | [optional]
+ **before** | **OffsetDateTime**| Recalls updated (before) timestamp UTC | [optional]
+ **size** | **Integer**| Number of recalls to be returned. Can be used to facilitate paging | [optional]
+ **recallStatus** | [**RecallStatus**](.md)| Recalls matching status RECALL STATUS | [optional]
+ **figi** | **String**| Recalls with instrument matching FIGI | [optional]
+ **sedol** | **String**| Recalls with instrument matching SEDOL | [optional]
+ **cusip** | **String**| Recalls with instrument matching CUSIP | [optional]
+ **ticker** | **String**| Recalls with instrument matching TICKER | [optional]
+ **isin** | **String**| Recalls with instrument matching ISIN | [optional]
+ **partyId** | [**String**](.md)| Recalls with a transacting party mathing PARTY ID | [optional]
+ **venueRefKey** | **String**| Recalls with venueRefKey matching VENUE REF KEY | [optional]
 
 ### Return type
 

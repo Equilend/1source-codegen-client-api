@@ -5,6 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **String** |  |  [optional]
 **type** | **String** |  |  [optional]
-**responseDateTime** | [**Date**](Date.md) |  |  [optional]
+**responseDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **message** | **String** |  | 
 **resourceUri** | **String** |  |  [optional]
