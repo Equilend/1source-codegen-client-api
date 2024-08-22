@@ -33,8 +33,8 @@ public enum ContractStatus {
   PENDING("PENDING"),
   @SerializedName("CANCEL_PENDING")
   CANCEL_PENDING("CANCEL_PENDING"),
-  @SerializedName("CANCELED")
-  CANCELED("CANCELED"),
+  @SerializedName("CANCELLED")
+  CANCELLED("CANCELLED"),
   @SerializedName("DECLINED")
   DECLINED("DECLINED"),
   @SerializedName("OPEN")
