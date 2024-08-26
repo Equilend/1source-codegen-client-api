@@ -61,11 +61,12 @@ public class EventsApiTest {
     @Test
     public void ledgerEventsGetTest() throws Exception {
         List<EventType> eventType = null;
+        Integer beforeEventId = null;
         Integer fromEventId = null;
         OffsetDateTime since = null;
         OffsetDateTime before = null;
         Integer size = null;
-        Events response = api.ledgerEventsGet(eventType, fromEventId, since, before, size);
+        Events response = api.ledgerEventsGet(eventType, beforeEventId, fromEventId, since, before, size);
 
         // TODO: test validations
     }
@@ -97,12 +98,12 @@ public class EventsApiTest {
     public void ledgerLoansLoanIdEventsGetTest() throws Exception {
         String loanId = null;
         List<EventType> eventType = null;
+        Integer beforeEventId = null;
         Integer fromEventId = null;
-        Integer toEventId = null;
         OffsetDateTime since = null;
         OffsetDateTime before = null;
         Integer size = null;
-        Events response = api.ledgerLoansLoanIdEventsGet(loanId, eventType, fromEventId, toEventId, since, before, size);
+        Events response = api.ledgerLoansLoanIdEventsGet(loanId, eventType, beforeEventId, fromEventId, since, before, size);
 
         // TODO: test validations
     }

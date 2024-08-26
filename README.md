@@ -2,7 +2,7 @@
 
 1Source Ledger API
 - API version: 1.1.0
-  - Build date: 2024-08-19T20:01:09.159040928Z[GMT]
+  - Build date: 2024-08-26T12:53:32.773036942Z[GMT]
 
 1Source Ledger API provides client access to the 1Source Ledger. You can find out more about 1Source at [https://equilend.com](https://equilend.com).  This specification is work in progress. The design is meant to model the securities lending life cycle in as clean a way as possible while being robust enough to easily translate to ISLA CDM workflows and data model.  API specification is the intellectual property of EquiLend LLC and should not be copied or disseminated in any way. 
 
@@ -427,4 +427,4 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 ## Last Update
 
-Monday, August 19, 2024 20:53:10
+Monday, August 26, 2024 08:53:10

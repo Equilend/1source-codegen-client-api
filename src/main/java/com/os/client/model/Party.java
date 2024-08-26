@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.os.client.model.PartyType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.io.Serializable;
@@ -26,7 +27,7 @@ import java.io.Serializable;
  * Party
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-08-19T20:45:27.999725349Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-08-26T12:53:32.773036942Z[GMT]")
 
 public class Party implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -35,6 +36,9 @@ public class Party implements Serializable{
 
   @SerializedName("partyName")
   private String partyName = null;
+
+  @SerializedName("partyType")
+  private PartyType partyType = null;
 
   @SerializedName("gleifLei")
   private String gleifLei = null;
@@ -76,6 +80,24 @@ public class Party implements Serializable{
 
   public void setPartyName(String partyName) {
     this.partyName = partyName;
+  }
+
+  public Party partyType(PartyType partyType) {
+    this.partyType = partyType;
+    return this;
+  }
+
+   /**
+   * Get partyType
+   * @return partyType
+  **/
+  @Schema(description = "")
+  public PartyType getPartyType() {
+    return partyType;
+  }
+
+  public void setPartyType(PartyType partyType) {
+    this.partyType = partyType;
   }
 
   public Party gleifLei(String gleifLei) {
@@ -126,13 +148,14 @@ public class Party implements Serializable{
     Party party = (Party) o;
     return Objects.equals(this.partyId, party.partyId) &&
         Objects.equals(this.partyName, party.partyName) &&
+        Objects.equals(this.partyType, party.partyType) &&
         Objects.equals(this.gleifLei, party.gleifLei) &&
         Objects.equals(this.internalPartyId, party.internalPartyId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(partyId, partyName, gleifLei, internalPartyId);
+    return Objects.hash(partyId, partyName, partyType, gleifLei, internalPartyId);
   }
 
 
@@ -143,6 +166,7 @@ public class Party implements Serializable{
     
     sb.append("    partyId: ").append(toIndentedString(partyId)).append("\n");
     sb.append("    partyName: ").append(toIndentedString(partyName)).append("\n");
+    sb.append("    partyType: ").append(toIndentedString(partyType)).append("\n");
     sb.append("    gleifLei: ").append(toIndentedString(gleifLei)).append("\n");
     sb.append("    internalPartyId: ").append(toIndentedString(internalPartyId)).append("\n");
     sb.append("}");

@@ -30,7 +30,7 @@ import java.io.Serializable;
  * Recall
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-08-19T20:45:27.999725349Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-08-26T12:53:32.773036942Z[GMT]")
 
 public class Recall implements Serializable{
   private static final long serialVersionUID = 1L;

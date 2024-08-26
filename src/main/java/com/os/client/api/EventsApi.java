@@ -185,6 +185,7 @@ public class EventsApi {
     /**
      * Build call for ledgerEventsGet
      * @param eventType Filter by event type (optional)
+     * @param beforeEventId  (optional)
      * @param fromEventId  (optional)
      * @param since Events (since) timestamp UTC (optional)
      * @param before Events (before) timestamp UTC (optional)
@@ -194,7 +195,7 @@ public class EventsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ledgerEventsGetCall(List<EventType> eventType, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call ledgerEventsGetCall(List<EventType> eventType, Integer beforeEventId, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -204,6 +205,8 @@ public class EventsApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (eventType != null)
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "eventType", eventType));
+        if (beforeEventId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("beforeEventId", beforeEventId));
         if (fromEventId != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("fromEventId", fromEventId));
         if (since != null)
@@ -246,9 +249,9 @@ public class EventsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ledgerEventsGetValidateBeforeCall(List<EventType> eventType, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call ledgerEventsGetValidateBeforeCall(List<EventType> eventType, Integer beforeEventId, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = ledgerEventsGetCall(eventType, fromEventId, since, before, size, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ledgerEventsGetCall(eventType, beforeEventId, fromEventId, since, before, size, progressListener, progressRequestListener);
         return call;
 
         
@@ -261,6 +264,7 @@ public class EventsApi {
      * Read collection of events. With no parameters returns events since start of current day.
      * 
      * @param eventType Filter by event type (optional)
+     * @param beforeEventId  (optional)
      * @param fromEventId  (optional)
      * @param since Events (since) timestamp UTC (optional)
      * @param before Events (before) timestamp UTC (optional)
@@ -268,8 +272,8 @@ public class EventsApi {
      * @return Events
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Events ledgerEventsGet(List<EventType> eventType, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size) throws ApiException {
-        ApiResponse<Events> resp = ledgerEventsGetWithHttpInfo(eventType, fromEventId, since, before, size);
+    public Events ledgerEventsGet(List<EventType> eventType, Integer beforeEventId, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size) throws ApiException {
+        ApiResponse<Events> resp = ledgerEventsGetWithHttpInfo(eventType, beforeEventId, fromEventId, since, before, size);
         return resp.getData();
     }
 
@@ -277,6 +281,7 @@ public class EventsApi {
      * Read collection of events. With no parameters returns events since start of current day.
      * 
      * @param eventType Filter by event type (optional)
+     * @param beforeEventId  (optional)
      * @param fromEventId  (optional)
      * @param since Events (since) timestamp UTC (optional)
      * @param before Events (before) timestamp UTC (optional)
@@ -284,8 +289,8 @@ public class EventsApi {
      * @return ApiResponse&lt;Events&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Events> ledgerEventsGetWithHttpInfo(List<EventType> eventType, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size) throws ApiException {
-        com.squareup.okhttp.Call call = ledgerEventsGetValidateBeforeCall(eventType, fromEventId, since, before, size, null, null);
+    public ApiResponse<Events> ledgerEventsGetWithHttpInfo(List<EventType> eventType, Integer beforeEventId, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size) throws ApiException {
+        com.squareup.okhttp.Call call = ledgerEventsGetValidateBeforeCall(eventType, beforeEventId, fromEventId, since, before, size, null, null);
         Type localVarReturnType = new TypeToken<Events>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -294,6 +299,7 @@ public class EventsApi {
      * Read collection of events. With no parameters returns events since start of current day. (asynchronously)
      * 
      * @param eventType Filter by event type (optional)
+     * @param beforeEventId  (optional)
      * @param fromEventId  (optional)
      * @param since Events (since) timestamp UTC (optional)
      * @param before Events (before) timestamp UTC (optional)
@@ -302,7 +308,7 @@ public class EventsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ledgerEventsGetAsync(List<EventType> eventType, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size, final ApiCallback<Events> callback) throws ApiException {
+    public com.squareup.okhttp.Call ledgerEventsGetAsync(List<EventType> eventType, Integer beforeEventId, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size, final ApiCallback<Events> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -323,7 +329,7 @@ public class EventsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ledgerEventsGetValidateBeforeCall(eventType, fromEventId, since, before, size, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ledgerEventsGetValidateBeforeCall(eventType, beforeEventId, fromEventId, since, before, size, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Events>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -466,8 +472,8 @@ public class EventsApi {
      * Build call for ledgerLoansLoanIdEventsGet
      * @param loanId The unique identifier of a loan (required)
      * @param eventType Filter by event type (optional)
+     * @param beforeEventId  (optional)
      * @param fromEventId  (optional)
-     * @param toEventId  (optional)
      * @param since Events (since) timestamp UTC (optional)
      * @param before Events (before) timestamp UTC (optional)
      * @param size Number of events to be returned. Can be used to facilitate paging (optional)
@@ -476,7 +482,7 @@ public class EventsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ledgerLoansLoanIdEventsGetCall(String loanId, List<EventType> eventType, Integer fromEventId, Integer toEventId, OffsetDateTime since, OffsetDateTime before, Integer size, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call ledgerLoansLoanIdEventsGetCall(String loanId, List<EventType> eventType, Integer beforeEventId, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -487,10 +493,10 @@ public class EventsApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (eventType != null)
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "eventType", eventType));
+        if (beforeEventId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("beforeEventId", beforeEventId));
         if (fromEventId != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("fromEventId", fromEventId));
-        if (toEventId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("toEventId", toEventId));
         if (since != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("since", since));
         if (before != null)
@@ -531,13 +537,13 @@ public class EventsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ledgerLoansLoanIdEventsGetValidateBeforeCall(String loanId, List<EventType> eventType, Integer fromEventId, Integer toEventId, OffsetDateTime since, OffsetDateTime before, Integer size, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call ledgerLoansLoanIdEventsGetValidateBeforeCall(String loanId, List<EventType> eventType, Integer beforeEventId, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'loanId' is set
         if (loanId == null) {
             throw new ApiException("Missing the required parameter 'loanId' when calling ledgerLoansLoanIdEventsGet(Async)");
         }
         
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdEventsGetCall(loanId, eventType, fromEventId, toEventId, since, before, size, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdEventsGetCall(loanId, eventType, beforeEventId, fromEventId, since, before, size, progressListener, progressRequestListener);
         return call;
 
         
@@ -551,16 +557,16 @@ public class EventsApi {
      * 
      * @param loanId The unique identifier of a loan (required)
      * @param eventType Filter by event type (optional)
+     * @param beforeEventId  (optional)
      * @param fromEventId  (optional)
-     * @param toEventId  (optional)
      * @param since Events (since) timestamp UTC (optional)
      * @param before Events (before) timestamp UTC (optional)
      * @param size Number of events to be returned. Can be used to facilitate paging (optional)
      * @return Events
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Events ledgerLoansLoanIdEventsGet(String loanId, List<EventType> eventType, Integer fromEventId, Integer toEventId, OffsetDateTime since, OffsetDateTime before, Integer size) throws ApiException {
-        ApiResponse<Events> resp = ledgerLoansLoanIdEventsGetWithHttpInfo(loanId, eventType, fromEventId, toEventId, since, before, size);
+    public Events ledgerLoansLoanIdEventsGet(String loanId, List<EventType> eventType, Integer beforeEventId, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size) throws ApiException {
+        ApiResponse<Events> resp = ledgerLoansLoanIdEventsGetWithHttpInfo(loanId, eventType, beforeEventId, fromEventId, since, before, size);
         return resp.getData();
     }
 
@@ -569,16 +575,16 @@ public class EventsApi {
      * 
      * @param loanId The unique identifier of a loan (required)
      * @param eventType Filter by event type (optional)
+     * @param beforeEventId  (optional)
      * @param fromEventId  (optional)
-     * @param toEventId  (optional)
      * @param since Events (since) timestamp UTC (optional)
      * @param before Events (before) timestamp UTC (optional)
      * @param size Number of events to be returned. Can be used to facilitate paging (optional)
      * @return ApiResponse&lt;Events&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Events> ledgerLoansLoanIdEventsGetWithHttpInfo(String loanId, List<EventType> eventType, Integer fromEventId, Integer toEventId, OffsetDateTime since, OffsetDateTime before, Integer size) throws ApiException {
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdEventsGetValidateBeforeCall(loanId, eventType, fromEventId, toEventId, since, before, size, null, null);
+    public ApiResponse<Events> ledgerLoansLoanIdEventsGetWithHttpInfo(String loanId, List<EventType> eventType, Integer beforeEventId, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size) throws ApiException {
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdEventsGetValidateBeforeCall(loanId, eventType, beforeEventId, fromEventId, since, before, size, null, null);
         Type localVarReturnType = new TypeToken<Events>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -588,8 +594,8 @@ public class EventsApi {
      * 
      * @param loanId The unique identifier of a loan (required)
      * @param eventType Filter by event type (optional)
+     * @param beforeEventId  (optional)
      * @param fromEventId  (optional)
-     * @param toEventId  (optional)
      * @param since Events (since) timestamp UTC (optional)
      * @param before Events (before) timestamp UTC (optional)
      * @param size Number of events to be returned. Can be used to facilitate paging (optional)
@@ -597,7 +603,7 @@ public class EventsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ledgerLoansLoanIdEventsGetAsync(String loanId, List<EventType> eventType, Integer fromEventId, Integer toEventId, OffsetDateTime since, OffsetDateTime before, Integer size, final ApiCallback<Events> callback) throws ApiException {
+    public com.squareup.okhttp.Call ledgerLoansLoanIdEventsGetAsync(String loanId, List<EventType> eventType, Integer beforeEventId, Integer fromEventId, OffsetDateTime since, OffsetDateTime before, Integer size, final ApiCallback<Events> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -618,7 +624,7 @@ public class EventsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdEventsGetValidateBeforeCall(loanId, eventType, fromEventId, toEventId, since, before, size, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdEventsGetValidateBeforeCall(loanId, eventType, beforeEventId, fromEventId, since, before, size, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Events>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

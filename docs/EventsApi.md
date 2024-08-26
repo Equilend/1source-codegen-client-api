@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerEventsGet"></a>
 # **ledgerEventsGet**
-> Events ledgerEventsGet(eventType, fromEventId, since, before, size)
+> Events ledgerEventsGet(eventType, beforeEventId, fromEventId, since, before, size)
 
 Read collection of events. With no parameters returns events since start of current day.
 
@@ -83,12 +83,13 @@ stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 EventsApi apiInstance = new EventsApi();
 List<EventType> eventType = Arrays.asList(new EventType()); // List<EventType> | Filter by event type
+Integer beforeEventId = 56; // Integer | 
 Integer fromEventId = 56; // Integer | 
 OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Events (since) timestamp UTC
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Events (before) timestamp UTC
 Integer size = 56; // Integer | Number of events to be returned. Can be used to facilitate paging. Defaults to 100
 try {
-    Events result = apiInstance.ledgerEventsGet(eventType, fromEventId, since, before, size);
+    Events result = apiInstance.ledgerEventsGet(eventType, beforeEventId, fromEventId, since, before, size);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EventsApi#ledgerEventsGet");
@@ -101,6 +102,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **eventType** | [**List&lt;EventType&gt;**](EventType.md)| Filter by event type | [optional]
+ **beforeEventId** | **Integer**|  | [optional]
  **fromEventId** | **Integer**|  | [optional]
  **since** | **OffsetDateTime**| Events (since) timestamp UTC | [optional]
  **before** | **OffsetDateTime**| Events (before) timestamp UTC | [optional]
@@ -174,7 +176,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerLoansLoanIdEventsGet"></a>
 # **ledgerLoansLoanIdEventsGet**
-> Events ledgerLoansLoanIdEventsGet(loanId, eventType, fromEventId, toEventId, since, before, size)
+> Events ledgerLoansLoanIdEventsGet(loanId, eventType, beforeEventId, fromEventId, since, before, size)
 
 Read collection of events against a specific loan. With no parameters returns events since start of current day.
 
@@ -196,13 +198,13 @@ stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 EventsApi apiInstance = new EventsApi();
 String loanId = "loanId_example"; // String | The unique identifier of a loan
 List<EventType> eventType = Arrays.asList(new EventType()); // List<EventType> | Filter by event type
+Integer beforeEventId = 56; // Integer | 
 Integer fromEventId = 56; // Integer | 
-Integer toEventId = 56; // Integer | 
 OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Events (since) timestamp UTC
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Events (before) timestamp UTC
 Integer size = 56; // Integer | Number of events to be returned. Can be used to facilitate paging
 try {
-    Events result = apiInstance.ledgerLoansLoanIdEventsGet(loanId, eventType, fromEventId, toEventId, since, before, size);
+    Events result = apiInstance.ledgerLoansLoanIdEventsGet(loanId, eventType, beforeEventId, fromEventId, since, before, size);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EventsApi#ledgerLoansLoanIdEventsGet");
@@ -216,8 +218,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loanId** | [**String**](.md)| The unique identifier of a loan |
  **eventType** | [**List&lt;EventType&gt;**](EventType.md)| Filter by event type | [optional]
+ **beforeEventId** | **Integer**|  | [optional]
  **fromEventId** | **Integer**|  | [optional]
- **toEventId** | **Integer**|  | [optional]
  **since** | **OffsetDateTime**| Events (since) timestamp UTC | [optional]
  **before** | **OffsetDateTime**| Events (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of events to be returned. Can be used to facilitate paging | [optional]
