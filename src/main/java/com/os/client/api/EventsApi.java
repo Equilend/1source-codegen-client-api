@@ -65,7 +65,7 @@ public class EventsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ledgerEventsEventIdGetCall(String eventId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call ledgerEventsEventIdGetCall(Long eventId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -108,7 +108,7 @@ public class EventsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ledgerEventsEventIdGetValidateBeforeCall(String eventId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call ledgerEventsEventIdGetValidateBeforeCall(Long eventId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'eventId' is set
         if (eventId == null) {
             throw new ApiException("Missing the required parameter 'eventId' when calling ledgerEventsEventIdGet(Async)");
@@ -130,7 +130,7 @@ public class EventsApi {
      * @return Event
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Event ledgerEventsEventIdGet(String eventId) throws ApiException {
+    public Event ledgerEventsEventIdGet(Long eventId) throws ApiException {
         ApiResponse<Event> resp = ledgerEventsEventIdGetWithHttpInfo(eventId);
         return resp.getData();
     }
@@ -142,7 +142,7 @@ public class EventsApi {
      * @return ApiResponse&lt;Event&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Event> ledgerEventsEventIdGetWithHttpInfo(String eventId) throws ApiException {
+    public ApiResponse<Event> ledgerEventsEventIdGetWithHttpInfo(Long eventId) throws ApiException {
         com.squareup.okhttp.Call call = ledgerEventsEventIdGetValidateBeforeCall(eventId, null, null);
         Type localVarReturnType = new TypeToken<Event>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -156,7 +156,7 @@ public class EventsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ledgerEventsEventIdGetAsync(String eventId, final ApiCallback<Event> callback) throws ApiException {
+    public com.squareup.okhttp.Call ledgerEventsEventIdGetAsync(Long eventId, final ApiCallback<Event> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -343,7 +343,7 @@ public class EventsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ledgerLoansLoanIdEventsEventIdGetCall(String loanId, String eventId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call ledgerLoansLoanIdEventsEventIdGetCall(String loanId, Long eventId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -387,7 +387,7 @@ public class EventsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ledgerLoansLoanIdEventsEventIdGetValidateBeforeCall(String loanId, String eventId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call ledgerLoansLoanIdEventsEventIdGetValidateBeforeCall(String loanId, Long eventId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'loanId' is set
         if (loanId == null) {
             throw new ApiException("Missing the required parameter 'loanId' when calling ledgerLoansLoanIdEventsEventIdGet(Async)");
@@ -414,7 +414,7 @@ public class EventsApi {
      * @return Event
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Event ledgerLoansLoanIdEventsEventIdGet(String loanId, String eventId) throws ApiException {
+    public Event ledgerLoansLoanIdEventsEventIdGet(String loanId, Long eventId) throws ApiException {
         ApiResponse<Event> resp = ledgerLoansLoanIdEventsEventIdGetWithHttpInfo(loanId, eventId);
         return resp.getData();
     }
@@ -427,7 +427,7 @@ public class EventsApi {
      * @return ApiResponse&lt;Event&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Event> ledgerLoansLoanIdEventsEventIdGetWithHttpInfo(String loanId, String eventId) throws ApiException {
+    public ApiResponse<Event> ledgerLoansLoanIdEventsEventIdGetWithHttpInfo(String loanId, Long eventId) throws ApiException {
         com.squareup.okhttp.Call call = ledgerLoansLoanIdEventsEventIdGetValidateBeforeCall(loanId, eventId, null, null);
         Type localVarReturnType = new TypeToken<Event>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -442,7 +442,7 @@ public class EventsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ledgerLoansLoanIdEventsEventIdGetAsync(String loanId, String eventId, final ApiCallback<Event> callback) throws ApiException {
+    public com.squareup.okhttp.Call ledgerLoansLoanIdEventsEventIdGetAsync(String loanId, Long eventId, final ApiCallback<Event> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

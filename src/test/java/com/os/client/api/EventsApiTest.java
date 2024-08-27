@@ -45,7 +45,7 @@ public class EventsApiTest {
      */
     @Test
     public void ledgerEventsEventIdGetTest() throws Exception {
-        String eventId = null;
+        Long eventId = null;
         Event response = api.ledgerEventsEventIdGet(eventId);
 
         // TODO: test validations
@@ -81,7 +81,7 @@ public class EventsApiTest {
     @Test
     public void ledgerLoansLoanIdEventsEventIdGetTest() throws Exception {
         String loanId = null;
-        String eventId = null;
+        Long eventId = null;
         Event response = api.ledgerLoansLoanIdEventsEventIdGet(loanId, eventId);
 
         // TODO: test validations

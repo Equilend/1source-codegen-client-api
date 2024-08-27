@@ -28,12 +28,12 @@ import java.io.Serializable;
  * Event
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-08-26T12:53:32.773036942Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-08-27T13:48:56.226029628Z[GMT]")
 
 public class Event implements Serializable{
   private static final long serialVersionUID = 1L;
   @SerializedName("eventId")
-  private String eventId = null;
+  private Long eventId = null;
 
   @SerializedName("eventType")
   private EventType eventType = null;
@@ -44,7 +44,7 @@ public class Event implements Serializable{
   @SerializedName("resourceUri")
   private String resourceUri = null;
 
-  public Event eventId(String eventId) {
+  public Event eventId(Long eventId) {
     this.eventId = eventId;
     return this;
   }
@@ -54,11 +54,11 @@ public class Event implements Serializable{
    * @return eventId
   **/
   @Schema(required = true, description = "")
-  public String getEventId() {
+  public Long getEventId() {
     return eventId;
   }
 
-  public void setEventId(String eventId) {
+  public void setEventId(Long eventId) {
     this.eventId = eventId;
   }
 

@@ -31,7 +31,7 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 EventsApi apiInstance = new EventsApi();
-String eventId = "eventId_example"; // String | The unique identifier of an event
+Long eventId = 56L; // Long | The unique identifier of an event
 try {
     Event result = apiInstance.ledgerEventsEventIdGet(eventId);
     System.out.println(result);
@@ -45,7 +45,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eventId** | [**String**](.md)| The unique identifier of an event |
+ **eventId** | [**Long**](.md)| The unique identifier of an event |
 
 ### Return type
 
@@ -144,7 +144,7 @@ stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 EventsApi apiInstance = new EventsApi();
 String loanId = "loanId_example"; // String | The unique identifier of a loan
-String eventId = "eventId_example"; // String | The unique identifier of an Event
+Long eventId = 56L; // Long | The unique identifier of an Event
 try {
     Event result = apiInstance.ledgerLoansLoanIdEventsEventIdGet(loanId, eventId);
     System.out.println(result);
@@ -159,7 +159,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loanId** | [**String**](.md)| The unique identifier of a loan |
- **eventId** | [**String**](.md)| The unique identifier of an Event |
+ **eventId** | [**Long**](.md)| The unique identifier of an Event |
 
 ### Return type
 
