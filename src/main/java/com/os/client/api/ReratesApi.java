@@ -41,6 +41,7 @@ import java.util.Map;
 
 public class ReratesApi {
     private ApiClient apiClient;
+    private Map<String, String> headers;
 
     public ReratesApi() {
         this(Configuration.getDefaultApiClient());
@@ -56,6 +57,10 @@ public class ReratesApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    public void setHeadersOverrides(Map<String, String> headers) {
+        this.headers = headers;
     }
 
     /**
@@ -105,6 +110,9 @@ public class ReratesApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -231,6 +239,9 @@ public class ReratesApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -361,6 +372,9 @@ public class ReratesApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -495,6 +509,9 @@ public class ReratesApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -629,6 +646,9 @@ public class ReratesApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -763,6 +783,9 @@ public class ReratesApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -897,6 +920,9 @@ public class ReratesApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1060,6 +1086,9 @@ public class ReratesApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1211,6 +1240,9 @@ public class ReratesApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

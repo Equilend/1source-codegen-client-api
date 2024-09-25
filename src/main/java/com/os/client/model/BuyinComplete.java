@@ -30,7 +30,7 @@ import java.io.Serializable;
  * BuyinComplete
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-08-27T13:48:56.226029628Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-09-25T16:59:29.530075741Z[GMT]")
 
 public class BuyinComplete implements Serializable{
   private static final long serialVersionUID = 1L;

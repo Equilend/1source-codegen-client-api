@@ -38,6 +38,7 @@ import java.util.Map;
 
 public class PartiesApi {
     private ApiClient apiClient;
+    private Map<String, String> headers;
 
     public PartiesApi() {
         this(Configuration.getDefaultApiClient());
@@ -53,6 +54,10 @@ public class PartiesApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    public void setHeadersOverrides(Map<String, String> headers) {
+        this.headers = headers;
     }
 
     /**
@@ -115,6 +120,9 @@ public class PartiesApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

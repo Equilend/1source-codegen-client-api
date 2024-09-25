@@ -35,6 +35,8 @@ public enum RerateStatus {
   CANCEL_PENDING("CANCEL_PENDING"),
   @SerializedName("CANCELED")
   CANCELED("CANCELED"),
+  @SerializedName("DECLINED")
+  DECLINED("DECLINED"),
   @SerializedName("APPLIED")
   APPLIED("APPLIED");
 

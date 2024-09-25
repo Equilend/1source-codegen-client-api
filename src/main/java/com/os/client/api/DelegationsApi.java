@@ -39,6 +39,7 @@ import java.util.Map;
 
 public class DelegationsApi {
     private ApiClient apiClient;
+    private Map<String, String> headers;
 
     public DelegationsApi() {
         this(Configuration.getDefaultApiClient());
@@ -54,6 +55,10 @@ public class DelegationsApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    public void setHeadersOverrides(Map<String, String> headers) {
+        this.headers = headers;
     }
 
     /**
@@ -103,6 +108,9 @@ public class DelegationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -228,6 +236,9 @@ public class DelegationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -353,6 +364,9 @@ public class DelegationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -478,6 +492,9 @@ public class DelegationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -601,6 +618,9 @@ public class DelegationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -718,6 +738,9 @@ public class DelegationsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     

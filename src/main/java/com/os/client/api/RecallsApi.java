@@ -43,6 +43,7 @@ import java.util.Map;
 
 public class RecallsApi {
     private ApiClient apiClient;
+    private Map<String, String> headers;
 
     public RecallsApi() {
         this(Configuration.getDefaultApiClient());
@@ -58,6 +59,10 @@ public class RecallsApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    public void setHeadersOverrides(Map<String, String> headers) {
+        this.headers = headers;
     }
 
     /**
@@ -107,6 +112,9 @@ public class RecallsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -233,6 +241,9 @@ public class RecallsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -364,6 +375,9 @@ public class RecallsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -505,6 +519,9 @@ public class RecallsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -639,6 +656,9 @@ public class RecallsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -774,6 +794,9 @@ public class RecallsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -940,6 +963,9 @@ public class RecallsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1091,6 +1117,9 @@ public class RecallsApi {
         }
 
         String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
