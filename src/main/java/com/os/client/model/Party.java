@@ -148,14 +148,12 @@ public class Party implements Serializable{
     Party party = (Party) o;
     return Objects.equals(this.partyId, party.partyId) &&
         Objects.equals(this.partyName, party.partyName) &&
-        Objects.equals(this.partyType, party.partyType) &&
-        Objects.equals(this.gleifLei, party.gleifLei) &&
-        Objects.equals(this.internalPartyId, party.internalPartyId);
+        Objects.equals(this.gleifLei, party.gleifLei);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(partyId, partyName, partyType, gleifLei, internalPartyId);
+    return Objects.hash(partyId, partyName, gleifLei);
   }
 
 
