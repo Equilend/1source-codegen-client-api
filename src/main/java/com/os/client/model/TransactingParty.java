@@ -29,7 +29,7 @@ import java.io.Serializable;
  * TransactingParty
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-09-25T16:59:29.530075741Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-11-05T14:31:33.159170711Z[GMT]")
 
 public class TransactingParty implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -51,7 +51,7 @@ public class TransactingParty implements Serializable{
    * Get partyRole
    * @return partyRole
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public PartyRole getPartyRole() {
     return partyRole;
   }
@@ -69,7 +69,7 @@ public class TransactingParty implements Serializable{
    * Get party
    * @return party
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public Party getParty() {
     return party;
   }

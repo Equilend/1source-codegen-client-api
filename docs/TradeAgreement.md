@@ -8,12 +8,12 @@ Name | Type | Description | Notes
 **rate** | [**Rate**](Rate.md) |  | 
 **quantity** | **Integer** |  | 
 **openQuantity** | **Integer** |  |  [optional]
-**billingCurrency** | [**CurrencyCd**](CurrencyCd.md) |  |  [optional]
+**billingCurrency** | [**CurrencyCd**](CurrencyCd.md) |  | 
 **dividendRatePct** | **Double** |  |  [optional]
 **tradeDate** | [**LocalDate**](LocalDate.md) |  | 
-**termType** | [**TermType**](TermType.md) |  |  [optional]
+**termType** | [**TermType**](TermType.md) |  | 
 **termDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
-**settlementDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
-**settlementType** | [**SettlementType**](SettlementType.md) |  |  [optional]
+**settlementDate** | [**LocalDate**](LocalDate.md) |  | 
+**settlementType** | [**SettlementType**](SettlementType.md) |  | 
 **collateral** | [**Collateral**](Collateral.md) |  | 
 **transactingParties** | [**TransactingParties**](TransactingParties.md) |  | 

@@ -5,5 +5,5 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **value** | **Double** |  |  [optional]
 **currency** | [**CurrencyCd**](CurrencyCd.md) |  |  [optional]
-**unit** | [**PriceUnit**](PriceUnit.md) |  |  [optional]
+**unit** | [**PriceBasis**](PriceBasis.md) |  |  [optional]
 **valueDate** | [**LocalDate**](LocalDate.md) |  |  [optional]

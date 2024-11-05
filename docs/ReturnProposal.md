@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**executionVenue** | [**Venue**](Venue.md) |  |  [optional]
+**executionVenue** | [**Venue**](Venue.md) |  | 
 **quantity** | **Integer** |  | 
 **returnDate** | [**LocalDate**](LocalDate.md) |  | 
 **returnSettlementDate** | [**LocalDate**](LocalDate.md) |  | 

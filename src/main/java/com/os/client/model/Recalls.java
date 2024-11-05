@@ -22,7 +22,7 @@ import java.io.Serializable;
  * Recalls
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-09-25T16:59:29.530075741Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-11-05T14:31:33.159170711Z[GMT]")
 
 public class Recalls extends ArrayList<Recall> implements Serializable{
   private static final long serialVersionUID = 1L;

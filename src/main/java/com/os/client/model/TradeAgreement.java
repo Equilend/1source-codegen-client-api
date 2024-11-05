@@ -35,7 +35,7 @@ import java.io.Serializable;
  * TradeAgreement
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-09-25T16:59:29.530075741Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-11-05T14:31:33.159170711Z[GMT]")
 
 public class TradeAgreement implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -180,7 +180,7 @@ public class TradeAgreement implements Serializable{
    * Get billingCurrency
    * @return billingCurrency
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public CurrencyCd getBillingCurrency() {
     return billingCurrency;
   }
@@ -234,7 +234,7 @@ public class TradeAgreement implements Serializable{
    * Get termType
    * @return termType
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public TermType getTermType() {
     return termType;
   }
@@ -270,7 +270,7 @@ public class TradeAgreement implements Serializable{
    * Get settlementDate
    * @return settlementDate
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public LocalDate getSettlementDate() {
     return settlementDate;
   }
@@ -288,7 +288,7 @@ public class TradeAgreement implements Serializable{
    * Get settlementType
    * @return settlementType
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public SettlementType getSettlementType() {
     return settlementType;
   }

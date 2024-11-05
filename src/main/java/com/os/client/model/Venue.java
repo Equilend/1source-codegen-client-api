@@ -29,7 +29,7 @@ import java.io.Serializable;
  * A third-party service that generates loans, returns, recalls, rerates
  */
 @Schema(description = "A third-party service that generates loans, returns, recalls, rerates")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-09-25T16:59:29.530075741Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-11-05T14:31:33.159170711Z[GMT]")
 
 public class Venue implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -54,7 +54,7 @@ public class Venue implements Serializable{
    * Get party
    * @return party
   **/
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Party getParty() {
     return party;
   }
@@ -72,7 +72,7 @@ public class Venue implements Serializable{
    * Get type
    * @return type
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public VenueType getType() {
     return type;
   }

@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.os.client.model.CurrencyCd;
-import com.os.client.model.PriceUnit;
+import com.os.client.model.PriceBasis;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -29,7 +29,7 @@ import java.io.Serializable;
  * Price is ignored for trade agreements and loan proposals
  */
 @Schema(description = "Price is ignored for trade agreements and loan proposals")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-09-25T16:59:29.530075741Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-11-05T14:31:33.159170711Z[GMT]")
 
 public class Price implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -40,7 +40,7 @@ public class Price implements Serializable{
   private CurrencyCd currency = null;
 
   @SerializedName("unit")
-  private PriceUnit unit = null;
+  private PriceBasis unit = null;
 
   @SerializedName("valueDate")
   private LocalDate valueDate = null;
@@ -81,7 +81,7 @@ public class Price implements Serializable{
     this.currency = currency;
   }
 
-  public Price unit(PriceUnit unit) {
+  public Price unit(PriceBasis unit) {
     this.unit = unit;
     return this;
   }
@@ -91,11 +91,11 @@ public class Price implements Serializable{
    * @return unit
   **/
   @Schema(description = "")
-  public PriceUnit getUnit() {
+  public PriceBasis getUnit() {
     return unit;
   }
 
-  public void setUnit(PriceUnit unit) {
+  public void setUnit(PriceBasis unit) {
     this.unit = unit;
   }
 

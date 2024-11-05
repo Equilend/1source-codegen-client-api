@@ -14,6 +14,7 @@ package com.os.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.io.IOException;
@@ -23,22 +24,22 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets PriceUnit
+ * Gets or Sets PriceBasis
  */
-@JsonAdapter(PriceUnit.Adapter.class)
-public enum PriceUnit {
-  @SerializedName("SHARE")
-  SHARE("SHARE"),
-  @SerializedName("LOT")
-  LOT("LOT");
+@JsonAdapter(PriceBasis.Adapter.class)
+public enum PriceBasis {
+  @SerializedName("new BigDecimal(1)")
+  NUMBER_1(new BigDecimal(1)),
+  @SerializedName("new BigDecimal(100)")
+  NUMBER_100(new BigDecimal(100));
 
-  private String value;
+  private BigDecimal value;
 
-  PriceUnit(String value) {
+  PriceBasis(BigDecimal value) {
     this.value = value;
   }
 
-  public String getValue() {
+  public BigDecimal getValue() {
     return value;
   }
 
@@ -47,8 +48,8 @@ public enum PriceUnit {
     return String.valueOf(value);
   }
 
-  public static PriceUnit fromValue(String input) {
-    for (PriceUnit b : PriceUnit.values()) {
+  public static PriceBasis fromValue(BigDecimal input) {
+    for (PriceBasis b : PriceBasis.values()) {
       if (b.value.equals(input)) {
         return b;
       }
@@ -56,16 +57,16 @@ public enum PriceUnit {
     return null;
   }
 
-  public static class Adapter extends TypeAdapter<PriceUnit> {
+  public static class Adapter extends TypeAdapter<PriceBasis> {
     @Override
-    public void write(final JsonWriter jsonWriter, final PriceUnit enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final PriceBasis enumeration) throws IOException {
       jsonWriter.value(String.valueOf(enumeration.getValue()));
     }
 
     @Override
-    public PriceUnit read(final JsonReader jsonReader) throws IOException {
-      Object value = jsonReader.nextString();
-      return PriceUnit.fromValue((String)(value));
+    public PriceBasis read(final JsonReader jsonReader) throws IOException {
+      Object value = new BigDecimal(jsonReader.nextDouble());
+      return PriceBasis.fromValue((BigDecimal)(value));
     }
   }
 }

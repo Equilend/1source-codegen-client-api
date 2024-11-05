@@ -30,7 +30,7 @@ import java.io.Serializable;
  * Collateral
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-09-25T16:59:29.530075741Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-11-05T14:31:33.159170711Z[GMT]")
 
 public class Collateral implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -70,7 +70,7 @@ public class Collateral implements Serializable{
    * Get contractPrice
    * @return contractPrice
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public Double getContractPrice() {
     return contractPrice;
   }
@@ -178,7 +178,7 @@ public class Collateral implements Serializable{
    * Get margin
    * @return margin
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public Double getMargin() {
     return margin;
   }
@@ -193,10 +193,10 @@ public class Collateral implements Serializable{
   }
 
    /**
-   * Get roundingRule
+   * Required when Lender proposes
    * @return roundingRule
   **/
-  @Schema(description = "")
+  @Schema(description = "Required when Lender proposes")
   public Integer getRoundingRule() {
     return roundingRule;
   }

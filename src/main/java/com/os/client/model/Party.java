@@ -27,7 +27,7 @@ import java.io.Serializable;
  * Party
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-09-25T16:59:29.530075741Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-11-05T14:31:33.159170711Z[GMT]")
 
 public class Party implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -148,12 +148,14 @@ public class Party implements Serializable{
     Party party = (Party) o;
     return Objects.equals(this.partyId, party.partyId) &&
         Objects.equals(this.partyName, party.partyName) &&
-        Objects.equals(this.gleifLei, party.gleifLei);
+        Objects.equals(this.partyType, party.partyType) &&
+        Objects.equals(this.gleifLei, party.gleifLei) &&
+        Objects.equals(this.internalPartyId, party.internalPartyId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(partyId, partyName, gleifLei);
+    return Objects.hash(partyId, partyName, partyType, gleifLei, internalPartyId);
   }
 
 

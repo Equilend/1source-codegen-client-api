@@ -30,7 +30,7 @@ import java.io.Serializable;
  * LoanProposal
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-09-25T16:59:29.530075741Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-11-05T14:31:33.159170711Z[GMT]")
 
 public class LoanProposal implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -38,7 +38,7 @@ public class LoanProposal implements Serializable{
   private TradeAgreement trade = null;
 
   @SerializedName("settlement")
-  private List<PartySettlementInstruction> settlement = null;
+  private List<PartySettlementInstruction> settlement = new ArrayList<>();
 
   public LoanProposal trade(TradeAgreement trade) {
     this.trade = trade;
@@ -49,7 +49,7 @@ public class LoanProposal implements Serializable{
    * Get trade
    * @return trade
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public TradeAgreement getTrade() {
     return trade;
   }
@@ -64,9 +64,6 @@ public class LoanProposal implements Serializable{
   }
 
   public LoanProposal addSettlementItem(PartySettlementInstruction settlementItem) {
-    if (this.settlement == null) {
-      this.settlement = new ArrayList<>();
-    }
     this.settlement.add(settlementItem);
     return this;
   }
@@ -75,7 +72,7 @@ public class LoanProposal implements Serializable{
    * Get settlement
    * @return settlement
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public List<PartySettlementInstruction> getSettlement() {
     return settlement;
   }
