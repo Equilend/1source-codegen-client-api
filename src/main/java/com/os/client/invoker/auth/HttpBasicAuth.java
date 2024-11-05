@@ -12,14 +12,11 @@
 
 package com.os.client.invoker.auth;
 
-import com.os.client.invoker.Pair;
-
-import com.squareup.okhttp.Credentials;
-
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
-import java.io.UnsupportedEncodingException;
+import com.os.client.invoker.Pair;
+import com.squareup.okhttp.Credentials;
 
 public class HttpBasicAuth implements Authentication {
     private String username;

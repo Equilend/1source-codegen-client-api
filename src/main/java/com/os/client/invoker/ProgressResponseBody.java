@@ -12,10 +12,10 @@
 
 package com.os.client.invoker;
 
+import java.io.IOException;
+
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.ResponseBody;
-
-import java.io.IOException;
 
 import okio.Buffer;
 import okio.BufferedSource;

@@ -12,10 +12,10 @@
 
 package com.os.client.invoker.auth;
 
-import com.os.client.invoker.Pair;
-
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
+
+import com.os.client.invoker.Pair;
 
 public interface Authentication {
     /**

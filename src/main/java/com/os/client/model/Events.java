@@ -12,12 +12,9 @@
 
 package com.os.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.os.client.model.Event;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Objects;
 /**
  * Events
  */

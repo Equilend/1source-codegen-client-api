@@ -12,26 +12,16 @@
 
 package com.os.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.os.client.model.AcknowledgementType;
-import com.os.client.model.Collateral;
-import com.os.client.model.PartySettlementInstruction;
-import com.os.client.model.ReturnStatus;
-import com.os.client.model.SettlementType;
-import com.os.client.model.Venue;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.Serializable;
+import java.util.Objects;
+
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * ModelReturn
  */
