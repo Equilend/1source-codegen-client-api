@@ -4,4 +4,4 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **loanId** | **String** |  | 
-**internalRefId** | **String** |  |  [optional]
+**internalRef** | [**InternalReference**](InternalReference.md) |  | 

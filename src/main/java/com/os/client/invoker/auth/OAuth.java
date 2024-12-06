@@ -17,7 +17,7 @@ import java.util.Map;
 
 import com.os.client.invoker.Pair;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-06T16:12:41.344560814Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-06T16:53:48.159594260Z[GMT]")
 public class OAuth implements Authentication {
   private String accessToken;
 

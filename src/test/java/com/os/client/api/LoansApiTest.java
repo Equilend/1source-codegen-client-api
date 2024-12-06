@@ -12,6 +12,12 @@
 
 package com.os.client.api;
 
+import java.time.OffsetDateTime;
+import java.util.List;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
 import com.os.client.model.LedgerResponse;
 import com.os.client.model.Loan;
 import com.os.client.model.LoanProposal;
@@ -25,16 +31,7 @@ import com.os.client.model.LoanSplitLotAcknowledge;
 import com.os.client.model.LoanStatus;
 import com.os.client.model.Loans;
 import com.os.client.model.LoansLoanIdBody;
-import java.time.OffsetDateTime;
 import com.os.client.model.Rates;
-import org.junit.Test;
-import org.junit.Ignore;
-
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 /**

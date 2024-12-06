@@ -19,32 +19,32 @@ import com.google.gson.annotations.SerializedName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * FloatingRate
+ * A Transacting Party&#x27;s internal system identifier for this contract
  */
-
+@Schema(description = "A Transacting Party's internal system identifier for this contract")
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-06T16:53:48.159594260Z[GMT]")
 
-public class FloatingRate implements Serializable, OneOfRebateRateRebate {
+public class InternalReference implements Serializable{
   private static final long serialVersionUID = 1L;
-  @SerializedName("floating")
-  private FloatingRateDef floating = null;
+  @SerializedName("internalRefId")
+  private String internalRefId = null;
 
-  public FloatingRate floating(FloatingRateDef floating) {
-    this.floating = floating;
+  public InternalReference internalRefId(String internalRefId) {
+    this.internalRefId = internalRefId;
     return this;
   }
 
    /**
-   * Get floating
-   * @return floating
+   * Get internalRefId
+   * @return internalRefId
   **/
-  @Schema(description = "")
-  public FloatingRateDef getFloating() {
-    return floating;
+  @Schema(required = true, description = "")
+  public String getInternalRefId() {
+    return internalRefId;
   }
 
-  public void setFloating(FloatingRateDef floating) {
-    this.floating = floating;
+  public void setInternalRefId(String internalRefId) {
+    this.internalRefId = internalRefId;
   }
 
 
@@ -56,22 +56,22 @@ public class FloatingRate implements Serializable, OneOfRebateRateRebate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FloatingRate floatingRate = (FloatingRate) o;
-    return Objects.equals(this.floating, floatingRate.floating);
+    InternalReference internalReference = (InternalReference) o;
+    return Objects.equals(this.internalRefId, internalReference.internalRefId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(floating);
+    return Objects.hash(internalRefId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FloatingRate {\n");
+    sb.append("class InternalReference {\n");
     
-    sb.append("    floating: ").append(toIndentedString(floating)).append("\n");
+    sb.append("    internalRefId: ").append(toIndentedString(internalRefId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

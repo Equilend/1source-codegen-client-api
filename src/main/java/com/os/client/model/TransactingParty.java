@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * TransactingParty
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-06T16:12:41.344560814Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-06T16:53:48.159594260Z[GMT]")
 
 public class TransactingParty implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -32,8 +32,8 @@ public class TransactingParty implements Serializable{
   @SerializedName("party")
   private Party party = null;
 
-  @SerializedName("internalRefId")
-  private String internalRefId = null;
+  @SerializedName("internalRef")
+  private InternalReference internalRef = null;
 
   public TransactingParty partyRole(PartyRole partyRole) {
     this.partyRole = partyRole;
@@ -71,22 +71,22 @@ public class TransactingParty implements Serializable{
     this.party = party;
   }
 
-  public TransactingParty internalRefId(String internalRefId) {
-    this.internalRefId = internalRefId;
+  public TransactingParty internalRef(InternalReference internalRef) {
+    this.internalRef = internalRef;
     return this;
   }
 
    /**
-   * Get internalRefId
-   * @return internalRefId
+   * Get internalRef
+   * @return internalRef
   **/
-  @Schema(description = "")
-  public String getInternalRefId() {
-    return internalRefId;
+  @Schema(required = true, description = "")
+  public InternalReference getInternalRef() {
+    return internalRef;
   }
 
-  public void setInternalRefId(String internalRefId) {
-    this.internalRefId = internalRefId;
+  public void setInternalRef(InternalReference internalRef) {
+    this.internalRef = internalRef;
   }
 
 
@@ -101,12 +101,12 @@ public class TransactingParty implements Serializable{
     TransactingParty transactingParty = (TransactingParty) o;
     return Objects.equals(this.partyRole, transactingParty.partyRole) &&
         Objects.equals(this.party, transactingParty.party) &&
-        Objects.equals(this.internalRefId, transactingParty.internalRefId);
+        Objects.equals(this.internalRef, transactingParty.internalRef);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(partyRole, party, internalRefId);
+    return Objects.hash(partyRole, party, internalRef);
   }
 
 
@@ -117,7 +117,7 @@ public class TransactingParty implements Serializable{
     
     sb.append("    partyRole: ").append(toIndentedString(partyRole)).append("\n");
     sb.append("    party: ").append(toIndentedString(party)).append("\n");
-    sb.append("    internalRefId: ").append(toIndentedString(internalRefId)).append("\n");
+    sb.append("    internalRef: ").append(toIndentedString(internalRef)).append("\n");
     sb.append("}");
     return sb.toString();
   }

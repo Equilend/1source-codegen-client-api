@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * LoanSplitLot
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-06T16:12:41.344560814Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-06T16:53:48.159594260Z[GMT]")
 
 public class LoanSplitLot implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -32,8 +32,8 @@ public class LoanSplitLot implements Serializable{
   @SerializedName("quantity")
   private Integer quantity = null;
 
-  @SerializedName("internalRefId")
-  private String internalRefId = null;
+  @SerializedName("internalRef")
+  private InternalReference internalRef = null;
 
   @SerializedName("settlement")
   private PartySettlementInstruction settlement = null;
@@ -74,22 +74,22 @@ public class LoanSplitLot implements Serializable{
     this.quantity = quantity;
   }
 
-  public LoanSplitLot internalRefId(String internalRefId) {
-    this.internalRefId = internalRefId;
+  public LoanSplitLot internalRef(InternalReference internalRef) {
+    this.internalRef = internalRef;
     return this;
   }
 
    /**
-   * Get internalRefId
-   * @return internalRefId
+   * Get internalRef
+   * @return internalRef
   **/
-  @Schema(description = "")
-  public String getInternalRefId() {
-    return internalRefId;
+  @Schema(required = true, description = "")
+  public InternalReference getInternalRef() {
+    return internalRef;
   }
 
-  public void setInternalRefId(String internalRefId) {
-    this.internalRefId = internalRefId;
+  public void setInternalRef(InternalReference internalRef) {
+    this.internalRef = internalRef;
   }
 
   public LoanSplitLot settlement(PartySettlementInstruction settlement) {
@@ -122,13 +122,13 @@ public class LoanSplitLot implements Serializable{
     LoanSplitLot loanSplitLot = (LoanSplitLot) o;
     return Objects.equals(this.loanId, loanSplitLot.loanId) &&
         Objects.equals(this.quantity, loanSplitLot.quantity) &&
-        Objects.equals(this.internalRefId, loanSplitLot.internalRefId) &&
+        Objects.equals(this.internalRef, loanSplitLot.internalRef) &&
         Objects.equals(this.settlement, loanSplitLot.settlement);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loanId, quantity, internalRefId, settlement);
+    return Objects.hash(loanId, quantity, internalRef, settlement);
   }
 
 
@@ -139,7 +139,7 @@ public class LoanSplitLot implements Serializable{
     
     sb.append("    loanId: ").append(toIndentedString(loanId)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-    sb.append("    internalRefId: ").append(toIndentedString(internalRefId)).append("\n");
+    sb.append("    internalRef: ").append(toIndentedString(internalRef)).append("\n");
     sb.append("    settlement: ").append(toIndentedString(settlement)).append("\n");
     sb.append("}");
     return sb.toString();

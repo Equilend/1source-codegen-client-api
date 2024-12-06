@@ -12,22 +12,18 @@
 
 package com.os.client.api;
 
+import java.time.OffsetDateTime;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
 import com.os.client.model.LedgerResponse;
 import com.os.client.model.ModelReturn;
-import java.time.OffsetDateTime;
 import com.os.client.model.ReturnAcknowledgement;
 import com.os.client.model.ReturnProposal;
 import com.os.client.model.ReturnStatus;
 import com.os.client.model.Returns;
 import com.os.client.model.ReturnsReturnIdBody;
-import org.junit.Test;
-import org.junit.Ignore;
-
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 /**

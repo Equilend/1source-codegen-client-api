@@ -22,15 +22,15 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * LoanSplitLotAcknowledge
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-06T16:12:41.344560814Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-06T16:53:48.159594260Z[GMT]")
 
 public class LoanSplitLotAcknowledge implements Serializable{
   private static final long serialVersionUID = 1L;
   @SerializedName("loanId")
   private String loanId = null;
 
-  @SerializedName("internalRefId")
-  private String internalRefId = null;
+  @SerializedName("internalRef")
+  private InternalReference internalRef = null;
 
   public LoanSplitLotAcknowledge loanId(String loanId) {
     this.loanId = loanId;
@@ -50,22 +50,22 @@ public class LoanSplitLotAcknowledge implements Serializable{
     this.loanId = loanId;
   }
 
-  public LoanSplitLotAcknowledge internalRefId(String internalRefId) {
-    this.internalRefId = internalRefId;
+  public LoanSplitLotAcknowledge internalRef(InternalReference internalRef) {
+    this.internalRef = internalRef;
     return this;
   }
 
    /**
-   * Get internalRefId
-   * @return internalRefId
+   * Get internalRef
+   * @return internalRef
   **/
-  @Schema(description = "")
-  public String getInternalRefId() {
-    return internalRefId;
+  @Schema(required = true, description = "")
+  public InternalReference getInternalRef() {
+    return internalRef;
   }
 
-  public void setInternalRefId(String internalRefId) {
-    this.internalRefId = internalRefId;
+  public void setInternalRef(InternalReference internalRef) {
+    this.internalRef = internalRef;
   }
 
 
@@ -79,12 +79,12 @@ public class LoanSplitLotAcknowledge implements Serializable{
     }
     LoanSplitLotAcknowledge loanSplitLotAcknowledge = (LoanSplitLotAcknowledge) o;
     return Objects.equals(this.loanId, loanSplitLotAcknowledge.loanId) &&
-        Objects.equals(this.internalRefId, loanSplitLotAcknowledge.internalRefId);
+        Objects.equals(this.internalRef, loanSplitLotAcknowledge.internalRef);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loanId, internalRefId);
+    return Objects.hash(loanId, internalRef);
   }
 
 
@@ -94,7 +94,7 @@ public class LoanSplitLotAcknowledge implements Serializable{
     sb.append("class LoanSplitLotAcknowledge {\n");
     
     sb.append("    loanId: ").append(toIndentedString(loanId)).append("\n");
-    sb.append("    internalRefId: ").append(toIndentedString(internalRefId)).append("\n");
+    sb.append("    internalRef: ").append(toIndentedString(internalRef)).append("\n");
     sb.append("}");
     return sb.toString();
   }

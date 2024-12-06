@@ -19,7 +19,7 @@ import java.util.Objects;
  * BuyinInitiates
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-06T16:12:41.344560814Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2024-12-06T16:53:48.159594260Z[GMT]")
 
 public class BuyinInitiates extends ArrayList<BuyinInitiate> implements Serializable{
   private static final long serialVersionUID = 1L;
