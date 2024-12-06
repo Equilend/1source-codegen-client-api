@@ -1,8 +1,8 @@
 # 1source-api-client
 
 1Source Ledger API
-- API version: 1.1.0
-  - Build date: 2024-08-26T12:53:32.773036942Z[GMT]
+- API version: 1.2.0
+  - Build date: 2024-12-06T16:12:41.344560814Z[GMT]
 
 1Source Ledger API provides client access to the 1Source Ledger. You can find out more about 1Source at [https://equilend.com](https://equilend.com).  This specification is work in progress. The design is meant to model the securities lending life cycle in as clean a way as possible while being robust enough to easily translate to ISLA CDM workflows and data model.  API specification is the intellectual property of EquiLend LLC and should not be copied or disseminated in any way. 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.os</groupId>
   <artifactId>1source-api-client</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -91,7 +91,7 @@ Also, to use the GitHub Packages repository for downloading SNAPSHOT artifacts, 
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.os:1source-api-client:1.1.0"
+compile "com.os:1source-api-client:1.2.0"
 ```
 
 Add the repository to your build.gradle file (Gradle Groovy). Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
@@ -117,7 +117,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/1source-api-client-1.1.0.jar`
+* `target/1source-api-client-1.2.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -267,6 +267,7 @@ Class | Method | HTTP request | Description
 *DelegationsApi* | [**ledgerDelegationsDelegationIdCancelPost**](docs/DelegationsApi.md#ledgerDelegationsDelegationIdCancelPost) | **POST** /ledger/delegations/{delegationId}/cancel | Cancel a party delegation in \&quot;proposed\&quot; state. Original proposer only.
 *DelegationsApi* | [**ledgerDelegationsDelegationIdDeclinePost**](docs/DelegationsApi.md#ledgerDelegationsDelegationIdDeclinePost) | **POST** /ledger/delegations/{delegationId}/decline | Decline a party delegation in \&quot;proposed\&quot; state
 *DelegationsApi* | [**ledgerDelegationsDelegationIdGet**](docs/DelegationsApi.md#ledgerDelegationsDelegationIdGet) | **GET** /ledger/delegations/{delegationId} | Read a party delegation
+*DelegationsApi* | [**ledgerDelegationsDelegationIdRemovePost**](docs/DelegationsApi.md#ledgerDelegationsDelegationIdRemovePost) | **POST** /ledger/delegations/{delegationId}/remove | Propose removal of a party delegation in \&quot;approved\&quot; state
 *DelegationsApi* | [**ledgerDelegationsGet**](docs/DelegationsApi.md#ledgerDelegationsGet) | **GET** /ledger/delegations | Read a collection of delegations.
 *DelegationsApi* | [**ledgerDelegationsPost**](docs/DelegationsApi.md#ledgerDelegationsPost) | **POST** /ledger/delegations | Delegate a set of workflows to a party
 *EventsApi* | [**ledgerEventsEventIdGet**](docs/EventsApi.md#ledgerEventsEventIdGet) | **GET** /ledger/events/{eventId} | Read an event
@@ -282,7 +283,7 @@ Class | Method | HTTP request | Description
 *LoansApi* | [**ledgerLoansLoanIdHistoryGet**](docs/LoansApi.md#ledgerLoansLoanIdHistoryGet) | **GET** /ledger/loans/{loanId}/history | Return an ordered history of this loan. Each loan has a reference event that triggered a new version.
 *LoansApi* | [**ledgerLoansLoanIdPatch**](docs/LoansApi.md#ledgerLoansLoanIdPatch) | **PATCH** /ledger/loans/{loanId} | Update unilateral fields in a loan
 *LoansApi* | [**ledgerLoansLoanIdRatehistoryGet**](docs/LoansApi.md#ledgerLoansLoanIdRatehistoryGet) | **GET** /ledger/loans/{loanId}/ratehistory | Return an ordered history of effective rate changes.
-*LoansApi* | [**ledgerLoansLoanIdSplitLoanSplitIdApprovePost**](docs/LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdApprovePost) | **POST** /ledger/loans/{loanId}/split/{loanSplitId}/approve | Approve a loan split in \&quot;proposed\&quot; state.
+*LoansApi* | [**ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost**](docs/LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost) | **POST** /ledger/loans/{loanId}/split/{loanSplitId}/acknowledge | Acknowledge a loan split in \&quot;proposed\&quot; state.
 *LoansApi* | [**ledgerLoansLoanIdSplitLoanSplitIdGet**](docs/LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdGet) | **GET** /ledger/loans/{loanId}/split/{loanSplitId} | Retrieve a loan split.
 *LoansApi* | [**ledgerLoansLoanIdSplitPost**](docs/LoansApi.md#ledgerLoansLoanIdSplitPost) | **POST** /ledger/loans/{loanId}/split | Split an open loan into multiple lots
 *LoansApi* | [**ledgerLoansPost**](docs/LoansApi.md#ledgerLoansPost) | **POST** /ledger/loans | Create a loan in \&quot;proposal\&quot; state. Normally done by the Lend side
@@ -337,6 +338,9 @@ Class | Method | HTTP request | Description
  - [DelegationProposal](docs/DelegationProposal.md)
  - [DelegationStatus](docs/DelegationStatus.md)
  - [Delegations](docs/Delegations.md)
+ - [ErrorField](docs/ErrorField.md)
+ - [ErrorReason](docs/ErrorReason.md)
+ - [ErrorReasonFieldValue](docs/ErrorReasonFieldValue.md)
  - [Event](docs/Event.md)
  - [EventType](docs/EventType.md)
  - [Events](docs/Events.md)
@@ -346,17 +350,19 @@ Class | Method | HTTP request | Description
  - [FloatingRate](docs/FloatingRate.md)
  - [FloatingRateDef](docs/FloatingRateDef.md)
  - [Instrument](docs/Instrument.md)
- - [InternalReference](docs/InternalReference.md)
  - [InternalReferenceUpdate](docs/InternalReferenceUpdate.md)
  - [LedgerResponse](docs/LedgerResponse.md)
  - [Loan](docs/Loan.md)
  - [LoanProposal](docs/LoanProposal.md)
  - [LoanProposalApproval](docs/LoanProposalApproval.md)
+ - [LoanProposalCancel](docs/LoanProposalCancel.md)
+ - [LoanProposalCancelPending](docs/LoanProposalCancelPending.md)
+ - [LoanProposalDecline](docs/LoanProposalDecline.md)
  - [LoanSplit](docs/LoanSplit.md)
+ - [LoanSplitAcknowledgment](docs/LoanSplitAcknowledgment.md)
  - [LoanSplitLot](docs/LoanSplitLot.md)
- - [LoanSplitLotAppoval](docs/LoanSplitLotAppoval.md)
+ - [LoanSplitLotAcknowledge](docs/LoanSplitLotAcknowledge.md)
  - [LoanSplitProposal](docs/LoanSplitProposal.md)
- - [LoanSplitProposalApproval](docs/LoanSplitProposalApproval.md)
  - [LoanSplitStatus](docs/LoanSplitStatus.md)
  - [LoanStatus](docs/LoanStatus.md)
  - [Loans](docs/Loans.md)
@@ -370,7 +376,7 @@ Class | Method | HTTP request | Description
  - [PartySettlementInstruction](docs/PartySettlementInstruction.md)
  - [PartyType](docs/PartyType.md)
  - [Price](docs/Price.md)
- - [PriceUnit](docs/PriceUnit.md)
+ - [PriceBasis](docs/PriceBasis.md)
  - [Rate](docs/Rate.md)
  - [Rates](docs/Rates.md)
  - [RebateRate](docs/RebateRate.md)
@@ -396,6 +402,7 @@ Class | Method | HTTP request | Description
  - [SettlementStatus](docs/SettlementStatus.md)
  - [SettlementStatusUpdate](docs/SettlementStatusUpdate.md)
  - [SettlementType](docs/SettlementType.md)
+ - [SortOrder](docs/SortOrder.md)
  - [TermType](docs/TermType.md)
  - [TradeAgreement](docs/TradeAgreement.md)
  - [TransactingParties](docs/TransactingParties.md)
@@ -427,4 +434,4 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 ## Last Update
 
-Monday, August 26, 2024 08:53:10
+Friday, December 6, 2024 11:19:10

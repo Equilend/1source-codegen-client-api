@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**ledgerLoansLoanIdHistoryGet**](LoansApi.md#ledgerLoansLoanIdHistoryGet) | **GET** /ledger/loans/{loanId}/history | Return an ordered history of this loan. Each loan has a reference event that triggered a new version.
 [**ledgerLoansLoanIdPatch**](LoansApi.md#ledgerLoansLoanIdPatch) | **PATCH** /ledger/loans/{loanId} | Update unilateral fields in a loan
 [**ledgerLoansLoanIdRatehistoryGet**](LoansApi.md#ledgerLoansLoanIdRatehistoryGet) | **GET** /ledger/loans/{loanId}/ratehistory | Return an ordered history of effective rate changes.
-[**ledgerLoansLoanIdSplitLoanSplitIdApprovePost**](LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdApprovePost) | **POST** /ledger/loans/{loanId}/split/{loanSplitId}/approve | Approve a loan split in \&quot;proposed\&quot; state.
+[**ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost**](LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost) | **POST** /ledger/loans/{loanId}/split/{loanSplitId}/acknowledge | Acknowledge a loan split in \&quot;proposed\&quot; state.
 [**ledgerLoansLoanIdSplitLoanSplitIdGet**](LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdGet) | **GET** /ledger/loans/{loanId}/split/{loanSplitId} | Retrieve a loan split.
 [**ledgerLoansLoanIdSplitPost**](LoansApi.md#ledgerLoansLoanIdSplitPost) | **POST** /ledger/loans/{loanId}/split | Split an open loan into multiple lots
 [**ledgerLoansPost**](LoansApi.md#ledgerLoansPost) | **POST** /ledger/loans | Create a loan in \&quot;proposal\&quot; state. Normally done by the Lend side
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerLoansLoanIdCancelPost"></a>
 # **ledgerLoansLoanIdCancelPost**
-> LedgerResponse ledgerLoansLoanIdCancelPost(loanId)
+> LedgerResponse ledgerLoansLoanIdCancelPost(body, loanId)
 
 Cancel a loan in \&quot;proposed\&quot; state. Original proposer only.
 
@@ -166,9 +166,10 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LoansApi apiInstance = new LoansApi();
+LoanProposalCancel body = new LoanProposalCancel(); // LoanProposalCancel | Reason for canceling a proposed loan
 String loanId = "loanId_example"; // String | The unique identifier of a loan
 try {
-    LedgerResponse result = apiInstance.ledgerLoansLoanIdCancelPost(loanId);
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdCancelPost(body, loanId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdCancelPost");
@@ -180,6 +181,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**LoanProposalCancel**](LoanProposalCancel.md)| Reason for canceling a proposed loan |
  **loanId** | [**String**](.md)| The unique identifier of a loan |
 
 ### Return type
@@ -192,12 +194,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="ledgerLoansLoanIdCancelpendingPost"></a>
 # **ledgerLoansLoanIdCancelpendingPost**
-> LedgerResponse ledgerLoansLoanIdCancelpendingPost(loanId)
+> LedgerResponse ledgerLoansLoanIdCancelpendingPost(body, loanId)
 
 Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
 
@@ -217,9 +219,10 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LoansApi apiInstance = new LoansApi();
+LoanProposalCancelPending body = new LoanProposalCancelPending(); // LoanProposalCancelPending | Reason for canceling a pending loan
 String loanId = "loanId_example"; // String | The unique identifier of a loan
 try {
-    LedgerResponse result = apiInstance.ledgerLoansLoanIdCancelpendingPost(loanId);
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdCancelpendingPost(body, loanId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdCancelpendingPost");
@@ -231,6 +234,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**LoanProposalCancelPending**](LoanProposalCancelPending.md)| Reason for canceling a pending loan |
  **loanId** | [**String**](.md)| The unique identifier of a loan |
 
 ### Return type
@@ -243,12 +247,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="ledgerLoansLoanIdDeclinePost"></a>
 # **ledgerLoansLoanIdDeclinePost**
-> LedgerResponse ledgerLoansLoanIdDeclinePost(loanId)
+> LedgerResponse ledgerLoansLoanIdDeclinePost(body, loanId)
 
 Decline a loan in \&quot;proposed\&quot; state
 
@@ -268,9 +272,10 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LoansApi apiInstance = new LoansApi();
+LoanProposalDecline body = new LoanProposalDecline(); // LoanProposalDecline | Provide reason and details for declining loan proposal
 String loanId = "loanId_example"; // String | The unique identifier of a loan
 try {
-    LedgerResponse result = apiInstance.ledgerLoansLoanIdDeclinePost(loanId);
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdDeclinePost(body, loanId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdDeclinePost");
@@ -282,6 +287,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**LoanProposalDecline**](LoanProposalDecline.md)| Provide reason and details for declining loan proposal |
  **loanId** | [**String**](.md)| The unique identifier of a loan |
 
 ### Return type
@@ -294,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="ledgerLoansLoanIdGet"></a>
@@ -515,11 +521,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="ledgerLoansLoanIdSplitLoanSplitIdApprovePost"></a>
-# **ledgerLoansLoanIdSplitLoanSplitIdApprovePost**
-> LedgerResponse ledgerLoansLoanIdSplitLoanSplitIdApprovePost(body, loanId, loanSplitId)
+<a name="ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost"></a>
+# **ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost**
+> LedgerResponse ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost(body, loanId, loanSplitId)
 
-Approve a loan split in \&quot;proposed\&quot; state.
+Acknowledge a loan split in \&quot;proposed\&quot; state.
 
 ### Example
 ```java
@@ -537,14 +543,14 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LoansApi apiInstance = new LoansApi();
-List<LoanSplitLotAppoval> body = Arrays.asList(new LoanSplitLotAppoval()); // List<LoanSplitLotAppoval> | Split proposed against loan
+List<LoanSplitLotAcknowledge> body = Arrays.asList(new LoanSplitLotAcknowledge()); // List<LoanSplitLotAcknowledge> | Split proposed against loan
 String loanId = "loanId_example"; // String | The unique identifier of a loan
 String loanSplitId = "loanSplitId_example"; // String | The unique identifier of a proposed loan split
 try {
-    LedgerResponse result = apiInstance.ledgerLoansLoanIdSplitLoanSplitIdApprovePost(body, loanId, loanSplitId);
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost(body, loanId, loanSplitId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdSplitLoanSplitIdApprovePost");
+    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost");
     e.printStackTrace();
 }
 ```
@@ -553,7 +559,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**List&lt;LoanSplitLotAppoval&gt;**](LoanSplitLotAppoval.md)| Split proposed against loan |
+ **body** | [**List&lt;LoanSplitLotAcknowledge&gt;**](LoanSplitLotAcknowledge.md)| Split proposed against loan |
  **loanId** | [**String**](.md)| The unique identifier of a loan |
  **loanSplitId** | [**String**](.md)| The unique identifier of a proposed loan split |
 

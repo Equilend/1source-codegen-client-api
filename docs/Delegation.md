@@ -7,4 +7,4 @@ Name | Type | Description | Notes
 **delegationStatus** | [**DelegationStatus**](DelegationStatus.md) |  |  [optional]
 **delegationParty** | [**Party**](Party.md) |  |  [optional]
 **parties** | [**List&lt;Party&gt;**](Party.md) |  |  [optional]
-**authorizations** | [**List&lt;DelegationAuthorizationType&gt;**](DelegationAuthorizationType.md) |  | 
+**authorization** | [**DelegationAuthorizationType**](DelegationAuthorizationType.md) |  |  [optional]

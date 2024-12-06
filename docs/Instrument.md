@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **sedol** | **String** |  |  [optional]
 **quick** | **String** |  |  [optional]
 **figi** | **String** |  | 
-**marketCd** | **String** |  |  [optional]
+**marketCode** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
 **price** | [**Price**](Price.md) |  |  [optional]

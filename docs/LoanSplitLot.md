@@ -5,5 +5,5 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **loanId** | **String** |  |  [optional]
 **quantity** | **Integer** |  | 
-**internalRef** | [**InternalReference**](InternalReference.md) |  | 
+**internalRefId** | **String** |  |  [optional]
 **settlement** | [**PartySettlementInstruction**](PartySettlementInstruction.md) |  |  [optional]

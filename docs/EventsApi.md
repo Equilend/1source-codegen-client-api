@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerEventsGet"></a>
 # **ledgerEventsGet**
-> Events ledgerEventsGet(eventType, beforeEventId, fromEventId, since, before, size)
+> Events ledgerEventsGet(eventType, beforeEventId, fromEventId, since, before, size, sortOrder)
 
 Read collection of events. With no parameters returns events since start of current day.
 
@@ -88,8 +88,9 @@ Integer fromEventId = 56; // Integer |
 OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Events (since) timestamp UTC
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Events (before) timestamp UTC
 Integer size = 56; // Integer | Number of events to be returned. Can be used to facilitate paging. Defaults to 100
+SortOrder sortOrder = new SortOrder(); // SortOrder | Sort events by order of creation ascending or descending. Defaults to ASCENDING
 try {
-    Events result = apiInstance.ledgerEventsGet(eventType, beforeEventId, fromEventId, since, before, size);
+    Events result = apiInstance.ledgerEventsGet(eventType, beforeEventId, fromEventId, since, before, size, sortOrder);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EventsApi#ledgerEventsGet");
@@ -107,6 +108,7 @@ Name | Type | Description  | Notes
  **since** | **OffsetDateTime**| Events (since) timestamp UTC | [optional]
  **before** | **OffsetDateTime**| Events (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of events to be returned. Can be used to facilitate paging. Defaults to 100 | [optional]
+ **sortOrder** | [**SortOrder**](.md)| Sort events by order of creation ascending or descending. Defaults to ASCENDING | [optional]
 
 ### Return type
 
@@ -176,7 +178,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerLoansLoanIdEventsGet"></a>
 # **ledgerLoansLoanIdEventsGet**
-> Events ledgerLoansLoanIdEventsGet(loanId, eventType, beforeEventId, fromEventId, since, before, size)
+> Events ledgerLoansLoanIdEventsGet(loanId, eventType, beforeEventId, fromEventId, since, before, size, sortOrder)
 
 Read collection of events against a specific loan. With no parameters returns events since start of current day.
 
@@ -203,8 +205,9 @@ Integer fromEventId = 56; // Integer |
 OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Events (since) timestamp UTC
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Events (before) timestamp UTC
 Integer size = 56; // Integer | Number of events to be returned. Can be used to facilitate paging
+SortOrder sortOrder = new SortOrder(); // SortOrder | Sort events by order of creation ascending or descending. Defaults to ASCENDING
 try {
-    Events result = apiInstance.ledgerLoansLoanIdEventsGet(loanId, eventType, beforeEventId, fromEventId, since, before, size);
+    Events result = apiInstance.ledgerLoansLoanIdEventsGet(loanId, eventType, beforeEventId, fromEventId, since, before, size, sortOrder);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EventsApi#ledgerLoansLoanIdEventsGet");
@@ -223,6 +226,7 @@ Name | Type | Description  | Notes
  **since** | **OffsetDateTime**| Events (since) timestamp UTC | [optional]
  **before** | **OffsetDateTime**| Events (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of events to be returned. Can be used to facilitate paging | [optional]
+ **sortOrder** | [**SortOrder**](.md)| Sort events by order of creation ascending or descending. Defaults to ASCENDING | [optional]
 
 ### Return type
 

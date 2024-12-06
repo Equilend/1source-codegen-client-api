@@ -5,5 +5,5 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **partyRole** | [**PartyRole**](PartyRole.md) |  | 
 **settlementStatus** | [**SettlementStatus**](SettlementStatus.md) |  |  [optional]
-**internalAcctCd** | **String** |  | 
+**internalAccountCode** | **String** |  |  [optional]
 **instruction** | [**SettlementInstruction**](SettlementInstruction.md) |  | 

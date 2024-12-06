@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**ledgerDelegationsDelegationIdCancelPost**](DelegationsApi.md#ledgerDelegationsDelegationIdCancelPost) | **POST** /ledger/delegations/{delegationId}/cancel | Cancel a party delegation in \&quot;proposed\&quot; state. Original proposer only.
 [**ledgerDelegationsDelegationIdDeclinePost**](DelegationsApi.md#ledgerDelegationsDelegationIdDeclinePost) | **POST** /ledger/delegations/{delegationId}/decline | Decline a party delegation in \&quot;proposed\&quot; state
 [**ledgerDelegationsDelegationIdGet**](DelegationsApi.md#ledgerDelegationsDelegationIdGet) | **GET** /ledger/delegations/{delegationId} | Read a party delegation
+[**ledgerDelegationsDelegationIdRemovePost**](DelegationsApi.md#ledgerDelegationsDelegationIdRemovePost) | **POST** /ledger/delegations/{delegationId}/remove | Propose removal of a party delegation in \&quot;approved\&quot; state
 [**ledgerDelegationsGet**](DelegationsApi.md#ledgerDelegationsGet) | **GET** /ledger/delegations | Read a collection of delegations.
 [**ledgerDelegationsPost**](DelegationsApi.md#ledgerDelegationsPost) | **POST** /ledger/delegations | Delegate a set of workflows to a party
 
@@ -205,6 +206,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Delegation**](Delegation.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="ledgerDelegationsDelegationIdRemovePost"></a>
+# **ledgerDelegationsDelegationIdRemovePost**
+> LedgerResponse ledgerDelegationsDelegationIdRemovePost(delegationId)
+
+Propose removal of a party delegation in \&quot;approved\&quot; state
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.DelegationsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+DelegationsApi apiInstance = new DelegationsApi();
+String delegationId = "delegationId_example"; // String | The unique identifier of a party delegation
+try {
+    LedgerResponse result = apiInstance.ledgerDelegationsDelegationIdRemovePost(delegationId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DelegationsApi#ledgerDelegationsDelegationIdRemovePost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **delegationId** | [**String**](.md)| The unique identifier of a party delegation |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
 
 ### Authorization
 

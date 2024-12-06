@@ -11,4 +11,6 @@ Name | Type | Description | Notes
 **quantity** | **Integer** |  | 
 **recallDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
 **recallDueDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
+**acknowledgementType** | [**AcknowledgementType**](AcknowledgementType.md) |  |  [optional]
+**description** | **String** |  |  [optional]
 **lastUpdateDatetime** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
