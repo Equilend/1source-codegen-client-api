@@ -13,8 +13,8 @@
 package com.os.client.model;
 
 /**
-* OneOfLoanDeclineErrorReasonFieldValueExpectedValue
+* AnyOfLoanDeclineErrorResponseErrorsItems
 */
-public interface OneOfLoanDeclineErrorReasonFieldValueExpectedValue {
+public interface AnyOfLoanDeclineErrorResponseErrorsItems {
 
 }

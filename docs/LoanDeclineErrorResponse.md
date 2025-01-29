@@ -4,4 +4,4 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reason** | [**LoanDeclineErrorReason**](LoanDeclineErrorReason.md) |  | 
-**errors** | [**List&lt;LoanDeclineErrorReasonFieldValue&gt;**](LoanDeclineErrorReasonFieldValue.md) |  |  [optional]
+**errors** | **List&lt;AnyOfLoanDeclineErrorResponseErrorsItems&gt;** |  |  [optional]

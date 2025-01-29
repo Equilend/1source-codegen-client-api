@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Price is ignored for trade agreements and loan proposals
  */
 @Schema(description = "Price is ignored for trade agreements and loan proposals")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:00:54.218085062Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:55:08.725971332Z[GMT]")
 
 public class Price implements Serializable{
   private static final long serialVersionUID = 1L;

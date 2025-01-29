@@ -19,7 +19,7 @@ import java.util.Objects;
  * Events
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:00:54.218085062Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:55:08.725971332Z[GMT]")
 
 public class Events extends ArrayList<Event> implements Serializable{
   private static final long serialVersionUID = 1L;

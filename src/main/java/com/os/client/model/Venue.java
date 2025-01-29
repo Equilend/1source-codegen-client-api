@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * ONPLATFORM venues are third-party services that generates loans, returns, recalls, rerates, or perform loan modifications on a client&#x27;s behalf. If the type is ONPLATFORM, a party with a value ID and LEI is required. If the loan is agreed OFFPLATFORM (email, chat, phone), party does not apply.
  */
 @Schema(description = "ONPLATFORM venues are third-party services that generates loans, returns, recalls, rerates, or perform loan modifications on a client's behalf. If the type is ONPLATFORM, a party with a value ID and LEI is required. If the loan is agreed OFFPLATFORM (email, chat, phone), party does not apply.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:00:54.218085062Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:55:08.725971332Z[GMT]")
 
 public class Venue implements Serializable{
   private static final long serialVersionUID = 1L;

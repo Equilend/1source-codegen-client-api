@@ -2,7 +2,7 @@
 
 1Source Ledger API
 - API version: 1.2.1
-  - Build date: 2025-01-29T15:11:00.294942751Z[GMT]
+  - Build date: 2025-01-29T18:55:08.725971332Z[GMT]
 
 1Source Ledger API provides client access to the 1Source Ledger. You can find out more about 1Source at [https://equilend.com](https://equilend.com).  This specification is work in progress. The design is meant to model the securities lending life cycle in as clean a way as possible while being robust enough to easily translate to ISLA CDM workflows and data model.  API specification is the intellectual property of EquiLend LLC and should not be copied or disseminated in any way. 
 
@@ -45,66 +45,12 @@ Add this dependency to your project's POM:
 </dependency>
 ```
 
-Also, to use the GitHub Packages repository for downloading SNAPSHOT artifacts, enable SNAPSHOTS in the POM of the consuming project or your ~/.m2/settings.xml file. Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
-
-```xml
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
-
-  <activeProfiles>
-    <activeProfile>github</activeProfile>
-  </activeProfiles>
-
-  <profiles>
-    <profile>
-      <id>github</id>
-      <repositories>
-        <repository>
-          <id>central</id>
-          <url>https://repo1.maven.org/maven2</url>
-        </repository>
-        <repository>
-          <id>github</id>
-          <url>https://maven.pkg.github.com/Equilend/1source-codegen-client-api</url>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </repository>
-      </repositories>
-    </profile>
-  </profiles>
-
-  <servers>
-    <server>
-      <id>github</id>
-      <username>USERNAME</username>
-      <password>TOKEN</password>
-    </server>
-  </servers>
-</settings>
-```
-
 ### Gradle users
 
 Add this dependency to your project's build file:
 
 ```groovy
 compile "com.os:1source-api-client:1.2.1"
-```
-
-Add the repository to your build.gradle file (Gradle Groovy). Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
-
-```repositories {
-    maven {
-        url = uri("https://maven.pkg.github.com/Equilend/1source-codegen-client-api")
-        credentials {
-            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-            password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
-        }
-   }
-}
 ```
 
 ### Others
@@ -313,6 +259,7 @@ Class | Method | HTTP request | Description
  - [AcknowledgementType](docs/AcknowledgementType.md)
  - [Agreement](docs/Agreement.md)
  - [Agreements](docs/Agreements.md)
+ - [AnyOfLoanDeclineErrorResponseErrorsItems](docs/AnyOfLoanDeclineErrorResponseErrorsItems.md)
  - [BenchmarkCd](docs/BenchmarkCd.md)
  - [BuyinComplete](docs/BuyinComplete.md)
  - [BuyinCompleteRequest](docs/BuyinCompleteRequest.md)
@@ -345,8 +292,18 @@ Class | Method | HTTP request | Description
  - [LoanCancelPendingErrorReason](docs/LoanCancelPendingErrorReason.md)
  - [LoanCancelPendingErrorResponse](docs/LoanCancelPendingErrorResponse.md)
  - [LoanDeclineErrorReason](docs/LoanDeclineErrorReason.md)
- - [LoanDeclineErrorReasonFieldType](docs/LoanDeclineErrorReasonFieldType.md)
- - [LoanDeclineErrorReasonFieldValue](docs/LoanDeclineErrorReasonFieldValue.md)
+ - [LoanDeclineErrorReasonFieldBillingCurrency](docs/LoanDeclineErrorReasonFieldBillingCurrency.md)
+ - [LoanDeclineErrorReasonFieldCollateralCurrency](docs/LoanDeclineErrorReasonFieldCollateralCurrency.md)
+ - [LoanDeclineErrorReasonFieldCollateralMargin](docs/LoanDeclineErrorReasonFieldCollateralMargin.md)
+ - [LoanDeclineErrorReasonFieldCollateralType](docs/LoanDeclineErrorReasonFieldCollateralType.md)
+ - [LoanDeclineErrorReasonFieldDividendRate](docs/LoanDeclineErrorReasonFieldDividendRate.md)
+ - [LoanDeclineErrorReasonFieldQuantity](docs/LoanDeclineErrorReasonFieldQuantity.md)
+ - [LoanDeclineErrorReasonFieldRate](docs/LoanDeclineErrorReasonFieldRate.md)
+ - [LoanDeclineErrorReasonFieldSettlementDate](docs/LoanDeclineErrorReasonFieldSettlementDate.md)
+ - [LoanDeclineErrorReasonFieldSettlementType](docs/LoanDeclineErrorReasonFieldSettlementType.md)
+ - [LoanDeclineErrorReasonFieldTermDate](docs/LoanDeclineErrorReasonFieldTermDate.md)
+ - [LoanDeclineErrorReasonFieldTermType](docs/LoanDeclineErrorReasonFieldTermType.md)
+ - [LoanDeclineErrorReasonFieldTradeDate](docs/LoanDeclineErrorReasonFieldTradeDate.md)
  - [LoanDeclineErrorResponse](docs/LoanDeclineErrorResponse.md)
  - [LoanProposal](docs/LoanProposal.md)
  - [LoanProposalApproval](docs/LoanProposalApproval.md)
@@ -361,7 +318,7 @@ Class | Method | HTTP request | Description
  - [Loans](docs/Loans.md)
  - [LoansLoanIdBody](docs/LoansLoanIdBody.md)
  - [ModelReturn](docs/ModelReturn.md)
- - [OneOfLoanDeclineErrorReasonFieldValueExpectedValue](docs/OneOfLoanDeclineErrorReasonFieldValueExpectedValue.md)
+ - [OneOfLoanDeclineErrorReasonFieldRateExpectedValue](docs/OneOfLoanDeclineErrorReasonFieldRateExpectedValue.md)
  - [OneOfLoanLoanStatusReason](docs/OneOfLoanLoanStatusReason.md)
  - [OneOfRebateRateRebate](docs/OneOfRebateRateRebate.md)
  - [OneOfRerateDeclineErrorReasonFieldValueExpectedValue](docs/OneOfRerateDeclineErrorReasonFieldValueExpectedValue.md)
@@ -435,7 +392,3 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 ## Author
 
 1source_help@equilend.com
-
-## Last Update
-
-Wednesday, January 29, 2025 11:19:10

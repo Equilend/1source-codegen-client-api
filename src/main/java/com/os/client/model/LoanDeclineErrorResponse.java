@@ -21,10 +21,10 @@ import com.google.gson.annotations.SerializedName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * LoanDeclineErrorResponse
+ * Loan Decline Error Reason Field Types and Expected Values:  * &#x60;RATE&#x60; - [RebateRate](1.2.1#/RebateRate) or [FeeRate](1.2.1#/FeeRate) object.  * &#x60;BILLING_CURRENCY&#x60; - [CurrencyCd](1.2.1#/CurrencyCd) enum.  * &#x60;COLLATERAL_CURRENCY&#x60; - [CurrencyCd](1.2.1#/CurrencyCd) enum.  * &#x60;COLLATERAL_MARGIN&#x60; - [DoubleType](1.2.1#/DoubleType) number.  * &#x60;COLLATERAL_TYPE&#x60; - [CollateralType](1.2.1#/CollateralType) enum.  * &#x60;DIVIDEND_RATE&#x60; - [DoubleType](1.2.1#/DoubleType) number.  * &#x60;QUANTITY&#x60; - [Quantity](1.2.1#/Quantity) number.  * &#x60;SETTLEMENT_DATE&#x60; - [DateType](1.2.1#/DateType) string.  * &#x60;SETTLEMENT_TYPE&#x60; - [SettlementType](1.2.1#/SettlementType) enum.  * &#x60;TRADE_DATE&#x60; - [DateType](1.2.1#/DateType) string.  * &#x60;TERM_DATE&#x60; - [DateType](1.2.1#/DateType) string.  * &#x60;TERM_TYPE&#x60; - [TermType](1.2.1#/TermType) enum. 
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:00:54.218085062Z[GMT]")
+@Schema(description = "Loan Decline Error Reason Field Types and Expected Values:  * `RATE` - [RebateRate](1.2.1#/RebateRate) or [FeeRate](1.2.1#/FeeRate) object.  * `BILLING_CURRENCY` - [CurrencyCd](1.2.1#/CurrencyCd) enum.  * `COLLATERAL_CURRENCY` - [CurrencyCd](1.2.1#/CurrencyCd) enum.  * `COLLATERAL_MARGIN` - [DoubleType](1.2.1#/DoubleType) number.  * `COLLATERAL_TYPE` - [CollateralType](1.2.1#/CollateralType) enum.  * `DIVIDEND_RATE` - [DoubleType](1.2.1#/DoubleType) number.  * `QUANTITY` - [Quantity](1.2.1#/Quantity) number.  * `SETTLEMENT_DATE` - [DateType](1.2.1#/DateType) string.  * `SETTLEMENT_TYPE` - [SettlementType](1.2.1#/SettlementType) enum.  * `TRADE_DATE` - [DateType](1.2.1#/DateType) string.  * `TERM_DATE` - [DateType](1.2.1#/DateType) string.  * `TERM_TYPE` - [TermType](1.2.1#/TermType) enum. ")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:55:08.725971332Z[GMT]")
 
 public class LoanDeclineErrorResponse implements Serializable, OneOfLoanLoanStatusReason {
   private static final long serialVersionUID = 1L;
@@ -32,7 +32,7 @@ public class LoanDeclineErrorResponse implements Serializable, OneOfLoanLoanStat
   private LoanDeclineErrorReason reason = null;
 
   @SerializedName("errors")
-  private List<LoanDeclineErrorReasonFieldValue> errors = null;
+  private List<AnyOfLoanDeclineErrorResponseErrorsItems> errors = null;
 
   public LoanDeclineErrorResponse reason(LoanDeclineErrorReason reason) {
     this.reason = reason;
@@ -52,12 +52,12 @@ public class LoanDeclineErrorResponse implements Serializable, OneOfLoanLoanStat
     this.reason = reason;
   }
 
-  public LoanDeclineErrorResponse errors(List<LoanDeclineErrorReasonFieldValue> errors) {
+  public LoanDeclineErrorResponse errors(List<AnyOfLoanDeclineErrorResponseErrorsItems> errors) {
     this.errors = errors;
     return this;
   }
 
-  public LoanDeclineErrorResponse addErrorsItem(LoanDeclineErrorReasonFieldValue errorsItem) {
+  public LoanDeclineErrorResponse addErrorsItem(AnyOfLoanDeclineErrorResponseErrorsItems errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -70,11 +70,11 @@ public class LoanDeclineErrorResponse implements Serializable, OneOfLoanLoanStat
    * @return errors
   **/
   @Schema(description = "")
-  public List<LoanDeclineErrorReasonFieldValue> getErrors() {
+  public List<AnyOfLoanDeclineErrorResponseErrorsItems> getErrors() {
     return errors;
   }
 
-  public void setErrors(List<LoanDeclineErrorReasonFieldValue> errors) {
+  public void setErrors(List<AnyOfLoanDeclineErrorResponseErrorsItems> errors) {
     this.errors = errors;
   }
 

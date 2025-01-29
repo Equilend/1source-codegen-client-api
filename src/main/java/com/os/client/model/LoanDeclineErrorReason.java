@@ -25,12 +25,12 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(LoanDeclineErrorReason.Adapter.class)
 public enum LoanDeclineErrorReason {
+  @SerializedName("INCORRECT_LOAN_INFO")
+  INCORRECT_LOAN_INFO("INCORRECT_LOAN_INFO"),
   @SerializedName("UNKNOWN_LOAN")
   UNKNOWN_LOAN("UNKNOWN_LOAN"),
   @SerializedName("MISSING_INFORMATION")
-  MISSING_INFORMATION("MISSING_INFORMATION"),
-  @SerializedName("INCORRECT_LOAN_INFO")
-  INCORRECT_LOAN_INFO("INCORRECT_LOAN_INFO");
+  MISSING_INFORMATION("MISSING_INFORMATION");
 
   private String value;
 
