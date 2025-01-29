@@ -25,7 +25,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * The collateral value of the shares being returned, in the collateral currency on the loan loan.
  */
 @Schema(description = "The collateral value of the shares being returned, in the collateral currency on the loan loan.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T16:47:49.918644102Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:00:54.218085062Z[GMT]")
 
 public class ReturnProposal implements Serializable{
   private static final long serialVersionUID = 1L;

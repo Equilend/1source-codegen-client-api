@@ -24,32 +24,32 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * RerateDeclineErrorResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T16:47:49.918644102Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:00:54.218085062Z[GMT]")
 
 public class RerateDeclineErrorResponse implements Serializable, OneOfRerateStatusReason {
   private static final long serialVersionUID = 1L;
-  @SerializedName("declineReason")
-  private RerateDeclineErrorReason declineReason = null;
+  @SerializedName("reason")
+  private RerateDeclineErrorReason reason = null;
 
   @SerializedName("errors")
   private List<RerateDeclineErrorReasonFieldValue> errors = null;
 
-  public RerateDeclineErrorResponse declineReason(RerateDeclineErrorReason declineReason) {
-    this.declineReason = declineReason;
+  public RerateDeclineErrorResponse reason(RerateDeclineErrorReason reason) {
+    this.reason = reason;
     return this;
   }
 
    /**
-   * Get declineReason
-   * @return declineReason
+   * Get reason
+   * @return reason
   **/
   @Schema(required = true, description = "")
-  public RerateDeclineErrorReason getDeclineReason() {
-    return declineReason;
+  public RerateDeclineErrorReason getReason() {
+    return reason;
   }
 
-  public void setDeclineReason(RerateDeclineErrorReason declineReason) {
-    this.declineReason = declineReason;
+  public void setReason(RerateDeclineErrorReason reason) {
+    this.reason = reason;
   }
 
   public RerateDeclineErrorResponse errors(List<RerateDeclineErrorReasonFieldValue> errors) {
@@ -88,13 +88,13 @@ public class RerateDeclineErrorResponse implements Serializable, OneOfRerateStat
       return false;
     }
     RerateDeclineErrorResponse rerateDeclineErrorResponse = (RerateDeclineErrorResponse) o;
-    return Objects.equals(this.declineReason, rerateDeclineErrorResponse.declineReason) &&
+    return Objects.equals(this.reason, rerateDeclineErrorResponse.reason) &&
         Objects.equals(this.errors, rerateDeclineErrorResponse.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(declineReason, errors);
+    return Objects.hash(reason, errors);
   }
 
 
@@ -103,7 +103,7 @@ public class RerateDeclineErrorResponse implements Serializable, OneOfRerateStat
     StringBuilder sb = new StringBuilder();
     sb.append("class RerateDeclineErrorResponse {\n");
     
-    sb.append("    declineReason: ").append(toIndentedString(declineReason)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();

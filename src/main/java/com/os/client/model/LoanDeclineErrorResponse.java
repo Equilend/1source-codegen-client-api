@@ -24,32 +24,32 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * LoanDeclineErrorResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T16:47:49.918644102Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:00:54.218085062Z[GMT]")
 
 public class LoanDeclineErrorResponse implements Serializable, OneOfLoanLoanStatusReason {
   private static final long serialVersionUID = 1L;
-  @SerializedName("declineReason")
-  private LoanDeclineErrorReason declineReason = null;
+  @SerializedName("reason")
+  private LoanDeclineErrorReason reason = null;
 
   @SerializedName("errors")
   private List<LoanDeclineErrorReasonFieldValue> errors = null;
 
-  public LoanDeclineErrorResponse declineReason(LoanDeclineErrorReason declineReason) {
-    this.declineReason = declineReason;
+  public LoanDeclineErrorResponse reason(LoanDeclineErrorReason reason) {
+    this.reason = reason;
     return this;
   }
 
    /**
-   * Get declineReason
-   * @return declineReason
+   * Get reason
+   * @return reason
   **/
   @Schema(required = true, description = "")
-  public LoanDeclineErrorReason getDeclineReason() {
-    return declineReason;
+  public LoanDeclineErrorReason getReason() {
+    return reason;
   }
 
-  public void setDeclineReason(LoanDeclineErrorReason declineReason) {
-    this.declineReason = declineReason;
+  public void setReason(LoanDeclineErrorReason reason) {
+    this.reason = reason;
   }
 
   public LoanDeclineErrorResponse errors(List<LoanDeclineErrorReasonFieldValue> errors) {
@@ -88,13 +88,13 @@ public class LoanDeclineErrorResponse implements Serializable, OneOfLoanLoanStat
       return false;
     }
     LoanDeclineErrorResponse loanDeclineErrorResponse = (LoanDeclineErrorResponse) o;
-    return Objects.equals(this.declineReason, loanDeclineErrorResponse.declineReason) &&
+    return Objects.equals(this.reason, loanDeclineErrorResponse.reason) &&
         Objects.equals(this.errors, loanDeclineErrorResponse.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(declineReason, errors);
+    return Objects.hash(reason, errors);
   }
 
 
@@ -103,7 +103,7 @@ public class LoanDeclineErrorResponse implements Serializable, OneOfLoanLoanStat
     StringBuilder sb = new StringBuilder();
     sb.append("class LoanDeclineErrorResponse {\n");
     
-    sb.append("    declineReason: ").append(toIndentedString(declineReason)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();

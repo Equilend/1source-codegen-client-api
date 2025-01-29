@@ -19,7 +19,7 @@ import java.util.Objects;
  * Loans
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T16:47:49.918644102Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:00:54.218085062Z[GMT]")
 
 public class Loans extends ArrayList<Loan> implements Serializable{
   private static final long serialVersionUID = 1L;

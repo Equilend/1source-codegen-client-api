@@ -22,29 +22,29 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * LoanCancelPendingErrorResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T16:47:49.918644102Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:00:54.218085062Z[GMT]")
 
 public class LoanCancelPendingErrorResponse implements Serializable, OneOfLoanLoanStatusReason {
   private static final long serialVersionUID = 1L;
-  @SerializedName("cancelPendingReason")
-  private LoanCancelPendingErrorReason cancelPendingReason = null;
+  @SerializedName("reason")
+  private LoanCancelPendingErrorReason reason = null;
 
-  public LoanCancelPendingErrorResponse cancelPendingReason(LoanCancelPendingErrorReason cancelPendingReason) {
-    this.cancelPendingReason = cancelPendingReason;
+  public LoanCancelPendingErrorResponse reason(LoanCancelPendingErrorReason reason) {
+    this.reason = reason;
     return this;
   }
 
    /**
-   * Get cancelPendingReason
-   * @return cancelPendingReason
+   * Get reason
+   * @return reason
   **/
   @Schema(required = true, description = "")
-  public LoanCancelPendingErrorReason getCancelPendingReason() {
-    return cancelPendingReason;
+  public LoanCancelPendingErrorReason getReason() {
+    return reason;
   }
 
-  public void setCancelPendingReason(LoanCancelPendingErrorReason cancelPendingReason) {
-    this.cancelPendingReason = cancelPendingReason;
+  public void setReason(LoanCancelPendingErrorReason reason) {
+    this.reason = reason;
   }
 
 
@@ -57,12 +57,12 @@ public class LoanCancelPendingErrorResponse implements Serializable, OneOfLoanLo
       return false;
     }
     LoanCancelPendingErrorResponse loanCancelPendingErrorResponse = (LoanCancelPendingErrorResponse) o;
-    return Objects.equals(this.cancelPendingReason, loanCancelPendingErrorResponse.cancelPendingReason);
+    return Objects.equals(this.reason, loanCancelPendingErrorResponse.reason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancelPendingReason);
+    return Objects.hash(reason);
   }
 
 
@@ -71,7 +71,7 @@ public class LoanCancelPendingErrorResponse implements Serializable, OneOfLoanLo
     StringBuilder sb = new StringBuilder();
     sb.append("class LoanCancelPendingErrorResponse {\n");
     
-    sb.append("    cancelPendingReason: ").append(toIndentedString(cancelPendingReason)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("}");
     return sb.toString();
   }

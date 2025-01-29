@@ -22,29 +22,29 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * RerateCancelPendingErrorResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T16:47:49.918644102Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:00:54.218085062Z[GMT]")
 
 public class RerateCancelPendingErrorResponse implements Serializable, OneOfRerateStatusReason {
   private static final long serialVersionUID = 1L;
-  @SerializedName("cancelPendingReason")
-  private RerateCancelPendingErrorReason cancelPendingReason = null;
+  @SerializedName("reason")
+  private RerateCancelPendingErrorReason reason = null;
 
-  public RerateCancelPendingErrorResponse cancelPendingReason(RerateCancelPendingErrorReason cancelPendingReason) {
-    this.cancelPendingReason = cancelPendingReason;
+  public RerateCancelPendingErrorResponse reason(RerateCancelPendingErrorReason reason) {
+    this.reason = reason;
     return this;
   }
 
    /**
-   * Get cancelPendingReason
-   * @return cancelPendingReason
+   * Get reason
+   * @return reason
   **/
   @Schema(required = true, description = "")
-  public RerateCancelPendingErrorReason getCancelPendingReason() {
-    return cancelPendingReason;
+  public RerateCancelPendingErrorReason getReason() {
+    return reason;
   }
 
-  public void setCancelPendingReason(RerateCancelPendingErrorReason cancelPendingReason) {
-    this.cancelPendingReason = cancelPendingReason;
+  public void setReason(RerateCancelPendingErrorReason reason) {
+    this.reason = reason;
   }
 
 
@@ -57,12 +57,12 @@ public class RerateCancelPendingErrorResponse implements Serializable, OneOfRera
       return false;
     }
     RerateCancelPendingErrorResponse rerateCancelPendingErrorResponse = (RerateCancelPendingErrorResponse) o;
-    return Objects.equals(this.cancelPendingReason, rerateCancelPendingErrorResponse.cancelPendingReason);
+    return Objects.equals(this.reason, rerateCancelPendingErrorResponse.reason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancelPendingReason);
+    return Objects.hash(reason);
   }
 
 
@@ -71,7 +71,7 @@ public class RerateCancelPendingErrorResponse implements Serializable, OneOfRera
     StringBuilder sb = new StringBuilder();
     sb.append("class RerateCancelPendingErrorResponse {\n");
     
-    sb.append("    cancelPendingReason: ").append(toIndentedString(cancelPendingReason)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("}");
     return sb.toString();
   }
