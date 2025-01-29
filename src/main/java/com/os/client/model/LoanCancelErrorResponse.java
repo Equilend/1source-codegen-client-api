@@ -22,29 +22,29 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * LoanCancelErrorResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T15:11:00.294942751Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T16:47:49.918644102Z[GMT]")
 
 public class LoanCancelErrorResponse implements Serializable, OneOfLoanLoanStatusReason {
   private static final long serialVersionUID = 1L;
-  @SerializedName("cancelReason")
-  private LoanCancelErrorReason cancelReason = null;
+  @SerializedName("reason")
+  private LoanCancelErrorReason reason = null;
 
-  public LoanCancelErrorResponse cancelReason(LoanCancelErrorReason cancelReason) {
-    this.cancelReason = cancelReason;
+  public LoanCancelErrorResponse reason(LoanCancelErrorReason reason) {
+    this.reason = reason;
     return this;
   }
 
    /**
-   * Get cancelReason
-   * @return cancelReason
+   * Get reason
+   * @return reason
   **/
   @Schema(required = true, description = "")
-  public LoanCancelErrorReason getCancelReason() {
-    return cancelReason;
+  public LoanCancelErrorReason getReason() {
+    return reason;
   }
 
-  public void setCancelReason(LoanCancelErrorReason cancelReason) {
-    this.cancelReason = cancelReason;
+  public void setReason(LoanCancelErrorReason reason) {
+    this.reason = reason;
   }
 
 
@@ -57,12 +57,12 @@ public class LoanCancelErrorResponse implements Serializable, OneOfLoanLoanStatu
       return false;
     }
     LoanCancelErrorResponse loanCancelErrorResponse = (LoanCancelErrorResponse) o;
-    return Objects.equals(this.cancelReason, loanCancelErrorResponse.cancelReason);
+    return Objects.equals(this.reason, loanCancelErrorResponse.reason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancelReason);
+    return Objects.hash(reason);
   }
 
 
@@ -71,7 +71,7 @@ public class LoanCancelErrorResponse implements Serializable, OneOfLoanLoanStatu
     StringBuilder sb = new StringBuilder();
     sb.append("class LoanCancelErrorResponse {\n");
     
-    sb.append("    cancelReason: ").append(toIndentedString(cancelReason)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("}");
     return sb.toString();
   }

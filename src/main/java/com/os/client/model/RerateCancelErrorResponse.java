@@ -22,29 +22,29 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * RerateCancelErrorResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T15:11:00.294942751Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T16:47:49.918644102Z[GMT]")
 
 public class RerateCancelErrorResponse implements Serializable, OneOfRerateStatusReason {
   private static final long serialVersionUID = 1L;
-  @SerializedName("cancelReason")
-  private RerateCancelErrorReason cancelReason = null;
+  @SerializedName("reason")
+  private RerateCancelErrorReason reason = null;
 
-  public RerateCancelErrorResponse cancelReason(RerateCancelErrorReason cancelReason) {
-    this.cancelReason = cancelReason;
+  public RerateCancelErrorResponse reason(RerateCancelErrorReason reason) {
+    this.reason = reason;
     return this;
   }
 
    /**
-   * Get cancelReason
-   * @return cancelReason
+   * Get reason
+   * @return reason
   **/
   @Schema(required = true, description = "")
-  public RerateCancelErrorReason getCancelReason() {
-    return cancelReason;
+  public RerateCancelErrorReason getReason() {
+    return reason;
   }
 
-  public void setCancelReason(RerateCancelErrorReason cancelReason) {
-    this.cancelReason = cancelReason;
+  public void setReason(RerateCancelErrorReason reason) {
+    this.reason = reason;
   }
 
 
@@ -57,12 +57,12 @@ public class RerateCancelErrorResponse implements Serializable, OneOfRerateStatu
       return false;
     }
     RerateCancelErrorResponse rerateCancelErrorResponse = (RerateCancelErrorResponse) o;
-    return Objects.equals(this.cancelReason, rerateCancelErrorResponse.cancelReason);
+    return Objects.equals(this.reason, rerateCancelErrorResponse.reason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cancelReason);
+    return Objects.hash(reason);
   }
 
 
@@ -71,7 +71,7 @@ public class RerateCancelErrorResponse implements Serializable, OneOfRerateStatu
     StringBuilder sb = new StringBuilder();
     sb.append("class RerateCancelErrorResponse {\n");
     
-    sb.append("    cancelReason: ").append(toIndentedString(cancelReason)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("}");
     return sb.toString();
   }

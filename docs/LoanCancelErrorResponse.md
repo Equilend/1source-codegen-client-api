@@ -3,4 +3,4 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cancelReason** | [**LoanCancelErrorReason**](LoanCancelErrorReason.md) |  | 
+**reason** | [**LoanCancelErrorReason**](LoanCancelErrorReason.md) |  | 

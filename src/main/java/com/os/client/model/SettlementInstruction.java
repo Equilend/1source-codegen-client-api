@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * One of DTC Participant Number or CDS Customer Unit Id is required with settlementBIC
  */
 @Schema(description = "One of DTC Participant Number or CDS Customer Unit Id is required with settlementBIC")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T15:11:00.294942751Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T16:47:49.918644102Z[GMT]")
 
 public class SettlementInstruction implements Serializable{
   private static final long serialVersionUID = 1L;
