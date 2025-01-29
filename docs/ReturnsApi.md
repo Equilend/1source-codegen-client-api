@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerReturnsGet"></a>
 # **ledgerReturnsGet**
-> Returns ledgerReturnsGet(since, before, size, returnStatus, figi, sedol, cusip, ticker, isin, partyId, venueRefKey)
+> Returns ledgerReturnsGet(since, before, size, returnStatus)
 
 Read collection of returns
 
@@ -358,15 +358,8 @@ OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Returns updated
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Returns updated (before) timestamp UTC
 Integer size = 56; // Integer | Number of returns to be returned. Can be used to facilitate paging
 ReturnStatus returnStatus = new ReturnStatus(); // ReturnStatus | Returns matching status RETURN STATUS
-String figi = "figi_example"; // String | Returns with instrument matching FIGI
-String sedol = "sedol_example"; // String | Returns with instrument matching SEDOL
-String cusip = "cusip_example"; // String | Returns with instrument matching CUSIP
-String ticker = "ticker_example"; // String | Returns with instrument matching TICKER
-String isin = "isin_example"; // String | Returns with instrument matching ISIN
-String partyId = "partyId_example"; // String | Returns with a transacting party mathing PARTY ID
-String venueRefKey = "venueRefKey_example"; // String | Returns with venueRefKey matching VENUE REF KEY
 try {
-    Returns result = apiInstance.ledgerReturnsGet(since, before, size, returnStatus, figi, sedol, cusip, ticker, isin, partyId, venueRefKey);
+    Returns result = apiInstance.ledgerReturnsGet(since, before, size, returnStatus);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReturnsApi#ledgerReturnsGet");
@@ -378,17 +371,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since** | **OffsetDateTime**| Returns updated (since) timestamp UTC | [optional]
- **before** | **OffsetDateTime**| Returns updated (before) timestamp UTC | [optional]
+ **since** | [**OffsetDateTime**](.md)| Returns updated (since) timestamp UTC | [optional]
+ **before** | [**OffsetDateTime**](.md)| Returns updated (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of returns to be returned. Can be used to facilitate paging | [optional]
  **returnStatus** | [**ReturnStatus**](.md)| Returns matching status RETURN STATUS | [optional]
- **figi** | **String**| Returns with instrument matching FIGI | [optional]
- **sedol** | **String**| Returns with instrument matching SEDOL | [optional]
- **cusip** | **String**| Returns with instrument matching CUSIP | [optional]
- **ticker** | **String**| Returns with instrument matching TICKER | [optional]
- **isin** | **String**| Returns with instrument matching ISIN | [optional]
- **partyId** | [**String**](.md)| Returns with a transacting party mathing PARTY ID | [optional]
- **venueRefKey** | **String**| Returns with venueRefKey matching VENUE REF KEY | [optional]
 
 ### Return type
 

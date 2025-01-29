@@ -9,4 +9,4 @@ Name | Type | Description | Notes
 **effectiveRate** | **Double** |  |  [optional]
 **isAutoRerate** | **Boolean** |  |  [optional]
 **effectiveDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
-**rerateCutoffTime** | **String** |  |  [optional]
+**rerateCutoffTime** | **String** | Ignored on rerate proposals |  [optional]

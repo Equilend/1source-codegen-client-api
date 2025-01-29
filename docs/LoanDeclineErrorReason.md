@@ -1,0 +1,7 @@
+# LoanDeclineErrorReason
+
+## Enum
+
+* `UNKNOWN_LOAN` (value: `"UNKNOWN_LOAN"`)
+* `MISSING_INFORMATION` (value: `"MISSING_INFORMATION"`)
+* `INCORRECT_LOAN_INFO` (value: `"INCORRECT_LOAN_INFO"`)

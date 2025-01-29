@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 <a name="ledgerLoansGet"></a>
 # **ledgerLoansGet**
-> Loans ledgerLoansGet(since, before, size, loanStatus, figi, sedol, cusip, ticker, isin, internalRefId, partyId, venueRefKey)
+> Loans ledgerLoansGet(since, before, size, loanStatus)
 
 Read a collection of loans. Defaults to return the last 100 loans updated.
 
@@ -44,16 +44,8 @@ OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Loans updated (
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Loans updated (before) timestamp UTC
 Integer size = 56; // Integer | Number of loans to be returned. Can be used to facilitate paging
 LoanStatus loanStatus = new LoanStatus(); // LoanStatus | Loans with status matching LOAN STATUS
-String figi = "figi_example"; // String | Loans with instrument matching FIGI
-String sedol = "sedol_example"; // String | Loans with instrument matching SEDOL
-String cusip = "cusip_example"; // String | Loans with instrument matching CUSIP
-String ticker = "ticker_example"; // String | Loans with instrument matching TICKER
-String isin = "isin_example"; // String | Loans with instrument matching ISIN
-String internalRefId = "internalRefId_example"; // String | Loans with internalRef matching INTERNAL REF ID
-String partyId = "partyId_example"; // String | Loans with a transacting party mathing PARTY ID
-String venueRefKey = "venueRefKey_example"; // String | Loans with venueRefKey matching VENUE REF KEY
 try {
-    Loans result = apiInstance.ledgerLoansGet(since, before, size, loanStatus, figi, sedol, cusip, ticker, isin, internalRefId, partyId, venueRefKey);
+    Loans result = apiInstance.ledgerLoansGet(since, before, size, loanStatus);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LoansApi#ledgerLoansGet");
@@ -65,18 +57,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since** | **OffsetDateTime**| Loans updated (since) timestamp UTC | [optional]
- **before** | **OffsetDateTime**| Loans updated (before) timestamp UTC | [optional]
+ **since** | [**OffsetDateTime**](.md)| Loans updated (since) timestamp UTC | [optional]
+ **before** | [**OffsetDateTime**](.md)| Loans updated (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of loans to be returned. Can be used to facilitate paging | [optional]
  **loanStatus** | [**LoanStatus**](.md)| Loans with status matching LOAN STATUS | [optional]
- **figi** | **String**| Loans with instrument matching FIGI | [optional]
- **sedol** | **String**| Loans with instrument matching SEDOL | [optional]
- **cusip** | **String**| Loans with instrument matching CUSIP | [optional]
- **ticker** | **String**| Loans with instrument matching TICKER | [optional]
- **isin** | **String**| Loans with instrument matching ISIN | [optional]
- **internalRefId** | **String**| Loans with internalRef matching INTERNAL REF ID | [optional]
- **partyId** | [**String**](.md)| Loans with a transacting party mathing PARTY ID | [optional]
- **venueRefKey** | **String**| Loans with venueRefKey matching VENUE REF KEY | [optional]
 
 ### Return type
 
@@ -166,7 +150,7 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LoansApi apiInstance = new LoansApi();
-LoanProposalCancel body = new LoanProposalCancel(); // LoanProposalCancel | Reason for canceling a proposed loan
+LoanCancelErrorResponse body = new LoanCancelErrorResponse(); // LoanCancelErrorResponse | Reason for canceling a proposed loan
 String loanId = "loanId_example"; // String | The unique identifier of a loan
 try {
     LedgerResponse result = apiInstance.ledgerLoansLoanIdCancelPost(body, loanId);
@@ -181,7 +165,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LoanProposalCancel**](LoanProposalCancel.md)| Reason for canceling a proposed loan |
+ **body** | [**LoanCancelErrorResponse**](LoanCancelErrorResponse.md)| Reason for canceling a proposed loan |
  **loanId** | [**String**](.md)| The unique identifier of a loan |
 
 ### Return type
@@ -219,7 +203,7 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LoansApi apiInstance = new LoansApi();
-LoanProposalCancelPending body = new LoanProposalCancelPending(); // LoanProposalCancelPending | Reason for canceling a pending loan
+LoanCancelPendingErrorResponse body = new LoanCancelPendingErrorResponse(); // LoanCancelPendingErrorResponse | Reason for canceling a pending loan
 String loanId = "loanId_example"; // String | The unique identifier of a loan
 try {
     LedgerResponse result = apiInstance.ledgerLoansLoanIdCancelpendingPost(body, loanId);
@@ -234,7 +218,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LoanProposalCancelPending**](LoanProposalCancelPending.md)| Reason for canceling a pending loan |
+ **body** | [**LoanCancelPendingErrorResponse**](LoanCancelPendingErrorResponse.md)| Reason for canceling a pending loan |
  **loanId** | [**String**](.md)| The unique identifier of a loan |
 
 ### Return type
@@ -272,7 +256,7 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LoansApi apiInstance = new LoansApi();
-LoanProposalDecline body = new LoanProposalDecline(); // LoanProposalDecline | Provide reason and details for declining loan proposal
+LoanDeclineErrorResponse body = new LoanDeclineErrorResponse(); // LoanDeclineErrorResponse | Provide reason and details for declining loan proposal
 String loanId = "loanId_example"; // String | The unique identifier of a loan
 try {
     LedgerResponse result = apiInstance.ledgerLoansLoanIdDeclinePost(body, loanId);
@@ -287,7 +271,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LoanProposalDecline**](LoanProposalDecline.md)| Provide reason and details for declining loan proposal |
+ **body** | [**LoanDeclineErrorResponse**](LoanDeclineErrorResponse.md)| Provide reason and details for declining loan proposal |
  **loanId** | [**String**](.md)| The unique identifier of a loan |
 
 ### Return type
@@ -356,7 +340,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerLoansLoanIdHistoryGet"></a>
 # **ledgerLoansLoanIdHistoryGet**
-> Loans ledgerLoansLoanIdHistoryGet(loanId, since, before, size)
+> Loans ledgerLoansLoanIdHistoryGet(loanId, since, before, size, eventType, sortOrder)
 
 Return an ordered history of this loan. Each loan has a reference event that triggered a new version.
 
@@ -380,8 +364,10 @@ String loanId = "loanId_example"; // String | The unique identifier of a loan
 OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Events (since) timestamp UTC
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Events (before) timestamp UTC
 Integer size = 56; // Integer | Number of loan changes to be returned. Can be used to facilitate paging
+List<EventType> eventType = Arrays.asList(new EventType()); // List<EventType> | Filter by event type
+SortOrder sortOrder = new SortOrder(); // SortOrder | Sort history by order of creation ascending or descending. Defaults to ASCENDING
 try {
-    Loans result = apiInstance.ledgerLoansLoanIdHistoryGet(loanId, since, before, size);
+    Loans result = apiInstance.ledgerLoansLoanIdHistoryGet(loanId, since, before, size, eventType, sortOrder);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdHistoryGet");
@@ -394,9 +380,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loanId** | [**String**](.md)| The unique identifier of a loan |
- **since** | **OffsetDateTime**| Events (since) timestamp UTC | [optional]
- **before** | **OffsetDateTime**| Events (before) timestamp UTC | [optional]
+ **since** | [**OffsetDateTime**](.md)| Events (since) timestamp UTC | [optional]
+ **before** | [**OffsetDateTime**](.md)| Events (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of loan changes to be returned. Can be used to facilitate paging | [optional]
+ **eventType** | [**List&lt;EventType&gt;**](EventType.md)| Filter by event type | [optional]
+ **sortOrder** | [**SortOrder**](.md)| Sort history by order of creation ascending or descending. Defaults to ASCENDING | [optional]
 
 ### Return type
 
@@ -504,8 +492,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loanId** | [**String**](.md)| The unique identifier of a loan |
- **since** | **OffsetDateTime**| Events (since) timestamp UTC | [optional]
- **before** | **OffsetDateTime**| Events (before) timestamp UTC | [optional]
+ **since** | [**OffsetDateTime**](.md)| Events (since) timestamp UTC | [optional]
+ **before** | [**OffsetDateTime**](.md)| Events (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of effective rates to be returned. Can be used to facilitate paging | [optional]
 
 ### Return type
@@ -651,7 +639,7 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LoansApi apiInstance = new LoansApi();
-List<LoanSplitLot> body = Arrays.asList(new LoanSplitLot()); // List<LoanSplitLot> | Split proposed against loan
+List<LoanSplitProposalLot> body = Arrays.asList(new LoanSplitProposalLot()); // List<LoanSplitProposalLot> | Split proposed against loan
 String loanId = "loanId_example"; // String | The unique identifier of a loan
 try {
     LedgerResponse result = apiInstance.ledgerLoansLoanIdSplitPost(body, loanId);
@@ -666,7 +654,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**List&lt;LoanSplitLot&gt;**](LoanSplitLot.md)| Split proposed against loan |
+ **body** | [**List&lt;LoanSplitProposalLot&gt;**](LoanSplitProposalLot.md)| Split proposed against loan |
  **loanId** | [**String**](.md)| The unique identifier of a loan |
 
 ### Return type

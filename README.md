@@ -1,8 +1,8 @@
 # 1source-api-client
 
 1Source Ledger API
-- API version: 1.2.0
-  - Build date: 2024-12-06T16:12:41.344560814Z[GMT]
+- API version: 1.2.1
+  - Build date: 2025-01-29T15:11:00.294942751Z[GMT]
 
 1Source Ledger API provides client access to the 1Source Ledger. You can find out more about 1Source at [https://equilend.com](https://equilend.com).  This specification is work in progress. The design is meant to model the securities lending life cycle in as clean a way as possible while being robust enough to easily translate to ISLA CDM workflows and data model.  API specification is the intellectual property of EquiLend LLC and should not be copied or disseminated in any way. 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.os</groupId>
   <artifactId>1source-api-client</artifactId>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -91,7 +91,7 @@ Also, to use the GitHub Packages repository for downloading SNAPSHOT artifacts, 
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.os:1source-api-client:1.2.0"
+compile "com.os:1source-api-client:1.2.1"
 ```
 
 Add the repository to your build.gradle file (Gradle Groovy). Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
@@ -117,7 +117,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/1source-api-client-1.2.0.jar`
+* `target/1source-api-client-1.2.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -253,16 +253,10 @@ Class | Method | HTTP request | Description
 *AgreementsApi* | [**ledgerVenueAgreementsPost**](docs/AgreementsApi.md#ledgerVenueAgreementsPost) | **POST** /ledger/venue/agreements | For delegated venues to create a trade agreement atomically
 *BuyinsApi* | [**ledgerBuyinsCompletesBuyinCompleteIdGet**](docs/BuyinsApi.md#ledgerBuyinsCompletesBuyinCompleteIdGet) | **GET** /ledger/buyins/completes/{buyinCompleteId} | Read a completed buyin
 *BuyinsApi* | [**ledgerBuyinsCompletesGet**](docs/BuyinsApi.md#ledgerBuyinsCompletesGet) | **GET** /ledger/buyins/completes | Read collection of completed buyins
-*BuyinsApi* | [**ledgerBuyinsInitiatesBuyinInitiateIdGet**](docs/BuyinsApi.md#ledgerBuyinsInitiatesBuyinInitiateIdGet) | **GET** /ledger/buyins/initiates/{buyinInitiateId} | Read an initiated buyin
-*BuyinsApi* | [**ledgerBuyinsInitiatesGet**](docs/BuyinsApi.md#ledgerBuyinsInitiatesGet) | **GET** /ledger/buyins/initiates | Read collection of initiated buyins
 *BuyinsApi* | [**ledgerLoansLoanIdBuyinsCompletesBuyinCompleteIdAcceptPost**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsCompletesBuyinCompleteIdAcceptPost) | **POST** /ledger/loans/{loanId}/buyins/completes/{buyinCompleteId}/accept | Complete some or all of an initiated Buyin
 *BuyinsApi* | [**ledgerLoansLoanIdBuyinsCompletesBuyinCompleteIdGet**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsCompletesBuyinCompleteIdGet) | **GET** /ledger/loans/{loanId}/buyins/completes/{buyinCompleteId} | Read a completed Buyin
 *BuyinsApi* | [**ledgerLoansLoanIdBuyinsCompletesGet**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsCompletesGet) | **GET** /ledger/loans/{loanId}/buyins/completes | Read collection of completed buyins against loan specified by &#x27;loanId&#x27;
 *BuyinsApi* | [**ledgerLoansLoanIdBuyinsCompletesPost**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsCompletesPost) | **POST** /ledger/loans/{loanId}/buyins/completes | Complete a buyin
-*BuyinsApi* | [**ledgerLoansLoanIdBuyinsInitiatesBuyinInitiateIdCancelPost**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsInitiatesBuyinInitiateIdCancelPost) | **POST** /ledger/loans/{loanId}/buyins/initiates/{buyinInitiateId}/cancel | Cancel an initiated buyin. Original proposer only.
-*BuyinsApi* | [**ledgerLoansLoanIdBuyinsInitiatesBuyinInitiateIdGet**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsInitiatesBuyinInitiateIdGet) | **GET** /ledger/loans/{loanId}/buyins/initiates/{buyinInitiateId} | Read an initiated buyin
-*BuyinsApi* | [**ledgerLoansLoanIdBuyinsInitiatesGet**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsInitiatesGet) | **GET** /ledger/loans/{loanId}/buyins/initiates | Read collection of initiated buyins against loan specified by &#x27;loanId&#x27;
-*BuyinsApi* | [**ledgerLoansLoanIdBuyinsInitiatesPost**](docs/BuyinsApi.md#ledgerLoansLoanIdBuyinsInitiatesPost) | **POST** /ledger/loans/{loanId}/buyins/initiates | Initiate a buyin
 *DelegationsApi* | [**ledgerDelegationsDelegationIdApprovePost**](docs/DelegationsApi.md#ledgerDelegationsDelegationIdApprovePost) | **POST** /ledger/delegations/{delegationId}/approve | Approve a party delegation in \&quot;proposed\&quot; state
 *DelegationsApi* | [**ledgerDelegationsDelegationIdCancelPost**](docs/DelegationsApi.md#ledgerDelegationsDelegationIdCancelPost) | **POST** /ledger/delegations/{delegationId}/cancel | Cancel a party delegation in \&quot;proposed\&quot; state. Original proposer only.
 *DelegationsApi* | [**ledgerDelegationsDelegationIdDeclinePost**](docs/DelegationsApi.md#ledgerDelegationsDelegationIdDeclinePost) | **POST** /ledger/delegations/{delegationId}/decline | Decline a party delegation in \&quot;proposed\&quot; state
@@ -324,10 +318,6 @@ Class | Method | HTTP request | Description
  - [BuyinCompleteRequest](docs/BuyinCompleteRequest.md)
  - [BuyinCompleteStatus](docs/BuyinCompleteStatus.md)
  - [BuyinCompletes](docs/BuyinCompletes.md)
- - [BuyinInitiate](docs/BuyinInitiate.md)
- - [BuyinInitiateRequest](docs/BuyinInitiateRequest.md)
- - [BuyinInitiateStatus](docs/BuyinInitiateStatus.md)
- - [BuyinInitiates](docs/BuyinInitiates.md)
  - [Collateral](docs/Collateral.md)
  - [CollateralDescription](docs/CollateralDescription.md)
  - [CollateralType](docs/CollateralType.md)
@@ -338,9 +328,6 @@ Class | Method | HTTP request | Description
  - [DelegationProposal](docs/DelegationProposal.md)
  - [DelegationStatus](docs/DelegationStatus.md)
  - [Delegations](docs/Delegations.md)
- - [ErrorField](docs/ErrorField.md)
- - [ErrorReason](docs/ErrorReason.md)
- - [ErrorReasonFieldValue](docs/ErrorReasonFieldValue.md)
  - [Event](docs/Event.md)
  - [EventType](docs/EventType.md)
  - [Events](docs/Events.md)
@@ -353,23 +340,32 @@ Class | Method | HTTP request | Description
  - [InternalReferenceUpdate](docs/InternalReferenceUpdate.md)
  - [LedgerResponse](docs/LedgerResponse.md)
  - [Loan](docs/Loan.md)
+ - [LoanCancelErrorReason](docs/LoanCancelErrorReason.md)
+ - [LoanCancelErrorResponse](docs/LoanCancelErrorResponse.md)
+ - [LoanCancelPendingErrorReason](docs/LoanCancelPendingErrorReason.md)
+ - [LoanCancelPendingErrorResponse](docs/LoanCancelPendingErrorResponse.md)
+ - [LoanDeclineErrorReason](docs/LoanDeclineErrorReason.md)
+ - [LoanDeclineErrorReasonFieldType](docs/LoanDeclineErrorReasonFieldType.md)
+ - [LoanDeclineErrorReasonFieldValue](docs/LoanDeclineErrorReasonFieldValue.md)
+ - [LoanDeclineErrorResponse](docs/LoanDeclineErrorResponse.md)
  - [LoanProposal](docs/LoanProposal.md)
  - [LoanProposalApproval](docs/LoanProposalApproval.md)
- - [LoanProposalCancel](docs/LoanProposalCancel.md)
- - [LoanProposalCancelPending](docs/LoanProposalCancelPending.md)
- - [LoanProposalDecline](docs/LoanProposalDecline.md)
  - [LoanSplit](docs/LoanSplit.md)
  - [LoanSplitAcknowledgment](docs/LoanSplitAcknowledgment.md)
  - [LoanSplitLot](docs/LoanSplitLot.md)
  - [LoanSplitLotAcknowledge](docs/LoanSplitLotAcknowledge.md)
  - [LoanSplitProposal](docs/LoanSplitProposal.md)
+ - [LoanSplitProposalLot](docs/LoanSplitProposalLot.md)
  - [LoanSplitStatus](docs/LoanSplitStatus.md)
  - [LoanStatus](docs/LoanStatus.md)
  - [Loans](docs/Loans.md)
  - [LoansLoanIdBody](docs/LoansLoanIdBody.md)
  - [ModelReturn](docs/ModelReturn.md)
+ - [OneOfLoanDeclineErrorReasonFieldValueExpectedValue](docs/OneOfLoanDeclineErrorReasonFieldValueExpectedValue.md)
+ - [OneOfLoanLoanStatusReason](docs/OneOfLoanLoanStatusReason.md)
  - [OneOfRebateRateRebate](docs/OneOfRebateRateRebate.md)
- - [OneOfSettlementInstruction](docs/OneOfSettlementInstruction.md)
+ - [OneOfRerateDeclineErrorReasonFieldValueExpectedValue](docs/OneOfRerateDeclineErrorReasonFieldValueExpectedValue.md)
+ - [OneOfRerateStatusReason](docs/OneOfRerateStatusReason.md)
  - [Parties](docs/Parties.md)
  - [Party](docs/Party.md)
  - [PartyRole](docs/PartyRole.md)
@@ -388,6 +384,14 @@ Class | Method | HTTP request | Description
  - [Recalls](docs/Recalls.md)
  - [RecallsRecallIdBody](docs/RecallsRecallIdBody.md)
  - [Rerate](docs/Rerate.md)
+ - [RerateCancelErrorReason](docs/RerateCancelErrorReason.md)
+ - [RerateCancelErrorResponse](docs/RerateCancelErrorResponse.md)
+ - [RerateCancelPendingErrorReason](docs/RerateCancelPendingErrorReason.md)
+ - [RerateCancelPendingErrorResponse](docs/RerateCancelPendingErrorResponse.md)
+ - [RerateDeclineErrorReason](docs/RerateDeclineErrorReason.md)
+ - [RerateDeclineErrorReasonFieldType](docs/RerateDeclineErrorReasonFieldType.md)
+ - [RerateDeclineErrorReasonFieldValue](docs/RerateDeclineErrorReasonFieldValue.md)
+ - [RerateDeclineErrorResponse](docs/RerateDeclineErrorResponse.md)
  - [RerateProposal](docs/RerateProposal.md)
  - [RerateStatus](docs/RerateStatus.md)
  - [Rerates](docs/Rerates.md)
@@ -434,4 +438,4 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 ## Last Update
 
-Friday, December 6, 2024 11:19:10
+Wednesday, January 29, 2025 11:19:10

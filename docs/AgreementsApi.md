@@ -98,8 +98,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since** | **OffsetDateTime**| Agreements updated (since) timestamp UTC | [optional]
- **before** | **OffsetDateTime**| Agreements updated (before) timestamp UTC | [optional]
+ **since** | [**OffsetDateTime**](.md)| Agreements updated (since) timestamp UTC | [optional]
+ **before** | [**OffsetDateTime**](.md)| Agreements updated (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of agreements to be returned. Can be used to facilitate paging | [optional]
 
 ### Return type

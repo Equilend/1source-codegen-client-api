@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerRecallsGet"></a>
 # **ledgerRecallsGet**
-> Recalls ledgerRecallsGet(since, before, size, recallStatus, figi, sedol, cusip, ticker, isin, partyId, venueRefKey)
+> Recalls ledgerRecallsGet(since, before, size, recallStatus)
 
 Read collection of recalls
 
@@ -360,15 +360,8 @@ OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Recalls updated
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Recalls updated (before) timestamp UTC
 Integer size = 56; // Integer | Number of recalls to be returned. Can be used to facilitate paging
 RecallStatus recallStatus = new RecallStatus(); // RecallStatus | Recalls matching status RECALL STATUS
-String figi = "figi_example"; // String | Recalls with instrument matching FIGI
-String sedol = "sedol_example"; // String | Recalls with instrument matching SEDOL
-String cusip = "cusip_example"; // String | Recalls with instrument matching CUSIP
-String ticker = "ticker_example"; // String | Recalls with instrument matching TICKER
-String isin = "isin_example"; // String | Recalls with instrument matching ISIN
-String partyId = "partyId_example"; // String | Recalls with a transacting party mathing PARTY ID
-String venueRefKey = "venueRefKey_example"; // String | Recalls with venueRefKey matching VENUE REF KEY
 try {
-    Recalls result = apiInstance.ledgerRecallsGet(since, before, size, recallStatus, figi, sedol, cusip, ticker, isin, partyId, venueRefKey);
+    Recalls result = apiInstance.ledgerRecallsGet(since, before, size, recallStatus);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecallsApi#ledgerRecallsGet");
@@ -380,17 +373,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since** | **OffsetDateTime**| Recalls updated (since) timestamp UTC | [optional]
- **before** | **OffsetDateTime**| Recalls updated (before) timestamp UTC | [optional]
+ **since** | [**OffsetDateTime**](.md)| Recalls updated (since) timestamp UTC | [optional]
+ **before** | [**OffsetDateTime**](.md)| Recalls updated (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of recalls to be returned. Can be used to facilitate paging | [optional]
  **recallStatus** | [**RecallStatus**](.md)| Recalls matching status RECALL STATUS | [optional]
- **figi** | **String**| Recalls with instrument matching FIGI | [optional]
- **sedol** | **String**| Recalls with instrument matching SEDOL | [optional]
- **cusip** | **String**| Recalls with instrument matching CUSIP | [optional]
- **ticker** | **String**| Recalls with instrument matching TICKER | [optional]
- **isin** | **String**| Recalls with instrument matching ISIN | [optional]
- **partyId** | [**String**](.md)| Recalls with a transacting party mathing PARTY ID | [optional]
- **venueRefKey** | **String**| Recalls with venueRefKey matching VENUE REF KEY | [optional]
 
 ### Return type
 

@@ -5,7 +5,7 @@
   <artifactId>1source-api-client</artifactId>
   <packaging>jar</packaging>
   <name>1source-api-client</name>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
   <url>https://github.com/swagger-api/swagger-codegen</url>
   <description>Swagger Java</description>
   <scm>
@@ -19,8 +19,8 @@
 
   <licenses>
     <license>
-      <name>Unlicense</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+      <name>MIT License</name>
+      <url>https://mit-license.org/</url>
       <distribution>repo</distribution>
     </license>
   </licenses>

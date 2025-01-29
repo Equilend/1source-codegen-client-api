@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **localAgentBic** | **String** | BIC used to identify local agent that will interact with PSET |  [optional]
 **localAgentName** | **String** | Name of local agent that will interact with PSET |  [optional]
 **localAgentAccount** | **String** | Account within local agent that will interact with PSET |  [optional]
-**dtcParticipantNumber** | **String** |  | 
+**dtcParticipantNumber** | **String** |  |  [optional]
 **cdsCustomerUnitId** | **String** |  |  [optional]
 **custodianName** | **String** | Custodian Bank Name |  [optional]
 **custodianBic** | **String** | Custodian Bank BIC |  [optional]

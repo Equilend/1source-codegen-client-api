@@ -1,0 +1,16 @@
+# LoanDeclineErrorReasonFieldType
+
+## Enum
+
+* `RATE` (value: `"RATE"`)
+* `BILLING_CURRENCY` (value: `"BILLING_CURRENCY"`)
+* `COLLATERAL_CURRENCY` (value: `"COLLATERAL_CURRENCY"`)
+* `COLLATERAL_MARGIN` (value: `"COLLATERAL_MARGIN"`)
+* `COLLATERAL_TYPE` (value: `"COLLATERAL_TYPE"`)
+* `DIVIDEND_RATE` (value: `"DIVIDEND_RATE"`)
+* `QUANTITY` (value: `"QUANTITY"`)
+* `SETTLEMENT_DATE` (value: `"SETTLEMENT_DATE"`)
+* `SETTLEMENT_TYPE` (value: `"SETTLEMENT_TYPE"`)
+* `TRADE_DATE` (value: `"TRADE_DATE"`)
+* `TERM_DATE` (value: `"TERM_DATE"`)
+* `TERM_TYPE` (value: `"TERM_TYPE"`)

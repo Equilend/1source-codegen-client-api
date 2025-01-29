@@ -83,8 +83,8 @@ stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 EventsApi apiInstance = new EventsApi();
 List<EventType> eventType = Arrays.asList(new EventType()); // List<EventType> | Filter by event type
-Integer beforeEventId = 56; // Integer | 
-Integer fromEventId = 56; // Integer | 
+Long beforeEventId = 789L; // Long | 
+Long fromEventId = 789L; // Long | 
 OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Events (since) timestamp UTC
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Events (before) timestamp UTC
 Integer size = 56; // Integer | Number of events to be returned. Can be used to facilitate paging. Defaults to 100
@@ -103,10 +103,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **eventType** | [**List&lt;EventType&gt;**](EventType.md)| Filter by event type | [optional]
- **beforeEventId** | **Integer**|  | [optional]
- **fromEventId** | **Integer**|  | [optional]
- **since** | **OffsetDateTime**| Events (since) timestamp UTC | [optional]
- **before** | **OffsetDateTime**| Events (before) timestamp UTC | [optional]
+ **beforeEventId** | **Long**|  | [optional]
+ **fromEventId** | **Long**|  | [optional]
+ **since** | [**OffsetDateTime**](.md)| Events (since) timestamp UTC | [optional]
+ **before** | [**OffsetDateTime**](.md)| Events (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of events to be returned. Can be used to facilitate paging. Defaults to 100 | [optional]
  **sortOrder** | [**SortOrder**](.md)| Sort events by order of creation ascending or descending. Defaults to ASCENDING | [optional]
 
@@ -200,8 +200,8 @@ stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 EventsApi apiInstance = new EventsApi();
 String loanId = "loanId_example"; // String | The unique identifier of a loan
 List<EventType> eventType = Arrays.asList(new EventType()); // List<EventType> | Filter by event type
-Integer beforeEventId = 56; // Integer | 
-Integer fromEventId = 56; // Integer | 
+Long beforeEventId = 789L; // Long | 
+Long fromEventId = 789L; // Long | 
 OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Events (since) timestamp UTC
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Events (before) timestamp UTC
 Integer size = 56; // Integer | Number of events to be returned. Can be used to facilitate paging
@@ -221,10 +221,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loanId** | [**String**](.md)| The unique identifier of a loan |
  **eventType** | [**List&lt;EventType&gt;**](EventType.md)| Filter by event type | [optional]
- **beforeEventId** | **Integer**|  | [optional]
- **fromEventId** | **Integer**|  | [optional]
- **since** | **OffsetDateTime**| Events (since) timestamp UTC | [optional]
- **before** | **OffsetDateTime**| Events (before) timestamp UTC | [optional]
+ **beforeEventId** | **Long**|  | [optional]
+ **fromEventId** | **Long**|  | [optional]
+ **since** | [**OffsetDateTime**](.md)| Events (since) timestamp UTC | [optional]
+ **before** | [**OffsetDateTime**](.md)| Events (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of events to be returned. Can be used to facilitate paging | [optional]
  **sortOrder** | [**SortOrder**](.md)| Sort events by order of creation ascending or descending. Defaults to ASCENDING | [optional]
 

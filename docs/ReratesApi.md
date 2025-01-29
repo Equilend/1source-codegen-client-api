@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerLoansLoanIdReratesRerateIdDeclinePost"></a>
 # **ledgerLoansLoanIdReratesRerateIdDeclinePost**
-> LedgerResponse ledgerLoansLoanIdReratesRerateIdDeclinePost(loanId, rerateId)
+> LedgerResponse ledgerLoansLoanIdReratesRerateIdDeclinePost(body, loanId, rerateId)
 
 Decline a rerate in \&quot;proposed\&quot; state.
 
@@ -298,10 +298,11 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ReratesApi apiInstance = new ReratesApi();
+RerateDeclineErrorResponse body = new RerateDeclineErrorResponse(); // RerateDeclineErrorResponse | Provide reason and details for declining rerate proposal
 String loanId = "loanId_example"; // String | The unique identifier of a loan
 String rerateId = "rerateId_example"; // String | The unique identifier of a rerate
 try {
-    LedgerResponse result = apiInstance.ledgerLoansLoanIdReratesRerateIdDeclinePost(loanId, rerateId);
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdReratesRerateIdDeclinePost(body, loanId, rerateId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReratesApi#ledgerLoansLoanIdReratesRerateIdDeclinePost");
@@ -313,6 +314,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**RerateDeclineErrorResponse**](RerateDeclineErrorResponse.md)| Provide reason and details for declining rerate proposal |
  **loanId** | [**String**](.md)| The unique identifier of a loan |
  **rerateId** | [**String**](.md)| The unique identifier of a rerate |
 
@@ -326,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="ledgerLoansLoanIdReratesRerateIdGet"></a>
@@ -384,7 +386,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerReratesGet"></a>
 # **ledgerReratesGet**
-> Rerates ledgerReratesGet(since, before, size, rerateStatus, figi, sedol, cusip, ticker, isin, partyId, venueRefKey)
+> Rerates ledgerReratesGet(since, before, size, rerateStatus)
 
 Read collection of rerates
 
@@ -408,15 +410,8 @@ OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Rerates updated
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Rerates updated (before) timestamp UTC
 Integer size = 56; // Integer | Number of rerates to be returned. Can be used to facilitate paging
 RerateStatus rerateStatus = new RerateStatus(); // RerateStatus | Loans matching status RERATE STATUS
-String figi = "figi_example"; // String | Rerates with instrument matching FIGI
-String sedol = "sedol_example"; // String | Rerates with instrument matching SEDOL
-String cusip = "cusip_example"; // String | Rerates with instrument matching CUSIP
-String ticker = "ticker_example"; // String | Rerates with instrument matching TICKER
-String isin = "isin_example"; // String | Rerates with instrument matching ISIN
-String partyId = "partyId_example"; // String | Rerates with a transacting party mathing PARTY ID
-String venueRefKey = "venueRefKey_example"; // String | Rerates with venueRefKey matching VENUE REF KEY
 try {
-    Rerates result = apiInstance.ledgerReratesGet(since, before, size, rerateStatus, figi, sedol, cusip, ticker, isin, partyId, venueRefKey);
+    Rerates result = apiInstance.ledgerReratesGet(since, before, size, rerateStatus);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReratesApi#ledgerReratesGet");
@@ -428,17 +423,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since** | **OffsetDateTime**| Rerates updated (since) timestamp UTC | [optional]
- **before** | **OffsetDateTime**| Rerates updated (before) timestamp UTC | [optional]
+ **since** | [**OffsetDateTime**](.md)| Rerates updated (since) timestamp UTC | [optional]
+ **before** | [**OffsetDateTime**](.md)| Rerates updated (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of rerates to be returned. Can be used to facilitate paging | [optional]
  **rerateStatus** | [**RerateStatus**](.md)| Loans matching status RERATE STATUS | [optional]
- **figi** | **String**| Rerates with instrument matching FIGI | [optional]
- **sedol** | **String**| Rerates with instrument matching SEDOL | [optional]
- **cusip** | **String**| Rerates with instrument matching CUSIP | [optional]
- **ticker** | **String**| Rerates with instrument matching TICKER | [optional]
- **isin** | **String**| Rerates with instrument matching ISIN | [optional]
- **partyId** | [**String**](.md)| Rerates with a transacting party mathing PARTY ID | [optional]
- **venueRefKey** | **String**| Rerates with venueRefKey matching VENUE REF KEY | [optional]
 
 ### Return type
 
