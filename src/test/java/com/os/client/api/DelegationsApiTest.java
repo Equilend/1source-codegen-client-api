@@ -17,6 +17,7 @@ import org.junit.Test;
 
 import com.os.client.model.Delegation;
 import com.os.client.model.DelegationProposal;
+import com.os.client.model.DelegationStatus;
 import com.os.client.model.Delegations;
 import com.os.client.model.LedgerResponse;
 
@@ -114,7 +115,9 @@ public class DelegationsApiTest {
      */
     @Test
     public void ledgerDelegationsGetTest() throws Exception {
-        Delegations response = api.ledgerDelegationsGet();
+        Integer size = null;
+        DelegationStatus delegationStatus = null;
+        Delegations response = api.ledgerDelegationsGet(size, delegationStatus);
 
         // TODO: test validations
     }

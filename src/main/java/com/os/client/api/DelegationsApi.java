@@ -30,6 +30,7 @@ import com.os.client.invoker.ProgressRequestBody;
 import com.os.client.invoker.ProgressResponseBody;
 import com.os.client.model.Delegation;
 import com.os.client.model.DelegationProposal;
+import com.os.client.model.DelegationStatus;
 import com.os.client.model.Delegations;
 import com.os.client.model.LedgerResponse;
 
@@ -699,12 +700,14 @@ public class DelegationsApi {
     }
     /**
      * Build call for ledgerDelegationsGet
+     * @param size Number of loans to be returned. Can be used to facilitate paging (optional)
+     * @param delegationStatus Delegations with status matching DELEGATION STATUS (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ledgerDelegationsGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call ledgerDelegationsGetCall(Integer size, DelegationStatus delegationStatus, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -712,6 +715,10 @@ public class DelegationsApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (size != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("size", size));
+        if (delegationStatus != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("delegationStatus", delegationStatus));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -749,9 +756,9 @@ public class DelegationsApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ledgerDelegationsGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call ledgerDelegationsGetValidateBeforeCall(Integer size, DelegationStatus delegationStatus, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        com.squareup.okhttp.Call call = ledgerDelegationsGetCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ledgerDelegationsGetCall(size, delegationStatus, progressListener, progressRequestListener);
         return call;
 
         
@@ -763,22 +770,26 @@ public class DelegationsApi {
     /**
      * Read a collection of delegations.
      * 
+     * @param size Number of loans to be returned. Can be used to facilitate paging (optional)
+     * @param delegationStatus Delegations with status matching DELEGATION STATUS (optional)
      * @return Delegations
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Delegations ledgerDelegationsGet() throws ApiException {
-        ApiResponse<Delegations> resp = ledgerDelegationsGetWithHttpInfo();
+    public Delegations ledgerDelegationsGet(Integer size, DelegationStatus delegationStatus) throws ApiException {
+        ApiResponse<Delegations> resp = ledgerDelegationsGetWithHttpInfo(size, delegationStatus);
         return resp.getData();
     }
 
     /**
      * Read a collection of delegations.
      * 
+     * @param size Number of loans to be returned. Can be used to facilitate paging (optional)
+     * @param delegationStatus Delegations with status matching DELEGATION STATUS (optional)
      * @return ApiResponse&lt;Delegations&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Delegations> ledgerDelegationsGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = ledgerDelegationsGetValidateBeforeCall(null, null);
+    public ApiResponse<Delegations> ledgerDelegationsGetWithHttpInfo(Integer size, DelegationStatus delegationStatus) throws ApiException {
+        com.squareup.okhttp.Call call = ledgerDelegationsGetValidateBeforeCall(size, delegationStatus, null, null);
         Type localVarReturnType = new TypeToken<Delegations>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -786,11 +797,13 @@ public class DelegationsApi {
     /**
      * Read a collection of delegations. (asynchronously)
      * 
+     * @param size Number of loans to be returned. Can be used to facilitate paging (optional)
+     * @param delegationStatus Delegations with status matching DELEGATION STATUS (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ledgerDelegationsGetAsync(final ApiCallback<Delegations> callback) throws ApiException {
+    public com.squareup.okhttp.Call ledgerDelegationsGetAsync(Integer size, DelegationStatus delegationStatus, final ApiCallback<Delegations> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -811,7 +824,7 @@ public class DelegationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ledgerDelegationsGetValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ledgerDelegationsGetValidateBeforeCall(size, delegationStatus, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Delegations>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

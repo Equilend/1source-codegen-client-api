@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerDelegationsGet"></a>
 # **ledgerDelegationsGet**
-> Delegations ledgerDelegationsGet()
+> Delegations ledgerDelegationsGet(size, delegationStatus)
 
 Read a collection of delegations.
 
@@ -289,8 +289,10 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 DelegationsApi apiInstance = new DelegationsApi();
+Integer size = 56; // Integer | Number of loans to be returned. Can be used to facilitate paging
+DelegationStatus delegationStatus = new DelegationStatus(); // DelegationStatus | Delegations with status matching DELEGATION STATUS
 try {
-    Delegations result = apiInstance.ledgerDelegationsGet();
+    Delegations result = apiInstance.ledgerDelegationsGet(size, delegationStatus);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DelegationsApi#ledgerDelegationsGet");
@@ -299,7 +301,11 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **Integer**| Number of loans to be returned. Can be used to facilitate paging | [optional]
+ **delegationStatus** | [**DelegationStatus**](.md)| Delegations with status matching DELEGATION STATUS | [optional]
 
 ### Return type
 

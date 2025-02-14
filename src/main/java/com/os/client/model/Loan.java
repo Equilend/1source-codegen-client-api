@@ -25,7 +25,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Loan
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-01-29T18:55:08.725971332Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-02-14T16:23:32.309873479Z[GMT]")
 
 public class Loan implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -58,6 +58,9 @@ public class Loan implements Serializable{
 
   @SerializedName("parentLoanId")
   private String parentLoanId = null;
+
+  @SerializedName("loanCorrelationId")
+  private String loanCorrelationId = null;
 
   public Loan loanId(String loanId) {
     this.loanId = loanId;
@@ -247,6 +250,24 @@ public class Loan implements Serializable{
     this.parentLoanId = parentLoanId;
   }
 
+  public Loan loanCorrelationId(String loanCorrelationId) {
+    this.loanCorrelationId = loanCorrelationId;
+    return this;
+  }
+
+   /**
+   * Get loanCorrelationId
+   * @return loanCorrelationId
+  **/
+  @Schema(description = "")
+  public String getLoanCorrelationId() {
+    return loanCorrelationId;
+  }
+
+  public void setLoanCorrelationId(String loanCorrelationId) {
+    this.loanCorrelationId = loanCorrelationId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -266,12 +287,13 @@ public class Loan implements Serializable{
         Objects.equals(this.isInitiator, loan.isInitiator) &&
         Objects.equals(this.trade, loan.trade) &&
         Objects.equals(this.settlement, loan.settlement) &&
-        Objects.equals(this.parentLoanId, loan.parentLoanId);
+        Objects.equals(this.parentLoanId, loan.parentLoanId) &&
+        Objects.equals(this.loanCorrelationId, loan.loanCorrelationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loanId, lastEvent, loanStatus, loanStatusReason, lastUpdatePartyId, lastUpdateDateTime, isInitiator, trade, settlement, parentLoanId);
+    return Objects.hash(loanId, lastEvent, loanStatus, loanStatusReason, lastUpdatePartyId, lastUpdateDateTime, isInitiator, trade, settlement, parentLoanId, loanCorrelationId);
   }
 
 
@@ -290,6 +312,7 @@ public class Loan implements Serializable{
     sb.append("    trade: ").append(toIndentedString(trade)).append("\n");
     sb.append("    settlement: ").append(toIndentedString(settlement)).append("\n");
     sb.append("    parentLoanId: ").append(toIndentedString(parentLoanId)).append("\n");
+    sb.append("    loanCorrelationId: ").append(toIndentedString(loanCorrelationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
