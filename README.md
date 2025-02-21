@@ -13,7 +13,7 @@
 ## Requirements
 
 Building the API client library requires:
-1. Java 17+
+1. Java 11+
 2. Maven/Gradle
 
 ## Installation
