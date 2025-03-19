@@ -12,17 +12,21 @@
 
 package com.os.client.api;
 
-import java.time.OffsetDateTime;
-
-import org.junit.Ignore;
-import org.junit.Test;
-
 import com.os.client.model.LedgerResponse;
+import java.time.OffsetDateTime;
 import com.os.client.model.Rerate;
 import com.os.client.model.RerateDeclineErrorResponse;
 import com.os.client.model.RerateProposal;
 import com.os.client.model.RerateStatus;
 import com.os.client.model.Rerates;
+import org.junit.Test;
+import org.junit.Ignore;
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**

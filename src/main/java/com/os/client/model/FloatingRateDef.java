@@ -20,10 +20,10 @@ import com.google.gson.annotations.SerializedName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * FloatingRateDef
+ * Floating Rates are defined as a spread off of a benchmark. When proposing a loan or rerate, the benchmark, spread, and effective date are required. Base rate is provided by 1Source if auto rerate is true, otherwise base rate is also required.
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-02-14T16:23:32.309873479Z[GMT]")
+@Schema(description = "Floating Rates are defined as a spread off of a benchmark. When proposing a loan or rerate, the benchmark, spread, and effective date are required. Base rate is provided by 1Source if auto rerate is true, otherwise base rate is also required.")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-19T18:59:50.954293492Z[GMT]")
 
 public class FloatingRateDef implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -57,7 +57,7 @@ public class FloatingRateDef implements Serializable{
    * Get benchmark
    * @return benchmark
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public BenchmarkCd getBenchmark() {
     return benchmark;
   }
@@ -75,7 +75,7 @@ public class FloatingRateDef implements Serializable{
    * Get baseRate
    * @return baseRate
   **/
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public Double getBaseRate() {
     return baseRate;
   }
@@ -93,7 +93,7 @@ public class FloatingRateDef implements Serializable{
    * Get spread
    * @return spread
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public Double getSpread() {
     return spread;
   }
@@ -147,7 +147,7 @@ public class FloatingRateDef implements Serializable{
    * Get effectiveDate
    * @return effectiveDate
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public LocalDate getEffectiveDate() {
     return effectiveDate;
   }

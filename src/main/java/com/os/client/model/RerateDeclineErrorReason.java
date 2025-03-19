@@ -25,10 +25,10 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(RerateDeclineErrorReason.Adapter.class)
 public enum RerateDeclineErrorReason {
-  @SerializedName("UNKNOWN_RERATE")
-  UNKNOWN_RERATE("UNKNOWN_RERATE"),
   @SerializedName("INCORRECT_RERATE_INFO")
-  INCORRECT_RERATE_INFO("INCORRECT_RERATE_INFO");
+  INCORRECT_RERATE_INFO("INCORRECT_RERATE_INFO"),
+  @SerializedName("UNKNOWN_RERATE")
+  UNKNOWN_RERATE("UNKNOWN_RERATE");
 
   private String value;
 

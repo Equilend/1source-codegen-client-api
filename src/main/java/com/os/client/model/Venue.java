@@ -20,10 +20,10 @@ import com.google.gson.annotations.SerializedName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * ONPLATFORM venues are third-party services that generates loans, returns, recalls, rerates, or perform loan modifications on a client&#x27;s behalf. If the type is ONPLATFORM, a party with a value ID and LEI is required. If the loan is agreed OFFPLATFORM (email, chat, phone), party does not apply.
+ * ONPLATFORM venues are third-party services that generate loans, returns, recalls, rerates, or perform loan modifications on a clients behalf. If the type is ONPLATFORM, a party with a value ID and LEI is required. If the loan is agreed OFFPLATFORM (email, chat, phone), party does not apply.
  */
-@Schema(description = "ONPLATFORM venues are third-party services that generates loans, returns, recalls, rerates, or perform loan modifications on a client's behalf. If the type is ONPLATFORM, a party with a value ID and LEI is required. If the loan is agreed OFFPLATFORM (email, chat, phone), party does not apply.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-02-14T16:23:32.309873479Z[GMT]")
+@Schema(description = "ONPLATFORM venues are third-party services that generate loans, returns, recalls, rerates, or perform loan modifications on a clients behalf. If the type is ONPLATFORM, a party with a value ID and LEI is required. If the loan is agreed OFFPLATFORM (email, chat, phone), party does not apply.")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-19T18:59:50.954293492Z[GMT]")
 
 public class Venue implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -81,10 +81,10 @@ public class Venue implements Serializable{
   }
 
    /**
-   * Get venueRefKey
+   * Similar to partyId and gliefLei, required if type is ONPLATFORM
    * @return venueRefKey
   **/
-  @Schema(description = "")
+  @Schema(description = "Similar to partyId and gliefLei, required if type is ONPLATFORM")
   public String getVenueRefKey() {
     return venueRefKey;
   }

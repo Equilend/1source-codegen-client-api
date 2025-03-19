@@ -19,10 +19,10 @@ import com.google.gson.annotations.SerializedName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * One of DTC Participant Number or CDS Customer Unit Id is required with settlementBIC
+ * * &#x60;dtcParticipantNumber&#x60; - Required if settlementBic &#x3D; DTCYUS33 * &#x60;cdsCustomerUnitId&#x60; - Required if settlementBic &#x3D; CDSLCATT  
  */
-@Schema(description = "One of DTC Participant Number or CDS Customer Unit Id is required with settlementBIC")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-02-14T16:23:32.309873479Z[GMT]")
+@Schema(description = "* `dtcParticipantNumber` - Required if settlementBic = DTCYUS33 * `cdsCustomerUnitId` - Required if settlementBic = CDSLCATT  ")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-19T18:59:50.954293492Z[GMT]")
 
 public class SettlementInstruction implements Serializable{
   private static final long serialVersionUID = 1L;

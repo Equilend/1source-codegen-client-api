@@ -12,17 +12,10 @@
 
 package com.os.client.api;
 
-import java.time.OffsetDateTime;
-import java.util.List;
-
-import org.junit.Ignore;
-import org.junit.Test;
-
 import com.os.client.model.EventType;
 import com.os.client.model.LedgerResponse;
 import com.os.client.model.Loan;
 import com.os.client.model.LoanCancelErrorResponse;
-import com.os.client.model.LoanCancelPendingErrorResponse;
 import com.os.client.model.LoanDeclineErrorResponse;
 import com.os.client.model.LoanProposal;
 import com.os.client.model.LoanProposalApproval;
@@ -32,8 +25,17 @@ import com.os.client.model.LoanSplitProposalLot;
 import com.os.client.model.LoanStatus;
 import com.os.client.model.Loans;
 import com.os.client.model.LoansLoanIdBody;
+import java.time.OffsetDateTime;
 import com.os.client.model.Rates;
 import com.os.client.model.SortOrder;
+import org.junit.Test;
+import org.junit.Ignore;
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -63,7 +65,7 @@ public class LoansApiTest {
         // TODO: test validations
     }
     /**
-     * Approve a loan in \&quot;proposed\&quot; state
+     * Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule or roundingMode when approving a loan.
      *
      * 
      *
@@ -104,9 +106,8 @@ public class LoansApiTest {
      */
     @Test
     public void ledgerLoansLoanIdCancelpendingPostTest() throws Exception {
-        LoanCancelPendingErrorResponse body = null;
         String loanId = null;
-        LedgerResponse response = api.ledgerLoansLoanIdCancelpendingPost(body, loanId);
+        LedgerResponse response = api.ledgerLoansLoanIdCancelpendingPost(loanId);
 
         // TODO: test validations
     }

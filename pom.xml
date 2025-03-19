@@ -5,7 +5,7 @@
   <artifactId>1source-api-client</artifactId>
   <packaging>jar</packaging>
   <name>1source-api-client</name>
-  <version>1.2.1</version>
+  <version>1.2.1.2</version>
   <url>https://github.com/swagger-api/swagger-codegen</url>
   <description>Swagger Java</description>
   <scm>
@@ -167,9 +167,9 @@
       </build>
     </profile>
     <profile>
-        <id>jdk11</id>
+        <id>jdk17</id>
         <activation>
-            <jdk>[11,)</jdk>
+            <jdk>[17,)</jdk>
         </activation>
         <dependencies>
             <dependency>
@@ -226,7 +226,7 @@
   </distributionManagement>
     
   <properties>
-    <java.version>11</java.version>
+    <java.version>17</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <swagger-core-version>2.0.0</swagger-core-version>

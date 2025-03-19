@@ -33,7 +33,6 @@ import com.os.client.model.EventType;
 import com.os.client.model.LedgerResponse;
 import com.os.client.model.Loan;
 import com.os.client.model.LoanCancelErrorResponse;
-import com.os.client.model.LoanCancelPendingErrorResponse;
 import com.os.client.model.LoanDeclineErrorResponse;
 import com.os.client.model.LoanProposal;
 import com.os.client.model.LoanProposalApproval;
@@ -288,7 +287,7 @@ public class LoansApi {
     }
 
     /**
-     * Approve a loan in \&quot;proposed\&quot; state
+     * Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule or roundingMode when approving a loan.
      * 
      * @param body Update settlement instructions on an existing loan (required)
      * @param loanId The unique identifier of a loan (required)
@@ -301,7 +300,7 @@ public class LoansApi {
     }
 
     /**
-     * Approve a loan in \&quot;proposed\&quot; state
+     * Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule or roundingMode when approving a loan.
      * 
      * @param body Update settlement instructions on an existing loan (required)
      * @param loanId The unique identifier of a loan (required)
@@ -315,7 +314,7 @@ public class LoansApi {
     }
 
     /**
-     * Approve a loan in \&quot;proposed\&quot; state (asynchronously)
+     * Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule or roundingMode when approving a loan. (asynchronously)
      * 
      * @param body Update settlement instructions on an existing loan (required)
      * @param loanId The unique identifier of a loan (required)
@@ -487,15 +486,14 @@ public class LoansApi {
     }
     /**
      * Build call for ledgerLoansLoanIdCancelpendingPost
-     * @param body Reason for canceling a pending loan (required)
      * @param loanId The unique identifier of a loan (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ledgerLoansLoanIdCancelpendingPostCall(LoanCancelPendingErrorResponse body, String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
+    public com.squareup.okhttp.Call ledgerLoansLoanIdCancelpendingPostCall(String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
         
         // create path and map variables
         String localVarPath = "/ledger/loans/{loanId}/cancelpending"
@@ -515,7 +513,7 @@ public class LoansApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -540,17 +538,13 @@ public class LoansApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ledgerLoansLoanIdCancelpendingPostValidateBeforeCall(LoanCancelPendingErrorResponse body, String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling ledgerLoansLoanIdCancelpendingPost(Async)");
-        }
+    private com.squareup.okhttp.Call ledgerLoansLoanIdCancelpendingPostValidateBeforeCall(String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'loanId' is set
         if (loanId == null) {
             throw new ApiException("Missing the required parameter 'loanId' when calling ledgerLoansLoanIdCancelpendingPost(Async)");
         }
         
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdCancelpendingPostCall(body, loanId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdCancelpendingPostCall(loanId, progressListener, progressRequestListener);
         return call;
 
         
@@ -562,26 +556,24 @@ public class LoansApi {
     /**
      * Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
      * 
-     * @param body Reason for canceling a pending loan (required)
      * @param loanId The unique identifier of a loan (required)
      * @return LedgerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public LedgerResponse ledgerLoansLoanIdCancelpendingPost(LoanCancelPendingErrorResponse body, String loanId) throws ApiException {
-        ApiResponse<LedgerResponse> resp = ledgerLoansLoanIdCancelpendingPostWithHttpInfo(body, loanId);
+    public LedgerResponse ledgerLoansLoanIdCancelpendingPost(String loanId) throws ApiException {
+        ApiResponse<LedgerResponse> resp = ledgerLoansLoanIdCancelpendingPostWithHttpInfo(loanId);
         return resp.getData();
     }
 
     /**
      * Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
      * 
-     * @param body Reason for canceling a pending loan (required)
      * @param loanId The unique identifier of a loan (required)
      * @return ApiResponse&lt;LedgerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<LedgerResponse> ledgerLoansLoanIdCancelpendingPostWithHttpInfo(LoanCancelPendingErrorResponse body, String loanId) throws ApiException {
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdCancelpendingPostValidateBeforeCall(body, loanId, null, null);
+    public ApiResponse<LedgerResponse> ledgerLoansLoanIdCancelpendingPostWithHttpInfo(String loanId) throws ApiException {
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdCancelpendingPostValidateBeforeCall(loanId, null, null);
         Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -589,13 +581,12 @@ public class LoansApi {
     /**
      * Cancel a loan in \&quot;pending\&quot; state. Either party can initiate. (asynchronously)
      * 
-     * @param body Reason for canceling a pending loan (required)
      * @param loanId The unique identifier of a loan (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ledgerLoansLoanIdCancelpendingPostAsync(LoanCancelPendingErrorResponse body, String loanId, final ApiCallback<LedgerResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call ledgerLoansLoanIdCancelpendingPostAsync(String loanId, final ApiCallback<LedgerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -616,7 +607,7 @@ public class LoansApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdCancelpendingPostValidateBeforeCall(body, loanId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdCancelpendingPostValidateBeforeCall(loanId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
