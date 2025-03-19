@@ -12,27 +12,73 @@
 
 package com.os.client.model;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * RerateDeclineErrorReasonFieldValue
+ * LoanDeclineErrorReasonFieldCollateralType
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-19T20:22:04.606499523Z[GMT]")
 
-public class RerateDeclineErrorReasonFieldValue implements Serializable{
+public class LoanDeclineErrorReasonFieldCollateralType implements Serializable, AnyOfLoanDeclineErrorResponseErrorsItems {
   private static final long serialVersionUID = 1L;
-  @SerializedName("field")
-  private RerateDeclineErrorReasonFieldType field = null;
+  /**
+   * Gets or Sets field
+   */
+  @JsonAdapter(FieldEnum.Adapter.class)
+  public enum FieldEnum {
+    @SerializedName("COLLATERAL_TYPE")
+    COLLATERAL_TYPE("COLLATERAL_TYPE");
+
+    private String value;
+
+    FieldEnum(String value) {
+      this.value = value;
+    }
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+    public static FieldEnum fromValue(String input) {
+      for (FieldEnum b : FieldEnum.values()) {
+        if (b.value.equals(input)) {
+          return b;
+        }
+      }
+      return null;
+    }
+    public static class Adapter extends TypeAdapter<FieldEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FieldEnum enumeration) throws IOException {
+        jsonWriter.value(String.valueOf(enumeration.getValue()));
+      }
+
+      @Override
+      public FieldEnum read(final JsonReader jsonReader) throws IOException {
+        Object value = jsonReader.nextString();
+        return FieldEnum.fromValue((String)(value));
+      }
+    }
+  }  @SerializedName("field")
+  private FieldEnum field = null;
 
   @SerializedName("expectedValue")
-  private OneOfRerateDeclineErrorReasonFieldValueExpectedValue expectedValue = null;
+  private CollateralType expectedValue = null;
 
-  public RerateDeclineErrorReasonFieldValue field(RerateDeclineErrorReasonFieldType field) {
+  public LoanDeclineErrorReasonFieldCollateralType field(FieldEnum field) {
     this.field = field;
     return this;
   }
@@ -42,15 +88,15 @@ public class RerateDeclineErrorReasonFieldValue implements Serializable{
    * @return field
   **/
   @Schema(required = true, description = "")
-  public RerateDeclineErrorReasonFieldType getField() {
+  public FieldEnum getField() {
     return field;
   }
 
-  public void setField(RerateDeclineErrorReasonFieldType field) {
+  public void setField(FieldEnum field) {
     this.field = field;
   }
 
-  public RerateDeclineErrorReasonFieldValue expectedValue(OneOfRerateDeclineErrorReasonFieldValueExpectedValue expectedValue) {
+  public LoanDeclineErrorReasonFieldCollateralType expectedValue(CollateralType expectedValue) {
     this.expectedValue = expectedValue;
     return this;
   }
@@ -59,12 +105,12 @@ public class RerateDeclineErrorReasonFieldValue implements Serializable{
    * Get expectedValue
    * @return expectedValue
   **/
-  @Schema(description = "")
-  public OneOfRerateDeclineErrorReasonFieldValueExpectedValue getExpectedValue() {
+  @Schema(required = true, description = "")
+  public CollateralType getExpectedValue() {
     return expectedValue;
   }
 
-  public void setExpectedValue(OneOfRerateDeclineErrorReasonFieldValueExpectedValue expectedValue) {
+  public void setExpectedValue(CollateralType expectedValue) {
     this.expectedValue = expectedValue;
   }
 
@@ -77,9 +123,9 @@ public class RerateDeclineErrorReasonFieldValue implements Serializable{
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RerateDeclineErrorReasonFieldValue rerateDeclineErrorReasonFieldValue = (RerateDeclineErrorReasonFieldValue) o;
-    return Objects.equals(this.field, rerateDeclineErrorReasonFieldValue.field) &&
-        Objects.equals(this.expectedValue, rerateDeclineErrorReasonFieldValue.expectedValue);
+    LoanDeclineErrorReasonFieldCollateralType loanDeclineErrorReasonFieldCollateralType = (LoanDeclineErrorReasonFieldCollateralType) o;
+    return Objects.equals(this.field, loanDeclineErrorReasonFieldCollateralType.field) &&
+        Objects.equals(this.expectedValue, loanDeclineErrorReasonFieldCollateralType.expectedValue);
   }
 
   @Override
@@ -91,7 +137,7 @@ public class RerateDeclineErrorReasonFieldValue implements Serializable{
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RerateDeclineErrorReasonFieldValue {\n");
+    sb.append("class LoanDeclineErrorReasonFieldCollateralType {\n");
     
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    expectedValue: ").append(toIndentedString(expectedValue)).append("\n");

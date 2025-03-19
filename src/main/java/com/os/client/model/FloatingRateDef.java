@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Floating Rates are defined as a spread off of a benchmark. When proposing a loan or rerate, the benchmark, spread, and effective date are required. Base rate is provided by 1Source if auto rerate is true, otherwise base rate is also required.
  */
 @Schema(description = "Floating Rates are defined as a spread off of a benchmark. When proposing a loan or rerate, the benchmark, spread, and effective date are required. Base rate is provided by 1Source if auto rerate is true, otherwise base rate is also required.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-19T18:59:50.954293492Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-19T20:22:04.606499523Z[GMT]")
 
 public class FloatingRateDef implements Serializable{
   private static final long serialVersionUID = 1L;
