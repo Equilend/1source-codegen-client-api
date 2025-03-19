@@ -5,7 +5,7 @@ All URIs are relative to *https://stageapi.equilend.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ledgerLoansGet**](LoansApi.md#ledgerLoansGet) | **GET** /ledger/loans | Read a collection of loans. Defaults to return the last 100 loans updated.
-[**ledgerLoansLoanIdApprovePost**](LoansApi.md#ledgerLoansLoanIdApprovePost) | **POST** /ledger/loans/{loanId}/approve | Approve a loan in \&quot;proposed\&quot; state
+[**ledgerLoansLoanIdApprovePost**](LoansApi.md#ledgerLoansLoanIdApprovePost) | **POST** /ledger/loans/{loanId}/approve | Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule or roundingMode when approving a loan.
 [**ledgerLoansLoanIdCancelPost**](LoansApi.md#ledgerLoansLoanIdCancelPost) | **POST** /ledger/loans/{loanId}/cancel | Cancel a loan in \&quot;proposed\&quot; state. Original proposer only.
 [**ledgerLoansLoanIdCancelpendingPost**](LoansApi.md#ledgerLoansLoanIdCancelpendingPost) | **POST** /ledger/loans/{loanId}/cancelpending | Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
 [**ledgerLoansLoanIdDeclinePost**](LoansApi.md#ledgerLoansLoanIdDeclinePost) | **POST** /ledger/loans/{loanId}/decline | Decline a loan in \&quot;proposed\&quot; state
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 # **ledgerLoansLoanIdApprovePost**
 > LedgerResponse ledgerLoansLoanIdApprovePost(body, loanId)
 
-Approve a loan in \&quot;proposed\&quot; state
+Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule or roundingMode when approving a loan.
 
 ### Example
 ```java
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerLoansLoanIdCancelpendingPost"></a>
 # **ledgerLoansLoanIdCancelpendingPost**
-> LedgerResponse ledgerLoansLoanIdCancelpendingPost(body, loanId)
+> LedgerResponse ledgerLoansLoanIdCancelpendingPost(loanId)
 
 Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
 
@@ -203,10 +203,9 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LoansApi apiInstance = new LoansApi();
-LoanCancelPendingErrorResponse body = new LoanCancelPendingErrorResponse(); // LoanCancelPendingErrorResponse | Reason for canceling a pending loan
 String loanId = "loanId_example"; // String | The unique identifier of a loan
 try {
-    LedgerResponse result = apiInstance.ledgerLoansLoanIdCancelpendingPost(body, loanId);
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdCancelpendingPost(loanId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdCancelpendingPost");
@@ -218,7 +217,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LoanCancelPendingErrorResponse**](LoanCancelPendingErrorResponse.md)| Reason for canceling a pending loan |
  **loanId** | [**String**](.md)| The unique identifier of a loan |
 
 ### Return type
@@ -231,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="ledgerLoansLoanIdDeclinePost"></a>

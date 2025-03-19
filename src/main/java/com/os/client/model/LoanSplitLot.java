@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * LoanSplitLot
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-02-14T16:23:32.309873479Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-19T18:59:50.954293492Z[GMT]")
 
 public class LoanSplitLot implements Serializable{
   private static final long serialVersionUID = 1L;

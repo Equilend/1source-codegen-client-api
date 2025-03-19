@@ -1,8 +1,8 @@
 # 1source-api-client
 
 1Source Ledger API
-- API version: 1.2.1
-  - Build date: 2025-02-14T16:23:32.309873479Z[GMT]
+- API version: 1.2.1.2
+  - Build date: 2025-03-19T18:59:50.954293492Z[GMT]
 
 1Source Ledger API provides client access to the 1Source Ledger. You can find out more about 1Source at [https://equilend.com](https://equilend.com).  This specification is work in progress. The design is meant to model the securities lending life cycle in as clean a way as possible while being robust enough to easily translate to ISLA CDM workflows and data model.  API specification is the intellectual property of EquiLend LLC and should not be copied or disseminated in any way. 
 
@@ -13,7 +13,7 @@
 ## Requirements
 
 Building the API client library requires:
-1. Java 11+
+1. Java 17+
 2. Maven/Gradle
 
 ## Installation
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.os</groupId>
   <artifactId>1source-api-client</artifactId>
-  <version>1.2.1</version>
+  <version>1.2.1.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -91,7 +91,7 @@ Also, to use the GitHub Packages repository for downloading SNAPSHOT artifacts, 
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.os:1source-api-client:1.2.1"
+compile "com.os:1source-api-client:1.2.1.2"
 ```
 
 Add the repository to your build.gradle file (Gradle Groovy). Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
@@ -117,7 +117,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/1source-api-client-1.2.1.jar`
+* `target/1source-api-client-1.2.1.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -269,7 +269,7 @@ Class | Method | HTTP request | Description
 *EventsApi* | [**ledgerLoansLoanIdEventsEventIdGet**](docs/EventsApi.md#ledgerLoansLoanIdEventsEventIdGet) | **GET** /ledger/loans/{loanId}/events/{eventId} | Read an event
 *EventsApi* | [**ledgerLoansLoanIdEventsGet**](docs/EventsApi.md#ledgerLoansLoanIdEventsGet) | **GET** /ledger/loans/{loanId}/events | Read collection of events against a specific loan. With no parameters returns events since start of current day.
 *LoansApi* | [**ledgerLoansGet**](docs/LoansApi.md#ledgerLoansGet) | **GET** /ledger/loans | Read a collection of loans. Defaults to return the last 100 loans updated.
-*LoansApi* | [**ledgerLoansLoanIdApprovePost**](docs/LoansApi.md#ledgerLoansLoanIdApprovePost) | **POST** /ledger/loans/{loanId}/approve | Approve a loan in \&quot;proposed\&quot; state
+*LoansApi* | [**ledgerLoansLoanIdApprovePost**](docs/LoansApi.md#ledgerLoansLoanIdApprovePost) | **POST** /ledger/loans/{loanId}/approve | Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule or roundingMode when approving a loan.
 *LoansApi* | [**ledgerLoansLoanIdCancelPost**](docs/LoansApi.md#ledgerLoansLoanIdCancelPost) | **POST** /ledger/loans/{loanId}/cancel | Cancel a loan in \&quot;proposed\&quot; state. Original proposer only.
 *LoansApi* | [**ledgerLoansLoanIdCancelpendingPost**](docs/LoansApi.md#ledgerLoansLoanIdCancelpendingPost) | **POST** /ledger/loans/{loanId}/cancelpending | Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
 *LoansApi* | [**ledgerLoansLoanIdDeclinePost**](docs/LoansApi.md#ledgerLoansLoanIdDeclinePost) | **POST** /ledger/loans/{loanId}/decline | Decline a loan in \&quot;proposed\&quot; state
@@ -343,10 +343,11 @@ Class | Method | HTTP request | Description
  - [Loan](docs/Loan.md)
  - [LoanCancelErrorReason](docs/LoanCancelErrorReason.md)
  - [LoanCancelErrorResponse](docs/LoanCancelErrorResponse.md)
- - [LoanCancelPendingErrorReason](docs/LoanCancelPendingErrorReason.md)
- - [LoanCancelPendingErrorResponse](docs/LoanCancelPendingErrorResponse.md)
  - [LoanDeclineErrorReason](docs/LoanDeclineErrorReason.md)
  - [LoanDeclineErrorReasonFieldBillingCurrency](docs/LoanDeclineErrorReasonFieldBillingCurrency.md)
+ - [LoanDeclineErrorReasonFieldCollateralCurrency](docs/LoanDeclineErrorReasonFieldCollateralCurrency.md)
+ - [LoanDeclineErrorReasonFieldCollateralMargin](docs/LoanDeclineErrorReasonFieldCollateralMargin.md)
+ - [LoanDeclineErrorReasonFieldCollateralType](docs/LoanDeclineErrorReasonFieldCollateralType.md)
  - [LoanDeclineErrorReasonFieldDividendRate](docs/LoanDeclineErrorReasonFieldDividendRate.md)
  - [LoanDeclineErrorReasonFieldQuantity](docs/LoanDeclineErrorReasonFieldQuantity.md)
  - [LoanDeclineErrorReasonFieldRate](docs/LoanDeclineErrorReasonFieldRate.md)
@@ -393,8 +394,6 @@ Class | Method | HTTP request | Description
  - [Rerate](docs/Rerate.md)
  - [RerateCancelErrorReason](docs/RerateCancelErrorReason.md)
  - [RerateCancelErrorResponse](docs/RerateCancelErrorResponse.md)
- - [RerateCancelPendingErrorReason](docs/RerateCancelPendingErrorReason.md)
- - [RerateCancelPendingErrorResponse](docs/RerateCancelPendingErrorResponse.md)
  - [RerateDeclineErrorReason](docs/RerateDeclineErrorReason.md)
  - [RerateDeclineErrorReasonFieldType](docs/RerateDeclineErrorReasonFieldType.md)
  - [RerateDeclineErrorReasonFieldValue](docs/RerateDeclineErrorReasonFieldValue.md)
@@ -442,7 +441,3 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 ## Author
 
 1source_help@equilend.com
-
-## Last Update
-
-Friday, February 14, 2025 11:19:10

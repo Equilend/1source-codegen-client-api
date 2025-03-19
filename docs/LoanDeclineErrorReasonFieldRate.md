@@ -10,4 +10,4 @@ Name | Type | Description | Notes
 ## Enum: FieldEnum
 Name | Value
 ---- | -----
-RATE | &quot;RATE&quot;
+RATE_VALUE | &quot;RATE_VALUE&quot;

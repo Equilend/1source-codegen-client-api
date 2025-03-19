@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **collateralType** | [**CollateralType**](CollateralType.md) |  | 
 **collateralDescriptionCode** | [**CollateralDescription**](CollateralDescription.md) |  |  [optional]
 **collateralMargin** | **Double** |  | 
-**roundingRule** | **Integer** | Required when Lender proposes |  [optional]
+**roundingRule** | **Integer** |  |  [optional]
 **roundingMode** | [**RoundingMode**](RoundingMode.md) |  |  [optional]
