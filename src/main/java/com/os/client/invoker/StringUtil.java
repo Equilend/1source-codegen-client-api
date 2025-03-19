@@ -12,7 +12,7 @@
 
 package com.os.client.invoker;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-19T18:59:50.954293492Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-19T20:22:04.606499523Z[GMT]")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).
