@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * FeeRate
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-19T20:22:04.606499523Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-23T15:43:02.135640846Z[GMT]")
 
 public class FeeRate implements Serializable, OneOfLoanDeclineErrorReasonFieldRateExpectedValue, Rate, OneOfRerateDeclineErrorReasonFieldValueExpectedValue {
   private static final long serialVersionUID = 1L;
