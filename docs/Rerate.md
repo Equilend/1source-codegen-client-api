@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **rerateId** | **String** |  | 
 **loanId** | **String** |  | 
 **status** | [**RerateStatus**](RerateStatus.md) |  | 
-**statusReason** | **OneOfRerateStatusReason** |  |  [optional]
+**rerateStatusReason** | **OneOfRerateRerateStatusReason** |  |  [optional]
 **executionVenue** | [**Venue**](Venue.md) |  |  [optional]
 **rate** | [**Rate**](Rate.md) |  | 
 **rerate** | [**Rate**](Rate.md) |  | 

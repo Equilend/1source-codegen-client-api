@@ -1,4 +1,4 @@
-# OneOfRerateStatusReason
+# OneOfRerateRerateStatusReason
 
 ## Properties
 Name | Type | Description | Notes
