@@ -1,8 +1,8 @@
 # 1source-api-client
 
 1Source Ledger API
-- API version: 1.2.1.2
-  - Build date: 2025-03-19T18:59:50.954293492Z[GMT]
+- API version: 1.2.1.3
+  - Build date: 2025-03-27T18:38:07.529904023Z[GMT]
 
 1Source Ledger API provides client access to the 1Source Ledger. You can find out more about 1Source at [https://equilend.com](https://equilend.com).  This specification is work in progress. The design is meant to model the securities lending life cycle in as clean a way as possible while being robust enough to easily translate to ISLA CDM workflows and data model.  API specification is the intellectual property of EquiLend LLC and should not be copied or disseminated in any way. 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.os</groupId>
   <artifactId>1source-api-client</artifactId>
-  <version>1.2.1.2</version>
+  <version>1.2.1.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -91,7 +91,7 @@ Also, to use the GitHub Packages repository for downloading SNAPSHOT artifacts, 
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.os:1source-api-client:1.2.1.2"
+compile "com.os:1source-api-client:1.2.1.3"
 ```
 
 Add the repository to your build.gradle file (Gradle Groovy). Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
@@ -117,7 +117,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/1source-api-client-1.2.1.2.jar`
+* `target/1source-api-client-1.2.1.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -373,7 +373,7 @@ Class | Method | HTTP request | Description
  - [OneOfLoanLoanStatusReason](docs/OneOfLoanLoanStatusReason.md)
  - [OneOfRebateRateRebate](docs/OneOfRebateRateRebate.md)
  - [OneOfRerateDeclineErrorReasonFieldValueExpectedValue](docs/OneOfRerateDeclineErrorReasonFieldValueExpectedValue.md)
- - [OneOfRerateStatusReason](docs/OneOfRerateStatusReason.md)
+ - [OneOfRerateRerateStatusReason](docs/OneOfRerateRerateStatusReason.md)
  - [Parties](docs/Parties.md)
  - [Party](docs/Party.md)
  - [PartyRole](docs/PartyRole.md)
@@ -420,7 +420,6 @@ Class | Method | HTTP request | Description
  - [Venue](docs/Venue.md)
  - [VenueReferenceKeyUpdate](docs/VenueReferenceKeyUpdate.md)
  - [VenueTradeAgreement](docs/VenueTradeAgreement.md)
- - [VenueType](docs/VenueType.md)
  - [Venues](docs/Venues.md)
 
 ## Documentation for Authorization

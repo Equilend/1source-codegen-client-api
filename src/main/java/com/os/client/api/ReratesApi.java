@@ -31,6 +31,7 @@ import com.os.client.invoker.ProgressRequestBody;
 import com.os.client.invoker.ProgressResponseBody;
 import com.os.client.model.LedgerResponse;
 import com.os.client.model.Rerate;
+import com.os.client.model.RerateCancelErrorResponse;
 import com.os.client.model.RerateDeclineErrorResponse;
 import com.os.client.model.RerateProposal;
 import com.os.client.model.RerateStatus;
@@ -459,6 +460,7 @@ public class ReratesApi {
     }
     /**
      * Build call for ledgerLoansLoanIdReratesRerateIdCancelPost
+     * @param body Provide reason for canceling a rerate proposal (required)
      * @param loanId The unique identifier of a loan (required)
      * @param rerateId The unique identifier of a rerate (required)
      * @param progressListener Progress listener
@@ -466,8 +468,8 @@ public class ReratesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ledgerLoansLoanIdReratesRerateIdCancelPostCall(String loanId, String rerateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call ledgerLoansLoanIdReratesRerateIdCancelPostCall(RerateCancelErrorResponse body, String loanId, String rerateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
         
         // create path and map variables
         String localVarPath = "/ledger/loans/{loanId}/rerates/{rerateId}/cancel"
@@ -488,7 +490,7 @@ public class ReratesApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -513,7 +515,11 @@ public class ReratesApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ledgerLoansLoanIdReratesRerateIdCancelPostValidateBeforeCall(String loanId, String rerateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call ledgerLoansLoanIdReratesRerateIdCancelPostValidateBeforeCall(RerateCancelErrorResponse body, String loanId, String rerateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling ledgerLoansLoanIdReratesRerateIdCancelPost(Async)");
+        }
         // verify the required parameter 'loanId' is set
         if (loanId == null) {
             throw new ApiException("Missing the required parameter 'loanId' when calling ledgerLoansLoanIdReratesRerateIdCancelPost(Async)");
@@ -523,7 +529,7 @@ public class ReratesApi {
             throw new ApiException("Missing the required parameter 'rerateId' when calling ledgerLoansLoanIdReratesRerateIdCancelPost(Async)");
         }
         
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdReratesRerateIdCancelPostCall(loanId, rerateId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdReratesRerateIdCancelPostCall(body, loanId, rerateId, progressListener, progressRequestListener);
         return call;
 
         
@@ -535,26 +541,28 @@ public class ReratesApi {
     /**
      * Cancel a rerate in \&quot;proposed\&quot; state. Original proposer only.
      * 
+     * @param body Provide reason for canceling a rerate proposal (required)
      * @param loanId The unique identifier of a loan (required)
      * @param rerateId The unique identifier of a rerate (required)
      * @return LedgerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public LedgerResponse ledgerLoansLoanIdReratesRerateIdCancelPost(String loanId, String rerateId) throws ApiException {
-        ApiResponse<LedgerResponse> resp = ledgerLoansLoanIdReratesRerateIdCancelPostWithHttpInfo(loanId, rerateId);
+    public LedgerResponse ledgerLoansLoanIdReratesRerateIdCancelPost(RerateCancelErrorResponse body, String loanId, String rerateId) throws ApiException {
+        ApiResponse<LedgerResponse> resp = ledgerLoansLoanIdReratesRerateIdCancelPostWithHttpInfo(body, loanId, rerateId);
         return resp.getData();
     }
 
     /**
      * Cancel a rerate in \&quot;proposed\&quot; state. Original proposer only.
      * 
+     * @param body Provide reason for canceling a rerate proposal (required)
      * @param loanId The unique identifier of a loan (required)
      * @param rerateId The unique identifier of a rerate (required)
      * @return ApiResponse&lt;LedgerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<LedgerResponse> ledgerLoansLoanIdReratesRerateIdCancelPostWithHttpInfo(String loanId, String rerateId) throws ApiException {
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdReratesRerateIdCancelPostValidateBeforeCall(loanId, rerateId, null, null);
+    public ApiResponse<LedgerResponse> ledgerLoansLoanIdReratesRerateIdCancelPostWithHttpInfo(RerateCancelErrorResponse body, String loanId, String rerateId) throws ApiException {
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdReratesRerateIdCancelPostValidateBeforeCall(body, loanId, rerateId, null, null);
         Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -562,13 +570,14 @@ public class ReratesApi {
     /**
      * Cancel a rerate in \&quot;proposed\&quot; state. Original proposer only. (asynchronously)
      * 
+     * @param body Provide reason for canceling a rerate proposal (required)
      * @param loanId The unique identifier of a loan (required)
      * @param rerateId The unique identifier of a rerate (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ledgerLoansLoanIdReratesRerateIdCancelPostAsync(String loanId, String rerateId, final ApiCallback<LedgerResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call ledgerLoansLoanIdReratesRerateIdCancelPostAsync(RerateCancelErrorResponse body, String loanId, String rerateId, final ApiCallback<LedgerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -589,7 +598,7 @@ public class ReratesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdReratesRerateIdCancelPostValidateBeforeCall(loanId, rerateId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdReratesRerateIdCancelPostValidateBeforeCall(body, loanId, rerateId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

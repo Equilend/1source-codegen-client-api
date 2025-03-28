@@ -17,3 +17,4 @@ Name | Type | Description | Notes
 **settlementType** | [**SettlementType**](SettlementType.md) |  | 
 **collateral** | [**Collateral**](Collateral.md) |  | 
 **transactingParties** | [**TransactingParties**](TransactingParties.md) |  | 
+**doNotInstruct** | **Boolean** |  |  [optional]

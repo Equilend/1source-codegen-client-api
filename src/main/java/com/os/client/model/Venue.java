@@ -23,15 +23,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * ONPLATFORM venues are third-party services that generate loans, returns, recalls, rerates, or perform loan modifications on a clients behalf. If the type is ONPLATFORM, a party with a value ID and LEI is required. If the loan is agreed OFFPLATFORM (email, chat, phone), party does not apply.
  */
 @Schema(description = "ONPLATFORM venues are third-party services that generate loans, returns, recalls, rerates, or perform loan modifications on a clients behalf. If the type is ONPLATFORM, a party with a value ID and LEI is required. If the loan is agreed OFFPLATFORM (email, chat, phone), party does not apply.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-23T15:43:02.135640846Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-27T18:38:07.529904023Z[GMT]")
 
 public class Venue implements Serializable{
   private static final long serialVersionUID = 1L;
   @SerializedName("party")
   private Party party = null;
-
-  @SerializedName("type")
-  private VenueType type = null;
 
   @SerializedName("venueRefKey")
   private String venueRefKey = null;
@@ -55,24 +52,6 @@ public class Venue implements Serializable{
 
   public void setParty(Party party) {
     this.party = party;
-  }
-
-  public Venue type(VenueType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @Schema(required = true, description = "")
-  public VenueType getType() {
-    return type;
-  }
-
-  public void setType(VenueType type) {
-    this.type = type;
   }
 
   public Venue venueRefKey(String venueRefKey) {
@@ -122,14 +101,13 @@ public class Venue implements Serializable{
     }
     Venue venue = (Venue) o;
     return Objects.equals(this.party, venue.party) &&
-        Objects.equals(this.type, venue.type) &&
         Objects.equals(this.venueRefKey, venue.venueRefKey) &&
         Objects.equals(this.transactionDateTime, venue.transactionDateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(party, type, venueRefKey, transactionDateTime);
+    return Objects.hash(party, venueRefKey, transactionDateTime);
   }
 
 
@@ -139,7 +117,6 @@ public class Venue implements Serializable{
     sb.append("class Venue {\n");
     
     sb.append("    party: ").append(toIndentedString(party)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    venueRefKey: ").append(toIndentedString(venueRefKey)).append("\n");
     sb.append("    transactionDateTime: ").append(toIndentedString(transactionDateTime)).append("\n");
     sb.append("}");

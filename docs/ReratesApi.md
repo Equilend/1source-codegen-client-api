@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerLoansLoanIdReratesRerateIdCancelPost"></a>
 # **ledgerLoansLoanIdReratesRerateIdCancelPost**
-> LedgerResponse ledgerLoansLoanIdReratesRerateIdCancelPost(loanId, rerateId)
+> LedgerResponse ledgerLoansLoanIdReratesRerateIdCancelPost(body, loanId, rerateId)
 
 Cancel a rerate in \&quot;proposed\&quot; state. Original proposer only.
 
@@ -192,10 +192,11 @@ OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
 stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ReratesApi apiInstance = new ReratesApi();
+RerateCancelErrorResponse body = new RerateCancelErrorResponse(); // RerateCancelErrorResponse | Provide reason for canceling a rerate proposal
 String loanId = "loanId_example"; // String | The unique identifier of a loan
 String rerateId = "rerateId_example"; // String | The unique identifier of a rerate
 try {
-    LedgerResponse result = apiInstance.ledgerLoansLoanIdReratesRerateIdCancelPost(loanId, rerateId);
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdReratesRerateIdCancelPost(body, loanId, rerateId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReratesApi#ledgerLoansLoanIdReratesRerateIdCancelPost");
@@ -207,6 +208,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**RerateCancelErrorResponse**](RerateCancelErrorResponse.md)| Provide reason for canceling a rerate proposal |
  **loanId** | [**String**](.md)| The unique identifier of a loan |
  **rerateId** | [**String**](.md)| The unique identifier of a rerate |
 
@@ -220,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="ledgerLoansLoanIdReratesRerateIdCancelpendingPost"></a>

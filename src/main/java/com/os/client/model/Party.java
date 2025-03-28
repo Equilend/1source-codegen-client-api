@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Party
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-23T15:43:02.135640846Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-27T18:38:07.529904023Z[GMT]")
 
 public class Party implements Serializable{
   private static final long serialVersionUID = 1L;
