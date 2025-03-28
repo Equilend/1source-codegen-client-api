@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * TradeAgreement
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-23T15:43:02.135640846Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-28T19:09:31.413170521Z[GMT]")
 
 public class TradeAgreement implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -68,6 +68,9 @@ public class TradeAgreement implements Serializable{
 
   @SerializedName("transactingParties")
   private TransactingParties transactingParties = null;
+
+  @SerializedName("doNotInstruct")
+  private Boolean doNotInstruct = null;
 
   public TradeAgreement venues(Venues venues) {
     this.venues = venues;
@@ -321,6 +324,24 @@ public class TradeAgreement implements Serializable{
     this.transactingParties = transactingParties;
   }
 
+  public TradeAgreement doNotInstruct(Boolean doNotInstruct) {
+    this.doNotInstruct = doNotInstruct;
+    return this;
+  }
+
+   /**
+   * Get doNotInstruct
+   * @return doNotInstruct
+  **/
+  @Schema(description = "")
+  public Boolean isDoNotInstruct() {
+    return doNotInstruct;
+  }
+
+  public void setDoNotInstruct(Boolean doNotInstruct) {
+    this.doNotInstruct = doNotInstruct;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -344,12 +365,13 @@ public class TradeAgreement implements Serializable{
         Objects.equals(this.settlementDate, tradeAgreement.settlementDate) &&
         Objects.equals(this.settlementType, tradeAgreement.settlementType) &&
         Objects.equals(this.collateral, tradeAgreement.collateral) &&
-        Objects.equals(this.transactingParties, tradeAgreement.transactingParties);
+        Objects.equals(this.transactingParties, tradeAgreement.transactingParties) &&
+        Objects.equals(this.doNotInstruct, tradeAgreement.doNotInstruct);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(venues, instrument, rate, quantity, openQuantity, billingCurrency, dividendRatePct, tradeDate, termType, termDate, settlementDate, settlementType, collateral, transactingParties);
+    return Objects.hash(venues, instrument, rate, quantity, openQuantity, billingCurrency, dividendRatePct, tradeDate, termType, termDate, settlementDate, settlementType, collateral, transactingParties, doNotInstruct);
   }
 
 
@@ -372,6 +394,7 @@ public class TradeAgreement implements Serializable{
     sb.append("    settlementType: ").append(toIndentedString(settlementType)).append("\n");
     sb.append("    collateral: ").append(toIndentedString(collateral)).append("\n");
     sb.append("    transactingParties: ").append(toIndentedString(transactingParties)).append("\n");
+    sb.append("    doNotInstruct: ").append(toIndentedString(doNotInstruct)).append("\n");
     sb.append("}");
     return sb.toString();
   }

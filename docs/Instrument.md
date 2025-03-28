@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **isin** | **String** |  |  [optional]
 **sedol** | **String** |  |  [optional]
 **quick** | **String** |  |  [optional]
-**figi** | **String** |  | 
+**figi** | **String** |  |  [optional]
 **marketCode** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
 **price** | [**Price**](Price.md) |  |  [optional]

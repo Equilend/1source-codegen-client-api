@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * The effective date of the recall. The securities are expected to be returned on the recallDate.
  */
 @Schema(description = "The effective date of the recall. The securities are expected to be returned on the recallDate.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-23T15:43:02.135640846Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-28T19:09:31.413170521Z[GMT]")
 
 public class RecallProposal implements Serializable{
   private static final long serialVersionUID = 1L;

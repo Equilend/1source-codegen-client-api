@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * SettlementStatusUpdate
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-23T15:43:02.135640846Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-28T19:09:31.413170521Z[GMT]")
 
 public class SettlementStatusUpdate implements Serializable, LoansLoanIdBody, ReturnsReturnIdBody {
   private static final long serialVersionUID = 1L;

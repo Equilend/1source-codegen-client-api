@@ -19,6 +19,7 @@ import org.junit.Test;
 
 import com.os.client.model.LedgerResponse;
 import com.os.client.model.Rerate;
+import com.os.client.model.RerateCancelErrorResponse;
 import com.os.client.model.RerateDeclineErrorResponse;
 import com.os.client.model.RerateProposal;
 import com.os.client.model.RerateStatus;
@@ -90,9 +91,10 @@ public class ReratesApiTest {
      */
     @Test
     public void ledgerLoansLoanIdReratesRerateIdCancelPostTest() throws Exception {
+        RerateCancelErrorResponse body = null;
         String loanId = null;
         String rerateId = null;
-        LedgerResponse response = api.ledgerLoansLoanIdReratesRerateIdCancelPost(loanId, rerateId);
+        LedgerResponse response = api.ledgerLoansLoanIdReratesRerateIdCancelPost(body, loanId, rerateId);
 
         // TODO: test validations
     }
