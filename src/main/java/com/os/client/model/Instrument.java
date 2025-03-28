@@ -19,10 +19,10 @@ import com.google.gson.annotations.SerializedName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * Instrument
+ * For loan proposals one of ticker, cusip, isin, sedol, quick, figi is required. If sending isin or cusip, marketCode is required. Market code is the ISO country of exchange. All security identifiers are resolved to FIGI before creating a loan on ledger.
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-27T18:38:07.529904023Z[GMT]")
+@Schema(description = "For loan proposals one of ticker, cusip, isin, sedol, quick, figi is required. If sending isin or cusip, marketCode is required. Market code is the ISO country of exchange. All security identifiers are resolved to FIGI before creating a loan on ledger.")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-28T19:09:31.413170521Z[GMT]")
 
 public class Instrument implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -152,7 +152,7 @@ public class Instrument implements Serializable{
    * Get figi
    * @return figi
   **/
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public String getFigi() {
     return figi;
   }

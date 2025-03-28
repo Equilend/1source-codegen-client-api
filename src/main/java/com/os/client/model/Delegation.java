@@ -24,7 +24,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Delegation
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-27T18:38:07.529904023Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-28T19:09:31.413170521Z[GMT]")
 
 public class Delegation implements Serializable{
   private static final long serialVersionUID = 1L;

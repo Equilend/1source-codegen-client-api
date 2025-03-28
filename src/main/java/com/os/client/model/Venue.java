@@ -20,10 +20,10 @@ import com.google.gson.annotations.SerializedName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * ONPLATFORM venues are third-party services that generate loans, returns, recalls, rerates, or perform loan modifications on a clients behalf. If the type is ONPLATFORM, a party with a value ID and LEI is required. If the loan is agreed OFFPLATFORM (email, chat, phone), party does not apply.
+ * Venues are third-party services that generate loans, returns, recalls, rerates, or perform loan modifications on a clients behalf. A party with a valid ID and LEI is required.
  */
-@Schema(description = "ONPLATFORM venues are third-party services that generate loans, returns, recalls, rerates, or perform loan modifications on a clients behalf. If the type is ONPLATFORM, a party with a value ID and LEI is required. If the loan is agreed OFFPLATFORM (email, chat, phone), party does not apply.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-27T18:38:07.529904023Z[GMT]")
+@Schema(description = "Venues are third-party services that generate loans, returns, recalls, rerates, or perform loan modifications on a clients behalf. A party with a valid ID and LEI is required.")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-28T19:09:31.413170521Z[GMT]")
 
 public class Venue implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -45,7 +45,7 @@ public class Venue implements Serializable{
    * Get party
    * @return party
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public Party getParty() {
     return party;
   }
@@ -60,10 +60,10 @@ public class Venue implements Serializable{
   }
 
    /**
-   * Similar to partyId and gliefLei, required if type is ONPLATFORM
+   * The unique id or key assigned by the venue
    * @return venueRefKey
   **/
-  @Schema(description = "Similar to partyId and gliefLei, required if type is ONPLATFORM")
+  @Schema(required = true, description = "The unique id or key assigned by the venue")
   public String getVenueRefKey() {
     return venueRefKey;
   }

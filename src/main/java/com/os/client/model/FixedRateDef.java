@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Fixed Rates are defined as a spread off of a benchmark. When proposing a loan or rerate, the benchmark, spread, and effective date are required. Base rate is provided by 1Source if auto rerate is true, otherwise base rate is also required.
  */
 @Schema(description = "Fixed Rates are defined as a spread off of a benchmark. When proposing a loan or rerate, the benchmark, spread, and effective date are required. Base rate is provided by 1Source if auto rerate is true, otherwise base rate is also required.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-27T18:38:07.529904023Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-03-28T19:09:31.413170521Z[GMT]")
 
 public class FixedRateDef implements Serializable{
   private static final long serialVersionUID = 1L;
