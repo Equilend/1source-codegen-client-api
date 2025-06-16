@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="ledgerLoansLoanIdRecallsGet"></a>
 # **ledgerLoansLoanIdRecallsGet**
-> Recalls ledgerLoansLoanIdRecallsGet(loanId)
+> Recalls ledgerLoansLoanIdRecallsGet(loanId, since, before, size, recallStatus)
 
 Read collection of recalls against loan specified by &#x27;loanId&#x27;
 
@@ -36,8 +36,12 @@ stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 RecallsApi apiInstance = new RecallsApi();
 String loanId = "loanId_example"; // String | The unique identifier of a loan
+OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Recalls updated (since) timestamp UTC
+OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Recalls updated (before) timestamp UTC
+Integer size = 56; // Integer | Number of recalls to fetch. Can be used to facilitate paging
+RecallStatus recallStatus = new RecallStatus(); // RecallStatus | Recalls with status matching RECALL STATUS
 try {
-    Recalls result = apiInstance.ledgerLoansLoanIdRecallsGet(loanId);
+    Recalls result = apiInstance.ledgerLoansLoanIdRecallsGet(loanId, since, before, size, recallStatus);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecallsApi#ledgerLoansLoanIdRecallsGet");
@@ -50,6 +54,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loanId** | [**String**](.md)| The unique identifier of a loan |
+ **since** | [**OffsetDateTime**](.md)| Recalls updated (since) timestamp UTC | [optional]
+ **before** | [**OffsetDateTime**](.md)| Recalls updated (before) timestamp UTC | [optional]
+ **size** | **Integer**| Number of recalls to fetch. Can be used to facilitate paging | [optional]
+ **recallStatus** | [**RecallStatus**](.md)| Recalls with status matching RECALL STATUS | [optional]
 
 ### Return type
 

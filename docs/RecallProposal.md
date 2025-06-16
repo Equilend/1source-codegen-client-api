@@ -7,3 +7,4 @@ Name | Type | Description | Notes
 **quantity** | **Integer** |  | 
 **recallDate** | [**LocalDate**](LocalDate.md) |  | 
 **recallDueDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
+**recallInternalReference** | **String** |  |  [optional]

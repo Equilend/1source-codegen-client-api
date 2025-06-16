@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="ledgerLoansLoanIdReturnsGet"></a>
 # **ledgerLoansLoanIdReturnsGet**
-> Returns ledgerLoansLoanIdReturnsGet(loanId)
+> Returns ledgerLoansLoanIdReturnsGet(loanId, since, before, size, returnStatus)
 
 Read collection of returns against loan specified by &#x27;loanId&#x27;
 
@@ -36,8 +36,12 @@ stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ReturnsApi apiInstance = new ReturnsApi();
 String loanId = "loanId_example"; // String | The unique identifier of a loan
+OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Returns updated (since) timestamp UTC
+OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Returns updated (before) timestamp UTC
+Integer size = 56; // Integer | Number of returns to fetch. Can be used to facilitate paging
+ReturnStatus returnStatus = new ReturnStatus(); // ReturnStatus | Returns with status matching RETURN STATUS
 try {
-    Returns result = apiInstance.ledgerLoansLoanIdReturnsGet(loanId);
+    Returns result = apiInstance.ledgerLoansLoanIdReturnsGet(loanId, since, before, size, returnStatus);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReturnsApi#ledgerLoansLoanIdReturnsGet");
@@ -50,6 +54,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loanId** | [**String**](.md)| The unique identifier of a loan |
+ **since** | [**OffsetDateTime**](.md)| Returns updated (since) timestamp UTC | [optional]
+ **before** | [**OffsetDateTime**](.md)| Returns updated (before) timestamp UTC | [optional]
+ **size** | **Integer**| Number of returns to fetch. Can be used to facilitate paging | [optional]
+ **returnStatus** | [**ReturnStatus**](.md)| Returns with status matching RETURN STATUS | [optional]
 
 ### Return type
 

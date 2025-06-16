@@ -12,3 +12,5 @@ Name | Type | Description | Notes
 **collateralMargin** | **Double** |  | 
 **roundingRule** | **Integer** |  |  [optional]
 **roundingMode** | [**RoundingMode**](RoundingMode.md) |  |  [optional]
+**minimumMarkPrice** | **Double** |  |  [optional]
+**mark** | [**MarkDelta**](MarkDelta.md) |  |  [optional]
