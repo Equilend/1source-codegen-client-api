@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **status** | [**RerateStatus**](RerateStatus.md) |  | 
 **rerateStatusReason** | **OneOfRerateRerateStatusReason** |  |  [optional]
 **executionVenue** | [**Venue**](Venue.md) |  |  [optional]
+**isInitiator** | **Boolean** |  |  [optional]
 **rate** | [**Rate**](Rate.md) |  | 
 **rerate** | [**Rate**](Rate.md) |  | 
 **dateProposed** | [**LocalDate**](LocalDate.md) |  |  [optional]

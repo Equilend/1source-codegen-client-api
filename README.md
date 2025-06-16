@@ -1,8 +1,8 @@
 # 1source-api-client
 
 1Source Ledger API
-- API version: 1.2.1.3
-  - Build date: 2025-03-27T18:38:07.529904023Z[GMT]
+- API version: 1.2.2
+  - Build date: 2025-06-13T14:55:11.905003865Z[GMT]
 
 1Source Ledger API provides client access to the 1Source Ledger. You can find out more about 1Source at [https://equilend.com](https://equilend.com).  This specification is work in progress. The design is meant to model the securities lending life cycle in as clean a way as possible while being robust enough to easily translate to ISLA CDM workflows and data model.  API specification is the intellectual property of EquiLend LLC and should not be copied or disseminated in any way. 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.os</groupId>
   <artifactId>1source-api-client</artifactId>
-  <version>1.2.1.3</version>
+  <version>1.2.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -91,7 +91,7 @@ Also, to use the GitHub Packages repository for downloading SNAPSHOT artifacts, 
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.os:1source-api-client:1.2.1.3"
+compile "com.os:1source-api-client:1.2.2"
 ```
 
 Add the repository to your build.gradle file (Gradle Groovy). Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
@@ -117,7 +117,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/1source-api-client-1.2.1.3.jar`
+* `target/1source-api-client-1.2.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -269,9 +269,15 @@ Class | Method | HTTP request | Description
 *EventsApi* | [**ledgerLoansLoanIdEventsEventIdGet**](docs/EventsApi.md#ledgerLoansLoanIdEventsEventIdGet) | **GET** /ledger/loans/{loanId}/events/{eventId} | Read an event
 *EventsApi* | [**ledgerLoansLoanIdEventsGet**](docs/EventsApi.md#ledgerLoansLoanIdEventsGet) | **GET** /ledger/loans/{loanId}/events | Read collection of events against a specific loan. With no parameters returns events since start of current day.
 *LoansApi* | [**ledgerLoansGet**](docs/LoansApi.md#ledgerLoansGet) | **GET** /ledger/loans | Read a collection of loans. Defaults to return the last 100 loans updated.
-*LoansApi* | [**ledgerLoansLoanIdApprovePost**](docs/LoansApi.md#ledgerLoansLoanIdApprovePost) | **POST** /ledger/loans/{loanId}/approve | Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule or roundingMode when approving a loan.
+*LoansApi* | [**ledgerLoansLoanIdAmendLoanAmendmentIdApprovePost**](docs/LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdApprovePost) | **POST** /ledger/loans/{loanId}/amend/{loanAmendmentId}/approve | Approve a loan amendment in \&quot;proposed\&quot; state.
+*LoansApi* | [**ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost**](docs/LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost) | **POST** /ledger/loans/{loanId}/amend/{loanAmendmentId}/cancel | Cancel a loan amendment in \&quot;proposed\&quot; state
+*LoansApi* | [**ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost**](docs/LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost) | **POST** /ledger/loans/{loanId}/amend/{loanAmendmentId}/decline | Decline a loan amendment in \&quot;proposed\&quot; state
+*LoansApi* | [**ledgerLoansLoanIdAmendLoanAmendmentIdGet**](docs/LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdGet) | **GET** /ledger/loans/{loanId}/amend/{loanAmendmentId} | Retrieve a loan amendment.
+*LoansApi* | [**ledgerLoansLoanIdAmendPost**](docs/LoansApi.md#ledgerLoansLoanIdAmendPost) | **POST** /ledger/loans/{loanId}/amend | Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
+*LoansApi* | [**ledgerLoansLoanIdApprovePost**](docs/LoansApi.md#ledgerLoansLoanIdApprovePost) | **POST** /ledger/loans/{loanId}/approve | Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
 *LoansApi* | [**ledgerLoansLoanIdCancelPost**](docs/LoansApi.md#ledgerLoansLoanIdCancelPost) | **POST** /ledger/loans/{loanId}/cancel | Cancel a loan in \&quot;proposed\&quot; state. Original proposer only.
 *LoansApi* | [**ledgerLoansLoanIdCancelpendingPost**](docs/LoansApi.md#ledgerLoansLoanIdCancelpendingPost) | **POST** /ledger/loans/{loanId}/cancelpending | Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
+*LoansApi* | [**ledgerLoansLoanIdClosePost**](docs/LoansApi.md#ledgerLoansLoanIdClosePost) | **POST** /ledger/loans/{loanId}/close | Close a loan in \&quot;open\&quot; state. Either party can initiate.
 *LoansApi* | [**ledgerLoansLoanIdDeclinePost**](docs/LoansApi.md#ledgerLoansLoanIdDeclinePost) | **POST** /ledger/loans/{loanId}/decline | Decline a loan in \&quot;proposed\&quot; state
 *LoansApi* | [**ledgerLoansLoanIdGet**](docs/LoansApi.md#ledgerLoansLoanIdGet) | **GET** /ledger/loans/{loanId} | Read a specific loan the user is authorized to access
 *LoansApi* | [**ledgerLoansLoanIdHistoryGet**](docs/LoansApi.md#ledgerLoansLoanIdHistoryGet) | **GET** /ledger/loans/{loanId}/history | Return an ordered history of this loan. Each loan has a reference event that triggered a new version.
@@ -319,7 +325,9 @@ Class | Method | HTTP request | Description
  - [BuyinCompleteRequest](docs/BuyinCompleteRequest.md)
  - [BuyinCompleteStatus](docs/BuyinCompleteStatus.md)
  - [BuyinCompletes](docs/BuyinCompletes.md)
+ - [CcpIndicator](docs/CcpIndicator.md)
  - [Collateral](docs/Collateral.md)
+ - [CollateralAmendment](docs/CollateralAmendment.md)
  - [CollateralDescription](docs/CollateralDescription.md)
  - [CollateralType](docs/CollateralType.md)
  - [CurrencyCd](docs/CurrencyCd.md)
@@ -341,8 +349,13 @@ Class | Method | HTTP request | Description
  - [InternalReferenceUpdate](docs/InternalReferenceUpdate.md)
  - [LedgerResponse](docs/LedgerResponse.md)
  - [Loan](docs/Loan.md)
+ - [LoanAmendment](docs/LoanAmendment.md)
+ - [LoanAmendmentProposal](docs/LoanAmendmentProposal.md)
+ - [LoanAmendmentStatus](docs/LoanAmendmentStatus.md)
  - [LoanCancelErrorReason](docs/LoanCancelErrorReason.md)
  - [LoanCancelErrorResponse](docs/LoanCancelErrorResponse.md)
+ - [LoanCloseErrorReason](docs/LoanCloseErrorReason.md)
+ - [LoanCloseErrorResponse](docs/LoanCloseErrorResponse.md)
  - [LoanDeclineErrorReason](docs/LoanDeclineErrorReason.md)
  - [LoanDeclineErrorReasonFieldBillingCurrency](docs/LoanDeclineErrorReasonFieldBillingCurrency.md)
  - [LoanDeclineErrorReasonFieldCollateralCurrency](docs/LoanDeclineErrorReasonFieldCollateralCurrency.md)
@@ -351,6 +364,8 @@ Class | Method | HTTP request | Description
  - [LoanDeclineErrorReasonFieldDividendRate](docs/LoanDeclineErrorReasonFieldDividendRate.md)
  - [LoanDeclineErrorReasonFieldQuantity](docs/LoanDeclineErrorReasonFieldQuantity.md)
  - [LoanDeclineErrorReasonFieldRate](docs/LoanDeclineErrorReasonFieldRate.md)
+ - [LoanDeclineErrorReasonFieldResetDate](docs/LoanDeclineErrorReasonFieldResetDate.md)
+ - [LoanDeclineErrorReasonFieldSettlement](docs/LoanDeclineErrorReasonFieldSettlement.md)
  - [LoanDeclineErrorReasonFieldSettlementDate](docs/LoanDeclineErrorReasonFieldSettlementDate.md)
  - [LoanDeclineErrorReasonFieldTermDate](docs/LoanDeclineErrorReasonFieldTermDate.md)
  - [LoanDeclineErrorReasonFieldTermType](docs/LoanDeclineErrorReasonFieldTermType.md)
@@ -368,7 +383,9 @@ Class | Method | HTTP request | Description
  - [LoanStatus](docs/LoanStatus.md)
  - [Loans](docs/Loans.md)
  - [LoansLoanIdBody](docs/LoansLoanIdBody.md)
+ - [MarkDelta](docs/MarkDelta.md)
  - [ModelReturn](docs/ModelReturn.md)
+ - [OneOfLoanAmendmentLoanAmendmentStatusReason](docs/OneOfLoanAmendmentLoanAmendmentStatusReason.md)
  - [OneOfLoanDeclineErrorReasonFieldRateExpectedValue](docs/OneOfLoanDeclineErrorReasonFieldRateExpectedValue.md)
  - [OneOfLoanLoanStatusReason](docs/OneOfLoanLoanStatusReason.md)
  - [OneOfRebateRateRebate](docs/OneOfRebateRateRebate.md)
@@ -386,6 +403,7 @@ Class | Method | HTTP request | Description
  - [RebateRate](docs/RebateRate.md)
  - [Recall](docs/Recall.md)
  - [RecallAcknowledgement](docs/RecallAcknowledgement.md)
+ - [RecallInternalReferenceUpdate](docs/RecallInternalReferenceUpdate.md)
  - [RecallProposal](docs/RecallProposal.md)
  - [RecallQuantityUpdate](docs/RecallQuantityUpdate.md)
  - [RecallStatus](docs/RecallStatus.md)
@@ -402,6 +420,7 @@ Class | Method | HTTP request | Description
  - [RerateStatus](docs/RerateStatus.md)
  - [Rerates](docs/Rerates.md)
  - [ReturnAcknowledgement](docs/ReturnAcknowledgement.md)
+ - [ReturnInternalReferenceUpdate](docs/ReturnInternalReferenceUpdate.md)
  - [ReturnProposal](docs/ReturnProposal.md)
  - [ReturnStatus](docs/ReturnStatus.md)
  - [Returns](docs/Returns.md)
@@ -415,6 +434,7 @@ Class | Method | HTTP request | Description
  - [SortOrder](docs/SortOrder.md)
  - [TermType](docs/TermType.md)
  - [TradeAgreement](docs/TradeAgreement.md)
+ - [TradeAmendment](docs/TradeAmendment.md)
  - [TransactingParties](docs/TransactingParties.md)
  - [TransactingParty](docs/TransactingParty.md)
  - [Venue](docs/Venue.md)
@@ -440,3 +460,7 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 ## Author
 
 1source_help@equilend.com
+
+## Last Update
+
+Friday, June 13, 2025 11:57:10

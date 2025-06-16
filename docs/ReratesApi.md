@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="ledgerLoansLoanIdReratesGet"></a>
 # **ledgerLoansLoanIdReratesGet**
-> Rerates ledgerLoansLoanIdReratesGet(loanId)
+> Rerates ledgerLoansLoanIdReratesGet(loanId, since, before, size, rerateStatus)
 
 Read collection of rerates against loan specified by &#x27;loanId&#x27;
 
@@ -37,8 +37,12 @@ stage_auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ReratesApi apiInstance = new ReratesApi();
 String loanId = "loanId_example"; // String | The unique identifier of a loan
+OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Rerates updated (since) timestamp UTC
+OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Rerates updated (before) timestamp UTC
+Integer size = 56; // Integer | Number of rerates to fetch. Can be used to facilitate paging
+RerateStatus rerateStatus = new RerateStatus(); // RerateStatus | Rerates with status matching RERATE STATUS
 try {
-    Rerates result = apiInstance.ledgerLoansLoanIdReratesGet(loanId);
+    Rerates result = apiInstance.ledgerLoansLoanIdReratesGet(loanId, since, before, size, rerateStatus);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReratesApi#ledgerLoansLoanIdReratesGet");
@@ -51,6 +55,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loanId** | [**String**](.md)| The unique identifier of a loan |
+ **since** | [**OffsetDateTime**](.md)| Rerates updated (since) timestamp UTC | [optional]
+ **before** | [**OffsetDateTime**](.md)| Rerates updated (before) timestamp UTC | [optional]
+ **size** | **Integer**| Number of rerates to fetch. Can be used to facilitate paging | [optional]
+ **rerateStatus** | [**RerateStatus**](.md)| Rerates with status matching RERATE STATUS | [optional]
 
 ### Return type
 

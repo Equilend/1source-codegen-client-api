@@ -5,9 +5,15 @@ All URIs are relative to *https://stageapi.equilend.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ledgerLoansGet**](LoansApi.md#ledgerLoansGet) | **GET** /ledger/loans | Read a collection of loans. Defaults to return the last 100 loans updated.
-[**ledgerLoansLoanIdApprovePost**](LoansApi.md#ledgerLoansLoanIdApprovePost) | **POST** /ledger/loans/{loanId}/approve | Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule or roundingMode when approving a loan.
+[**ledgerLoansLoanIdAmendLoanAmendmentIdApprovePost**](LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdApprovePost) | **POST** /ledger/loans/{loanId}/amend/{loanAmendmentId}/approve | Approve a loan amendment in \&quot;proposed\&quot; state.
+[**ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost**](LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost) | **POST** /ledger/loans/{loanId}/amend/{loanAmendmentId}/cancel | Cancel a loan amendment in \&quot;proposed\&quot; state
+[**ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost**](LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost) | **POST** /ledger/loans/{loanId}/amend/{loanAmendmentId}/decline | Decline a loan amendment in \&quot;proposed\&quot; state
+[**ledgerLoansLoanIdAmendLoanAmendmentIdGet**](LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdGet) | **GET** /ledger/loans/{loanId}/amend/{loanAmendmentId} | Retrieve a loan amendment.
+[**ledgerLoansLoanIdAmendPost**](LoansApi.md#ledgerLoansLoanIdAmendPost) | **POST** /ledger/loans/{loanId}/amend | Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
+[**ledgerLoansLoanIdApprovePost**](LoansApi.md#ledgerLoansLoanIdApprovePost) | **POST** /ledger/loans/{loanId}/approve | Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
 [**ledgerLoansLoanIdCancelPost**](LoansApi.md#ledgerLoansLoanIdCancelPost) | **POST** /ledger/loans/{loanId}/cancel | Cancel a loan in \&quot;proposed\&quot; state. Original proposer only.
 [**ledgerLoansLoanIdCancelpendingPost**](LoansApi.md#ledgerLoansLoanIdCancelpendingPost) | **POST** /ledger/loans/{loanId}/cancelpending | Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
+[**ledgerLoansLoanIdClosePost**](LoansApi.md#ledgerLoansLoanIdClosePost) | **POST** /ledger/loans/{loanId}/close | Close a loan in \&quot;open\&quot; state. Either party can initiate.
 [**ledgerLoansLoanIdDeclinePost**](LoansApi.md#ledgerLoansLoanIdDeclinePost) | **POST** /ledger/loans/{loanId}/decline | Decline a loan in \&quot;proposed\&quot; state
 [**ledgerLoansLoanIdGet**](LoansApi.md#ledgerLoansLoanIdGet) | **GET** /ledger/loans/{loanId} | Read a specific loan the user is authorized to access
 [**ledgerLoansLoanIdHistoryGet**](LoansApi.md#ledgerLoansLoanIdHistoryGet) | **GET** /ledger/loans/{loanId}/history | Return an ordered history of this loan. Each loan has a reference event that triggered a new version.
@@ -75,11 +81,280 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="ledgerLoansLoanIdAmendLoanAmendmentIdApprovePost"></a>
+# **ledgerLoansLoanIdAmendLoanAmendmentIdApprovePost**
+> LedgerResponse ledgerLoansLoanIdAmendLoanAmendmentIdApprovePost(loanId, loanAmendmentId)
+
+Approve a loan amendment in \&quot;proposed\&quot; state.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.LoansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+LoansApi apiInstance = new LoansApi();
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+String loanAmendmentId = "loanAmendmentId_example"; // String | The unique identifier of a loan amendment
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdAmendLoanAmendmentIdApprovePost(loanId, loanAmendmentId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdAmendLoanAmendmentIdApprovePost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+ **loanAmendmentId** | [**String**](.md)| The unique identifier of a loan amendment |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost"></a>
+# **ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost**
+> LedgerResponse ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost(body, loanId, loanAmendmentId)
+
+Cancel a loan amendment in \&quot;proposed\&quot; state
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.LoansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+LoansApi apiInstance = new LoansApi();
+LoanCancelErrorResponse body = new LoanCancelErrorResponse(); // LoanCancelErrorResponse | Provide reason and details for declining loan amendment proposal
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+String loanAmendmentId = "loanAmendmentId_example"; // String | The unique identifier of a loan amendment
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost(body, loanId, loanAmendmentId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**LoanCancelErrorResponse**](LoanCancelErrorResponse.md)| Provide reason and details for declining loan amendment proposal |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+ **loanAmendmentId** | [**String**](.md)| The unique identifier of a loan amendment |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost"></a>
+# **ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost**
+> LedgerResponse ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost(body, loanId, loanAmendmentId)
+
+Decline a loan amendment in \&quot;proposed\&quot; state
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.LoansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+LoansApi apiInstance = new LoansApi();
+LoanDeclineErrorResponse body = new LoanDeclineErrorResponse(); // LoanDeclineErrorResponse | Provide reason and details for declining loan amendment proposal
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+String loanAmendmentId = "loanAmendmentId_example"; // String | The unique identifier of a loan amendment
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost(body, loanId, loanAmendmentId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**LoanDeclineErrorResponse**](LoanDeclineErrorResponse.md)| Provide reason and details for declining loan amendment proposal |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+ **loanAmendmentId** | [**String**](.md)| The unique identifier of a loan amendment |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="ledgerLoansLoanIdAmendLoanAmendmentIdGet"></a>
+# **ledgerLoansLoanIdAmendLoanAmendmentIdGet**
+> LoanAmendment ledgerLoansLoanIdAmendLoanAmendmentIdGet(loanId, loanAmendmentId)
+
+Retrieve a loan amendment.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.LoansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+LoansApi apiInstance = new LoansApi();
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+String loanAmendmentId = "loanAmendmentId_example"; // String | The unique identifier of a loan amendment
+try {
+    LoanAmendment result = apiInstance.ledgerLoansLoanIdAmendLoanAmendmentIdGet(loanId, loanAmendmentId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdAmendLoanAmendmentIdGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+ **loanAmendmentId** | [**String**](.md)| The unique identifier of a loan amendment |
+
+### Return type
+
+[**LoanAmendment**](LoanAmendment.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="ledgerLoansLoanIdAmendPost"></a>
+# **ledgerLoansLoanIdAmendPost**
+> LedgerResponse ledgerLoansLoanIdAmendPost(body, loanId)
+
+Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.LoansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+LoansApi apiInstance = new LoansApi();
+LoanAmendmentProposal body = new LoanAmendmentProposal(); // LoanAmendmentProposal | Loan amendment proposed for updating the ledger
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdAmendPost(body, loanId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdAmendPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**LoanAmendmentProposal**](LoanAmendmentProposal.md)| Loan amendment proposed for updating the ledger |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="ledgerLoansLoanIdApprovePost"></a>
 # **ledgerLoansLoanIdApprovePost**
 > LedgerResponse ledgerLoansLoanIdApprovePost(body, loanId)
 
-Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule or roundingMode when approving a loan.
+Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
 
 ### Example
 ```java
@@ -232,6 +507,59 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="ledgerLoansLoanIdClosePost"></a>
+# **ledgerLoansLoanIdClosePost**
+> LedgerResponse ledgerLoansLoanIdClosePost(body, loanId)
+
+Close a loan in \&quot;open\&quot; state. Either party can initiate.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.LoansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+LoansApi apiInstance = new LoansApi();
+LoanCloseErrorResponse body = new LoanCloseErrorResponse(); // LoanCloseErrorResponse | Loan amendment proposed for updating the ledger
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdClosePost(body, loanId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdClosePost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**LoanCloseErrorResponse**](LoanCloseErrorResponse.md)| Loan amendment proposed for updating the ledger |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="ledgerLoansLoanIdDeclinePost"></a>
 # **ledgerLoansLoanIdDeclinePost**
 > LedgerResponse ledgerLoansLoanIdDeclinePost(body, loanId)
@@ -338,7 +666,7 @@ Name | Type | Description  | Notes
 
 <a name="ledgerLoansLoanIdHistoryGet"></a>
 # **ledgerLoansLoanIdHistoryGet**
-> Loans ledgerLoansLoanIdHistoryGet(loanId, since, before, size, eventType, sortOrder)
+> Loans ledgerLoansLoanIdHistoryGet(loanId, since, before, size, eventType, eventId, sortOrder)
 
 Return an ordered history of this loan. Each loan has a reference event that triggered a new version.
 
@@ -363,9 +691,10 @@ OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Events (since) 
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Events (before) timestamp UTC
 Integer size = 56; // Integer | Number of loan changes to be returned. Can be used to facilitate paging
 List<EventType> eventType = Arrays.asList(new EventType()); // List<EventType> | Filter by event type
-SortOrder sortOrder = new SortOrder(); // SortOrder | Sort history by order of creation ascending or descending. Defaults to ASCENDING
+Long eventId = 789L; // Long | 
+SortOrder sortOrder = new SortOrder(); // SortOrder | Sort history by order of creation ascending or descending. Defaults to DESCENDING
 try {
-    Loans result = apiInstance.ledgerLoansLoanIdHistoryGet(loanId, since, before, size, eventType, sortOrder);
+    Loans result = apiInstance.ledgerLoansLoanIdHistoryGet(loanId, since, before, size, eventType, eventId, sortOrder);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdHistoryGet");
@@ -382,7 +711,8 @@ Name | Type | Description  | Notes
  **before** | [**OffsetDateTime**](.md)| Events (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of loan changes to be returned. Can be used to facilitate paging | [optional]
  **eventType** | [**List&lt;EventType&gt;**](EventType.md)| Filter by event type | [optional]
- **sortOrder** | [**SortOrder**](.md)| Sort history by order of creation ascending or descending. Defaults to ASCENDING | [optional]
+ **eventId** | **Long**|  | [optional]
+ **sortOrder** | [**SortOrder**](.md)| Sort history by order of creation ascending or descending. Defaults to DESCENDING | [optional]
 
 ### Return type
 

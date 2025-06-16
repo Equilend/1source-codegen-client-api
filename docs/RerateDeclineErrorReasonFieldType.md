@@ -2,4 +2,4 @@
 
 ## Enum
 
-* `RERATE` (value: `"RERATE"`)
+* `RERATE_VALUE` (value: `"RERATE_VALUE"`)

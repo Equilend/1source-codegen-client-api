@@ -10,3 +10,5 @@ Name | Type | Description | Notes
 **collateralValue** | **Double** |  | 
 **settlementType** | [**SettlementType**](SettlementType.md) |  | 
 **settlement** | [**List&lt;PartySettlementInstruction&gt;**](PartySettlementInstruction.md) |  |  [optional]
+**returnInternalReference** | **String** |  |  [optional]
+**doNotInstruct** | **Boolean** |  |  [optional]

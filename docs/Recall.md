@@ -14,3 +14,4 @@ Name | Type | Description | Notes
 **acknowledgementType** | [**AcknowledgementType**](AcknowledgementType.md) |  |  [optional]
 **description** | **String** |  |  [optional]
 **lastUpdateDatetime** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**recallInternalReference** | **String** |  |  [optional]
