@@ -13,8 +13,8 @@
 package com.os.client.model;
 
 /**
-* OneOfRerateRerateStatusReason
+* OneOfRerateStatusReason
 */
-public interface OneOfRerateRerateStatusReason {
+public interface OneOfRerateStatusReason {
 
 }

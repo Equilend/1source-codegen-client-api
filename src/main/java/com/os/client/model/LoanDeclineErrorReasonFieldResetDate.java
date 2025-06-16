@@ -12,22 +12,23 @@
 
 package com.os.client.model;
 
+import java.io.IOException;
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.io.Serializable;
 /**
  * LoanDeclineErrorReasonFieldResetDate
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-13T14:55:11.905003865Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-16T19:31:16.228639685Z[GMT]")
 
 public class LoanDeclineErrorReasonFieldResetDate implements Serializable, AnyOfLoanDeclineErrorResponseErrorsItems {
   private static final long serialVersionUID = 1L;

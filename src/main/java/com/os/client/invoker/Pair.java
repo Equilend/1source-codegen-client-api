@@ -12,7 +12,7 @@
 
 package com.os.client.invoker;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-13T14:55:11.905003865Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-16T19:31:16.228639685Z[GMT]")
 public class Pair {
     private String name = "";
     private String value = "";

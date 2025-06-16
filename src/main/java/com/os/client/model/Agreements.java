@@ -12,17 +12,14 @@
 
 package com.os.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.os.client.model.Agreement;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Objects;
 /**
  * Agreements
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-13T14:55:11.905003865Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-16T19:31:16.228639685Z[GMT]")
 
 public class Agreements extends ArrayList<Agreement> implements Serializable{
   private static final long serialVersionUID = 1L;

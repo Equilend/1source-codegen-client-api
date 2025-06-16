@@ -12,6 +12,15 @@
 
 package com.os.client.api;
 
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.reflect.TypeToken;
 import com.os.client.invoker.ApiCallback;
 import com.os.client.invoker.ApiClient;
 import com.os.client.invoker.ApiException;
@@ -20,26 +29,13 @@ import com.os.client.invoker.Configuration;
 import com.os.client.invoker.Pair;
 import com.os.client.invoker.ProgressRequestBody;
 import com.os.client.invoker.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
 import com.os.client.model.LedgerResponse;
-import java.time.OffsetDateTime;
 import com.os.client.model.Rerate;
 import com.os.client.model.RerateCancelErrorResponse;
 import com.os.client.model.RerateDeclineErrorResponse;
 import com.os.client.model.RerateProposal;
 import com.os.client.model.RerateStatus;
 import com.os.client.model.Rerates;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class ReratesApi {
     private ApiClient apiClient;
