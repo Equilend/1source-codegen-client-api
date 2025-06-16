@@ -12,12 +12,12 @@
 
 package com.os.client.invoker.auth;
 
+import java.util.List;
+import java.util.Map;
+
 import com.os.client.invoker.Pair;
 
-import java.util.Map;
-import java.util.List;
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-13T14:55:11.905003865Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-16T19:31:16.228639685Z[GMT]")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;

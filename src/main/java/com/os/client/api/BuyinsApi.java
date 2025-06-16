@@ -12,6 +12,15 @@
 
 package com.os.client.api;
 
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.reflect.TypeToken;
 import com.os.client.invoker.ApiCallback;
 import com.os.client.invoker.ApiClient;
 import com.os.client.invoker.ApiException;
@@ -20,24 +29,11 @@ import com.os.client.invoker.Configuration;
 import com.os.client.invoker.Pair;
 import com.os.client.invoker.ProgressRequestBody;
 import com.os.client.invoker.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
 import com.os.client.model.BuyinComplete;
 import com.os.client.model.BuyinCompleteRequest;
 import com.os.client.model.BuyinCompleteStatus;
 import com.os.client.model.BuyinCompletes;
 import com.os.client.model.LedgerResponse;
-import java.time.OffsetDateTime;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class BuyinsApi {
     private ApiClient apiClient;

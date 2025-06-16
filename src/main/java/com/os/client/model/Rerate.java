@@ -12,26 +12,19 @@
 
 package com.os.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.os.client.model.Rate;
-import com.os.client.model.RerateStatus;
-import com.os.client.model.Venue;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
-import java.io.Serializable;
+import java.util.Objects;
+
+import com.google.gson.annotations.SerializedName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 /**
  * Rerate
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-13T14:55:11.905003865Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-16T19:31:16.228639685Z[GMT]")
 
 public class Rerate implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -44,8 +37,8 @@ public class Rerate implements Serializable{
   @SerializedName("status")
   private RerateStatus status = null;
 
-  @SerializedName("rerateStatusReason")
-  private OneOfRerateRerateStatusReason rerateStatusReason = null;
+  @SerializedName("statusReason")
+  private OneOfRerateStatusReason statusReason = null;
 
   @SerializedName("executionVenue")
   private Venue executionVenue = null;
@@ -119,22 +112,22 @@ public class Rerate implements Serializable{
     this.status = status;
   }
 
-  public Rerate rerateStatusReason(OneOfRerateRerateStatusReason rerateStatusReason) {
-    this.rerateStatusReason = rerateStatusReason;
+  public Rerate statusReason(OneOfRerateStatusReason statusReason) {
+    this.statusReason = statusReason;
     return this;
   }
 
    /**
-   * Get rerateStatusReason
-   * @return rerateStatusReason
+   * Get statusReason
+   * @return statusReason
   **/
   @Schema(description = "")
-  public OneOfRerateRerateStatusReason getRerateStatusReason() {
-    return rerateStatusReason;
+  public OneOfRerateStatusReason getStatusReason() {
+    return statusReason;
   }
 
-  public void setRerateStatusReason(OneOfRerateRerateStatusReason rerateStatusReason) {
-    this.rerateStatusReason = rerateStatusReason;
+  public void setStatusReason(OneOfRerateStatusReason statusReason) {
+    this.statusReason = statusReason;
   }
 
   public Rerate executionVenue(Venue executionVenue) {
@@ -258,7 +251,7 @@ public class Rerate implements Serializable{
     return Objects.equals(this.rerateId, rerate.rerateId) &&
         Objects.equals(this.loanId, rerate.loanId) &&
         Objects.equals(this.status, rerate.status) &&
-        Objects.equals(this.rerateStatusReason, rerate.rerateStatusReason) &&
+        Objects.equals(this.statusReason, rerate.statusReason) &&
         Objects.equals(this.executionVenue, rerate.executionVenue) &&
         Objects.equals(this.isInitiator, rerate.isInitiator) &&
         Objects.equals(this.rate, rerate.rate) &&
@@ -269,7 +262,7 @@ public class Rerate implements Serializable{
 
   @Override
   public int hashCode() {
-    return Objects.hash(rerateId, loanId, status, rerateStatusReason, executionVenue, isInitiator, rate, rerate, dateProposed, lastUpdateDatetime);
+    return Objects.hash(rerateId, loanId, status, statusReason, executionVenue, isInitiator, rate, rerate, dateProposed, lastUpdateDatetime);
   }
 
 
@@ -281,7 +274,7 @@ public class Rerate implements Serializable{
     sb.append("    rerateId: ").append(toIndentedString(rerateId)).append("\n");
     sb.append("    loanId: ").append(toIndentedString(loanId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    rerateStatusReason: ").append(toIndentedString(rerateStatusReason)).append("\n");
+    sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    executionVenue: ").append(toIndentedString(executionVenue)).append("\n");
     sb.append("    isInitiator: ").append(toIndentedString(isInitiator)).append("\n");
     sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
