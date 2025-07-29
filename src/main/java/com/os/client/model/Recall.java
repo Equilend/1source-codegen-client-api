@@ -15,6 +15,8 @@ package com.os.client.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
@@ -24,7 +26,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Recall
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-16T19:31:16.228639685Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
 
 public class Recall implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -61,8 +63,8 @@ public class Recall implements Serializable{
   @SerializedName("lastUpdateDatetime")
   private OffsetDateTime lastUpdateDatetime = null;
 
-  @SerializedName("recallInternalReference")
-  private String recallInternalReference = null;
+  @SerializedName("recallInternalReferences")
+  private List<RecallPartyInternalReference> recallInternalReferences = null;
 
   public Recall recallId(String recallId) {
     this.recallId = recallId;
@@ -262,22 +264,30 @@ public class Recall implements Serializable{
     this.lastUpdateDatetime = lastUpdateDatetime;
   }
 
-  public Recall recallInternalReference(String recallInternalReference) {
-    this.recallInternalReference = recallInternalReference;
+  public Recall recallInternalReferences(List<RecallPartyInternalReference> recallInternalReferences) {
+    this.recallInternalReferences = recallInternalReferences;
+    return this;
+  }
+
+  public Recall addRecallInternalReferencesItem(RecallPartyInternalReference recallInternalReferencesItem) {
+    if (this.recallInternalReferences == null) {
+      this.recallInternalReferences = new ArrayList<>();
+    }
+    this.recallInternalReferences.add(recallInternalReferencesItem);
     return this;
   }
 
    /**
-   * Get recallInternalReference
-   * @return recallInternalReference
+   * Get recallInternalReferences
+   * @return recallInternalReferences
   **/
   @Schema(description = "")
-  public String getRecallInternalReference() {
-    return recallInternalReference;
+  public List<RecallPartyInternalReference> getRecallInternalReferences() {
+    return recallInternalReferences;
   }
 
-  public void setRecallInternalReference(String recallInternalReference) {
-    this.recallInternalReference = recallInternalReference;
+  public void setRecallInternalReferences(List<RecallPartyInternalReference> recallInternalReferences) {
+    this.recallInternalReferences = recallInternalReferences;
   }
 
 
@@ -301,12 +311,12 @@ public class Recall implements Serializable{
         Objects.equals(this.acknowledgementType, recall.acknowledgementType) &&
         Objects.equals(this.description, recall.description) &&
         Objects.equals(this.lastUpdateDatetime, recall.lastUpdateDatetime) &&
-        Objects.equals(this.recallInternalReference, recall.recallInternalReference);
+        Objects.equals(this.recallInternalReferences, recall.recallInternalReferences);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recallId, loanId, status, executionVenue, openQuantity, quantity, recallDate, recallDueDate, acknowledgementType, description, lastUpdateDatetime, recallInternalReference);
+    return Objects.hash(recallId, loanId, status, executionVenue, openQuantity, quantity, recallDate, recallDueDate, acknowledgementType, description, lastUpdateDatetime, recallInternalReferences);
   }
 
 
@@ -326,7 +336,7 @@ public class Recall implements Serializable{
     sb.append("    acknowledgementType: ").append(toIndentedString(acknowledgementType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    lastUpdateDatetime: ").append(toIndentedString(lastUpdateDatetime)).append("\n");
-    sb.append("    recallInternalReference: ").append(toIndentedString(recallInternalReference)).append("\n");
+    sb.append("    recallInternalReferences: ").append(toIndentedString(recallInternalReferences)).append("\n");
     sb.append("}");
     return sb.toString();
   }

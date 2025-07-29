@@ -16,5 +16,5 @@ Name | Type | Description | Notes
 **description** | **String** |  |  [optional]
 **settlement** | [**List&lt;PartySettlementInstruction&gt;**](PartySettlementInstruction.md) |  |  [optional]
 **lastUpdateDatetime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
-**returnInternalReference** | **String** |  |  [optional]
+**returnInternalReferences** | [**List&lt;ReturnPartyInternalReference&gt;**](ReturnPartyInternalReference.md) |  |  [optional]
 **doNotInstruct** | **Boolean** |  |  [optional]

@@ -12,20 +12,15 @@
 
 package com.os.client.api;
 
+import org.junit.Ignore;
+import org.junit.Test;
+
 import com.os.client.model.Delegation;
 import com.os.client.model.DelegationAuthorizationType;
 import com.os.client.model.DelegationProposal;
 import com.os.client.model.DelegationStatus;
 import com.os.client.model.Delegations;
 import com.os.client.model.LedgerResponse;
-import org.junit.Test;
-import org.junit.Ignore;
-
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 /**

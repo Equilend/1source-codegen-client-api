@@ -26,7 +26,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * ModelReturn
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-16T19:31:16.228639685Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
 
 public class ModelReturn implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -69,8 +69,8 @@ public class ModelReturn implements Serializable{
   @SerializedName("lastUpdateDatetime")
   private OffsetDateTime lastUpdateDatetime = null;
 
-  @SerializedName("returnInternalReference")
-  private String returnInternalReference = null;
+  @SerializedName("returnInternalReferences")
+  private List<ReturnPartyInternalReference> returnInternalReferences = null;
 
   @SerializedName("doNotInstruct")
   private Boolean doNotInstruct = null;
@@ -317,22 +317,30 @@ public class ModelReturn implements Serializable{
     this.lastUpdateDatetime = lastUpdateDatetime;
   }
 
-  public ModelReturn returnInternalReference(String returnInternalReference) {
-    this.returnInternalReference = returnInternalReference;
+  public ModelReturn returnInternalReferences(List<ReturnPartyInternalReference> returnInternalReferences) {
+    this.returnInternalReferences = returnInternalReferences;
+    return this;
+  }
+
+  public ModelReturn addReturnInternalReferencesItem(ReturnPartyInternalReference returnInternalReferencesItem) {
+    if (this.returnInternalReferences == null) {
+      this.returnInternalReferences = new ArrayList<>();
+    }
+    this.returnInternalReferences.add(returnInternalReferencesItem);
     return this;
   }
 
    /**
-   * Get returnInternalReference
-   * @return returnInternalReference
+   * Get returnInternalReferences
+   * @return returnInternalReferences
   **/
   @Schema(description = "")
-  public String getReturnInternalReference() {
-    return returnInternalReference;
+  public List<ReturnPartyInternalReference> getReturnInternalReferences() {
+    return returnInternalReferences;
   }
 
-  public void setReturnInternalReference(String returnInternalReference) {
-    this.returnInternalReference = returnInternalReference;
+  public void setReturnInternalReferences(List<ReturnPartyInternalReference> returnInternalReferences) {
+    this.returnInternalReferences = returnInternalReferences;
   }
 
   public ModelReturn doNotInstruct(Boolean doNotInstruct) {
@@ -376,13 +384,13 @@ public class ModelReturn implements Serializable{
         Objects.equals(this.description, _return.description) &&
         Objects.equals(this.settlement, _return.settlement) &&
         Objects.equals(this.lastUpdateDatetime, _return.lastUpdateDatetime) &&
-        Objects.equals(this.returnInternalReference, _return.returnInternalReference) &&
+        Objects.equals(this.returnInternalReferences, _return.returnInternalReferences) &&
         Objects.equals(this.doNotInstruct, _return.doNotInstruct);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(returnId, loanId, status, executionVenue, quantity, collateral, settlementType, returnDate, returnSettlementDate, acknowledgementType, description, settlement, lastUpdateDatetime, returnInternalReference, doNotInstruct);
+    return Objects.hash(returnId, loanId, status, executionVenue, quantity, collateral, settlementType, returnDate, returnSettlementDate, acknowledgementType, description, settlement, lastUpdateDatetime, returnInternalReferences, doNotInstruct);
   }
 
 
@@ -404,7 +412,7 @@ public class ModelReturn implements Serializable{
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    settlement: ").append(toIndentedString(settlement)).append("\n");
     sb.append("    lastUpdateDatetime: ").append(toIndentedString(lastUpdateDatetime)).append("\n");
-    sb.append("    returnInternalReference: ").append(toIndentedString(returnInternalReference)).append("\n");
+    sb.append("    returnInternalReferences: ").append(toIndentedString(returnInternalReferences)).append("\n");
     sb.append("    doNotInstruct: ").append(toIndentedString(doNotInstruct)).append("\n");
     sb.append("}");
     return sb.toString();

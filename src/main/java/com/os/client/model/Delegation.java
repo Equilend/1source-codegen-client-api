@@ -13,6 +13,7 @@
 package com.os.client.model;
 
 import java.io.Serializable;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -24,7 +25,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Delegation
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-16T19:31:16.228639685Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
 
 public class Delegation implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -42,6 +43,9 @@ public class Delegation implements Serializable{
 
   @SerializedName("authorization")
   private DelegationAuthorizationType authorization = null;
+
+  @SerializedName("lastUpdateDateTime")
+  private OffsetDateTime lastUpdateDateTime = null;
 
   public Delegation delegationId(String delegationId) {
     this.delegationId = delegationId;
@@ -141,6 +145,24 @@ public class Delegation implements Serializable{
     this.authorization = authorization;
   }
 
+  public Delegation lastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
+    this.lastUpdateDateTime = lastUpdateDateTime;
+    return this;
+  }
+
+   /**
+   * Get lastUpdateDateTime
+   * @return lastUpdateDateTime
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getLastUpdateDateTime() {
+    return lastUpdateDateTime;
+  }
+
+  public void setLastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
+    this.lastUpdateDateTime = lastUpdateDateTime;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -155,12 +177,13 @@ public class Delegation implements Serializable{
         Objects.equals(this.delegationStatus, delegation.delegationStatus) &&
         Objects.equals(this.delegationParty, delegation.delegationParty) &&
         Objects.equals(this.parties, delegation.parties) &&
-        Objects.equals(this.authorization, delegation.authorization);
+        Objects.equals(this.authorization, delegation.authorization) &&
+        Objects.equals(this.lastUpdateDateTime, delegation.lastUpdateDateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(delegationId, delegationStatus, delegationParty, parties, authorization);
+    return Objects.hash(delegationId, delegationStatus, delegationParty, parties, authorization, lastUpdateDateTime);
   }
 
 
@@ -174,6 +197,7 @@ public class Delegation implements Serializable{
     sb.append("    delegationParty: ").append(toIndentedString(delegationParty)).append("\n");
     sb.append("    parties: ").append(toIndentedString(parties)).append("\n");
     sb.append("    authorization: ").append(toIndentedString(authorization)).append("\n");
+    sb.append("    lastUpdateDateTime: ").append(toIndentedString(lastUpdateDateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }
