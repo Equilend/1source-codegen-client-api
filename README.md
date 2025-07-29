@@ -1,8 +1,8 @@
 # 1source-api-client
 
 1Source Ledger API
-- API version: 1.2.2.1
-  - Build date: 2025-06-13T14:55:11.905003865Z[GMT]
+- API version: 1.2.2.2
+  - Build date: 2025-07-29T19:02:50.865809907Z[GMT]
 
 1Source Ledger API provides client access to the 1Source Ledger. You can find out more about 1Source at [https://equilend.com](https://equilend.com).  This specification is work in progress. The design is meant to model the securities lending life cycle in as clean a way as possible while being robust enough to easily translate to ISLA CDM workflows and data model.  API specification is the intellectual property of EquiLend LLC and should not be copied or disseminated in any way. 
 
@@ -40,11 +40,10 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.os</groupId>
   <artifactId>1source-api-client</artifactId>
-  <version>1.2.2.1</version>
+  <version>1.2.2.2</version>
   <scope>compile</scope>
 </dependency>
 ```
-
 Also, to use the GitHub Packages repository for downloading SNAPSHOT artifacts, enable SNAPSHOTS in the POM of the consuming project or your ~/.m2/settings.xml file. Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
 
 ```xml
@@ -91,7 +90,7 @@ Also, to use the GitHub Packages repository for downloading SNAPSHOT artifacts, 
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.os:1source-api-client:1.2.2.1"
+compile "com.os:1source-api-client:1.2.2.2"
 ```
 
 Add the repository to your build.gradle file (Gradle Groovy). Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
@@ -117,7 +116,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/1source-api-client-1.2.2.1.jar`
+* `target/1source-api-client-1.2.2.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -273,7 +272,7 @@ Class | Method | HTTP request | Description
 *LoansApi* | [**ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost**](docs/LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost) | **POST** /ledger/loans/{loanId}/amend/{loanAmendmentId}/cancel | Cancel a loan amendment in \&quot;proposed\&quot; state
 *LoansApi* | [**ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost**](docs/LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost) | **POST** /ledger/loans/{loanId}/amend/{loanAmendmentId}/decline | Decline a loan amendment in \&quot;proposed\&quot; state
 *LoansApi* | [**ledgerLoansLoanIdAmendLoanAmendmentIdGet**](docs/LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdGet) | **GET** /ledger/loans/{loanId}/amend/{loanAmendmentId} | Retrieve a loan amendment.
-*LoansApi* | [**ledgerLoansLoanIdAmendPost**](docs/LoansApi.md#ledgerLoansLoanIdAmendPost) | **POST** /ledger/loans/{loanId}/amend | Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
+*LoansApi* | [**ledgerLoansLoanIdAmendPost**](docs/LoansApi.md#ledgerLoansLoanIdAmendPost) | **POST** /ledger/loans/{loanId}/amend | Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan.
 *LoansApi* | [**ledgerLoansLoanIdApprovePost**](docs/LoansApi.md#ledgerLoansLoanIdApprovePost) | **POST** /ledger/loans/{loanId}/approve | Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
 *LoansApi* | [**ledgerLoansLoanIdCancelPost**](docs/LoansApi.md#ledgerLoansLoanIdCancelPost) | **POST** /ledger/loans/{loanId}/cancel | Cancel a loan in \&quot;proposed\&quot; state. Original proposer only.
 *LoansApi* | [**ledgerLoansLoanIdCancelpendingPost**](docs/LoansApi.md#ledgerLoansLoanIdCancelpendingPost) | **POST** /ledger/loans/{loanId}/cancelpending | Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
@@ -390,7 +389,7 @@ Class | Method | HTTP request | Description
  - [OneOfLoanLoanStatusReason](docs/OneOfLoanLoanStatusReason.md)
  - [OneOfRebateRateRebate](docs/OneOfRebateRateRebate.md)
  - [OneOfRerateDeclineErrorReasonFieldValueExpectedValue](docs/OneOfRerateDeclineErrorReasonFieldValueExpectedValue.md)
- - [OneOfRerateRerateStatusReason](docs/OneOfRerateRerateStatusReason.md)
+ - [OneOfRerateStatusReason](docs/OneOfRerateStatusReason.md)
  - [Parties](docs/Parties.md)
  - [Party](docs/Party.md)
  - [PartyRole](docs/PartyRole.md)
@@ -404,6 +403,7 @@ Class | Method | HTTP request | Description
  - [Recall](docs/Recall.md)
  - [RecallAcknowledgement](docs/RecallAcknowledgement.md)
  - [RecallInternalReferenceUpdate](docs/RecallInternalReferenceUpdate.md)
+ - [RecallPartyInternalReference](docs/RecallPartyInternalReference.md)
  - [RecallProposal](docs/RecallProposal.md)
  - [RecallQuantityUpdate](docs/RecallQuantityUpdate.md)
  - [RecallStatus](docs/RecallStatus.md)
@@ -421,6 +421,7 @@ Class | Method | HTTP request | Description
  - [Rerates](docs/Rerates.md)
  - [ReturnAcknowledgement](docs/ReturnAcknowledgement.md)
  - [ReturnInternalReferenceUpdate](docs/ReturnInternalReferenceUpdate.md)
+ - [ReturnPartyInternalReference](docs/ReturnPartyInternalReference.md)
  - [ReturnProposal](docs/ReturnProposal.md)
  - [ReturnStatus](docs/ReturnStatus.md)
  - [Returns](docs/Returns.md)
@@ -463,4 +464,4 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 ## Last Update
 
-Friday, June 13, 2025 11:57:10
+Tuesday, July 29, 2025 15:13:10

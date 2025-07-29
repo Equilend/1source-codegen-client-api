@@ -25,16 +25,14 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(BenchmarkCd.Adapter.class)
 public enum BenchmarkCd {
-  @SerializedName("BGCR")
-  BGCR("BGCR"),
   @SerializedName("EFFR")
   EFFR("EFFR"),
   @SerializedName("OBFR")
   OBFR("OBFR"),
   @SerializedName("SOFR")
   SOFR("SOFR"),
-  @SerializedName("TGCR")
-  TGCR("TGCR");
+  @SerializedName("CORRA")
+  CORRA("CORRA");
 
   private String value;
 

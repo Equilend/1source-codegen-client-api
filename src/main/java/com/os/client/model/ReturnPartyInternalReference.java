@@ -19,32 +19,53 @@ import com.google.gson.annotations.SerializedName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * FixedRate
+ * ReturnPartyInternalReference
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
 
-public class FixedRate implements Serializable, OneOfRebateRateRebate {
+public class ReturnPartyInternalReference implements Serializable{
   private static final long serialVersionUID = 1L;
-  @SerializedName("fixed")
-  private FixedRateDef fixed = null;
+  @SerializedName("partyRole")
+  private PartyRole partyRole = null;
 
-  public FixedRate fixed(FixedRateDef fixed) {
-    this.fixed = fixed;
+  @SerializedName("returnInternalReference")
+  private String returnInternalReference = null;
+
+  public ReturnPartyInternalReference partyRole(PartyRole partyRole) {
+    this.partyRole = partyRole;
     return this;
   }
 
    /**
-   * Get fixed
-   * @return fixed
+   * Get partyRole
+   * @return partyRole
   **/
   @Schema(description = "")
-  public FixedRateDef getFixed() {
-    return fixed;
+  public PartyRole getPartyRole() {
+    return partyRole;
   }
 
-  public void setFixed(FixedRateDef fixed) {
-    this.fixed = fixed;
+  public void setPartyRole(PartyRole partyRole) {
+    this.partyRole = partyRole;
+  }
+
+  public ReturnPartyInternalReference returnInternalReference(String returnInternalReference) {
+    this.returnInternalReference = returnInternalReference;
+    return this;
+  }
+
+   /**
+   * Get returnInternalReference
+   * @return returnInternalReference
+  **/
+  @Schema(description = "")
+  public String getReturnInternalReference() {
+    return returnInternalReference;
+  }
+
+  public void setReturnInternalReference(String returnInternalReference) {
+    this.returnInternalReference = returnInternalReference;
   }
 
 
@@ -56,22 +77,24 @@ public class FixedRate implements Serializable, OneOfRebateRateRebate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FixedRate fixedRate = (FixedRate) o;
-    return Objects.equals(this.fixed, fixedRate.fixed);
+    ReturnPartyInternalReference returnPartyInternalReference = (ReturnPartyInternalReference) o;
+    return Objects.equals(this.partyRole, returnPartyInternalReference.partyRole) &&
+        Objects.equals(this.returnInternalReference, returnPartyInternalReference.returnInternalReference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fixed);
+    return Objects.hash(partyRole, returnInternalReference);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FixedRate {\n");
+    sb.append("class ReturnPartyInternalReference {\n");
     
-    sb.append("    fixed: ").append(toIndentedString(fixed)).append("\n");
+    sb.append("    partyRole: ").append(toIndentedString(partyRole)).append("\n");
+    sb.append("    returnInternalReference: ").append(toIndentedString(returnInternalReference)).append("\n");
     sb.append("}");
     return sb.toString();
   }

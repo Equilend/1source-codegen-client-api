@@ -2,9 +2,10 @@
 
 ## Enum
 
-* `PROPOSED` (value: `"PROPOSED"`)
-* `PENDING` (value: `"PENDING"`)
+* `APPLIED` (value: `"APPLIED"`)
 * `CANCEL_PENDING` (value: `"CANCEL_PENDING"`)
 * `CANCELED` (value: `"CANCELED"`)
+* `CLOSED` (value: `"CLOSED"`)
 * `DECLINED` (value: `"DECLINED"`)
-* `APPLIED` (value: `"APPLIED"`)
+* `PENDING` (value: `"PENDING"`)
+* `PROPOSED` (value: `"PROPOSED"`)

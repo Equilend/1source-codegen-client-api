@@ -25,18 +25,20 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(RerateStatus.Adapter.class)
 public enum RerateStatus {
-  @SerializedName("PROPOSED")
-  PROPOSED("PROPOSED"),
-  @SerializedName("PENDING")
-  PENDING("PENDING"),
+  @SerializedName("APPLIED")
+  APPLIED("APPLIED"),
   @SerializedName("CANCEL_PENDING")
   CANCEL_PENDING("CANCEL_PENDING"),
   @SerializedName("CANCELED")
   CANCELED("CANCELED"),
+  @SerializedName("CLOSED")
+  CLOSED("CLOSED"),
   @SerializedName("DECLINED")
   DECLINED("DECLINED"),
-  @SerializedName("APPLIED")
-  APPLIED("APPLIED");
+  @SerializedName("PENDING")
+  PENDING("PENDING"),
+  @SerializedName("PROPOSED")
+  PROPOSED("PROPOSED");
 
   private String value;
 

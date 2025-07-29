@@ -12,22 +12,18 @@
 
 package com.os.client.api;
 
-import com.os.client.model.LedgerResponse;
 import java.time.OffsetDateTime;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+import com.os.client.model.LedgerResponse;
 import com.os.client.model.Recall;
 import com.os.client.model.RecallAcknowledgement;
 import com.os.client.model.RecallProposal;
 import com.os.client.model.RecallStatus;
 import com.os.client.model.Recalls;
 import com.os.client.model.RecallsRecallIdBody;
-import org.junit.Test;
-import org.junit.Ignore;
-
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 /**

@@ -19,7 +19,7 @@ import java.util.Objects;
  * Delegations
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-16T19:31:16.228639685Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
 
 public class Delegations extends ArrayList<Delegation> implements Serializable{
   private static final long serialVersionUID = 1L;

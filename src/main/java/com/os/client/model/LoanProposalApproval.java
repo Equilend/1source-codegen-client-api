@@ -19,10 +19,10 @@ import com.google.gson.annotations.SerializedName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * LoanProposalApproval
+ * Internal reference is always required. If the proposal does not already have settlement instructions for the approving party, settlement is required. When a Lender is approving, the rounding rule, rounding mode, and minimum mark price are also required.
  */
-
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-06-16T19:31:16.228639685Z[GMT]")
+@Schema(description = "Internal reference is always required. If the proposal does not already have settlement instructions for the approving party, settlement is required. When a Lender is approving, the rounding rule, rounding mode, and minimum mark price are also required.")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
 
 public class LoanProposalApproval implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -122,7 +122,7 @@ public class LoanProposalApproval implements Serializable{
    * Get settlement
    * @return settlement
   **/
-  @Schema(required = true, description = "")
+  @Schema(description = "")
   public PartySettlementInstruction getSettlement() {
     return settlement;
   }

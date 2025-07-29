@@ -854,7 +854,7 @@ public class LoansApi {
     }
 
     /**
-     * Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
+     * Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan.
      * 
      * @param body Loan amendment proposed for updating the ledger (required)
      * @param loanId The unique identifier of a loan (required)
@@ -867,7 +867,7 @@ public class LoansApi {
     }
 
     /**
-     * Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
+     * Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan.
      * 
      * @param body Loan amendment proposed for updating the ledger (required)
      * @param loanId The unique identifier of a loan (required)
@@ -881,7 +881,7 @@ public class LoansApi {
     }
 
     /**
-     * Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan. (asynchronously)
+     * Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan. (asynchronously)
      * 
      * @param body Loan amendment proposed for updating the ledger (required)
      * @param loanId The unique identifier of a loan (required)

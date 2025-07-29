@@ -8,3 +8,4 @@ Name | Type | Description | Notes
 **delegationParty** | [**Party**](Party.md) |  |  [optional]
 **parties** | [**List&lt;Party&gt;**](Party.md) |  |  [optional]
 **authorization** | [**DelegationAuthorizationType**](DelegationAuthorizationType.md) |  |  [optional]
+**lastUpdateDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
