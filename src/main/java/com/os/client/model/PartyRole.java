@@ -34,7 +34,9 @@ public enum PartyRole {
   @SerializedName("CCP")
   CCP("CCP"),
   @SerializedName("VENUE")
-  VENUE("VENUE");
+  VENUE("VENUE"),
+  @SerializedName("OPERATOR")
+  OPERATOR("OPERATOR");
 
   private String value;
 
