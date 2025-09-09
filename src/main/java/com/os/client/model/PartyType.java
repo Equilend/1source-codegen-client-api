@@ -28,7 +28,9 @@ public enum PartyType {
   @SerializedName("VENUE")
   VENUE("VENUE"),
   @SerializedName("CLIENT")
-  CLIENT("CLIENT");
+  CLIENT("CLIENT"),
+  @SerializedName("CLIENT")
+  OPERATOR("OPERATOR");
 
   private String value;
 
