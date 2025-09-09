@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost**](LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost) | **POST** /ledger/loans/{loanId}/amend/{loanAmendmentId}/cancel | Cancel a loan amendment in \&quot;proposed\&quot; state
 [**ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost**](LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost) | **POST** /ledger/loans/{loanId}/amend/{loanAmendmentId}/decline | Decline a loan amendment in \&quot;proposed\&quot; state
 [**ledgerLoansLoanIdAmendLoanAmendmentIdGet**](LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdGet) | **GET** /ledger/loans/{loanId}/amend/{loanAmendmentId} | Retrieve a loan amendment.
-[**ledgerLoansLoanIdAmendPost**](LoansApi.md#ledgerLoansLoanIdAmendPost) | **POST** /ledger/loans/{loanId}/amend | Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan.
+[**ledgerLoansLoanIdAmendPost**](LoansApi.md#ledgerLoansLoanIdAmendPost) | **POST** /ledger/loans/{loanId}/amend | Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan. All fields are optional but at least 1 must be provided. Any field provided must differ from the existing value on the loan
 [**ledgerLoansLoanIdApprovePost**](LoansApi.md#ledgerLoansLoanIdApprovePost) | **POST** /ledger/loans/{loanId}/approve | Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
 [**ledgerLoansLoanIdCancelPost**](LoansApi.md#ledgerLoansLoanIdCancelPost) | **POST** /ledger/loans/{loanId}/cancel | Cancel a loan in \&quot;proposed\&quot; state. Original proposer only.
 [**ledgerLoansLoanIdCancelpendingPost**](LoansApi.md#ledgerLoansLoanIdCancelpendingPost) | **POST** /ledger/loans/{loanId}/cancelpending | Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 # **ledgerLoansLoanIdAmendPost**
 > LedgerResponse ledgerLoansLoanIdAmendPost(body, loanId)
 
-Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan.
+Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan. All fields are optional but at least 1 must be provided. Any field provided must differ from the existing value on the loan
 
 ### Example
 ```java

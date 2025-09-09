@@ -131,7 +131,7 @@ public class LoansApiTest {
         // TODO: test validations
     }
     /**
-     * Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan.
+     * Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan. All fields are optional but at least 1 must be provided. Any field provided must differ from the existing value on the loan
      *
      * 
      *

@@ -24,7 +24,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * LoanProposal
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
 
 public class LoanProposal implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -32,7 +32,7 @@ public class LoanProposal implements Serializable{
   private TradeAgreement trade = null;
 
   @SerializedName("settlement")
-  private List<PartySettlementInstruction> settlement = new ArrayList<>();
+  private List<PartySettlementInstructionUpdate> settlement = new ArrayList<>();
 
   public LoanProposal trade(TradeAgreement trade) {
     this.trade = trade;
@@ -52,12 +52,12 @@ public class LoanProposal implements Serializable{
     this.trade = trade;
   }
 
-  public LoanProposal settlement(List<PartySettlementInstruction> settlement) {
+  public LoanProposal settlement(List<PartySettlementInstructionUpdate> settlement) {
     this.settlement = settlement;
     return this;
   }
 
-  public LoanProposal addSettlementItem(PartySettlementInstruction settlementItem) {
+  public LoanProposal addSettlementItem(PartySettlementInstructionUpdate settlementItem) {
     this.settlement.add(settlementItem);
     return this;
   }
@@ -67,11 +67,11 @@ public class LoanProposal implements Serializable{
    * @return settlement
   **/
   @Schema(required = true, description = "")
-  public List<PartySettlementInstruction> getSettlement() {
+  public List<PartySettlementInstructionUpdate> getSettlement() {
     return settlement;
   }
 
-  public void setSettlement(List<PartySettlementInstruction> settlement) {
+  public void setSettlement(List<PartySettlementInstructionUpdate> settlement) {
     this.settlement = settlement;
   }
 

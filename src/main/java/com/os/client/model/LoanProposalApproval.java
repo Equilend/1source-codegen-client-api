@@ -19,10 +19,10 @@ import com.google.gson.annotations.SerializedName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * Internal reference is always required. If the proposal does not already have settlement instructions for the approving party, settlement is required. When a Lender is approving, the rounding rule, rounding mode, and minimum mark price are also required.
+ * Internal reference is always required. If the proposal does not already have settlement instructions for the approving party, settlement is required. When a Lender is approving, the rounding rule, rounding mode are required. For non-OCC loans, minimum mark price is also required.
  */
-@Schema(description = "Internal reference is always required. If the proposal does not already have settlement instructions for the approving party, settlement is required. When a Lender is approving, the rounding rule, rounding mode, and minimum mark price are also required.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
+@Schema(description = "Internal reference is always required. If the proposal does not already have settlement instructions for the approving party, settlement is required. When a Lender is approving, the rounding rule, rounding mode are required. For non-OCC loans, minimum mark price is also required.")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
 
 public class LoanProposalApproval implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -39,7 +39,7 @@ public class LoanProposalApproval implements Serializable{
   private Double minimumMarkPrice = null;
 
   @SerializedName("settlement")
-  private PartySettlementInstruction settlement = null;
+  private PartySettlementInstructionUpdate settlement = null;
 
   public LoanProposalApproval internalReference(String internalReference) {
     this.internalReference = internalReference;
@@ -113,7 +113,7 @@ public class LoanProposalApproval implements Serializable{
     this.minimumMarkPrice = minimumMarkPrice;
   }
 
-  public LoanProposalApproval settlement(PartySettlementInstruction settlement) {
+  public LoanProposalApproval settlement(PartySettlementInstructionUpdate settlement) {
     this.settlement = settlement;
     return this;
   }
@@ -123,11 +123,11 @@ public class LoanProposalApproval implements Serializable{
    * @return settlement
   **/
   @Schema(description = "")
-  public PartySettlementInstruction getSettlement() {
+  public PartySettlementInstructionUpdate getSettlement() {
     return settlement;
   }
 
-  public void setSettlement(PartySettlementInstruction settlement) {
+  public void setSettlement(PartySettlementInstructionUpdate settlement) {
     this.settlement = settlement;
   }
 

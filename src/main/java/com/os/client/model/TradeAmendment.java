@@ -23,10 +23,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Term Date required when Term Type is FIXED
  */
 @Schema(description = "Term Date required when Term Type is FIXED")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
 
 public class TradeAmendment implements Serializable{
   private static final long serialVersionUID = 1L;
+  @SerializedName("billingCurrency")
+  private CurrencyCd billingCurrency = null;
+
   @SerializedName("dividendRatePct")
   private Double dividendRatePct = null;
 
@@ -47,6 +50,24 @@ public class TradeAmendment implements Serializable{
 
   @SerializedName("collateral")
   private CollateralAmendment collateral = null;
+
+  public TradeAmendment billingCurrency(CurrencyCd billingCurrency) {
+    this.billingCurrency = billingCurrency;
+    return this;
+  }
+
+   /**
+   * Get billingCurrency
+   * @return billingCurrency
+  **/
+  @Schema(description = "")
+  public CurrencyCd getBillingCurrency() {
+    return billingCurrency;
+  }
+
+  public void setBillingCurrency(CurrencyCd billingCurrency) {
+    this.billingCurrency = billingCurrency;
+  }
 
   public TradeAmendment dividendRatePct(Double dividendRatePct) {
     this.dividendRatePct = dividendRatePct;
@@ -184,7 +205,8 @@ public class TradeAmendment implements Serializable{
       return false;
     }
     TradeAmendment tradeAmendment = (TradeAmendment) o;
-    return Objects.equals(this.dividendRatePct, tradeAmendment.dividendRatePct) &&
+    return Objects.equals(this.billingCurrency, tradeAmendment.billingCurrency) &&
+        Objects.equals(this.dividendRatePct, tradeAmendment.dividendRatePct) &&
         Objects.equals(this.termType, tradeAmendment.termType) &&
         Objects.equals(this.termDate, tradeAmendment.termDate) &&
         Objects.equals(this.resetDate, tradeAmendment.resetDate) &&
@@ -195,7 +217,7 @@ public class TradeAmendment implements Serializable{
 
   @Override
   public int hashCode() {
-    return Objects.hash(dividendRatePct, termType, termDate, resetDate, settlementType, ccpIndicator, collateral);
+    return Objects.hash(billingCurrency, dividendRatePct, termType, termDate, resetDate, settlementType, ccpIndicator, collateral);
   }
 
 
@@ -204,6 +226,7 @@ public class TradeAmendment implements Serializable{
     StringBuilder sb = new StringBuilder();
     sb.append("class TradeAmendment {\n");
     
+    sb.append("    billingCurrency: ").append(toIndentedString(billingCurrency)).append("\n");
     sb.append("    dividendRatePct: ").append(toIndentedString(dividendRatePct)).append("\n");
     sb.append("    termType: ").append(toIndentedString(termType)).append("\n");
     sb.append("    termDate: ").append(toIndentedString(termDate)).append("\n");

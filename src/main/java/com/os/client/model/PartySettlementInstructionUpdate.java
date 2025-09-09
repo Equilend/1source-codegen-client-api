@@ -19,20 +19,23 @@ import com.google.gson.annotations.SerializedName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * RecallPartyInternalReference
+ * PartySettlementInstructionUpdate
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
 
-public class RecallPartyInternalReference implements Serializable{
+public class PartySettlementInstructionUpdate implements Serializable{
   private static final long serialVersionUID = 1L;
   @SerializedName("partyRole")
   private PartyRole partyRole = null;
 
-  @SerializedName("recallInternalReference")
-  private String recallInternalReference = null;
+  @SerializedName("internalAccountCode")
+  private String internalAccountCode = null;
 
-  public RecallPartyInternalReference partyRole(PartyRole partyRole) {
+  @SerializedName("instruction")
+  private SettlementInstruction instruction = null;
+
+  public PartySettlementInstructionUpdate partyRole(PartyRole partyRole) {
     this.partyRole = partyRole;
     return this;
   }
@@ -41,7 +44,7 @@ public class RecallPartyInternalReference implements Serializable{
    * Get partyRole
    * @return partyRole
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public PartyRole getPartyRole() {
     return partyRole;
   }
@@ -50,22 +53,40 @@ public class RecallPartyInternalReference implements Serializable{
     this.partyRole = partyRole;
   }
 
-  public RecallPartyInternalReference recallInternalReference(String recallInternalReference) {
-    this.recallInternalReference = recallInternalReference;
+  public PartySettlementInstructionUpdate internalAccountCode(String internalAccountCode) {
+    this.internalAccountCode = internalAccountCode;
     return this;
   }
 
    /**
-   * Get recallInternalReference
-   * @return recallInternalReference
+   * Get internalAccountCode
+   * @return internalAccountCode
   **/
-  @Schema(description = "")
-  public String getRecallInternalReference() {
-    return recallInternalReference;
+  @Schema(required = true, description = "")
+  public String getInternalAccountCode() {
+    return internalAccountCode;
   }
 
-  public void setRecallInternalReference(String recallInternalReference) {
-    this.recallInternalReference = recallInternalReference;
+  public void setInternalAccountCode(String internalAccountCode) {
+    this.internalAccountCode = internalAccountCode;
+  }
+
+  public PartySettlementInstructionUpdate instruction(SettlementInstruction instruction) {
+    this.instruction = instruction;
+    return this;
+  }
+
+   /**
+   * Get instruction
+   * @return instruction
+  **/
+  @Schema(required = true, description = "")
+  public SettlementInstruction getInstruction() {
+    return instruction;
+  }
+
+  public void setInstruction(SettlementInstruction instruction) {
+    this.instruction = instruction;
   }
 
 
@@ -77,24 +98,26 @@ public class RecallPartyInternalReference implements Serializable{
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RecallPartyInternalReference recallPartyInternalReference = (RecallPartyInternalReference) o;
-    return Objects.equals(this.partyRole, recallPartyInternalReference.partyRole) &&
-        Objects.equals(this.recallInternalReference, recallPartyInternalReference.recallInternalReference);
+    PartySettlementInstructionUpdate partySettlementInstructionUpdate = (PartySettlementInstructionUpdate) o;
+    return Objects.equals(this.partyRole, partySettlementInstructionUpdate.partyRole) &&
+        Objects.equals(this.internalAccountCode, partySettlementInstructionUpdate.internalAccountCode) &&
+        Objects.equals(this.instruction, partySettlementInstructionUpdate.instruction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(partyRole, recallInternalReference);
+    return Objects.hash(partyRole, internalAccountCode, instruction);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RecallPartyInternalReference {\n");
+    sb.append("class PartySettlementInstructionUpdate {\n");
     
     sb.append("    partyRole: ").append(toIndentedString(partyRole)).append("\n");
-    sb.append("    recallInternalReference: ").append(toIndentedString(recallInternalReference)).append("\n");
+    sb.append("    internalAccountCode: ").append(toIndentedString(internalAccountCode)).append("\n");
+    sb.append("    instruction: ").append(toIndentedString(instruction)).append("\n");
     sb.append("}");
     return sb.toString();
   }

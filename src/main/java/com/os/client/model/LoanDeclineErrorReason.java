@@ -30,9 +30,7 @@ public enum LoanDeclineErrorReason {
   @SerializedName("UNKNOWN_LOAN")
   UNKNOWN_LOAN("UNKNOWN_LOAN"),
   @SerializedName("MISSING_INFORMATION")
-  MISSING_INFORMATION("MISSING_INFORMATION"),
-  @SerializedName("CCP_INDICATOR")
-  CCP_INDICATOR("CCP_INDICATOR");
+  MISSING_INFORMATION("MISSING_INFORMATION");
 
   private String value;
 

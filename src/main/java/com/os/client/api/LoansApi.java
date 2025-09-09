@@ -854,7 +854,7 @@ public class LoansApi {
     }
 
     /**
-     * Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan.
+     * Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan. All fields are optional but at least 1 must be provided. Any field provided must differ from the existing value on the loan
      * 
      * @param body Loan amendment proposed for updating the ledger (required)
      * @param loanId The unique identifier of a loan (required)
@@ -867,7 +867,7 @@ public class LoansApi {
     }
 
     /**
-     * Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan.
+     * Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan. All fields are optional but at least 1 must be provided. Any field provided must differ from the existing value on the loan
      * 
      * @param body Loan amendment proposed for updating the ledger (required)
      * @param loanId The unique identifier of a loan (required)
@@ -881,7 +881,7 @@ public class LoansApi {
     }
 
     /**
-     * Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan. (asynchronously)
+     * Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan. All fields are optional but at least 1 must be provided. Any field provided must differ from the existing value on the loan (asynchronously)
      * 
      * @param body Loan amendment proposed for updating the ledger (required)
      * @param loanId The unique identifier of a loan (required)

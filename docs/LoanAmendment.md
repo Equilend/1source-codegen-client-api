@@ -8,4 +8,4 @@ Name | Type | Description | Notes
 **loanAmendmentStatus** | [**LoanAmendmentStatus**](LoanAmendmentStatus.md) |  |  [optional]
 **loanAmendmentStatusReason** | **OneOfLoanAmendmentLoanAmendmentStatusReason** |  |  [optional]
 **trade** | [**TradeAmendment**](TradeAmendment.md) |  | 
-**settlement** | [**List&lt;PartySettlementInstruction&gt;**](PartySettlementInstruction.md) |  |  [optional]
+**settlement** | [**List&lt;PartySettlementInstructionUpdate&gt;**](PartySettlementInstructionUpdate.md) |  |  [optional]

@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * ReturnAcknowledgement
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
 
 public class ReturnAcknowledgement implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -33,7 +33,7 @@ public class ReturnAcknowledgement implements Serializable{
   private String description = null;
 
   @SerializedName("settlement")
-  private PartySettlementInstruction settlement = null;
+  private PartySettlementInstructionUpdate settlement = null;
 
   @SerializedName("returnInternalReference")
   private String returnInternalReference = null;
@@ -74,7 +74,7 @@ public class ReturnAcknowledgement implements Serializable{
     this.description = description;
   }
 
-  public ReturnAcknowledgement settlement(PartySettlementInstruction settlement) {
+  public ReturnAcknowledgement settlement(PartySettlementInstructionUpdate settlement) {
     this.settlement = settlement;
     return this;
   }
@@ -84,11 +84,11 @@ public class ReturnAcknowledgement implements Serializable{
    * @return settlement
   **/
   @Schema(description = "")
-  public PartySettlementInstruction getSettlement() {
+  public PartySettlementInstructionUpdate getSettlement() {
     return settlement;
   }
 
-  public void setSettlement(PartySettlementInstruction settlement) {
+  public void setSettlement(PartySettlementInstructionUpdate settlement) {
     this.settlement = settlement;
   }
 

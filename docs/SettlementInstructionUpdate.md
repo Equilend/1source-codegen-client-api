@@ -3,4 +3,4 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**settlement** | [**PartySettlementInstruction**](PartySettlementInstruction.md) |  | 
+**settlement** | [**PartySettlementInstructionUpdate**](PartySettlementInstructionUpdate.md) |  | 

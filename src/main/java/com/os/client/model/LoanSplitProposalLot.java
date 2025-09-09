@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * LoanSplitProposalLot
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
 
 public class LoanSplitProposalLot implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -33,7 +33,7 @@ public class LoanSplitProposalLot implements Serializable{
   private String internalReference = null;
 
   @SerializedName("settlement")
-  private PartySettlementInstruction settlement = null;
+  private PartySettlementInstructionUpdate settlement = null;
 
   public LoanSplitProposalLot quantity(Integer quantity) {
     this.quantity = quantity;
@@ -71,7 +71,7 @@ public class LoanSplitProposalLot implements Serializable{
     this.internalReference = internalReference;
   }
 
-  public LoanSplitProposalLot settlement(PartySettlementInstruction settlement) {
+  public LoanSplitProposalLot settlement(PartySettlementInstructionUpdate settlement) {
     this.settlement = settlement;
     return this;
   }
@@ -81,11 +81,11 @@ public class LoanSplitProposalLot implements Serializable{
    * @return settlement
   **/
   @Schema(description = "")
-  public PartySettlementInstruction getSettlement() {
+  public PartySettlementInstructionUpdate getSettlement() {
     return settlement;
   }
 
-  public void setSettlement(PartySettlementInstruction settlement) {
+  public void setSettlement(PartySettlementInstructionUpdate settlement) {
     this.settlement = settlement;
   }
 

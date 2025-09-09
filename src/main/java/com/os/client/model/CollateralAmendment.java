@@ -22,18 +22,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * CollateralAmendment
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
 
 public class CollateralAmendment implements Serializable{
   private static final long serialVersionUID = 1L;
   @SerializedName("collateralCurrency")
   private CurrencyCd collateralCurrency = null;
-
-  @SerializedName("collateralType")
-  private CollateralType collateralType = null;
-
-  @SerializedName("collateralDescriptionCode")
-  private CollateralDescription collateralDescriptionCode = null;
 
   @SerializedName("collateralMargin")
   private Double collateralMargin = null;
@@ -63,42 +57,6 @@ public class CollateralAmendment implements Serializable{
 
   public void setCollateralCurrency(CurrencyCd collateralCurrency) {
     this.collateralCurrency = collateralCurrency;
-  }
-
-  public CollateralAmendment collateralType(CollateralType collateralType) {
-    this.collateralType = collateralType;
-    return this;
-  }
-
-   /**
-   * Get collateralType
-   * @return collateralType
-  **/
-  @Schema(description = "")
-  public CollateralType getCollateralType() {
-    return collateralType;
-  }
-
-  public void setCollateralType(CollateralType collateralType) {
-    this.collateralType = collateralType;
-  }
-
-  public CollateralAmendment collateralDescriptionCode(CollateralDescription collateralDescriptionCode) {
-    this.collateralDescriptionCode = collateralDescriptionCode;
-    return this;
-  }
-
-   /**
-   * Get collateralDescriptionCode
-   * @return collateralDescriptionCode
-  **/
-  @Schema(description = "")
-  public CollateralDescription getCollateralDescriptionCode() {
-    return collateralDescriptionCode;
-  }
-
-  public void setCollateralDescriptionCode(CollateralDescription collateralDescriptionCode) {
-    this.collateralDescriptionCode = collateralDescriptionCode;
   }
 
   public CollateralAmendment collateralMargin(Double collateralMargin) {
@@ -184,8 +142,6 @@ public class CollateralAmendment implements Serializable{
     }
     CollateralAmendment collateralAmendment = (CollateralAmendment) o;
     return Objects.equals(this.collateralCurrency, collateralAmendment.collateralCurrency) &&
-        Objects.equals(this.collateralType, collateralAmendment.collateralType) &&
-        Objects.equals(this.collateralDescriptionCode, collateralAmendment.collateralDescriptionCode) &&
         Objects.equals(this.collateralMargin, collateralAmendment.collateralMargin) &&
         Objects.equals(this.roundingRule, collateralAmendment.roundingRule) &&
         Objects.equals(this.roundingMode, collateralAmendment.roundingMode) &&
@@ -194,7 +150,7 @@ public class CollateralAmendment implements Serializable{
 
   @Override
   public int hashCode() {
-    return Objects.hash(collateralCurrency, collateralType, collateralDescriptionCode, collateralMargin, roundingRule, roundingMode, minimumMarkPrice);
+    return Objects.hash(collateralCurrency, collateralMargin, roundingRule, roundingMode, minimumMarkPrice);
   }
 
 
@@ -204,8 +160,6 @@ public class CollateralAmendment implements Serializable{
     sb.append("class CollateralAmendment {\n");
     
     sb.append("    collateralCurrency: ").append(toIndentedString(collateralCurrency)).append("\n");
-    sb.append("    collateralType: ").append(toIndentedString(collateralType)).append("\n");
-    sb.append("    collateralDescriptionCode: ").append(toIndentedString(collateralDescriptionCode)).append("\n");
     sb.append("    collateralMargin: ").append(toIndentedString(collateralMargin)).append("\n");
     sb.append("    roundingRule: ").append(toIndentedString(roundingRule)).append("\n");
     sb.append("    roundingMode: ").append(toIndentedString(roundingMode)).append("\n");

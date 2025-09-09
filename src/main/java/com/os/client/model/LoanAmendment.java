@@ -24,7 +24,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * LoanAmendment
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
 
 public class LoanAmendment implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -44,7 +44,7 @@ public class LoanAmendment implements Serializable{
   private TradeAmendment trade = null;
 
   @SerializedName("settlement")
-  private List<PartySettlementInstruction> settlement = null;
+  private List<PartySettlementInstructionUpdate> settlement = null;
 
   public LoanAmendment loanAmendmentId(String loanAmendmentId) {
     this.loanAmendmentId = loanAmendmentId;
@@ -136,12 +136,12 @@ public class LoanAmendment implements Serializable{
     this.trade = trade;
   }
 
-  public LoanAmendment settlement(List<PartySettlementInstruction> settlement) {
+  public LoanAmendment settlement(List<PartySettlementInstructionUpdate> settlement) {
     this.settlement = settlement;
     return this;
   }
 
-  public LoanAmendment addSettlementItem(PartySettlementInstruction settlementItem) {
+  public LoanAmendment addSettlementItem(PartySettlementInstructionUpdate settlementItem) {
     if (this.settlement == null) {
       this.settlement = new ArrayList<>();
     }
@@ -154,11 +154,11 @@ public class LoanAmendment implements Serializable{
    * @return settlement
   **/
   @Schema(description = "")
-  public List<PartySettlementInstruction> getSettlement() {
+  public List<PartySettlementInstructionUpdate> getSettlement() {
     return settlement;
   }
 
-  public void setSettlement(List<PartySettlementInstruction> settlement) {
+  public void setSettlement(List<PartySettlementInstructionUpdate> settlement) {
     this.settlement = settlement;
   }
 

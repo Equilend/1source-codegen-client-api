@@ -25,7 +25,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * The collateral value of the shares being returned, in the collateral currency on the loan loan.
  */
 @Schema(description = "The collateral value of the shares being returned, in the collateral currency on the loan loan.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
 
 public class ReturnProposal implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -48,7 +48,7 @@ public class ReturnProposal implements Serializable{
   private SettlementType settlementType = null;
 
   @SerializedName("settlement")
-  private List<PartySettlementInstruction> settlement = null;
+  private List<PartySettlementInstructionUpdate> settlement = null;
 
   @SerializedName("returnInternalReference")
   private String returnInternalReference = null;
@@ -164,12 +164,12 @@ public class ReturnProposal implements Serializable{
     this.settlementType = settlementType;
   }
 
-  public ReturnProposal settlement(List<PartySettlementInstruction> settlement) {
+  public ReturnProposal settlement(List<PartySettlementInstructionUpdate> settlement) {
     this.settlement = settlement;
     return this;
   }
 
-  public ReturnProposal addSettlementItem(PartySettlementInstruction settlementItem) {
+  public ReturnProposal addSettlementItem(PartySettlementInstructionUpdate settlementItem) {
     if (this.settlement == null) {
       this.settlement = new ArrayList<>();
     }
@@ -182,11 +182,11 @@ public class ReturnProposal implements Serializable{
    * @return settlement
   **/
   @Schema(description = "")
-  public List<PartySettlementInstruction> getSettlement() {
+  public List<PartySettlementInstructionUpdate> getSettlement() {
     return settlement;
   }
 
-  public void setSettlement(List<PartySettlementInstruction> settlement) {
+  public void setSettlement(List<PartySettlementInstructionUpdate> settlement) {
     this.settlement = settlement;
   }
 

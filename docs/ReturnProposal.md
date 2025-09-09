@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **returnSettlementDate** | [**LocalDate**](LocalDate.md) |  | 
 **collateralValue** | **Double** |  | 
 **settlementType** | [**SettlementType**](SettlementType.md) |  | 
-**settlement** | [**List&lt;PartySettlementInstruction&gt;**](PartySettlementInstruction.md) |  |  [optional]
+**settlement** | [**List&lt;PartySettlementInstructionUpdate&gt;**](PartySettlementInstructionUpdate.md) |  |  [optional]
 **returnInternalReference** | **String** |  |  [optional]
 **doNotInstruct** | **Boolean** |  |  [optional]

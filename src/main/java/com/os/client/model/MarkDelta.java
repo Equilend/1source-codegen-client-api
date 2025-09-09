@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * MarkDelta
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
 
 public class MarkDelta implements Serializable{
   private static final long serialVersionUID = 1L;

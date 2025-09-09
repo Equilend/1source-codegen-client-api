@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**billingCurrency** | [**CurrencyCd**](CurrencyCd.md) |  |  [optional]
 **dividendRatePct** | **Double** |  |  [optional]
 **termType** | [**TermType**](TermType.md) |  |  [optional]
 **termDate** | [**LocalDate**](LocalDate.md) |  |  [optional]

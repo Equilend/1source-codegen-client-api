@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * For loan proposals one of ticker, cusip, isin, sedol, quick, figi is required. If sending ticker, cusip, isin or quick, marketCode is required. Market code is the ISO country of exchange. All security identifiers are resolved to FIGI before creating a loan on ledger.
  */
 @Schema(description = "For loan proposals one of ticker, cusip, isin, sedol, quick, figi is required. If sending ticker, cusip, isin or quick, marketCode is required. Market code is the ISO country of exchange. All security identifiers are resolved to FIGI before creating a loan on ledger.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
 
 public class Instrument implements Serializable{
   private static final long serialVersionUID = 1L;

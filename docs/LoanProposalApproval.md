@@ -7,4 +7,4 @@ Name | Type | Description | Notes
 **roundingRule** | **Integer** |  |  [optional]
 **roundingMode** | [**RoundingMode**](RoundingMode.md) |  |  [optional]
 **minimumMarkPrice** | **Double** |  |  [optional]
-**settlement** | [**PartySettlementInstruction**](PartySettlementInstruction.md) |  |  [optional]
+**settlement** | [**PartySettlementInstructionUpdate**](PartySettlementInstructionUpdate.md) |  |  [optional]
