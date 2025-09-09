@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * * &#x60;dtcParticipantNumber&#x60; - Required if settlementBic &#x3D; DTCYUS33 * &#x60;cdsCustomerUnitId&#x60; - Required if settlementBic &#x3D; CDSLCATT  
  */
 @Schema(description = "* `dtcParticipantNumber` - Required if settlementBic = DTCYUS33 * `cdsCustomerUnitId` - Required if settlementBic = CDSLCATT  ")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-07-29T19:02:50.865809907Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
 
 public class SettlementInstruction implements Serializable{
   private static final long serialVersionUID = 1L;

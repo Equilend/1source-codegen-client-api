@@ -28,11 +28,7 @@ public enum CollateralType {
   @SerializedName("CASH")
   CASH("CASH"),
   @SerializedName("NONCASH")
-  NONCASH("NONCASH"),
-  @SerializedName("CASHPOOL")
-  CASHPOOL("CASHPOOL"),
-  @SerializedName("TRIPARTY")
-  TRIPARTY("TRIPARTY");
+  NONCASH("NONCASH");
 
   private String value;
 

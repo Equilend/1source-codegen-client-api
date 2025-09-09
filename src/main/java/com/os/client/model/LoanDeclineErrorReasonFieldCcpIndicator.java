@@ -24,20 +24,20 @@ import com.google.gson.stream.JsonWriter;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * LoanDeclineErrorReasonFieldTermType
+ * LoanDeclineErrorReasonFieldCcpIndicator
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
 
-public class LoanDeclineErrorReasonFieldTermType implements Serializable, AnyOfLoanDeclineErrorResponseErrorsItems {
+public class LoanDeclineErrorReasonFieldCcpIndicator implements Serializable, AnyOfLoanDeclineErrorResponseErrorsItems {
   private static final long serialVersionUID = 1L;
   /**
    * Gets or Sets field
    */
   @JsonAdapter(FieldEnum.Adapter.class)
   public enum FieldEnum {
-    @SerializedName("TERM_TYPE")
-    TERM_TYPE("TERM_TYPE");
+    @SerializedName("CCP_INDICATOR")
+    CCP_INDICATOR("CCP_INDICATOR");
 
     private String value;
 
@@ -76,9 +76,9 @@ public class LoanDeclineErrorReasonFieldTermType implements Serializable, AnyOfL
   private FieldEnum field = null;
 
   @SerializedName("expectedValue")
-  private TermType expectedValue = null;
+  private CurrencyCd expectedValue = null;
 
-  public LoanDeclineErrorReasonFieldTermType field(FieldEnum field) {
+  public LoanDeclineErrorReasonFieldCcpIndicator field(FieldEnum field) {
     this.field = field;
     return this;
   }
@@ -96,7 +96,7 @@ public class LoanDeclineErrorReasonFieldTermType implements Serializable, AnyOfL
     this.field = field;
   }
 
-  public LoanDeclineErrorReasonFieldTermType expectedValue(TermType expectedValue) {
+  public LoanDeclineErrorReasonFieldCcpIndicator expectedValue(CurrencyCd expectedValue) {
     this.expectedValue = expectedValue;
     return this;
   }
@@ -106,11 +106,11 @@ public class LoanDeclineErrorReasonFieldTermType implements Serializable, AnyOfL
    * @return expectedValue
   **/
   @Schema(required = true, description = "")
-  public TermType getExpectedValue() {
+  public CurrencyCd getExpectedValue() {
     return expectedValue;
   }
 
-  public void setExpectedValue(TermType expectedValue) {
+  public void setExpectedValue(CurrencyCd expectedValue) {
     this.expectedValue = expectedValue;
   }
 
@@ -123,9 +123,9 @@ public class LoanDeclineErrorReasonFieldTermType implements Serializable, AnyOfL
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LoanDeclineErrorReasonFieldTermType loanDeclineErrorReasonFieldTermType = (LoanDeclineErrorReasonFieldTermType) o;
-    return Objects.equals(this.field, loanDeclineErrorReasonFieldTermType.field) &&
-        Objects.equals(this.expectedValue, loanDeclineErrorReasonFieldTermType.expectedValue);
+    LoanDeclineErrorReasonFieldCcpIndicator loanDeclineErrorReasonFieldCcpIndicator = (LoanDeclineErrorReasonFieldCcpIndicator) o;
+    return Objects.equals(this.field, loanDeclineErrorReasonFieldCcpIndicator.field) &&
+        Objects.equals(this.expectedValue, loanDeclineErrorReasonFieldCcpIndicator.expectedValue);
   }
 
   @Override
@@ -137,7 +137,7 @@ public class LoanDeclineErrorReasonFieldTermType implements Serializable, AnyOfL
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LoanDeclineErrorReasonFieldTermType {\n");
+    sb.append("class LoanDeclineErrorReasonFieldCcpIndicator {\n");
     
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    expectedValue: ").append(toIndentedString(expectedValue)).append("\n");

@@ -1,8 +1,8 @@
 # 1source-api-client
 
 1Source Ledger API
-- API version: 1.2.2.2
-  - Build date: 2025-07-29T19:02:50.865809907Z[GMT]
+- API version: 1.2.2.3
+  - Build date: 2025-09-03T18:57:41.153687871Z[GMT]
 
 1Source Ledger API provides client access to the 1Source Ledger. You can find out more about 1Source at [https://equilend.com](https://equilend.com).  This specification is work in progress. The design is meant to model the securities lending life cycle in as clean a way as possible while being robust enough to easily translate to ISLA CDM workflows and data model.  API specification is the intellectual property of EquiLend LLC and should not be copied or disseminated in any way. 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.os</groupId>
   <artifactId>1source-api-client</artifactId>
-  <version>1.2.2.2</version>
+  <version>1.2.2.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -90,7 +90,7 @@ Also, to use the GitHub Packages repository for downloading SNAPSHOT artifacts, 
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.os:1source-api-client:1.2.2.2"
+compile "com.os:1source-api-client:1.2.2.3"
 ```
 
 Add the repository to your build.gradle file (Gradle Groovy). Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
@@ -116,7 +116,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/1source-api-client-1.2.2.2.jar`
+* `target/1source-api-client-1.2.2.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -272,7 +272,7 @@ Class | Method | HTTP request | Description
 *LoansApi* | [**ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost**](docs/LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdCancelPost) | **POST** /ledger/loans/{loanId}/amend/{loanAmendmentId}/cancel | Cancel a loan amendment in \&quot;proposed\&quot; state
 *LoansApi* | [**ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost**](docs/LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdDeclinePost) | **POST** /ledger/loans/{loanId}/amend/{loanAmendmentId}/decline | Decline a loan amendment in \&quot;proposed\&quot; state
 *LoansApi* | [**ledgerLoansLoanIdAmendLoanAmendmentIdGet**](docs/LoansApi.md#ledgerLoansLoanIdAmendLoanAmendmentIdGet) | **GET** /ledger/loans/{loanId}/amend/{loanAmendmentId} | Retrieve a loan amendment.
-*LoansApi* | [**ledgerLoansLoanIdAmendPost**](docs/LoansApi.md#ledgerLoansLoanIdAmendPost) | **POST** /ledger/loans/{loanId}/amend | Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan.
+*LoansApi* | [**ledgerLoansLoanIdAmendPost**](docs/LoansApi.md#ledgerLoansLoanIdAmendPost) | **POST** /ledger/loans/{loanId}/amend | Amend a loan in \&quot;open\&quot; state. Allows a party to propose a change to an existing loan. All fields are optional but at least 1 must be provided. Any field provided must differ from the existing value on the loan
 *LoansApi* | [**ledgerLoansLoanIdApprovePost**](docs/LoansApi.md#ledgerLoansLoanIdApprovePost) | **POST** /ledger/loans/{loanId}/approve | Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
 *LoansApi* | [**ledgerLoansLoanIdCancelPost**](docs/LoansApi.md#ledgerLoansLoanIdCancelPost) | **POST** /ledger/loans/{loanId}/cancel | Cancel a loan in \&quot;proposed\&quot; state. Original proposer only.
 *LoansApi* | [**ledgerLoansLoanIdCancelpendingPost**](docs/LoansApi.md#ledgerLoansLoanIdCancelpendingPost) | **POST** /ledger/loans/{loanId}/cancelpending | Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
@@ -357,6 +357,7 @@ Class | Method | HTTP request | Description
  - [LoanCloseErrorResponse](docs/LoanCloseErrorResponse.md)
  - [LoanDeclineErrorReason](docs/LoanDeclineErrorReason.md)
  - [LoanDeclineErrorReasonFieldBillingCurrency](docs/LoanDeclineErrorReasonFieldBillingCurrency.md)
+ - [LoanDeclineErrorReasonFieldCcpIndicator](docs/LoanDeclineErrorReasonFieldCcpIndicator.md)
  - [LoanDeclineErrorReasonFieldCollateralCurrency](docs/LoanDeclineErrorReasonFieldCollateralCurrency.md)
  - [LoanDeclineErrorReasonFieldCollateralMargin](docs/LoanDeclineErrorReasonFieldCollateralMargin.md)
  - [LoanDeclineErrorReasonFieldCollateralType](docs/LoanDeclineErrorReasonFieldCollateralType.md)
@@ -394,6 +395,7 @@ Class | Method | HTTP request | Description
  - [Party](docs/Party.md)
  - [PartyRole](docs/PartyRole.md)
  - [PartySettlementInstruction](docs/PartySettlementInstruction.md)
+ - [PartySettlementInstructionUpdate](docs/PartySettlementInstructionUpdate.md)
  - [PartyType](docs/PartyType.md)
  - [Price](docs/Price.md)
  - [PriceBasis](docs/PriceBasis.md)
@@ -464,4 +466,4 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 ## Last Update
 
-Tuesday, July 29, 2025 15:13:10
+Tuesday, September 9, 2025 15:13:10
