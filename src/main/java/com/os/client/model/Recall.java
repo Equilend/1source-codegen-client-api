@@ -26,7 +26,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Recall
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-10-14T19:12:57.390730850Z[GMT]")
 
 public class Recall implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -60,8 +60,8 @@ public class Recall implements Serializable{
   @SerializedName("description")
   private String description = null;
 
-  @SerializedName("lastUpdateDatetime")
-  private OffsetDateTime lastUpdateDatetime = null;
+  @SerializedName("lastUpdateDateTime")
+  private OffsetDateTime lastUpdateDateTime = null;
 
   @SerializedName("recallInternalReferences")
   private List<RecallPartyInternalReference> recallInternalReferences = null;
@@ -246,22 +246,22 @@ public class Recall implements Serializable{
     this.description = description;
   }
 
-  public Recall lastUpdateDatetime(OffsetDateTime lastUpdateDatetime) {
-    this.lastUpdateDatetime = lastUpdateDatetime;
+  public Recall lastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
+    this.lastUpdateDateTime = lastUpdateDateTime;
     return this;
   }
 
    /**
-   * Get lastUpdateDatetime
-   * @return lastUpdateDatetime
+   * Get lastUpdateDateTime
+   * @return lastUpdateDateTime
   **/
-  @Schema(description = "")
-  public OffsetDateTime getLastUpdateDatetime() {
-    return lastUpdateDatetime;
+  @Schema(required = true, description = "")
+  public OffsetDateTime getLastUpdateDateTime() {
+    return lastUpdateDateTime;
   }
 
-  public void setLastUpdateDatetime(OffsetDateTime lastUpdateDatetime) {
-    this.lastUpdateDatetime = lastUpdateDatetime;
+  public void setLastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
+    this.lastUpdateDateTime = lastUpdateDateTime;
   }
 
   public Recall recallInternalReferences(List<RecallPartyInternalReference> recallInternalReferences) {
@@ -310,13 +310,13 @@ public class Recall implements Serializable{
         Objects.equals(this.recallDueDate, recall.recallDueDate) &&
         Objects.equals(this.acknowledgementType, recall.acknowledgementType) &&
         Objects.equals(this.description, recall.description) &&
-        Objects.equals(this.lastUpdateDatetime, recall.lastUpdateDatetime) &&
+        Objects.equals(this.lastUpdateDateTime, recall.lastUpdateDateTime) &&
         Objects.equals(this.recallInternalReferences, recall.recallInternalReferences);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recallId, loanId, status, executionVenue, openQuantity, quantity, recallDate, recallDueDate, acknowledgementType, description, lastUpdateDatetime, recallInternalReferences);
+    return Objects.hash(recallId, loanId, status, executionVenue, openQuantity, quantity, recallDate, recallDueDate, acknowledgementType, description, lastUpdateDateTime, recallInternalReferences);
   }
 
 
@@ -335,7 +335,7 @@ public class Recall implements Serializable{
     sb.append("    recallDueDate: ").append(toIndentedString(recallDueDate)).append("\n");
     sb.append("    acknowledgementType: ").append(toIndentedString(acknowledgementType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    lastUpdateDatetime: ").append(toIndentedString(lastUpdateDatetime)).append("\n");
+    sb.append("    lastUpdateDateTime: ").append(toIndentedString(lastUpdateDateTime)).append("\n");
     sb.append("    recallInternalReferences: ").append(toIndentedString(recallInternalReferences)).append("\n");
     sb.append("}");
     return sb.toString();

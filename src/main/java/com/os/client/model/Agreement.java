@@ -23,15 +23,15 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Agreement
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-10-14T19:12:57.390730850Z[GMT]")
 
 public class Agreement implements Serializable{
   private static final long serialVersionUID = 1L;
   @SerializedName("agreementId")
   private String agreementId = null;
 
-  @SerializedName("lastUpdateDatetime")
-  private OffsetDateTime lastUpdateDatetime = null;
+  @SerializedName("lastUpdateDateTime")
+  private OffsetDateTime lastUpdateDateTime = null;
 
   @SerializedName("trade")
   private VenueTradeAgreement trade = null;
@@ -54,22 +54,22 @@ public class Agreement implements Serializable{
     this.agreementId = agreementId;
   }
 
-  public Agreement lastUpdateDatetime(OffsetDateTime lastUpdateDatetime) {
-    this.lastUpdateDatetime = lastUpdateDatetime;
+  public Agreement lastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
+    this.lastUpdateDateTime = lastUpdateDateTime;
     return this;
   }
 
    /**
-   * Get lastUpdateDatetime
-   * @return lastUpdateDatetime
+   * Get lastUpdateDateTime
+   * @return lastUpdateDateTime
   **/
   @Schema(description = "")
-  public OffsetDateTime getLastUpdateDatetime() {
-    return lastUpdateDatetime;
+  public OffsetDateTime getLastUpdateDateTime() {
+    return lastUpdateDateTime;
   }
 
-  public void setLastUpdateDatetime(OffsetDateTime lastUpdateDatetime) {
-    this.lastUpdateDatetime = lastUpdateDatetime;
+  public void setLastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
+    this.lastUpdateDateTime = lastUpdateDateTime;
   }
 
   public Agreement trade(VenueTradeAgreement trade) {
@@ -101,13 +101,13 @@ public class Agreement implements Serializable{
     }
     Agreement agreement = (Agreement) o;
     return Objects.equals(this.agreementId, agreement.agreementId) &&
-        Objects.equals(this.lastUpdateDatetime, agreement.lastUpdateDatetime) &&
+        Objects.equals(this.lastUpdateDateTime, agreement.lastUpdateDateTime) &&
         Objects.equals(this.trade, agreement.trade);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agreementId, lastUpdateDatetime, trade);
+    return Objects.hash(agreementId, lastUpdateDateTime, trade);
   }
 
 
@@ -117,7 +117,7 @@ public class Agreement implements Serializable{
     sb.append("class Agreement {\n");
     
     sb.append("    agreementId: ").append(toIndentedString(agreementId)).append("\n");
-    sb.append("    lastUpdateDatetime: ").append(toIndentedString(lastUpdateDatetime)).append("\n");
+    sb.append("    lastUpdateDateTime: ").append(toIndentedString(lastUpdateDateTime)).append("\n");
     sb.append("    trade: ").append(toIndentedString(trade)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **field** | [**FieldEnum**](#FieldEnum) |  | 
-**expectedValue** | [**CurrencyCd**](CurrencyCd.md) |  | 
+**expectedValue** | [**CcpIndicator**](CcpIndicator.md) |  | 
 
 <a name="FieldEnum"></a>
 ## Enum: FieldEnum

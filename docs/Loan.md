@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **loanStatus** | [**LoanStatus**](LoanStatus.md) |  | 
 **loanStatusReason** | **OneOfLoanLoanStatusReason** |  |  [optional]
 **lastUpdatePartyId** | **String** |  |  [optional]
-**lastUpdateDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**lastUpdateDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
 **isInitiator** | **Boolean** |  |  [optional]
 **trade** | [**TradeAgreement**](TradeAgreement.md) |  |  [optional]
 **settlement** | [**List&lt;PartySettlementInstruction&gt;**](PartySettlementInstruction.md) |  |  [optional]

@@ -27,7 +27,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * LoanDeclineErrorReasonFieldCcpIndicator
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-10-14T19:12:57.390730850Z[GMT]")
 
 public class LoanDeclineErrorReasonFieldCcpIndicator implements Serializable, AnyOfLoanDeclineErrorResponseErrorsItems {
   private static final long serialVersionUID = 1L;
@@ -76,7 +76,7 @@ public class LoanDeclineErrorReasonFieldCcpIndicator implements Serializable, An
   private FieldEnum field = null;
 
   @SerializedName("expectedValue")
-  private CurrencyCd expectedValue = null;
+  private CcpIndicator expectedValue = null;
 
   public LoanDeclineErrorReasonFieldCcpIndicator field(FieldEnum field) {
     this.field = field;
@@ -96,7 +96,7 @@ public class LoanDeclineErrorReasonFieldCcpIndicator implements Serializable, An
     this.field = field;
   }
 
-  public LoanDeclineErrorReasonFieldCcpIndicator expectedValue(CurrencyCd expectedValue) {
+  public LoanDeclineErrorReasonFieldCcpIndicator expectedValue(CcpIndicator expectedValue) {
     this.expectedValue = expectedValue;
     return this;
   }
@@ -106,11 +106,11 @@ public class LoanDeclineErrorReasonFieldCcpIndicator implements Serializable, An
    * @return expectedValue
   **/
   @Schema(required = true, description = "")
-  public CurrencyCd getExpectedValue() {
+  public CcpIndicator getExpectedValue() {
     return expectedValue;
   }
 
-  public void setExpectedValue(CurrencyCd expectedValue) {
+  public void setExpectedValue(CcpIndicator expectedValue) {
     this.expectedValue = expectedValue;
   }
 

@@ -24,7 +24,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * BuyinComplete
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-10-14T19:12:57.390730850Z[GMT]")
 
 public class BuyinComplete implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -46,8 +46,8 @@ public class BuyinComplete implements Serializable{
   @SerializedName("price")
   private Price price = null;
 
-  @SerializedName("lastUpdateDatetime")
-  private OffsetDateTime lastUpdateDatetime = null;
+  @SerializedName("lastUpdateDateTime")
+  private OffsetDateTime lastUpdateDateTime = null;
 
   public BuyinComplete buyinCompleteId(String buyinCompleteId) {
     this.buyinCompleteId = buyinCompleteId;
@@ -157,22 +157,22 @@ public class BuyinComplete implements Serializable{
     this.price = price;
   }
 
-  public BuyinComplete lastUpdateDatetime(OffsetDateTime lastUpdateDatetime) {
-    this.lastUpdateDatetime = lastUpdateDatetime;
+  public BuyinComplete lastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
+    this.lastUpdateDateTime = lastUpdateDateTime;
     return this;
   }
 
    /**
-   * Get lastUpdateDatetime
-   * @return lastUpdateDatetime
+   * Get lastUpdateDateTime
+   * @return lastUpdateDateTime
   **/
   @Schema(required = true, description = "")
-  public OffsetDateTime getLastUpdateDatetime() {
-    return lastUpdateDatetime;
+  public OffsetDateTime getLastUpdateDateTime() {
+    return lastUpdateDateTime;
   }
 
-  public void setLastUpdateDatetime(OffsetDateTime lastUpdateDatetime) {
-    this.lastUpdateDatetime = lastUpdateDatetime;
+  public void setLastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
+    this.lastUpdateDateTime = lastUpdateDateTime;
   }
 
 
@@ -191,12 +191,12 @@ public class BuyinComplete implements Serializable{
         Objects.equals(this.quantity, buyinComplete.quantity) &&
         Objects.equals(this.buyinDate, buyinComplete.buyinDate) &&
         Objects.equals(this.price, buyinComplete.price) &&
-        Objects.equals(this.lastUpdateDatetime, buyinComplete.lastUpdateDatetime);
+        Objects.equals(this.lastUpdateDateTime, buyinComplete.lastUpdateDateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(buyinCompleteId, loanId, status, quantity, buyinDate, price, lastUpdateDatetime);
+    return Objects.hash(buyinCompleteId, loanId, status, quantity, buyinDate, price, lastUpdateDateTime);
   }
 
 
@@ -211,7 +211,7 @@ public class BuyinComplete implements Serializable{
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    buyinDate: ").append(toIndentedString(buyinDate)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
-    sb.append("    lastUpdateDatetime: ").append(toIndentedString(lastUpdateDatetime)).append("\n");
+    sb.append("    lastUpdateDateTime: ").append(toIndentedString(lastUpdateDateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

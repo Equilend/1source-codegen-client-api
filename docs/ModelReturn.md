@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **acknowledgementType** | [**AcknowledgementType**](AcknowledgementType.md) |  |  [optional]
 **description** | **String** |  |  [optional]
 **settlement** | [**List&lt;PartySettlementInstruction&gt;**](PartySettlementInstruction.md) |  |  [optional]
-**lastUpdateDatetime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
+**lastUpdateDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
 **returnInternalReferences** | [**List&lt;ReturnPartyInternalReference&gt;**](ReturnPartyInternalReference.md) |  |  [optional]
 **doNotInstruct** | **Boolean** |  |  [optional]
