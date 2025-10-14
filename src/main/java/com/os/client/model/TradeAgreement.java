@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Term Date required when Term Type is FIXED, EVERGREEN, OVERNIGHT, EXTENDABLE. Reset Date is required when Term Type is EVERGREEN or EXTENDABLE
  */
 @Schema(description = "Term Date required when Term Type is FIXED, EVERGREEN, OVERNIGHT, EXTENDABLE. Reset Date is required when Term Type is EVERGREEN or EXTENDABLE")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-10-14T13:59:13.627830062Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-10-14T19:12:57.390730850Z[GMT]")
 
 public class TradeAgreement implements Serializable{
   private static final long serialVersionUID = 1L;

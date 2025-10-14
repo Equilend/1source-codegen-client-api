@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Venues are third-party services that generate loans, returns, recalls, rerates, or perform loan modifications on a clients behalf. A party with a valid ID and LEI is required.
  */
 @Schema(description = "Venues are third-party services that generate loans, returns, recalls, rerates, or perform loan modifications on a clients behalf. A party with a valid ID and LEI is required.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-10-14T13:59:13.627830062Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-10-14T19:12:57.390730850Z[GMT]")
 
 public class Venue implements Serializable{
   private static final long serialVersionUID = 1L;
