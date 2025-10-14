@@ -26,7 +26,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * ModelReturn
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-10-14T13:59:13.627830062Z[GMT]")
 
 public class ModelReturn implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -66,8 +66,8 @@ public class ModelReturn implements Serializable{
   @SerializedName("settlement")
   private List<PartySettlementInstruction> settlement = null;
 
-  @SerializedName("lastUpdateDatetime")
-  private OffsetDateTime lastUpdateDatetime = null;
+  @SerializedName("lastUpdateDateTime")
+  private OffsetDateTime lastUpdateDateTime = null;
 
   @SerializedName("returnInternalReferences")
   private List<ReturnPartyInternalReference> returnInternalReferences = null;
@@ -299,22 +299,22 @@ public class ModelReturn implements Serializable{
     this.settlement = settlement;
   }
 
-  public ModelReturn lastUpdateDatetime(OffsetDateTime lastUpdateDatetime) {
-    this.lastUpdateDatetime = lastUpdateDatetime;
+  public ModelReturn lastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
+    this.lastUpdateDateTime = lastUpdateDateTime;
     return this;
   }
 
    /**
-   * Get lastUpdateDatetime
-   * @return lastUpdateDatetime
+   * Get lastUpdateDateTime
+   * @return lastUpdateDateTime
   **/
   @Schema(required = true, description = "")
-  public OffsetDateTime getLastUpdateDatetime() {
-    return lastUpdateDatetime;
+  public OffsetDateTime getLastUpdateDateTime() {
+    return lastUpdateDateTime;
   }
 
-  public void setLastUpdateDatetime(OffsetDateTime lastUpdateDatetime) {
-    this.lastUpdateDatetime = lastUpdateDatetime;
+  public void setLastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
+    this.lastUpdateDateTime = lastUpdateDateTime;
   }
 
   public ModelReturn returnInternalReferences(List<ReturnPartyInternalReference> returnInternalReferences) {
@@ -383,14 +383,14 @@ public class ModelReturn implements Serializable{
         Objects.equals(this.acknowledgementType, _return.acknowledgementType) &&
         Objects.equals(this.description, _return.description) &&
         Objects.equals(this.settlement, _return.settlement) &&
-        Objects.equals(this.lastUpdateDatetime, _return.lastUpdateDatetime) &&
+        Objects.equals(this.lastUpdateDateTime, _return.lastUpdateDateTime) &&
         Objects.equals(this.returnInternalReferences, _return.returnInternalReferences) &&
         Objects.equals(this.doNotInstruct, _return.doNotInstruct);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(returnId, loanId, status, executionVenue, quantity, collateral, settlementType, returnDate, returnSettlementDate, acknowledgementType, description, settlement, lastUpdateDatetime, returnInternalReferences, doNotInstruct);
+    return Objects.hash(returnId, loanId, status, executionVenue, quantity, collateral, settlementType, returnDate, returnSettlementDate, acknowledgementType, description, settlement, lastUpdateDateTime, returnInternalReferences, doNotInstruct);
   }
 
 
@@ -411,7 +411,7 @@ public class ModelReturn implements Serializable{
     sb.append("    acknowledgementType: ").append(toIndentedString(acknowledgementType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    settlement: ").append(toIndentedString(settlement)).append("\n");
-    sb.append("    lastUpdateDatetime: ").append(toIndentedString(lastUpdateDatetime)).append("\n");
+    sb.append("    lastUpdateDateTime: ").append(toIndentedString(lastUpdateDateTime)).append("\n");
     sb.append("    returnInternalReferences: ").append(toIndentedString(returnInternalReferences)).append("\n");
     sb.append("    doNotInstruct: ").append(toIndentedString(doNotInstruct)).append("\n");
     sb.append("}");

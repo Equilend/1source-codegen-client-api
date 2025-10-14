@@ -12,4 +12,4 @@ Name | Type | Description | Notes
 **rate** | [**Rate**](Rate.md) |  | 
 **rerate** | [**Rate**](Rate.md) |  | 
 **dateProposed** | [**LocalDate**](LocalDate.md) |  |  [optional]
-**lastUpdateDatetime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
+**lastUpdateDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 

@@ -14,7 +14,6 @@ package com.os.client.model;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
 
 import com.google.gson.TypeAdapter;
@@ -25,20 +24,20 @@ import com.google.gson.stream.JsonWriter;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 /**
- * LoanDeclineErrorReasonFieldTradeDate
+ * LoanDeclineErrorReasonFieldSettlementType
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-10-14T13:59:13.627830062Z[GMT]")
 
-public class LoanDeclineErrorReasonFieldTradeDate implements Serializable, AnyOfLoanDeclineErrorResponseErrorsItems {
+public class LoanDeclineErrorReasonFieldSettlementType implements Serializable, AnyOfLoanDeclineErrorResponseErrorsItems {
   private static final long serialVersionUID = 1L;
   /**
    * Gets or Sets field
    */
   @JsonAdapter(FieldEnum.Adapter.class)
   public enum FieldEnum {
-    @SerializedName("TRADE_DATE")
-    TRADE_DATE("TRADE_DATE");
+    @SerializedName("SETTLEMENT_TYPE")
+    SETTLEMENT_TYPE("SETTLEMENT_TYPE");
 
     private String value;
 
@@ -77,9 +76,9 @@ public class LoanDeclineErrorReasonFieldTradeDate implements Serializable, AnyOf
   private FieldEnum field = null;
 
   @SerializedName("expectedValue")
-  private LocalDate expectedValue = null;
+  private SettlementType expectedValue = null;
 
-  public LoanDeclineErrorReasonFieldTradeDate field(FieldEnum field) {
+  public LoanDeclineErrorReasonFieldSettlementType field(FieldEnum field) {
     this.field = field;
     return this;
   }
@@ -97,7 +96,7 @@ public class LoanDeclineErrorReasonFieldTradeDate implements Serializable, AnyOf
     this.field = field;
   }
 
-  public LoanDeclineErrorReasonFieldTradeDate expectedValue(LocalDate expectedValue) {
+  public LoanDeclineErrorReasonFieldSettlementType expectedValue(SettlementType expectedValue) {
     this.expectedValue = expectedValue;
     return this;
   }
@@ -107,11 +106,11 @@ public class LoanDeclineErrorReasonFieldTradeDate implements Serializable, AnyOf
    * @return expectedValue
   **/
   @Schema(required = true, description = "")
-  public LocalDate getExpectedValue() {
+  public SettlementType getExpectedValue() {
     return expectedValue;
   }
 
-  public void setExpectedValue(LocalDate expectedValue) {
+  public void setExpectedValue(SettlementType expectedValue) {
     this.expectedValue = expectedValue;
   }
 
@@ -124,9 +123,9 @@ public class LoanDeclineErrorReasonFieldTradeDate implements Serializable, AnyOf
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LoanDeclineErrorReasonFieldTradeDate loanDeclineErrorReasonFieldTradeDate = (LoanDeclineErrorReasonFieldTradeDate) o;
-    return Objects.equals(this.field, loanDeclineErrorReasonFieldTradeDate.field) &&
-        Objects.equals(this.expectedValue, loanDeclineErrorReasonFieldTradeDate.expectedValue);
+    LoanDeclineErrorReasonFieldSettlementType loanDeclineErrorReasonFieldSettlementType = (LoanDeclineErrorReasonFieldSettlementType) o;
+    return Objects.equals(this.field, loanDeclineErrorReasonFieldSettlementType.field) &&
+        Objects.equals(this.expectedValue, loanDeclineErrorReasonFieldSettlementType.expectedValue);
   }
 
   @Override
@@ -138,7 +137,7 @@ public class LoanDeclineErrorReasonFieldTradeDate implements Serializable, AnyOf
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LoanDeclineErrorReasonFieldTradeDate {\n");
+    sb.append("class LoanDeclineErrorReasonFieldSettlementType {\n");
     
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    expectedValue: ").append(toIndentedString(expectedValue)).append("\n");

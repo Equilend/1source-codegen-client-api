@@ -24,7 +24,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * Rerate
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-10-14T13:59:13.627830062Z[GMT]")
 
 public class Rerate implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -55,8 +55,8 @@ public class Rerate implements Serializable{
   @SerializedName("dateProposed")
   private LocalDate dateProposed = null;
 
-  @SerializedName("lastUpdateDatetime")
-  private OffsetDateTime lastUpdateDatetime = null;
+  @SerializedName("lastUpdateDateTime")
+  private OffsetDateTime lastUpdateDateTime = null;
 
   public Rerate rerateId(String rerateId) {
     this.rerateId = rerateId;
@@ -220,22 +220,22 @@ public class Rerate implements Serializable{
     this.dateProposed = dateProposed;
   }
 
-  public Rerate lastUpdateDatetime(OffsetDateTime lastUpdateDatetime) {
-    this.lastUpdateDatetime = lastUpdateDatetime;
+  public Rerate lastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
+    this.lastUpdateDateTime = lastUpdateDateTime;
     return this;
   }
 
    /**
-   * Get lastUpdateDatetime
-   * @return lastUpdateDatetime
+   * Get lastUpdateDateTime
+   * @return lastUpdateDateTime
   **/
   @Schema(required = true, description = "")
-  public OffsetDateTime getLastUpdateDatetime() {
-    return lastUpdateDatetime;
+  public OffsetDateTime getLastUpdateDateTime() {
+    return lastUpdateDateTime;
   }
 
-  public void setLastUpdateDatetime(OffsetDateTime lastUpdateDatetime) {
-    this.lastUpdateDatetime = lastUpdateDatetime;
+  public void setLastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
+    this.lastUpdateDateTime = lastUpdateDateTime;
   }
 
 
@@ -257,12 +257,12 @@ public class Rerate implements Serializable{
         Objects.equals(this.rate, rerate.rate) &&
         Objects.equals(this.rerate, rerate.rerate) &&
         Objects.equals(this.dateProposed, rerate.dateProposed) &&
-        Objects.equals(this.lastUpdateDatetime, rerate.lastUpdateDatetime);
+        Objects.equals(this.lastUpdateDateTime, rerate.lastUpdateDateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rerateId, loanId, status, statusReason, executionVenue, isInitiator, rate, rerate, dateProposed, lastUpdateDatetime);
+    return Objects.hash(rerateId, loanId, status, statusReason, executionVenue, isInitiator, rate, rerate, dateProposed, lastUpdateDateTime);
   }
 
 
@@ -280,7 +280,7 @@ public class Rerate implements Serializable{
     sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
     sb.append("    rerate: ").append(toIndentedString(rerate)).append("\n");
     sb.append("    dateProposed: ").append(toIndentedString(dateProposed)).append("\n");
-    sb.append("    lastUpdateDatetime: ").append(toIndentedString(lastUpdateDatetime)).append("\n");
+    sb.append("    lastUpdateDateTime: ").append(toIndentedString(lastUpdateDateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

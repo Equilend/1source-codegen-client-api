@@ -12,7 +12,7 @@
 
 package com.os.client.invoker;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-09-03T18:57:41.153687871Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2025-10-14T13:59:13.627830062Z[GMT]")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

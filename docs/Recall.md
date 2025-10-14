@@ -13,5 +13,5 @@ Name | Type | Description | Notes
 **recallDueDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
 **acknowledgementType** | [**AcknowledgementType**](AcknowledgementType.md) |  |  [optional]
 **description** | **String** |  |  [optional]
-**lastUpdateDatetime** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**lastUpdateDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
 **recallInternalReferences** | [**List&lt;RecallPartyInternalReference&gt;**](RecallPartyInternalReference.md) |  |  [optional]

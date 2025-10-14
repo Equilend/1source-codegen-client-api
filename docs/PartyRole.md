@@ -7,3 +7,4 @@
 * `TRIPARTY` (value: `"TRIPARTY"`)
 * `CCP` (value: `"CCP"`)
 * `VENUE` (value: `"VENUE"`)
+* `OPERATOR` (value: `"OPERATOR"`)

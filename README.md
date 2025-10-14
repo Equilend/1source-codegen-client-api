@@ -1,8 +1,8 @@
 # 1source-api-client
 
 1Source Ledger API
-- API version: 1.2.2.3
-  - Build date: 2025-09-03T18:57:41.153687871Z[GMT]
+- API version: 1.2.2.4
+  - Build date: 2025-10-14T13:59:13.627830062Z[GMT]
 
 1Source Ledger API provides client access to the 1Source Ledger. You can find out more about 1Source at [https://equilend.com](https://equilend.com).  This specification is work in progress. The design is meant to model the securities lending life cycle in as clean a way as possible while being robust enough to easily translate to ISLA CDM workflows and data model.  API specification is the intellectual property of EquiLend LLC and should not be copied or disseminated in any way. 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.os</groupId>
   <artifactId>1source-api-client</artifactId>
-  <version>1.2.2.3</version>
+  <version>1.2.2.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -90,7 +90,7 @@ Also, to use the GitHub Packages repository for downloading SNAPSHOT artifacts, 
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.os:1source-api-client:1.2.2.3"
+compile "com.os:1source-api-client:1.2.2.4"
 ```
 
 Add the repository to your build.gradle file (Gradle Groovy). Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
@@ -116,7 +116,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/1source-api-client-1.2.2.3.jar`
+* `target/1source-api-client-1.2.2.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -360,16 +360,12 @@ Class | Method | HTTP request | Description
  - [LoanDeclineErrorReasonFieldCcpIndicator](docs/LoanDeclineErrorReasonFieldCcpIndicator.md)
  - [LoanDeclineErrorReasonFieldCollateralCurrency](docs/LoanDeclineErrorReasonFieldCollateralCurrency.md)
  - [LoanDeclineErrorReasonFieldCollateralMargin](docs/LoanDeclineErrorReasonFieldCollateralMargin.md)
- - [LoanDeclineErrorReasonFieldCollateralType](docs/LoanDeclineErrorReasonFieldCollateralType.md)
  - [LoanDeclineErrorReasonFieldDividendRate](docs/LoanDeclineErrorReasonFieldDividendRate.md)
- - [LoanDeclineErrorReasonFieldQuantity](docs/LoanDeclineErrorReasonFieldQuantity.md)
- - [LoanDeclineErrorReasonFieldRate](docs/LoanDeclineErrorReasonFieldRate.md)
  - [LoanDeclineErrorReasonFieldResetDate](docs/LoanDeclineErrorReasonFieldResetDate.md)
  - [LoanDeclineErrorReasonFieldSettlement](docs/LoanDeclineErrorReasonFieldSettlement.md)
- - [LoanDeclineErrorReasonFieldSettlementDate](docs/LoanDeclineErrorReasonFieldSettlementDate.md)
+ - [LoanDeclineErrorReasonFieldSettlementType](docs/LoanDeclineErrorReasonFieldSettlementType.md)
  - [LoanDeclineErrorReasonFieldTermDate](docs/LoanDeclineErrorReasonFieldTermDate.md)
  - [LoanDeclineErrorReasonFieldTermType](docs/LoanDeclineErrorReasonFieldTermType.md)
- - [LoanDeclineErrorReasonFieldTradeDate](docs/LoanDeclineErrorReasonFieldTradeDate.md)
  - [LoanDeclineErrorResponse](docs/LoanDeclineErrorResponse.md)
  - [LoanProposal](docs/LoanProposal.md)
  - [LoanProposalApproval](docs/LoanProposalApproval.md)
@@ -386,7 +382,6 @@ Class | Method | HTTP request | Description
  - [MarkDelta](docs/MarkDelta.md)
  - [ModelReturn](docs/ModelReturn.md)
  - [OneOfLoanAmendmentLoanAmendmentStatusReason](docs/OneOfLoanAmendmentLoanAmendmentStatusReason.md)
- - [OneOfLoanDeclineErrorReasonFieldRateExpectedValue](docs/OneOfLoanDeclineErrorReasonFieldRateExpectedValue.md)
  - [OneOfLoanLoanStatusReason](docs/OneOfLoanLoanStatusReason.md)
  - [OneOfRebateRateRebate](docs/OneOfRebateRateRebate.md)
  - [OneOfRerateDeclineErrorReasonFieldValueExpectedValue](docs/OneOfRerateDeclineErrorReasonFieldValueExpectedValue.md)
@@ -466,4 +461,4 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 ## Last Update
 
-Tuesday, September 9, 2025 15:13:10
+Tuesday, October 14, 2025 15:13:10
