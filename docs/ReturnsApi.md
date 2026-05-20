@@ -10,12 +10,13 @@ Method | HTTP request | Description
 [**ledgerLoansLoanIdReturnsReturnIdCancelPost**](ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdCancelPost) | **POST** /ledger/loans/{loanId}/returns/{returnId}/cancel | Cancel a return in \&quot;proposed\&quot; or \&quot;pending\&quot; state. Original proposer only.
 [**ledgerLoansLoanIdReturnsReturnIdGet**](ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdGet) | **GET** /ledger/loans/{loanId}/returns/{returnId} | Read a return
 [**ledgerLoansLoanIdReturnsReturnIdPatch**](ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdPatch) | **PATCH** /ledger/loans/{loanId}/returns/{returnId} | Update unilateral fields on a return
+[**ledgerLoansLoanIdReturnsReturnIdUnwindPost**](ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdUnwindPost) | **POST** /ledger/loans/{loanId}/returns/{returnId}/unwind | Unwind/close a return that settled on the current date. Either party can initiate.
 [**ledgerReturnsGet**](ReturnsApi.md#ledgerReturnsGet) | **GET** /ledger/returns | Read collection of returns
 [**ledgerReturnsReturnIdGet**](ReturnsApi.md#ledgerReturnsReturnIdGet) | **GET** /ledger/returns/{returnId} | Read a return
 
 <a name="ledgerLoansLoanIdReturnsGet"></a>
 # **ledgerLoansLoanIdReturnsGet**
-> Returns ledgerLoansLoanIdReturnsGet(loanId, since, before, size, returnStatus)
+> Returns ledgerLoansLoanIdReturnsGet(loanId, since, before, size, returnStatus, sortOrder, sortField)
 
 Read collection of returns against loan specified by &#x27;loanId&#x27;
 
@@ -40,8 +41,10 @@ OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Returns updated
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Returns updated (before) timestamp UTC
 Integer size = 56; // Integer | Number of returns to fetch. Can be used to facilitate paging
 ReturnStatus returnStatus = new ReturnStatus(); // ReturnStatus | Returns with status matching RETURN STATUS
+SortOrder sortOrder = new SortOrder(); // SortOrder | Sort events by order of creation ascending or descending. Defaults to ASCENDING
+ReturnSortField sortField = new ReturnSortField(); // ReturnSortField | Field to sort by. Defaults to LASTUPDATEDATE
 try {
-    Returns result = apiInstance.ledgerLoansLoanIdReturnsGet(loanId, since, before, size, returnStatus);
+    Returns result = apiInstance.ledgerLoansLoanIdReturnsGet(loanId, since, before, size, returnStatus, sortOrder, sortField);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReturnsApi#ledgerLoansLoanIdReturnsGet");
@@ -58,6 +61,8 @@ Name | Type | Description  | Notes
  **before** | [**OffsetDateTime**](.md)| Returns updated (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of returns to fetch. Can be used to facilitate paging | [optional]
  **returnStatus** | [**ReturnStatus**](.md)| Returns with status matching RETURN STATUS | [optional]
+ **sortOrder** | [**SortOrder**](.md)| Sort events by order of creation ascending or descending. Defaults to ASCENDING | [optional]
+ **sortField** | [**ReturnSortField**](.md)| Field to sort by. Defaults to LASTUPDATEDATE | [optional]
 
 ### Return type
 
@@ -340,9 +345,62 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="ledgerLoansLoanIdReturnsReturnIdUnwindPost"></a>
+# **ledgerLoansLoanIdReturnsReturnIdUnwindPost**
+> LedgerResponse ledgerLoansLoanIdReturnsReturnIdUnwindPost(loanId, returnId)
+
+Unwind/close a return that settled on the current date. Either party can initiate.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.ReturnsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+ReturnsApi apiInstance = new ReturnsApi();
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+String returnId = "returnId_example"; // String | The unique identifier of a return
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdReturnsReturnIdUnwindPost(loanId, returnId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReturnsApi#ledgerLoansLoanIdReturnsReturnIdUnwindPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+ **returnId** | [**String**](.md)| The unique identifier of a return |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="ledgerReturnsGet"></a>
 # **ledgerReturnsGet**
-> Returns ledgerReturnsGet(since, before, size, returnStatus)
+> Returns ledgerReturnsGet(since, before, size, returnStatus, sortOrder, sortField)
 
 Read collection of returns
 
@@ -366,8 +424,10 @@ OffsetDateTime since = new OffsetDateTime(); // OffsetDateTime | Returns updated
 OffsetDateTime before = new OffsetDateTime(); // OffsetDateTime | Returns updated (before) timestamp UTC
 Integer size = 56; // Integer | Number of returns to be returned. Can be used to facilitate paging
 ReturnStatus returnStatus = new ReturnStatus(); // ReturnStatus | Returns matching status RETURN STATUS
+SortOrder sortOrder = new SortOrder(); // SortOrder | Sort events by order of creation ascending or descending. Defaults to ASCENDING
+ReturnSortField sortField = new ReturnSortField(); // ReturnSortField | Field to sort by. Defaults to LASTUPDATEDATE
 try {
-    Returns result = apiInstance.ledgerReturnsGet(since, before, size, returnStatus);
+    Returns result = apiInstance.ledgerReturnsGet(since, before, size, returnStatus, sortOrder, sortField);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReturnsApi#ledgerReturnsGet");
@@ -383,6 +443,8 @@ Name | Type | Description  | Notes
  **before** | [**OffsetDateTime**](.md)| Returns updated (before) timestamp UTC | [optional]
  **size** | **Integer**| Number of returns to be returned. Can be used to facilitate paging | [optional]
  **returnStatus** | [**ReturnStatus**](.md)| Returns matching status RETURN STATUS | [optional]
+ **sortOrder** | [**SortOrder**](.md)| Sort events by order of creation ascending or descending. Defaults to ASCENDING | [optional]
+ **sortField** | [**ReturnSortField**](.md)| Field to sort by. Defaults to LASTUPDATEDATE | [optional]
 
 ### Return type
 

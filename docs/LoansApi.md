@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost**](LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost) | **POST** /ledger/loans/{loanId}/split/{loanSplitId}/acknowledge | Acknowledge a loan split in \&quot;proposed\&quot; state.
 [**ledgerLoansLoanIdSplitLoanSplitIdGet**](LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdGet) | **GET** /ledger/loans/{loanId}/split/{loanSplitId} | Retrieve a loan split.
 [**ledgerLoansLoanIdSplitPost**](LoansApi.md#ledgerLoansLoanIdSplitPost) | **POST** /ledger/loans/{loanId}/split | Split an open loan into multiple lots
+[**ledgerLoansLoanIdUnwindPost**](LoansApi.md#ledgerLoansLoanIdUnwindPost) | **POST** /ledger/loans/{loanId}/unwind | Unwind/Close a loan in \&quot;open\&quot; state. Either party can initiate.
 [**ledgerLoansPost**](LoansApi.md#ledgerLoansPost) | **POST** /ledger/loans | Create a loan in \&quot;proposal\&quot; state. Normally done by the Lend side
 
 <a name="ledgerLoansGet"></a>
@@ -983,6 +984,59 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**List&lt;LoanSplitProposalLot&gt;**](LoanSplitProposalLot.md)| Split proposed against loan |
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="ledgerLoansLoanIdUnwindPost"></a>
+# **ledgerLoansLoanIdUnwindPost**
+> LedgerResponse ledgerLoansLoanIdUnwindPost(body, loanId)
+
+Unwind/Close a loan in \&quot;open\&quot; state. Either party can initiate.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.LoansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+LoansApi apiInstance = new LoansApi();
+LoanCloseErrorResponse body = new LoanCloseErrorResponse(); // LoanCloseErrorResponse | Loan amendment proposed for updating the ledger
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdUnwindPost(body, loanId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdUnwindPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**LoanCloseErrorResponse**](LoanCloseErrorResponse.md)| Loan amendment proposed for updating the ledger |
  **loanId** | [**String**](.md)| The unique identifier of a loan |
 
 ### Return type

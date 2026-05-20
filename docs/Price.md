@@ -7,3 +7,4 @@ Name | Type | Description | Notes
 **currency** | [**CurrencyCd**](CurrencyCd.md) |  | 
 **priceBasis** | [**PriceBasis**](PriceBasis.md) |  |  [optional]
 **valueDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
+**source** | [**PriceSource**](PriceSource.md) |  |  [optional]

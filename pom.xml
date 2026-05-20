@@ -6,7 +6,7 @@
 	<artifactId>1source-api-client</artifactId>
 	<packaging>jar</packaging>
 	<name>1source-api-client</name>
-	<version>1.2.2.5</version>
+	<version>1.3.0</version>
 	<url>https://github.com/swagger-api/swagger-codegen</url>
 	<description>Swagger Java</description>
 	<scm>
@@ -39,7 +39,8 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub Equilend Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/Equilend/1source-codegen-client-api</url>
+			<url>
+				https://maven.pkg.github.com/Equilend/1source-codegen-client-api</url>
 		</repository>
 	</distributionManagement>
 	<build>
