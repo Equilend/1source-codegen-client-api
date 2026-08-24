@@ -1,8 +1,8 @@
 # 1source-api-client
 
 1Source Ledger API
-- API version: 1.2.2.5
-  - Build date: 2025-10-14T13:59:13.627830062Z[GMT]
+- API version: 1.3.0
+  - Build date: 2026-05-20T13:50:35.588595502Z[GMT]
 
 1Source Ledger API provides client access to the 1Source Ledger. You can find out more about 1Source at [https://equilend.com](https://equilend.com).  This specification is work in progress. The design is meant to model the securities lending life cycle in as clean a way as possible while being robust enough to easily translate to ISLA CDM workflows and data model.  API specification is the intellectual property of EquiLend LLC and should not be copied or disseminated in any way. 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.os</groupId>
   <artifactId>1source-api-client</artifactId>
-  <version>1.2.2.5</version>
+  <version>1.3.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -85,12 +85,13 @@ Also, to use the GitHub Packages repository for downloading SNAPSHOT artifacts, 
 </settings>
 ```
 
+
 ### Gradle users
 
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.os:1source-api-client:1.2.2.5"
+compile "com.os:1source-api-client:1.3.0"
 ```
 
 Add the repository to your build.gradle file (Gradle Groovy). Replace USERNAME with your GitHub username, and TOKEN with your personal access token that has read:packages permission.
@@ -116,7 +117,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/1source-api-client-1.2.2.5.jar`
+* `target/1source-api-client-1.3.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -285,6 +286,7 @@ Class | Method | HTTP request | Description
 *LoansApi* | [**ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost**](docs/LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost) | **POST** /ledger/loans/{loanId}/split/{loanSplitId}/acknowledge | Acknowledge a loan split in \&quot;proposed\&quot; state.
 *LoansApi* | [**ledgerLoansLoanIdSplitLoanSplitIdGet**](docs/LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdGet) | **GET** /ledger/loans/{loanId}/split/{loanSplitId} | Retrieve a loan split.
 *LoansApi* | [**ledgerLoansLoanIdSplitPost**](docs/LoansApi.md#ledgerLoansLoanIdSplitPost) | **POST** /ledger/loans/{loanId}/split | Split an open loan into multiple lots
+*LoansApi* | [**ledgerLoansLoanIdUnwindPost**](docs/LoansApi.md#ledgerLoansLoanIdUnwindPost) | **POST** /ledger/loans/{loanId}/unwind | Unwind/Close a loan in \&quot;open\&quot; state. Either party can initiate.
 *LoansApi* | [**ledgerLoansPost**](docs/LoansApi.md#ledgerLoansPost) | **POST** /ledger/loans | Create a loan in \&quot;proposal\&quot; state. Normally done by the Lend side
 *PartiesApi* | [**ledgerPartiesGet**](docs/PartiesApi.md#ledgerPartiesGet) | **GET** /ledger/parties | Read a collection of registered trading parties.
 *RecallsApi* | [**ledgerLoansLoanIdRecallsGet**](docs/RecallsApi.md#ledgerLoansLoanIdRecallsGet) | **GET** /ledger/loans/{loanId}/recalls | Read collection of recalls against loan specified by &#x27;loanId&#x27;
@@ -310,6 +312,7 @@ Class | Method | HTTP request | Description
 *ReturnsApi* | [**ledgerLoansLoanIdReturnsReturnIdCancelPost**](docs/ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdCancelPost) | **POST** /ledger/loans/{loanId}/returns/{returnId}/cancel | Cancel a return in \&quot;proposed\&quot; or \&quot;pending\&quot; state. Original proposer only.
 *ReturnsApi* | [**ledgerLoansLoanIdReturnsReturnIdGet**](docs/ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdGet) | **GET** /ledger/loans/{loanId}/returns/{returnId} | Read a return
 *ReturnsApi* | [**ledgerLoansLoanIdReturnsReturnIdPatch**](docs/ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdPatch) | **PATCH** /ledger/loans/{loanId}/returns/{returnId} | Update unilateral fields on a return
+*ReturnsApi* | [**ledgerLoansLoanIdReturnsReturnIdUnwindPost**](docs/ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdUnwindPost) | **POST** /ledger/loans/{loanId}/returns/{returnId}/unwind | Unwind/close a return that settled on the current date. Either party can initiate.
 *ReturnsApi* | [**ledgerReturnsGet**](docs/ReturnsApi.md#ledgerReturnsGet) | **GET** /ledger/returns | Read collection of returns
 *ReturnsApi* | [**ledgerReturnsReturnIdGet**](docs/ReturnsApi.md#ledgerReturnsReturnIdGet) | **GET** /ledger/returns/{returnId} | Read a return
 
@@ -330,6 +333,8 @@ Class | Method | HTTP request | Description
  - [CollateralDescription](docs/CollateralDescription.md)
  - [CollateralType](docs/CollateralType.md)
  - [CurrencyCd](docs/CurrencyCd.md)
+ - [Custodian](docs/Custodian.md)
+ - [CustodianType](docs/CustodianType.md)
  - [Delegation](docs/Delegation.md)
  - [DelegationAuthorization](docs/DelegationAuthorization.md)
  - [DelegationAuthorizationType](docs/DelegationAuthorizationType.md)
@@ -392,8 +397,10 @@ Class | Method | HTTP request | Description
  - [PartySettlementInstruction](docs/PartySettlementInstruction.md)
  - [PartySettlementInstructionUpdate](docs/PartySettlementInstructionUpdate.md)
  - [PartyType](docs/PartyType.md)
+ - [Prepay](docs/Prepay.md)
  - [Price](docs/Price.md)
  - [PriceBasis](docs/PriceBasis.md)
+ - [PriceSource](docs/PriceSource.md)
  - [Rate](docs/Rate.md)
  - [Rates](docs/Rates.md)
  - [RebateRate](docs/RebateRate.md)
@@ -420,6 +427,7 @@ Class | Method | HTTP request | Description
  - [ReturnInternalReferenceUpdate](docs/ReturnInternalReferenceUpdate.md)
  - [ReturnPartyInternalReference](docs/ReturnPartyInternalReference.md)
  - [ReturnProposal](docs/ReturnProposal.md)
+ - [ReturnSortField](docs/ReturnSortField.md)
  - [ReturnStatus](docs/ReturnStatus.md)
  - [Returns](docs/Returns.md)
  - [ReturnsReturnIdBody](docs/ReturnsReturnIdBody.md)
@@ -439,6 +447,7 @@ Class | Method | HTTP request | Description
  - [VenueReferenceKeyUpdate](docs/VenueReferenceKeyUpdate.md)
  - [VenueTradeAgreement](docs/VenueTradeAgreement.md)
  - [Venues](docs/Venues.md)
+ - [YesNoType](docs/YesNoType.md)
 
 ## Documentation for Authorization
 
@@ -461,4 +470,4 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 ## Last Update
 
-Tuesday, October 14, 2025 15:13:10
+Wednesday, May 20, 2026 10:07:10

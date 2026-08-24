@@ -11,10 +11,11 @@ Name | Type | Description | Notes
 **collateral** | [**Collateral**](Collateral.md) |  |  [optional]
 **settlementType** | [**SettlementType**](SettlementType.md) |  |  [optional]
 **returnDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
-**returnSettlementDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
+**settlementDate** | [**LocalDate**](LocalDate.md) |  |  [optional]
 **acknowledgementType** | [**AcknowledgementType**](AcknowledgementType.md) |  |  [optional]
 **description** | **String** |  |  [optional]
 **settlement** | [**List&lt;PartySettlementInstruction&gt;**](PartySettlementInstruction.md) |  |  [optional]
 **lastUpdateDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
 **returnInternalReferences** | [**List&lt;ReturnPartyInternalReference&gt;**](ReturnPartyInternalReference.md) |  |  [optional]
 **doNotInstruct** | **Boolean** |  |  [optional]
+**createDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]

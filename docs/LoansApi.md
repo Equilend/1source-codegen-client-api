@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**ledgerLoansLoanIdApprovePost**](LoansApi.md#ledgerLoansLoanIdApprovePost) | **POST** /ledger/loans/{loanId}/approve | Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
 [**ledgerLoansLoanIdCancelPost**](LoansApi.md#ledgerLoansLoanIdCancelPost) | **POST** /ledger/loans/{loanId}/cancel | Cancel a loan in \&quot;proposed\&quot; state. Original proposer only.
 [**ledgerLoansLoanIdCancelpendingPost**](LoansApi.md#ledgerLoansLoanIdCancelpendingPost) | **POST** /ledger/loans/{loanId}/cancelpending | Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
-[**ledgerLoansLoanIdClosePost**](LoansApi.md#ledgerLoansLoanIdClosePost) | **POST** /ledger/loans/{loanId}/close | Close a loan in \&quot;open\&quot; state. Either party can initiate.
 [**ledgerLoansLoanIdDeclinePost**](LoansApi.md#ledgerLoansLoanIdDeclinePost) | **POST** /ledger/loans/{loanId}/decline | Decline a loan in \&quot;proposed\&quot; state
 [**ledgerLoansLoanIdGet**](LoansApi.md#ledgerLoansLoanIdGet) | **GET** /ledger/loans/{loanId} | Read a specific loan the user is authorized to access
 [**ledgerLoansLoanIdHistoryGet**](LoansApi.md#ledgerLoansLoanIdHistoryGet) | **GET** /ledger/loans/{loanId}/history | Return an ordered history of this loan. Each loan has a reference event that triggered a new version.
@@ -22,6 +21,10 @@ Method | HTTP request | Description
 [**ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost**](LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdAcknowledgePost) | **POST** /ledger/loans/{loanId}/split/{loanSplitId}/acknowledge | Acknowledge a loan split in \&quot;proposed\&quot; state.
 [**ledgerLoansLoanIdSplitLoanSplitIdGet**](LoansApi.md#ledgerLoansLoanIdSplitLoanSplitIdGet) | **GET** /ledger/loans/{loanId}/split/{loanSplitId} | Retrieve a loan split.
 [**ledgerLoansLoanIdSplitPost**](LoansApi.md#ledgerLoansLoanIdSplitPost) | **POST** /ledger/loans/{loanId}/split | Split an open loan into multiple lots
+[**ledgerLoansLoanIdUnwindApprovePost**](LoansApi.md#ledgerLoansLoanIdUnwindApprovePost) | **POST** /ledger/loans/{loanId}/unwind/approve | Approve the unwind of a loan in \&quot;open\&quot; state.
+[**ledgerLoansLoanIdUnwindCancelPost**](LoansApi.md#ledgerLoansLoanIdUnwindCancelPost) | **POST** /ledger/loans/{loanId}/unwind/cancel | Cancel the unwind of a loan in \&quot;open\&quot; state.
+[**ledgerLoansLoanIdUnwindDeclinePost**](LoansApi.md#ledgerLoansLoanIdUnwindDeclinePost) | **POST** /ledger/loans/{loanId}/unwind/decline | Decline the unwind of a loan in \&quot;open\&quot; state.
+[**ledgerLoansLoanIdUnwindPost**](LoansApi.md#ledgerLoansLoanIdUnwindPost) | **POST** /ledger/loans/{loanId}/unwind | Unwind/Close a loan in \&quot;open\&quot; state. Either party can initiate.
 [**ledgerLoansPost**](LoansApi.md#ledgerLoansPost) | **POST** /ledger/loans | Create a loan in \&quot;proposal\&quot; state. Normally done by the Lend side
 
 <a name="ledgerLoansGet"></a>
@@ -507,59 +510,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="ledgerLoansLoanIdClosePost"></a>
-# **ledgerLoansLoanIdClosePost**
-> LedgerResponse ledgerLoansLoanIdClosePost(body, loanId)
-
-Close a loan in \&quot;open\&quot; state. Either party can initiate.
-
-### Example
-```java
-// Import classes:
-//import com.os.client.invoker.ApiClient;
-//import com.os.client.invoker.ApiException;
-//import com.os.client.invoker.Configuration;
-//import com.os.client.invoker.auth.*;
-//import com.os.client.api.LoansApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: stage_auth
-OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
-stage_auth.setAccessToken("YOUR ACCESS TOKEN");
-
-LoansApi apiInstance = new LoansApi();
-LoanCloseErrorResponse body = new LoanCloseErrorResponse(); // LoanCloseErrorResponse | Loan amendment proposed for updating the ledger
-String loanId = "loanId_example"; // String | The unique identifier of a loan
-try {
-    LedgerResponse result = apiInstance.ledgerLoansLoanIdClosePost(body, loanId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdClosePost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**LoanCloseErrorResponse**](LoanCloseErrorResponse.md)| Loan amendment proposed for updating the ledger |
- **loanId** | [**String**](.md)| The unique identifier of a loan |
-
-### Return type
-
-[**LedgerResponse**](LedgerResponse.md)
-
-### Authorization
-
-[stage_auth](../README.md#stage_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
 <a name="ledgerLoansLoanIdDeclinePost"></a>
 # **ledgerLoansLoanIdDeclinePost**
 > LedgerResponse ledgerLoansLoanIdDeclinePost(body, loanId)
@@ -996,6 +946,210 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="ledgerLoansLoanIdUnwindApprovePost"></a>
+# **ledgerLoansLoanIdUnwindApprovePost**
+> LedgerResponse ledgerLoansLoanIdUnwindApprovePost(loanId)
+
+Approve the unwind of a loan in \&quot;open\&quot; state.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.LoansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+LoansApi apiInstance = new LoansApi();
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdUnwindApprovePost(loanId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdUnwindApprovePost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="ledgerLoansLoanIdUnwindCancelPost"></a>
+# **ledgerLoansLoanIdUnwindCancelPost**
+> LedgerResponse ledgerLoansLoanIdUnwindCancelPost(loanId)
+
+Cancel the unwind of a loan in \&quot;open\&quot; state.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.LoansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+LoansApi apiInstance = new LoansApi();
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdUnwindCancelPost(loanId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdUnwindCancelPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="ledgerLoansLoanIdUnwindDeclinePost"></a>
+# **ledgerLoansLoanIdUnwindDeclinePost**
+> LedgerResponse ledgerLoansLoanIdUnwindDeclinePost(loanId)
+
+Decline the unwind of a loan in \&quot;open\&quot; state.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.LoansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+LoansApi apiInstance = new LoansApi();
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdUnwindDeclinePost(loanId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdUnwindDeclinePost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="ledgerLoansLoanIdUnwindPost"></a>
+# **ledgerLoansLoanIdUnwindPost**
+> LedgerResponse ledgerLoansLoanIdUnwindPost(loanId)
+
+Unwind/Close a loan in \&quot;open\&quot; state. Either party can initiate.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.LoansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+LoansApi apiInstance = new LoansApi();
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdUnwindPost(loanId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LoansApi#ledgerLoansLoanIdUnwindPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="ledgerLoansPost"></a>

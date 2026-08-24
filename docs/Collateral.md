@@ -14,3 +14,5 @@ Name | Type | Description | Notes
 **roundingMode** | [**RoundingMode**](RoundingMode.md) |  |  [optional]
 **minimumMarkPrice** | **Double** |  |  [optional]
 **mark** | [**MarkDelta**](MarkDelta.md) |  |  [optional]
+**prepay** | [**Prepay**](Prepay.md) |  |  [optional]
+**custodian** | [**Custodian**](Custodian.md) |  |  [optional]

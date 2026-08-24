@@ -15,3 +15,4 @@ Name | Type | Description | Notes
 **description** | **String** |  |  [optional]
 **lastUpdateDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
 **recallInternalReferences** | [**List&lt;RecallPartyInternalReference&gt;**](RecallPartyInternalReference.md) |  |  [optional]
+**createDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]

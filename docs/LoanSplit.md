@@ -8,3 +8,4 @@ Name | Type | Description | Notes
 **loanId** | **String** |  |  [optional]
 **splitLots** | [**List&lt;LoanSplitLot&gt;**](LoanSplitLot.md) |  |  [optional]
 **lastUpdateDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
+**createDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
