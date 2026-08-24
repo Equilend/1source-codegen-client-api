@@ -32,7 +32,6 @@ import com.os.client.model.Loan;
 import com.os.client.model.LoanAmendment;
 import com.os.client.model.LoanAmendmentProposal;
 import com.os.client.model.LoanCancelErrorResponse;
-import com.os.client.model.LoanCloseErrorResponse;
 import com.os.client.model.LoanDeclineErrorResponse;
 import com.os.client.model.LoanProposal;
 import com.os.client.model.LoanProposalApproval;
@@ -1320,142 +1319,6 @@ public class LoansApi {
         return call;
     }
     /**
-     * Build call for ledgerLoansLoanIdClosePost
-     * @param body Loan amendment proposed for updating the ledger (required)
-     * @param loanId The unique identifier of a loan (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call ledgerLoansLoanIdClosePostCall(LoanCloseErrorResponse body, String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/ledger/loans/{loanId}/close"
-            .replaceAll("\\{" + "loanId" + "\\}", apiClient.escapeString(loanId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "stage_auth" };
-        if (headers != null) {
-            localVarHeaderParams.putAll(headers);
-        }
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ledgerLoansLoanIdClosePostValidateBeforeCall(LoanCloseErrorResponse body, String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling ledgerLoansLoanIdClosePost(Async)");
-        }
-        // verify the required parameter 'loanId' is set
-        if (loanId == null) {
-            throw new ApiException("Missing the required parameter 'loanId' when calling ledgerLoansLoanIdClosePost(Async)");
-        }
-        
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdClosePostCall(body, loanId, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Close a loan in \&quot;open\&quot; state. Either party can initiate.
-     * 
-     * @param body Loan amendment proposed for updating the ledger (required)
-     * @param loanId The unique identifier of a loan (required)
-     * @return LedgerResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public LedgerResponse ledgerLoansLoanIdClosePost(LoanCloseErrorResponse body, String loanId) throws ApiException {
-        ApiResponse<LedgerResponse> resp = ledgerLoansLoanIdClosePostWithHttpInfo(body, loanId);
-        return resp.getData();
-    }
-
-    /**
-     * Close a loan in \&quot;open\&quot; state. Either party can initiate.
-     * 
-     * @param body Loan amendment proposed for updating the ledger (required)
-     * @param loanId The unique identifier of a loan (required)
-     * @return ApiResponse&lt;LedgerResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<LedgerResponse> ledgerLoansLoanIdClosePostWithHttpInfo(LoanCloseErrorResponse body, String loanId) throws ApiException {
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdClosePostValidateBeforeCall(body, loanId, null, null);
-        Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Close a loan in \&quot;open\&quot; state. Either party can initiate. (asynchronously)
-     * 
-     * @param body Loan amendment proposed for updating the ledger (required)
-     * @param loanId The unique identifier of a loan (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call ledgerLoansLoanIdClosePostAsync(LoanCloseErrorResponse body, String loanId, final ApiCallback<LedgerResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdClosePostValidateBeforeCall(body, loanId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for ledgerLoansLoanIdDeclinePost
      * @param body Provide reason and details for declining loan proposal (required)
      * @param loanId The unique identifier of a loan (required)
@@ -2580,19 +2443,18 @@ public class LoansApi {
         return call;
     }
     /**
-     * Build call for ledgerLoansLoanIdUnwindPost
-     * @param body Loan amendment proposed for updating the ledger (required)
+     * Build call for ledgerLoansLoanIdUnwindApprovePost
      * @param loanId The unique identifier of a loan (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ledgerLoansLoanIdUnwindPostCall(LoanCloseErrorResponse body, String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
+    public com.squareup.okhttp.Call ledgerLoansLoanIdUnwindApprovePostCall(String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/ledger/loans/{loanId}/unwind"
+        String localVarPath = "/ledger/loans/{loanId}/unwind/approve"
             .replaceAll("\\{" + "loanId" + "\\}", apiClient.escapeString(loanId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2609,7 +2471,7 @@ public class LoansApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2634,17 +2496,13 @@ public class LoansApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ledgerLoansLoanIdUnwindPostValidateBeforeCall(LoanCloseErrorResponse body, String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling ledgerLoansLoanIdUnwindPost(Async)");
-        }
+    private com.squareup.okhttp.Call ledgerLoansLoanIdUnwindApprovePostValidateBeforeCall(String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'loanId' is set
         if (loanId == null) {
-            throw new ApiException("Missing the required parameter 'loanId' when calling ledgerLoansLoanIdUnwindPost(Async)");
+            throw new ApiException("Missing the required parameter 'loanId' when calling ledgerLoansLoanIdUnwindApprovePost(Async)");
         }
         
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindPostCall(body, loanId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindApprovePostCall(loanId, progressListener, progressRequestListener);
         return call;
 
         
@@ -2654,42 +2512,39 @@ public class LoansApi {
     }
 
     /**
-     * Unwind/Close a loan in \&quot;open\&quot; state. Either party can initiate.
+     * Approve the unwind of a loan in \&quot;open\&quot; state.
      * 
-     * @param body Loan amendment proposed for updating the ledger (required)
      * @param loanId The unique identifier of a loan (required)
      * @return LedgerResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public LedgerResponse ledgerLoansLoanIdUnwindPost(LoanCloseErrorResponse body, String loanId) throws ApiException {
-        ApiResponse<LedgerResponse> resp = ledgerLoansLoanIdUnwindPostWithHttpInfo(body, loanId);
+    public LedgerResponse ledgerLoansLoanIdUnwindApprovePost(String loanId) throws ApiException {
+        ApiResponse<LedgerResponse> resp = ledgerLoansLoanIdUnwindApprovePostWithHttpInfo(loanId);
         return resp.getData();
     }
 
     /**
-     * Unwind/Close a loan in \&quot;open\&quot; state. Either party can initiate.
+     * Approve the unwind of a loan in \&quot;open\&quot; state.
      * 
-     * @param body Loan amendment proposed for updating the ledger (required)
      * @param loanId The unique identifier of a loan (required)
      * @return ApiResponse&lt;LedgerResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<LedgerResponse> ledgerLoansLoanIdUnwindPostWithHttpInfo(LoanCloseErrorResponse body, String loanId) throws ApiException {
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindPostValidateBeforeCall(body, loanId, null, null);
+    public ApiResponse<LedgerResponse> ledgerLoansLoanIdUnwindApprovePostWithHttpInfo(String loanId) throws ApiException {
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindApprovePostValidateBeforeCall(loanId, null, null);
         Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Unwind/Close a loan in \&quot;open\&quot; state. Either party can initiate. (asynchronously)
+     * Approve the unwind of a loan in \&quot;open\&quot; state. (asynchronously)
      * 
-     * @param body Loan amendment proposed for updating the ledger (required)
      * @param loanId The unique identifier of a loan (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ledgerLoansLoanIdUnwindPostAsync(LoanCloseErrorResponse body, String loanId, final ApiCallback<LedgerResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call ledgerLoansLoanIdUnwindApprovePostAsync(String loanId, final ApiCallback<LedgerResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2710,7 +2565,391 @@ public class LoansApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindPostValidateBeforeCall(body, loanId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindApprovePostValidateBeforeCall(loanId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for ledgerLoansLoanIdUnwindCancelPost
+     * @param loanId The unique identifier of a loan (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call ledgerLoansLoanIdUnwindCancelPostCall(String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/ledger/loans/{loanId}/unwind/cancel"
+            .replaceAll("\\{" + "loanId" + "\\}", apiClient.escapeString(loanId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call ledgerLoansLoanIdUnwindCancelPostValidateBeforeCall(String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'loanId' is set
+        if (loanId == null) {
+            throw new ApiException("Missing the required parameter 'loanId' when calling ledgerLoansLoanIdUnwindCancelPost(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindCancelPostCall(loanId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Cancel the unwind of a loan in \&quot;open\&quot; state.
+     * 
+     * @param loanId The unique identifier of a loan (required)
+     * @return LedgerResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LedgerResponse ledgerLoansLoanIdUnwindCancelPost(String loanId) throws ApiException {
+        ApiResponse<LedgerResponse> resp = ledgerLoansLoanIdUnwindCancelPostWithHttpInfo(loanId);
+        return resp.getData();
+    }
+
+    /**
+     * Cancel the unwind of a loan in \&quot;open\&quot; state.
+     * 
+     * @param loanId The unique identifier of a loan (required)
+     * @return ApiResponse&lt;LedgerResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LedgerResponse> ledgerLoansLoanIdUnwindCancelPostWithHttpInfo(String loanId) throws ApiException {
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindCancelPostValidateBeforeCall(loanId, null, null);
+        Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Cancel the unwind of a loan in \&quot;open\&quot; state. (asynchronously)
+     * 
+     * @param loanId The unique identifier of a loan (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call ledgerLoansLoanIdUnwindCancelPostAsync(String loanId, final ApiCallback<LedgerResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindCancelPostValidateBeforeCall(loanId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for ledgerLoansLoanIdUnwindDeclinePost
+     * @param loanId The unique identifier of a loan (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call ledgerLoansLoanIdUnwindDeclinePostCall(String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/ledger/loans/{loanId}/unwind/decline"
+            .replaceAll("\\{" + "loanId" + "\\}", apiClient.escapeString(loanId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call ledgerLoansLoanIdUnwindDeclinePostValidateBeforeCall(String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'loanId' is set
+        if (loanId == null) {
+            throw new ApiException("Missing the required parameter 'loanId' when calling ledgerLoansLoanIdUnwindDeclinePost(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindDeclinePostCall(loanId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Decline the unwind of a loan in \&quot;open\&quot; state.
+     * 
+     * @param loanId The unique identifier of a loan (required)
+     * @return LedgerResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LedgerResponse ledgerLoansLoanIdUnwindDeclinePost(String loanId) throws ApiException {
+        ApiResponse<LedgerResponse> resp = ledgerLoansLoanIdUnwindDeclinePostWithHttpInfo(loanId);
+        return resp.getData();
+    }
+
+    /**
+     * Decline the unwind of a loan in \&quot;open\&quot; state.
+     * 
+     * @param loanId The unique identifier of a loan (required)
+     * @return ApiResponse&lt;LedgerResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LedgerResponse> ledgerLoansLoanIdUnwindDeclinePostWithHttpInfo(String loanId) throws ApiException {
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindDeclinePostValidateBeforeCall(loanId, null, null);
+        Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Decline the unwind of a loan in \&quot;open\&quot; state. (asynchronously)
+     * 
+     * @param loanId The unique identifier of a loan (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call ledgerLoansLoanIdUnwindDeclinePostAsync(String loanId, final ApiCallback<LedgerResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindDeclinePostValidateBeforeCall(loanId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for ledgerLoansLoanIdUnwindPost
+     * @param loanId The unique identifier of a loan (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call ledgerLoansLoanIdUnwindPostCall(String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/ledger/loans/{loanId}/unwind"
+            .replaceAll("\\{" + "loanId" + "\\}", apiClient.escapeString(loanId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "stage_auth" };
+        if (headers != null) {
+            localVarHeaderParams.putAll(headers);
+        }
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call ledgerLoansLoanIdUnwindPostValidateBeforeCall(String loanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'loanId' is set
+        if (loanId == null) {
+            throw new ApiException("Missing the required parameter 'loanId' when calling ledgerLoansLoanIdUnwindPost(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindPostCall(loanId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Unwind/Close a loan in \&quot;open\&quot; state. Either party can initiate.
+     * 
+     * @param loanId The unique identifier of a loan (required)
+     * @return LedgerResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LedgerResponse ledgerLoansLoanIdUnwindPost(String loanId) throws ApiException {
+        ApiResponse<LedgerResponse> resp = ledgerLoansLoanIdUnwindPostWithHttpInfo(loanId);
+        return resp.getData();
+    }
+
+    /**
+     * Unwind/Close a loan in \&quot;open\&quot; state. Either party can initiate.
+     * 
+     * @param loanId The unique identifier of a loan (required)
+     * @return ApiResponse&lt;LedgerResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LedgerResponse> ledgerLoansLoanIdUnwindPostWithHttpInfo(String loanId) throws ApiException {
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindPostValidateBeforeCall(loanId, null, null);
+        Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Unwind/Close a loan in \&quot;open\&quot; state. Either party can initiate. (asynchronously)
+     * 
+     * @param loanId The unique identifier of a loan (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call ledgerLoansLoanIdUnwindPostAsync(String loanId, final ApiCallback<LedgerResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = ledgerLoansLoanIdUnwindPostValidateBeforeCall(loanId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<LedgerResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

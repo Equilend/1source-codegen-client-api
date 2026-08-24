@@ -34,7 +34,7 @@ import java.io.Serializable;
  * Recall
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-05-20T13:50:35.588595502Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-08-24T13:59:36.034138613Z[GMT]")
 
 public class Recall implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -73,6 +73,9 @@ public class Recall implements Serializable{
 
   @SerializedName("recallInternalReferences")
   private List<RecallPartyInternalReference> recallInternalReferences = null;
+
+  @SerializedName("createDateTime")
+  private OffsetDateTime createDateTime = null;
 
   public Recall recallId(String recallId) {
     this.recallId = recallId;
@@ -298,6 +301,24 @@ public class Recall implements Serializable{
     this.recallInternalReferences = recallInternalReferences;
   }
 
+  public Recall createDateTime(OffsetDateTime createDateTime) {
+    this.createDateTime = createDateTime;
+    return this;
+  }
+
+   /**
+   * Get createDateTime
+   * @return createDateTime
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getCreateDateTime() {
+    return createDateTime;
+  }
+
+  public void setCreateDateTime(OffsetDateTime createDateTime) {
+    this.createDateTime = createDateTime;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -319,12 +340,13 @@ public class Recall implements Serializable{
         Objects.equals(this.acknowledgementType, recall.acknowledgementType) &&
         Objects.equals(this.description, recall.description) &&
         Objects.equals(this.lastUpdateDateTime, recall.lastUpdateDateTime) &&
-        Objects.equals(this.recallInternalReferences, recall.recallInternalReferences);
+        Objects.equals(this.recallInternalReferences, recall.recallInternalReferences) &&
+        Objects.equals(this.createDateTime, recall.createDateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recallId, loanId, status, executionVenue, openQuantity, quantity, recallDate, recallDueDate, acknowledgementType, description, lastUpdateDateTime, recallInternalReferences);
+    return Objects.hash(recallId, loanId, status, executionVenue, openQuantity, quantity, recallDate, recallDueDate, acknowledgementType, description, lastUpdateDateTime, recallInternalReferences, createDateTime);
   }
 
 
@@ -345,6 +367,7 @@ public class Recall implements Serializable{
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    lastUpdateDateTime: ").append(toIndentedString(lastUpdateDateTime)).append("\n");
     sb.append("    recallInternalReferences: ").append(toIndentedString(recallInternalReferences)).append("\n");
+    sb.append("    createDateTime: ").append(toIndentedString(createDateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,7 +28,7 @@ import java.io.Serializable;
  * The effective date of the recall. The securities are expected to be returned on the recallDate.
  */
 @Schema(description = "The effective date of the recall. The securities are expected to be returned on the recallDate.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-05-20T13:50:35.588595502Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-08-24T13:59:36.034138613Z[GMT]")
 
 public class RecallProposal implements Serializable{
   private static final long serialVersionUID = 1L;

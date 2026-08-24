@@ -32,7 +32,7 @@ import java.io.Serializable;
  * The collateral value of the shares being returned, in the collateral currency on the loan loan.
  */
 @Schema(description = "The collateral value of the shares being returned, in the collateral currency on the loan loan.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-05-20T13:50:35.588595502Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-08-24T13:59:36.034138613Z[GMT]")
 
 public class ReturnProposal implements Serializable{
   private static final long serialVersionUID = 1L;

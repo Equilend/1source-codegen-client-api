@@ -32,7 +32,9 @@ public enum ReturnStatus {
   @SerializedName("CANCELED")
   CANCELED("CANCELED"),
   @SerializedName("SETTLED")
-  SETTLED("SETTLED");
+  SETTLED("SETTLED"),
+  @SerializedName("UNWIND_PENDING")
+  UNWIND_PENDING("UNWIND_PENDING");
 
   private String value;
 

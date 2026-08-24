@@ -31,7 +31,7 @@ import java.io.Serializable;
  * LoanSplit
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-05-20T13:50:35.588595502Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-08-24T13:59:36.034138613Z[GMT]")
 
 public class LoanSplit implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -49,6 +49,9 @@ public class LoanSplit implements Serializable{
 
   @SerializedName("lastUpdateDateTime")
   private OffsetDateTime lastUpdateDateTime = null;
+
+  @SerializedName("createDateTime")
+  private OffsetDateTime createDateTime = null;
 
   public LoanSplit loanSplitId(String loanSplitId) {
     this.loanSplitId = loanSplitId;
@@ -148,6 +151,24 @@ public class LoanSplit implements Serializable{
     this.lastUpdateDateTime = lastUpdateDateTime;
   }
 
+  public LoanSplit createDateTime(OffsetDateTime createDateTime) {
+    this.createDateTime = createDateTime;
+    return this;
+  }
+
+   /**
+   * Get createDateTime
+   * @return createDateTime
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getCreateDateTime() {
+    return createDateTime;
+  }
+
+  public void setCreateDateTime(OffsetDateTime createDateTime) {
+    this.createDateTime = createDateTime;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -162,12 +183,13 @@ public class LoanSplit implements Serializable{
         Objects.equals(this.loanSplitStatus, loanSplit.loanSplitStatus) &&
         Objects.equals(this.loanId, loanSplit.loanId) &&
         Objects.equals(this.splitLots, loanSplit.splitLots) &&
-        Objects.equals(this.lastUpdateDateTime, loanSplit.lastUpdateDateTime);
+        Objects.equals(this.lastUpdateDateTime, loanSplit.lastUpdateDateTime) &&
+        Objects.equals(this.createDateTime, loanSplit.createDateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loanSplitId, loanSplitStatus, loanId, splitLots, lastUpdateDateTime);
+    return Objects.hash(loanSplitId, loanSplitStatus, loanId, splitLots, lastUpdateDateTime, createDateTime);
   }
 
 
@@ -181,6 +203,7 @@ public class LoanSplit implements Serializable{
     sb.append("    loanId: ").append(toIndentedString(loanId)).append("\n");
     sb.append("    splitLots: ").append(toIndentedString(splitLots)).append("\n");
     sb.append("    lastUpdateDateTime: ").append(toIndentedString(lastUpdateDateTime)).append("\n");
+    sb.append("    createDateTime: ").append(toIndentedString(createDateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

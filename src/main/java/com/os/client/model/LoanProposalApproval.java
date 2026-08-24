@@ -28,7 +28,7 @@ import java.io.Serializable;
  * Internal reference is always required. If the proposal does not already have settlement instructions for the approving party, settlement is required. When a Lender is approving, the rounding rule, rounding mode are required. For non-OCC loans, minimum mark price is also required.
  */
 @Schema(description = "Internal reference is always required. If the proposal does not already have settlement instructions for the approving party, settlement is required. When a Lender is approving, the rounding rule, rounding mode are required. For non-OCC loans, minimum mark price is also required.")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-05-20T13:50:35.588595502Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-08-24T13:59:36.034138613Z[GMT]")
 
 public class LoanProposalApproval implements Serializable{
   private static final long serialVersionUID = 1L;

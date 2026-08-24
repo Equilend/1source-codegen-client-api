@@ -26,7 +26,7 @@ import java.io.Serializable;
  * * &#x60;dtcParticipantNumber&#x60; - Required if settlementBic &#x3D; DTCYUS33 * &#x60;cdsCustomerUnitId&#x60; - Required if settlementBic &#x3D; CDSLCATT  
  */
 @Schema(description = "* `dtcParticipantNumber` - Required if settlementBic = DTCYUS33 * `cdsCustomerUnitId` - Required if settlementBic = CDSLCATT  ")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-05-20T13:50:35.588595502Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-08-24T13:59:36.034138613Z[GMT]")
 
 public class SettlementInstruction implements Serializable{
   private static final long serialVersionUID = 1L;

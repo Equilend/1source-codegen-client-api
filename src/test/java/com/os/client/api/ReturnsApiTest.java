@@ -144,6 +144,54 @@ public class ReturnsApiTest {
         // TODO: test validations
     }
     /**
+     * Approve the unwind of a return in &#x27;settled&#x27; state.
+     *
+     * 
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void ledgerLoansLoanIdReturnsReturnIdUnwindApprovePostTest() throws Exception {
+        String loanId = null;
+        String returnId = null;
+        LedgerResponse response = api.ledgerLoansLoanIdReturnsReturnIdUnwindApprovePost(loanId, returnId);
+
+        // TODO: test validations
+    }
+    /**
+     * Cancel the unwind of a return in &#x27;settled&#x27; state.
+     *
+     * 
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void ledgerLoansLoanIdReturnsReturnIdUnwindCancelPostTest() throws Exception {
+        String loanId = null;
+        String returnId = null;
+        LedgerResponse response = api.ledgerLoansLoanIdReturnsReturnIdUnwindCancelPost(loanId, returnId);
+
+        // TODO: test validations
+    }
+    /**
+     * Decline the unwind of a return in &#x27;settled&#x27; state.
+     *
+     * 
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void ledgerLoansLoanIdReturnsReturnIdUnwindDeclinePostTest() throws Exception {
+        String loanId = null;
+        String returnId = null;
+        LedgerResponse response = api.ledgerLoansLoanIdReturnsReturnIdUnwindDeclinePost(loanId, returnId);
+
+        // TODO: test validations
+    }
+    /**
      * Unwind/close a return that settled on the current date. Either party can initiate.
      *
      * 

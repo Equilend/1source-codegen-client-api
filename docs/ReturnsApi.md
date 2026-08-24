@@ -10,6 +10,9 @@ Method | HTTP request | Description
 [**ledgerLoansLoanIdReturnsReturnIdCancelPost**](ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdCancelPost) | **POST** /ledger/loans/{loanId}/returns/{returnId}/cancel | Cancel a return in \&quot;proposed\&quot; or \&quot;pending\&quot; state. Original proposer only.
 [**ledgerLoansLoanIdReturnsReturnIdGet**](ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdGet) | **GET** /ledger/loans/{loanId}/returns/{returnId} | Read a return
 [**ledgerLoansLoanIdReturnsReturnIdPatch**](ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdPatch) | **PATCH** /ledger/loans/{loanId}/returns/{returnId} | Update unilateral fields on a return
+[**ledgerLoansLoanIdReturnsReturnIdUnwindApprovePost**](ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdUnwindApprovePost) | **POST** /ledger/loans/{loanId}/returns/{returnId}/unwind/approve | Approve the unwind of a return in &#x27;settled&#x27; state.
+[**ledgerLoansLoanIdReturnsReturnIdUnwindCancelPost**](ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdUnwindCancelPost) | **POST** /ledger/loans/{loanId}/returns/{returnId}/unwind/cancel | Cancel the unwind of a return in &#x27;settled&#x27; state.
+[**ledgerLoansLoanIdReturnsReturnIdUnwindDeclinePost**](ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdUnwindDeclinePost) | **POST** /ledger/loans/{loanId}/returns/{returnId}/unwind/decline | Decline the unwind of a return in &#x27;settled&#x27; state.
 [**ledgerLoansLoanIdReturnsReturnIdUnwindPost**](ReturnsApi.md#ledgerLoansLoanIdReturnsReturnIdUnwindPost) | **POST** /ledger/loans/{loanId}/returns/{returnId}/unwind | Unwind/close a return that settled on the current date. Either party can initiate.
 [**ledgerReturnsGet**](ReturnsApi.md#ledgerReturnsGet) | **GET** /ledger/returns | Read collection of returns
 [**ledgerReturnsReturnIdGet**](ReturnsApi.md#ledgerReturnsReturnIdGet) | **GET** /ledger/returns/{returnId} | Read a return
@@ -343,6 +346,165 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="ledgerLoansLoanIdReturnsReturnIdUnwindApprovePost"></a>
+# **ledgerLoansLoanIdReturnsReturnIdUnwindApprovePost**
+> LedgerResponse ledgerLoansLoanIdReturnsReturnIdUnwindApprovePost(loanId, returnId)
+
+Approve the unwind of a return in &#x27;settled&#x27; state.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.ReturnsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+ReturnsApi apiInstance = new ReturnsApi();
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+String returnId = "returnId_example"; // String | The unique identifier of a return
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdReturnsReturnIdUnwindApprovePost(loanId, returnId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReturnsApi#ledgerLoansLoanIdReturnsReturnIdUnwindApprovePost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+ **returnId** | [**String**](.md)| The unique identifier of a return |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="ledgerLoansLoanIdReturnsReturnIdUnwindCancelPost"></a>
+# **ledgerLoansLoanIdReturnsReturnIdUnwindCancelPost**
+> LedgerResponse ledgerLoansLoanIdReturnsReturnIdUnwindCancelPost(loanId, returnId)
+
+Cancel the unwind of a return in &#x27;settled&#x27; state.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.ReturnsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+ReturnsApi apiInstance = new ReturnsApi();
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+String returnId = "returnId_example"; // String | The unique identifier of a return
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdReturnsReturnIdUnwindCancelPost(loanId, returnId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReturnsApi#ledgerLoansLoanIdReturnsReturnIdUnwindCancelPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+ **returnId** | [**String**](.md)| The unique identifier of a return |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="ledgerLoansLoanIdReturnsReturnIdUnwindDeclinePost"></a>
+# **ledgerLoansLoanIdReturnsReturnIdUnwindDeclinePost**
+> LedgerResponse ledgerLoansLoanIdReturnsReturnIdUnwindDeclinePost(loanId, returnId)
+
+Decline the unwind of a return in &#x27;settled&#x27; state.
+
+### Example
+```java
+// Import classes:
+//import com.os.client.invoker.ApiClient;
+//import com.os.client.invoker.ApiException;
+//import com.os.client.invoker.Configuration;
+//import com.os.client.invoker.auth.*;
+//import com.os.client.api.ReturnsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: stage_auth
+OAuth stage_auth = (OAuth) defaultClient.getAuthentication("stage_auth");
+stage_auth.setAccessToken("YOUR ACCESS TOKEN");
+
+ReturnsApi apiInstance = new ReturnsApi();
+String loanId = "loanId_example"; // String | The unique identifier of a loan
+String returnId = "returnId_example"; // String | The unique identifier of a return
+try {
+    LedgerResponse result = apiInstance.ledgerLoansLoanIdReturnsReturnIdUnwindDeclinePost(loanId, returnId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ReturnsApi#ledgerLoansLoanIdReturnsReturnIdUnwindDeclinePost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loanId** | [**String**](.md)| The unique identifier of a loan |
+ **returnId** | [**String**](.md)| The unique identifier of a return |
+
+### Return type
+
+[**LedgerResponse**](LedgerResponse.md)
+
+### Authorization
+
+[stage_auth](../README.md#stage_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="ledgerLoansLoanIdReturnsReturnIdUnwindPost"></a>

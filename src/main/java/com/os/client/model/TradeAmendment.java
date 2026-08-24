@@ -32,7 +32,7 @@ import java.io.Serializable;
  * Term Date required when Term Type is FIXED
  */
 @Schema(description = "Term Date required when Term Type is FIXED")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-05-20T13:50:35.588595502Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-08-24T13:59:36.034138613Z[GMT]")
 
 public class TradeAmendment implements Serializable{
   private static final long serialVersionUID = 1L;

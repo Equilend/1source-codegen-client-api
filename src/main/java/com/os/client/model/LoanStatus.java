@@ -35,8 +35,8 @@ public enum LoanStatus {
   CANCEL_PENDING("CANCEL_PENDING"),
   @SerializedName("CANCELED")
   CANCELED("CANCELED"),
-  @SerializedName("CLOSE_PENDING")
-  CLOSE_PENDING("CLOSE_PENDING"),
+  @SerializedName("UNWIND_PENDING")
+  UNWIND_PENDING("UNWIND_PENDING"),
   @SerializedName("DECLINED")
   DECLINED("DECLINED"),
   @SerializedName("OPEN")

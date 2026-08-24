@@ -33,7 +33,7 @@ import java.io.Serializable;
  * Loan
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-05-20T13:50:35.588595502Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-08-24T13:59:36.034138613Z[GMT]")
 
 public class Loan implements Serializable{
   private static final long serialVersionUID = 1L;
@@ -69,6 +69,9 @@ public class Loan implements Serializable{
 
   @SerializedName("loanCorrelationId")
   private String loanCorrelationId = null;
+
+  @SerializedName("createDateTime")
+  private OffsetDateTime createDateTime = null;
 
   public Loan loanId(String loanId) {
     this.loanId = loanId;
@@ -276,6 +279,24 @@ public class Loan implements Serializable{
     this.loanCorrelationId = loanCorrelationId;
   }
 
+  public Loan createDateTime(OffsetDateTime createDateTime) {
+    this.createDateTime = createDateTime;
+    return this;
+  }
+
+   /**
+   * Get createDateTime
+   * @return createDateTime
+  **/
+  @Schema(description = "")
+  public OffsetDateTime getCreateDateTime() {
+    return createDateTime;
+  }
+
+  public void setCreateDateTime(OffsetDateTime createDateTime) {
+    this.createDateTime = createDateTime;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -296,12 +317,13 @@ public class Loan implements Serializable{
         Objects.equals(this.trade, loan.trade) &&
         Objects.equals(this.settlement, loan.settlement) &&
         Objects.equals(this.parentLoanId, loan.parentLoanId) &&
-        Objects.equals(this.loanCorrelationId, loan.loanCorrelationId);
+        Objects.equals(this.loanCorrelationId, loan.loanCorrelationId) &&
+        Objects.equals(this.createDateTime, loan.createDateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(loanId, lastEvent, loanStatus, loanStatusReason, lastUpdatePartyId, lastUpdateDateTime, isInitiator, trade, settlement, parentLoanId, loanCorrelationId);
+    return Objects.hash(loanId, lastEvent, loanStatus, loanStatusReason, lastUpdatePartyId, lastUpdateDateTime, isInitiator, trade, settlement, parentLoanId, loanCorrelationId, createDateTime);
   }
 
 
@@ -321,6 +343,7 @@ public class Loan implements Serializable{
     sb.append("    settlement: ").append(toIndentedString(settlement)).append("\n");
     sb.append("    parentLoanId: ").append(toIndentedString(parentLoanId)).append("\n");
     sb.append("    loanCorrelationId: ").append(toIndentedString(loanCorrelationId)).append("\n");
+    sb.append("    createDateTime: ").append(toIndentedString(createDateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

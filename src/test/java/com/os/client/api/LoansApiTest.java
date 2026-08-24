@@ -18,7 +18,6 @@ import com.os.client.model.Loan;
 import com.os.client.model.LoanAmendment;
 import com.os.client.model.LoanAmendmentProposal;
 import com.os.client.model.LoanCancelErrorResponse;
-import com.os.client.model.LoanCloseErrorResponse;
 import com.os.client.model.LoanDeclineErrorResponse;
 import com.os.client.model.LoanProposal;
 import com.os.client.model.LoanProposalApproval;
@@ -197,22 +196,6 @@ public class LoansApiTest {
         // TODO: test validations
     }
     /**
-     * Close a loan in \&quot;open\&quot; state. Either party can initiate.
-     *
-     * 
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void ledgerLoansLoanIdClosePostTest() throws Exception {
-        LoanCloseErrorResponse body = null;
-        String loanId = null;
-        LedgerResponse response = api.ledgerLoansLoanIdClosePost(body, loanId);
-
-        // TODO: test validations
-    }
-    /**
      * Decline a loan in \&quot;proposed\&quot; state
      *
      * 
@@ -348,6 +331,51 @@ public class LoansApiTest {
         // TODO: test validations
     }
     /**
+     * Approve the unwind of a loan in \&quot;open\&quot; state.
+     *
+     * 
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void ledgerLoansLoanIdUnwindApprovePostTest() throws Exception {
+        String loanId = null;
+        LedgerResponse response = api.ledgerLoansLoanIdUnwindApprovePost(loanId);
+
+        // TODO: test validations
+    }
+    /**
+     * Cancel the unwind of a loan in \&quot;open\&quot; state.
+     *
+     * 
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void ledgerLoansLoanIdUnwindCancelPostTest() throws Exception {
+        String loanId = null;
+        LedgerResponse response = api.ledgerLoansLoanIdUnwindCancelPost(loanId);
+
+        // TODO: test validations
+    }
+    /**
+     * Decline the unwind of a loan in \&quot;open\&quot; state.
+     *
+     * 
+     *
+     * @throws Exception
+     *          if the Api call fails
+     */
+    @Test
+    public void ledgerLoansLoanIdUnwindDeclinePostTest() throws Exception {
+        String loanId = null;
+        LedgerResponse response = api.ledgerLoansLoanIdUnwindDeclinePost(loanId);
+
+        // TODO: test validations
+    }
+    /**
      * Unwind/Close a loan in \&quot;open\&quot; state. Either party can initiate.
      *
      * 
@@ -357,9 +385,8 @@ public class LoansApiTest {
      */
     @Test
     public void ledgerLoansLoanIdUnwindPostTest() throws Exception {
-        LoanCloseErrorResponse body = null;
         String loanId = null;
-        LedgerResponse response = api.ledgerLoansLoanIdUnwindPost(body, loanId);
+        LedgerResponse response = api.ledgerLoansLoanIdUnwindPost(loanId);
 
         // TODO: test validations
     }

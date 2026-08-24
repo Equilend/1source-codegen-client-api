@@ -14,3 +14,4 @@ Name | Type | Description | Notes
 **settlement** | [**List&lt;PartySettlementInstruction&gt;**](PartySettlementInstruction.md) |  |  [optional]
 **parentLoanId** | **String** |  |  [optional]
 **loanCorrelationId** | **String** |  |  [optional]
+**createDateTime** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
