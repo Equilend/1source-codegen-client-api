@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **field** | [**FieldEnum**](#FieldEnum) |  | 
-**expectedValue** | [**PartySettlementInstruction**](PartySettlementInstruction.md) |  | 
+**expectedValue** | [**List&lt;PartySettlementInstruction&gt;**](PartySettlementInstruction.md) |  | 
 
 <a name="FieldEnum"></a>
 ## Enum: FieldEnum

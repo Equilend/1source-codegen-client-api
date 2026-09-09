@@ -359,6 +359,8 @@ Name | Type | Description  | Notes
 
 Approve a loan in \&quot;proposed\&quot; state. Borrowers should not send roundingRule, roundingMode, or minimumMarkPrice when approving a loan.
 
+Transitions &#x60;loanStatus&#x60; from &#x60;PROPOSED&#x60; to &#x60;PENDING&#x60;. Emits &#x60;LOAN_PENDING&#x60;. Does not open the loan; settlement must complete before &#x60;OPEN&#x60;. 
+
 ### Example
 ```java
 // Import classes:
@@ -464,6 +466,8 @@ Name | Type | Description  | Notes
 > LedgerResponse ledgerLoansLoanIdCancelpendingPost(loanId)
 
 Cancel a loan in \&quot;pending\&quot; state. Either party can initiate.
+
+Initiates cancellation of a &#x60;PENDING&#x60; loan before settlement. Transitions to &#x60;CANCEL_PENDING&#x60;; both parties must submit before &#x60;CANCELED&#x60;. Emits &#x60;LOAN_CANCEL_PENDING&#x60;. 
 
 ### Example
 ```java
@@ -682,6 +686,8 @@ Name | Type | Description  | Notes
 > LedgerResponse ledgerLoansLoanIdPatch(loanId, body)
 
 Update unilateral fields in a loan
+
+Update internal reference, venue reference, settlement instructions, or settlement status.  When both counterparties &#x60;PATCH&#x60; &#x60;settlementStatus&#x60; to &#x60;SETTLED&#x60; on a &#x60;PENDING&#x60; loan, the loan transitions to &#x60;OPEN&#x60; and emits &#x60;LOAN_OPENED&#x60;. 
 
 ### Example
 ```java
